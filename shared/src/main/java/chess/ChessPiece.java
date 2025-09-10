@@ -50,14 +50,38 @@ public class ChessPiece {
      * Calculates all the positions a chess piece can move to
      * Does not take into account moves that are illegal due to leaving the king in
      * danger
-     *
+     *if (piece.getPieceType() == PieceType.BISHOP){
+     *             return List.of(new ChessMove(new ChessPosition(5,4), new ChessPosition(1,8), null));
+     *         }
+     *         return List.of();
      * @return Collection of valid moves
      */
     public Collection<ChessMove> pieceMoves(ChessBoard board, ChessPosition myPosition) {
         ChessPiece piece = board.getPiece(myPosition);
-        if (piece.getPieceType() == PieceType.BISHOP){
-            return List.of(new ChessMove(new ChessPosition(5,4), new ChessPosition(1,8), null));
-            //todo remove hard code in above function
+        switch (piece.getPieceType()){
+            //each piece needs to return a list of ChessMove objects. ChessMove contains 2 chessPosition objects (start and finish) and promotion type
+            case KING:
+                //do something
+                break;
+            case QUEEN:
+                //do something
+                break;
+            case BISHOP:
+                //do something
+                break;
+            case KNIGHT:
+                //do something
+                break;
+            case ROOK:
+                //do something
+                break;
+            case PAWN:
+                //do something
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid input in switch statement, go debug the switch statement");
+
+
         }
         return List.of();
     }
