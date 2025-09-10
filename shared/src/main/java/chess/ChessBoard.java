@@ -31,7 +31,7 @@ public class ChessBoard {
      * position
      */
     public ChessPiece getPiece(ChessPosition pos) {
-        return board[pos.getRow()-1]][pos.getColumn()-1];
+        return board[pos.getRow()-1][pos.getColumn()-1];
     }
 
     /**
@@ -40,5 +40,6 @@ public class ChessBoard {
      */
     public void resetBoard() {
         throw new RuntimeException("Not implemented");
+        //check test to see exactly what it wants
     }
 }

@@ -44,12 +44,7 @@ public class ChessMove {
     }
 
     @Override
-    public String toString(){
-
-    }
-
-    @Override
-    public boolean equals(Object o){
-
+    public String toString() {
+        return String.format("%s%s", startPosition, endPosition);
     }
 }
