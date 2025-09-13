@@ -71,10 +71,10 @@ public class ChessPiece {
         List<ChessMove> moves = new ArrayList<>();
         int currentRow = myPosition.getRow();
         int currentCol = myPosition.getColumn();
-        moves.addAll(getDiagonals(board, myPosition, 1, 1, currentRow, currentCol, pieceRange));
-        moves.addAll(getDiagonals(board, myPosition, -1, 1, currentRow, currentCol, pieceRange));
-        moves.addAll(getDiagonals(board, myPosition, 1, -1, currentRow, currentCol, pieceRange));
-        moves.addAll(getDiagonals(board, myPosition, -1, -1, currentRow, currentCol, pieceRange));
+        moves.addAll(getSlides(board, myPosition, 1, 1, currentRow, currentCol, pieceRange));
+        moves.addAll(getSlides(board, myPosition, -1, 1, currentRow, currentCol, pieceRange));
+        moves.addAll(getSlides(board, myPosition, 1, -1, currentRow, currentCol, pieceRange));
+        moves.addAll(getSlides(board, myPosition, -1, -1, currentRow, currentCol, pieceRange));
         return moves;
     }
 
@@ -131,10 +131,7 @@ public class ChessPiece {
             ChessPiece blockPiece = board.getPiece(newPosition);
             if (blockPiece == null){
                 if(nextRow == promotionRow){
-                    moves.add(new ChessMove(myPosition, newPosition, PieceType.QUEEN));
-                    moves.add(new ChessMove(myPosition, newPosition, PieceType.ROOK));
-                    moves.add(new ChessMove(myPosition, newPosition, PieceType.KNIGHT));
-                    moves.add(new ChessMove(myPosition, newPosition, PieceType.BISHOP));
+                    moves.addAll(promotePawn(myPosition, newPosition));
                 } else {
                     moves.add(new ChessMove(myPosition, newPosition, null));
                 }
@@ -149,31 +146,6 @@ public class ChessPiece {
         }
         moves.addAll(pawnKillCheck(board, myPosition, rowChange, 1, currentRow, currentCol));
         moves.addAll(pawnKillCheck(board, myPosition, rowChange, -1, currentRow, currentCol));
-        return moves;
-    }
-
-    public List<ChessMove> getDiagonals(ChessBoard board, ChessPosition myPosition, int rowChange, int colChange, int currentRow, int currentCol, int pieceRange){
-        List<ChessMove> moves = new ArrayList<>();
-        for(int i = 0; i < pieceRange; i++){
-            currentRow += rowChange;
-            currentCol += colChange;
-
-            if(currentCol < 1 || currentCol > 8 || currentRow > 8 || currentRow < 1){
-                break;
-            }
-
-            ChessPosition newPosition = new ChessPosition(currentRow, currentCol);
-            ChessPiece blockPiece = board.getPiece(newPosition);
-
-            if(blockPiece == null){
-                moves.add(new ChessMove(myPosition, newPosition, null));
-            } else if (blockPiece.getTeamColor() != this.pieceColor){
-                moves.add(new ChessMove(myPosition, newPosition, null));
-                break;
-            } else {
-                break;
-            }
-        }
         return moves;
     }
 
@@ -229,10 +201,7 @@ public class ChessPiece {
             ChessPiece blockPiece = board.getPiece(newPosition);
             if (blockPiece != null && blockPiece.getTeamColor() != this.pieceColor){
                 if(currentRow == promotionRow){
-                    moves.add(new ChessMove(myPosition, newPosition, PieceType.QUEEN));
-                    moves.add(new ChessMove(myPosition, newPosition, PieceType.ROOK));
-                    moves.add(new ChessMove(myPosition, newPosition, PieceType.KNIGHT));
-                    moves.add(new ChessMove(myPosition, newPosition, PieceType.BISHOP));
+                    moves.addAll(promotePawn(myPosition, newPosition));
                 } else {
                     moves.add(new ChessMove(myPosition, newPosition, null));
                 }
@@ -241,9 +210,18 @@ public class ChessPiece {
         return moves;
     }
 
+    public List<ChessMove> promotePawn(ChessPosition myPosition, ChessPosition newPosition){
+        List<ChessMove> moves = new ArrayList<>();
+        moves.add(new ChessMove(myPosition, newPosition, PieceType.QUEEN));
+        moves.add(new ChessMove(myPosition, newPosition, PieceType.ROOK));
+        moves.add(new ChessMove(myPosition, newPosition, PieceType.KNIGHT));
+        moves.add(new ChessMove(myPosition, newPosition, PieceType.BISHOP));
+        return moves;
+    }
+
     @Override
     public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || getClass() != o.getClass()){ return false;}
         ChessPiece that = (ChessPiece) o;
         return pieceColor == that.pieceColor && type == that.type;
     }
