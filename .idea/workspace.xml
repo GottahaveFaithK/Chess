@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="Rook and Queen tests also passing (castling not implemented) Phase 0">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="inconsequential error message change">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessPiece.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +45,7 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "JUnit.BishopMoveTests.bishopMoveUntilEdge.executor": "Run",
     "JUnit.BishopMoveTests.executor": "Run",
+    "JUnit.PawnMoveTests.executor": "Debug",
     "JUnit.QueenMoveTests.executor": "Run",
     "JUnit.RookMoveTests.executor": "Debug",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
@@ -60,7 +62,7 @@
     "settings.editor.selected.configurable": "org.jetbrains.plugins.gitlab.GitLabSettingsConfigurable"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.QueenMoveTests">
+  <component name="RunManager" selected="JUnit.PawnMoveTests">
     <configuration name="BishopMoveTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shared" />
       <extension name="coverage">
@@ -88,6 +90,21 @@
       <option name="MAIN_CLASS_NAME" value="passoff.chess.piecemoves.BishopMoveTests" />
       <option name="METHOD_NAME" value="bishopMoveUntilEdge" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PawnMoveTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="shared" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="passoff.chess.piecemoves.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoff.chess.piecemoves" />
+      <option name="MAIN_CLASS_NAME" value="passoff.chess.piecemoves.PawnMoveTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -135,6 +152,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PawnMoveTests" />
         <item itemvalue="JUnit.QueenMoveTests" />
         <item itemvalue="JUnit.RookMoveTests" />
         <item itemvalue="JUnit.BishopMoveTests" />
@@ -230,7 +248,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757736571346</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="inconsequential error message change">
+      <option name="closed" value="true" />
+      <created>1757736726057</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1757736726057</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -269,6 +295,7 @@
     <MESSAGE value="Passing Bishop move tests (Phase 0) (Make it cleaner later)" />
     <MESSAGE value="Cleaner implimentation of diagonal moves (Phase 0) (still passing bishop tests)" />
     <MESSAGE value="Rook and Queen tests also passing (castling not implemented) Phase 0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rook and Queen tests also passing (castling not implemented) Phase 0" />
+    <MESSAGE value="inconsequential error message change" />
+    <option name="LAST_COMMIT_MESSAGE" value="inconsequential error message change" />
   </component>
 </project>

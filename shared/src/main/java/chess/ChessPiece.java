@@ -15,10 +15,12 @@ public class ChessPiece {
 
     private final ChessGame.TeamColor pieceColor;
     private final PieceType type;
+    private boolean hasMoved;
 
     public ChessPiece(ChessGame.TeamColor pieceColor, ChessPiece.PieceType type) {
         this.pieceColor = pieceColor;
         this.type = type;
+        hasMoved = false;
     }
 
     /**
@@ -109,7 +111,37 @@ public class ChessPiece {
     }
 
     public List<ChessMove> pawn(ChessBoard board, ChessPosition myPosition){
-        return List.of();
+        List<ChessMove> moves = new ArrayList<>();
+        int currentRow = myPosition.getRow();
+        int currentCol = myPosition.getColumn();
+        int rowChange = (this.pieceColor == ChessGame.TeamColor.WHITE) ? 1 : -1;
+        boolean isAtStart = (this.pieceColor == ChessGame.TeamColor.WHITE && currentRow == 2) || (this.pieceColor == ChessGame.TeamColor.BLACK && currentRow == 7);
+        int promotionRow = (this.pieceColor == ChessGame.TeamColor.WHITE) ? 8 : 1;
+        int nextRow = currentRow + rowChange;
+        if(nextRow >= 1 && nextRow<= 8){
+            ChessPosition newPosition = new ChessPosition(nextRow, currentCol);
+            ChessPiece blockPiece = board.getPiece(newPosition);
+            if (blockPiece == null){
+                if(nextRow == promotionRow){
+                    moves.add(new ChessMove(myPosition, newPosition, PieceType.QUEEN));
+                    moves.add(new ChessMove(myPosition, newPosition, PieceType.ROOK));
+                    moves.add(new ChessMove(myPosition, newPosition, PieceType.KNIGHT));
+                    moves.add(new ChessMove(myPosition, newPosition, PieceType.BISHOP));
+                } else {
+                    moves.add(new ChessMove(myPosition, newPosition, null));
+                }
+                if(isAtStart){
+                    ChessPosition jumpPositon = new ChessPosition(currentRow + rowChange*2, currentCol);
+                    ChessPiece jumpBlockPiece = board.getPiece(jumpPositon);
+                    if(jumpBlockPiece == null){
+                        moves.add(new ChessMove(myPosition, jumpPositon, null));
+                    }
+                }
+            }
+        }
+        moves.addAll(pawnKillCheck(board, myPosition, rowChange, 1, currentRow, currentCol));
+        moves.addAll(pawnKillCheck(board, myPosition, rowChange, -1, currentRow, currentCol));
+        return moves;
     }
 
     public List<ChessMove> knight(ChessBoard board, ChessPosition myPosition){
@@ -161,6 +193,28 @@ public class ChessPiece {
                 break;
             } else {
                 break;
+            }
+        }
+        return moves;
+    }
+
+    public List<ChessMove> pawnKillCheck(ChessBoard board, ChessPosition myPosition, int rowChange, int colChange, int currentRow, int currentCol){
+        List<ChessMove> moves = new ArrayList<>();
+        currentCol += colChange;
+        currentRow += rowChange;
+        int promotionRow = (this.pieceColor == ChessGame.TeamColor.WHITE) ? 8 : 1;
+        if(currentCol <= 8 && currentCol >= 1 && currentRow <= 8 && currentRow >= 1){
+            ChessPosition newPosition = new ChessPosition(currentRow, currentCol);
+            ChessPiece blockPiece = board.getPiece(newPosition);
+            if (blockPiece != null && blockPiece.getTeamColor() != this.pieceColor){
+                if(currentRow == promotionRow){
+                    moves.add(new ChessMove(myPosition, newPosition, PieceType.QUEEN));
+                    moves.add(new ChessMove(myPosition, newPosition, PieceType.ROOK));
+                    moves.add(new ChessMove(myPosition, newPosition, PieceType.KNIGHT));
+                    moves.add(new ChessMove(myPosition, newPosition, PieceType.BISHOP));
+                } else {
+                    moves.add(new ChessMove(myPosition, newPosition, null));
+                }
             }
         }
         return moves;
