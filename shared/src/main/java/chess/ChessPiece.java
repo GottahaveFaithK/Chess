@@ -53,10 +53,6 @@ public class ChessPiece {
      * Calculates all the positions a chess piece can move to
      * Does not take into account moves that are illegal due to leaving the king in
      * danger
-     *if (piece.getPieceType() == PieceType.BISHOP){
-     *             return List.of(new ChessMove(new ChessPosition(5,4), new ChessPosition(1,8), null));
-     *         }
-     *         return List.of();
      * @return Collection of valid moves
      */
     public Collection<ChessMove> pieceMoves(ChessBoard board, ChessPosition myPosition) {
@@ -64,19 +60,23 @@ public class ChessPiece {
         switch (piece.getPieceType()){
             //each piece needs to return a list of ChessMove objects. ChessMove contains 2 chessPosition objects (start and finish) and promotion type
             case KING:
-                return king(board, myPosition);
+                List<ChessMove> kingDiagonal = diagonalMove(board, myPosition, 1);
+                List<ChessMove> kingSlide = slideMove(board, myPosition, 1);
+                List<ChessMove> kingMoves = new ArrayList<>(kingDiagonal);
+                kingMoves.addAll(kingSlide);
+                return kingMoves;
             case QUEEN:
-                List<ChessMove> diagonalMoves = diagonalMove(board, myPosition);
-                List<ChessMove> slideMoves = slideMove(board, myPosition);
-                List<ChessMove> queenMoves = new ArrayList<>(diagonalMoves);
-                queenMoves.addAll(slideMoves);
+                List<ChessMove> queenDiagonal = diagonalMove(board, myPosition, 7);
+                List<ChessMove> queenSlide = slideMove(board, myPosition, 7);
+                List<ChessMove> queenMoves = new ArrayList<>(queenDiagonal);
+                queenMoves.addAll(queenSlide);
                 return queenMoves;
             case BISHOP:
-                return diagonalMove(board, myPosition);
+                return diagonalMove(board, myPosition, 7);
             case KNIGHT:
                 return knight(board, myPosition);
             case ROOK:
-                return slideMove(board, myPosition);
+                return slideMove(board, myPosition, 7);
             case PAWN:
                 return pawn(board, myPosition);
             default:
@@ -84,30 +84,33 @@ public class ChessPiece {
         }
     }
 
-    public List<ChessMove> diagonalMove(ChessBoard board, ChessPosition myPosition){
+    public List<ChessMove> diagonalMove(ChessBoard board, ChessPosition myPosition, int pieceRange){
         List<ChessMove> moves = new ArrayList<>();
         int currentRow = myPosition.getRow();
         int currentCol = myPosition.getColumn();
-        moves.addAll(getDiagonals(board, myPosition, 1, 1, currentRow, currentCol));
-        moves.addAll(getDiagonals(board, myPosition, -1, 1, currentRow, currentCol));
-        moves.addAll(getDiagonals(board, myPosition, 1, -1, currentRow, currentCol));
-        moves.addAll(getDiagonals(board, myPosition, -1, -1, currentRow, currentCol));
+        moves.addAll(getDiagonals(board, myPosition, 1, 1, currentRow, currentCol, pieceRange));
+        moves.addAll(getDiagonals(board, myPosition, -1, 1, currentRow, currentCol, pieceRange));
+        moves.addAll(getDiagonals(board, myPosition, 1, -1, currentRow, currentCol, pieceRange));
+        moves.addAll(getDiagonals(board, myPosition, -1, -1, currentRow, currentCol, pieceRange));
         return moves;
     }
 
-    public List<ChessMove> slideMove(ChessBoard board, ChessPosition myPosition){
+    public List<ChessMove> slideMove(ChessBoard board, ChessPosition myPosition, int pieceRange){
         List<ChessMove> moves = new ArrayList<>();
         int currentRow = myPosition.getRow();
         int currentCol = myPosition.getColumn();
-        moves.addAll(getSlides(board, myPosition, 0, 1, currentRow, currentCol));
-        moves.addAll(getSlides(board, myPosition, 0, -1, currentRow, currentCol));
-        moves.addAll(getSlides(board, myPosition, -1, 0, currentRow, currentCol));
-        moves.addAll(getSlides(board, myPosition, 1, 0, currentRow, currentCol));
+        moves.addAll(getSlides(board, myPosition, 0, 1, currentRow, currentCol, pieceRange));
+        moves.addAll(getSlides(board, myPosition, 0, -1, currentRow, currentCol,pieceRange));
+        moves.addAll(getSlides(board, myPosition, -1, 0, currentRow, currentCol,pieceRange));
+        moves.addAll(getSlides(board, myPosition, 1, 0, currentRow, currentCol,pieceRange));
         return moves;
     }
 
     public List<ChessMove> king(ChessBoard board, ChessPosition myPosition){
-        return List.of();
+        List<ChessMove> moves = new ArrayList<>();
+        int currentRow = myPosition.getRow();
+        int currentCol = myPosition.getColumn();
+        return moves;
     }
 
     public List<ChessMove> pawn(ChessBoard board, ChessPosition myPosition){
@@ -148,9 +151,9 @@ public class ChessPiece {
         return List.of();
     }
 
-    public List<ChessMove> getDiagonals(ChessBoard board, ChessPosition myPosition, int rowChange, int colChange, int currentRow, int currentCol){
+    public List<ChessMove> getDiagonals(ChessBoard board, ChessPosition myPosition, int rowChange, int colChange, int currentRow, int currentCol, int pieceRange){
         List<ChessMove> moves = new ArrayList<>();
-        while(true){
+        for(int i = 0; i < pieceRange; i++){
             currentRow += rowChange;
             currentCol += colChange;
 
@@ -173,9 +176,9 @@ public class ChessPiece {
         return moves;
     }
 
-    public List<ChessMove> getSlides(ChessBoard board, ChessPosition myPosition, int rowChange, int colChange, int currentRow, int currentCol){
+    public List<ChessMove> getSlides(ChessBoard board, ChessPosition myPosition, int rowChange, int colChange, int currentRow, int currentCol, int pieceRange){
         List<ChessMove> moves = new ArrayList<>();
-        while(true){
+        for(int i = 0; i < pieceRange; i++){
             currentRow += rowChange;
             currentCol += colChange;
 
