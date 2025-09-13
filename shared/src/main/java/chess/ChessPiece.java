@@ -86,97 +86,10 @@ public class ChessPiece {
         List<ChessMove> moves = new ArrayList<>();
         int currentRow = myPosition.getRow();
         int currentCol = myPosition.getColumn();
-        //TODO maybe switch all this to a recursive loop approach. It would be a lot nicer
-        while(true){
-            currentRow +=1;
-            currentCol +=1;
-
-            if(currentCol < 1 || currentCol > 8 || currentRow > 8 || currentRow < 1){
-                break;
-            }
-
-            ChessPosition newPosition = new ChessPosition(currentRow, currentCol);
-            ChessPiece blockPiece = board.getPiece(newPosition);
-
-            if(blockPiece == null){
-                moves.add(new ChessMove(myPosition, newPosition, null));
-            } else if (blockPiece.getTeamColor() != this.pieceColor){
-                moves.add(new ChessMove(myPosition, newPosition, null));
-                break;
-            } else {
-                break;
-            }
-        }
-
-        currentRow = myPosition.getRow();
-        currentCol = myPosition.getColumn();
-        while(true){
-            currentRow -=1;
-            currentCol +=1;
-
-            if(currentCol < 1 || currentCol > 8 || currentRow > 8 || currentRow < 1){
-                break;
-            }
-
-            ChessPosition newPosition = new ChessPosition(currentRow, currentCol);
-            ChessPiece blockPiece = board.getPiece(newPosition);
-
-            if(blockPiece == null){
-                moves.add(new ChessMove(myPosition, newPosition, null));
-            } else if (blockPiece.getTeamColor() != this.pieceColor){
-                moves.add(new ChessMove(myPosition, newPosition, null));
-                break;
-            } else {
-                break;
-            }
-        }
-
-        currentRow = myPosition.getRow();
-        currentCol = myPosition.getColumn();
-        while(true){
-            currentRow +=1;
-            currentCol -=1;
-
-            if(currentCol < 1 || currentCol > 8 || currentRow > 8 || currentRow < 1){
-                break;
-            }
-
-            ChessPosition newPosition = new ChessPosition(currentRow, currentCol);
-            ChessPiece blockPiece = board.getPiece(newPosition);
-
-            if(blockPiece == null){
-                moves.add(new ChessMove(myPosition, newPosition, null));
-            } else if (blockPiece.getTeamColor() != this.pieceColor){
-                moves.add(new ChessMove(myPosition, newPosition, null));
-                break;
-            } else {
-                break;
-            }
-        }
-
-        currentRow = myPosition.getRow();
-        currentCol = myPosition.getColumn();
-        while(true){
-            currentRow -=1;
-            currentCol -=1;
-
-            if(currentCol < 1 || currentCol > 8 || currentRow > 8 || currentRow < 1){
-                break;
-            }
-
-            ChessPosition newPosition = new ChessPosition(currentRow, currentCol);
-            ChessPiece blockPiece = board.getPiece(newPosition);
-
-            if(blockPiece == null){
-                moves.add(new ChessMove(myPosition, newPosition, null));
-            } else if (blockPiece.getTeamColor() != this.pieceColor){
-                moves.add(new ChessMove(myPosition, newPosition, null));
-                break;
-            } else {
-                break;
-            }
-        }
-
+        moves.addAll(getDiagonals(board, myPosition, +1, +1, currentRow, currentCol));
+        moves.addAll(getDiagonals(board, myPosition, -1, +1, currentRow, currentCol));
+        moves.addAll(getDiagonals(board, myPosition, +1, -1, currentRow, currentCol));
+        moves.addAll(getDiagonals(board, myPosition, -1, -1, currentRow, currentCol));
         return moves;
     }
 
@@ -194,6 +107,31 @@ public class ChessPiece {
 
     public List<ChessMove> knight(ChessBoard board, ChessPosition myPosition){
         return List.of();
+    }
+
+    public List<ChessMove> getDiagonals(ChessBoard board, ChessPosition myPosition, int rowChange, int colChange, int currentRow, int currentCol){
+        List<ChessMove> moves = new ArrayList<>();
+        while(true){
+            currentRow += rowChange;
+            currentCol += colChange;
+
+            if(currentCol < 1 || currentCol > 8 || currentRow > 8 || currentRow < 1){
+                break;
+            }
+
+            ChessPosition newPosition = new ChessPosition(currentRow, currentCol);
+            ChessPiece blockPiece = board.getPiece(newPosition);
+
+            if(blockPiece == null){
+                moves.add(new ChessMove(myPosition, newPosition, null));
+            } else if (blockPiece.getTeamColor() != this.pieceColor){
+                moves.add(new ChessMove(myPosition, newPosition, null));
+                break;
+            } else {
+                break;
+            }
+        }
+        return moves;
     }
 
     @Override
