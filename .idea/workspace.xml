@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="Impl King Moves (Phase 0)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="Impl Knight Moves (Phase 0)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessPiece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessBoard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +45,9 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "JUnit.BishopMoveTests.bishopMoveUntilEdge.executor": "Run",
     "JUnit.BishopMoveTests.executor": "Run",
-    "JUnit.KingMoveTests.executor": "Run",
+    "JUnit.ChessBoardTests.executor": "Run",
+    "JUnit.KingMoveTests.executor": "Debug",
+    "JUnit.KnightMoveTests.executor": "Debug",
     "JUnit.PawnMoveTests.executor": "Debug",
     "JUnit.QueenMoveTests.executor": "Run",
     "JUnit.RookMoveTests.executor": "Run",
@@ -64,7 +66,7 @@
     "settings.editor.selected.configurable": "org.jetbrains.plugins.gitlab.GitLabSettingsConfigurable"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.KnightMoveTests">
+  <component name="RunManager" selected="JUnit.passoff.chess in shared">
     <configuration name="BishopMoveTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shared" />
       <extension name="coverage">
@@ -75,6 +77,21 @@
       </extension>
       <option name="PACKAGE_NAME" value="passoff.chess.piecemoves" />
       <option name="MAIN_CLASS_NAME" value="passoff.chess.piecemoves.BishopMoveTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ChessBoardTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="shared" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="passoff.chess.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoff.chess" />
+      <option name="MAIN_CLASS_NAME" value="passoff.chess.ChessBoardTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -110,21 +127,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RookMoveTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="shared" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="passoff.chess.piecemoves.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="passoff.chess.piecemoves" />
-      <option name="MAIN_CLASS_NAME" value="passoff.chess.piecemoves.RookMoveTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="passoff.chess in shared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shared" />
       <extension name="coverage">
@@ -152,11 +154,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.passoff.chess in shared" />
+        <item itemvalue="JUnit.ChessBoardTests" />
         <item itemvalue="JUnit.KnightMoveTests" />
         <item itemvalue="JUnit.KingMoveTests" />
-        <item itemvalue="JUnit.passoff.chess in shared" />
         <item itemvalue="JUnit.BishopMoveTests" />
-        <item itemvalue="JUnit.RookMoveTests" />
       </list>
     </recent_temporary>
   </component>
@@ -272,7 +274,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757800054188</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Impl Knight Moves (Phase 0)">
+      <option name="closed" value="true" />
+      <created>1757801847514</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1757801847514</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -314,6 +324,7 @@
     <MESSAGE value="inconsequential error message change" />
     <MESSAGE value="Impl Pawn Moves (Phase 0)" />
     <MESSAGE value="Impl King Moves (Phase 0)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Impl King Moves (Phase 0)" />
+    <MESSAGE value="Impl Knight Moves (Phase 0)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Impl Knight Moves (Phase 0)" />
   </component>
 </project>
