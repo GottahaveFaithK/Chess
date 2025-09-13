@@ -1,5 +1,6 @@
 package chess;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
@@ -61,28 +62,43 @@ public class ChessPiece {
         switch (piece.getPieceType()){
             //each piece needs to return a list of ChessMove objects. ChessMove contains 2 chessPosition objects (start and finish) and promotion type
             case KING:
-                //do something
-                break;
+                return king(board, myPosition);
             case QUEEN:
-                //do something
-                break;
+                List<ChessMove> diagonalMoves = diagonalMove(board, myPosition);
+                List<ChessMove> slideMoves = slideMove(board, myPosition);
+                List<ChessMove> queenMoves = new ArrayList<>(diagonalMoves);
+                queenMoves.addAll(slideMoves);
+                return queenMoves;
             case BISHOP:
-                //do something
-                break;
+                return diagonalMove(board, myPosition);
             case KNIGHT:
-                //do something
-                break;
+                return knight(board, myPosition);
             case ROOK:
-                //do something
-                break;
+                return slideMove(board, myPosition);
             case PAWN:
-                //do something
-                break;
+                return pawn(board, myPosition);
             default:
                 throw new IllegalArgumentException("Invalid input in switch statement, go debug the switch statement");
-
-
         }
+    }
+
+    public List<ChessMove> diagonalMove(ChessBoard board, ChessPosition myPosition){
+        return List.of();
+    }
+
+    public List<ChessMove> slideMove(ChessBoard board, ChessPosition myPosition){
+        return List.of();
+    }
+
+    public List<ChessMove> king(ChessBoard board, ChessPosition myPosition){
+        return List.of();
+    }
+
+    public List<ChessMove> pawn(ChessBoard board, ChessPosition myPosition){
+        return List.of();
+    }
+
+    public List<ChessMove> knight(ChessBoard board, ChessPosition myPosition){
         return List.of();
     }
 
