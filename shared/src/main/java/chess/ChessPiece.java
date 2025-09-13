@@ -86,15 +86,22 @@ public class ChessPiece {
         List<ChessMove> moves = new ArrayList<>();
         int currentRow = myPosition.getRow();
         int currentCol = myPosition.getColumn();
-        moves.addAll(getDiagonals(board, myPosition, +1, +1, currentRow, currentCol));
-        moves.addAll(getDiagonals(board, myPosition, -1, +1, currentRow, currentCol));
-        moves.addAll(getDiagonals(board, myPosition, +1, -1, currentRow, currentCol));
+        moves.addAll(getDiagonals(board, myPosition, 1, 1, currentRow, currentCol));
+        moves.addAll(getDiagonals(board, myPosition, -1, 1, currentRow, currentCol));
+        moves.addAll(getDiagonals(board, myPosition, 1, -1, currentRow, currentCol));
         moves.addAll(getDiagonals(board, myPosition, -1, -1, currentRow, currentCol));
         return moves;
     }
 
     public List<ChessMove> slideMove(ChessBoard board, ChessPosition myPosition){
-        return List.of();
+        List<ChessMove> moves = new ArrayList<>();
+        int currentRow = myPosition.getRow();
+        int currentCol = myPosition.getColumn();
+        moves.addAll(getSlides(board, myPosition, 0, 1, currentRow, currentCol));
+        moves.addAll(getSlides(board, myPosition, 0, -1, currentRow, currentCol));
+        moves.addAll(getSlides(board, myPosition, -1, 0, currentRow, currentCol));
+        moves.addAll(getSlides(board, myPosition, 1, 0, currentRow, currentCol));
+        return moves;
     }
 
     public List<ChessMove> king(ChessBoard board, ChessPosition myPosition){
@@ -116,6 +123,31 @@ public class ChessPiece {
             currentCol += colChange;
 
             if(currentCol < 1 || currentCol > 8 || currentRow > 8 || currentRow < 1){
+                break;
+            }
+
+            ChessPosition newPosition = new ChessPosition(currentRow, currentCol);
+            ChessPiece blockPiece = board.getPiece(newPosition);
+
+            if(blockPiece == null){
+                moves.add(new ChessMove(myPosition, newPosition, null));
+            } else if (blockPiece.getTeamColor() != this.pieceColor){
+                moves.add(new ChessMove(myPosition, newPosition, null));
+                break;
+            } else {
+                break;
+            }
+        }
+        return moves;
+    }
+
+    public List<ChessMove> getSlides(ChessBoard board, ChessPosition myPosition, int rowChange, int colChange, int currentRow, int currentCol){
+        List<ChessMove> moves = new ArrayList<>();
+        while(true){
+            currentRow += rowChange;
+            currentCol += colChange;
+
+            if(currentCol > 8 || currentCol < 1 || currentRow > 8 || currentRow < 1){
                 break;
             }
 
