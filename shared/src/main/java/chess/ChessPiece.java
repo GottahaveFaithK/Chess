@@ -78,7 +78,7 @@ public class ChessPiece {
             case PAWN:
                 return pawn(board, myPosition);
             default:
-                throw new IllegalArgumentException("Invalid input in switch statement, go debug the switch statement");
+                throw new IllegalArgumentException("Invalid input in switch statement, I don't know how, go debug the switch statement");
         }
     }
 
