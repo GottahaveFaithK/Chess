@@ -15,12 +15,12 @@ public class ChessPiece {
 
     private final ChessGame.TeamColor pieceColor;
     private final PieceType type;
-    private boolean hasMoved;
+    //private boolean hasMoved;
 
     public ChessPiece(ChessGame.TeamColor pieceColor, ChessPiece.PieceType type) {
         this.pieceColor = pieceColor;
         this.type = type;
-        hasMoved = false;
+        //this.hasMoved = false;
     }
 
     /**
@@ -57,31 +57,14 @@ public class ChessPiece {
      */
     public Collection<ChessMove> pieceMoves(ChessBoard board, ChessPosition myPosition) {
         ChessPiece piece = board.getPiece(myPosition);
-        switch (piece.getPieceType()){
-            //each piece needs to return a list of ChessMove objects. ChessMove contains 2 chessPosition objects (start and finish) and promotion type
-            case KING:
-                List<ChessMove> kingDiagonal = diagonalMove(board, myPosition, 1);
-                List<ChessMove> kingSlide = slideMove(board, myPosition, 1);
-                List<ChessMove> kingMoves = new ArrayList<>(kingDiagonal);
-                kingMoves.addAll(kingSlide);
-                return kingMoves;
-            case QUEEN:
-                List<ChessMove> queenDiagonal = diagonalMove(board, myPosition, 7);
-                List<ChessMove> queenSlide = slideMove(board, myPosition, 7);
-                List<ChessMove> queenMoves = new ArrayList<>(queenDiagonal);
-                queenMoves.addAll(queenSlide);
-                return queenMoves;
-            case BISHOP:
-                return diagonalMove(board, myPosition, 7);
-            case KNIGHT:
-                return knight(board, myPosition);
-            case ROOK:
-                return slideMove(board, myPosition, 7);
-            case PAWN:
-                return pawn(board, myPosition);
-            default:
-                throw new IllegalArgumentException("Invalid input in switch statement, I don't know how, go debug the switch statement");
-        }
+        return switch (piece.getPieceType()) {
+            case KING -> king(board, myPosition);
+            case QUEEN -> queen(board, myPosition);
+            case BISHOP -> diagonalMove(board, myPosition, 7);
+            case KNIGHT -> knight(board, myPosition);
+            case ROOK -> slideMove(board, myPosition, 7);
+            case PAWN -> pawn(board, myPosition);
+        };
     }
 
     public List<ChessMove> diagonalMove(ChessBoard board, ChessPosition myPosition, int pieceRange){
@@ -108,8 +91,30 @@ public class ChessPiece {
 
     public List<ChessMove> king(ChessBoard board, ChessPosition myPosition){
         List<ChessMove> moves = new ArrayList<>();
+        moves.addAll(diagonalMove(board, myPosition, 1));
+        moves.addAll(slideMove(board, myPosition, 1));
+        return moves;
+    }
+
+    public List<ChessMove> queen(ChessBoard board, ChessPosition myPosition){
+        List<ChessMove> moves = new ArrayList<>();
+        moves.addAll(diagonalMove(board, myPosition, 7));
+        moves.addAll(slideMove(board, myPosition, 7));
+        return moves;
+    }
+
+    public List<ChessMove> knight(ChessBoard board, ChessPosition myPosition){
+        List<ChessMove> moves = new ArrayList<>();
         int currentRow = myPosition.getRow();
         int currentCol = myPosition.getColumn();
+        moves.addAll(getKnightMoves(board, myPosition, 1, 2,currentRow, currentCol));
+        moves.addAll(getKnightMoves(board, myPosition, -1, 2,currentRow, currentCol));
+        moves.addAll(getKnightMoves(board, myPosition, 1, -2,currentRow, currentCol));
+        moves.addAll(getKnightMoves(board, myPosition, -1, -2,currentRow, currentCol));
+        moves.addAll(getKnightMoves(board, myPosition, 2, 1,currentRow, currentCol));
+        moves.addAll(getKnightMoves(board, myPosition, -2, 1,currentRow, currentCol));
+        moves.addAll(getKnightMoves(board, myPosition, 2, -1,currentRow, currentCol));
+        moves.addAll(getKnightMoves(board, myPosition, -2, -1,currentRow, currentCol));
         return moves;
     }
 
@@ -145,10 +150,6 @@ public class ChessPiece {
         moves.addAll(pawnKillCheck(board, myPosition, rowChange, 1, currentRow, currentCol));
         moves.addAll(pawnKillCheck(board, myPosition, rowChange, -1, currentRow, currentCol));
         return moves;
-    }
-
-    public List<ChessMove> knight(ChessBoard board, ChessPosition myPosition){
-        return List.of();
     }
 
     public List<ChessMove> getDiagonals(ChessBoard board, ChessPosition myPosition, int rowChange, int colChange, int currentRow, int currentCol, int pieceRange){
@@ -196,6 +197,23 @@ public class ChessPiece {
                 break;
             } else {
                 break;
+            }
+        }
+        return moves;
+    }
+
+    public List<ChessMove> getKnightMoves(ChessBoard board, ChessPosition myPosition, int rowChange, int colChange, int currentRow, int currentCol){
+        List<ChessMove> moves = new ArrayList<>();
+        currentCol += colChange;
+        currentRow += rowChange;
+        if(currentCol <= 8 && currentCol >= 1 && currentRow <= 8 && currentRow >= 1){
+            ChessPosition newPosition = new ChessPosition(currentRow, currentCol);
+            ChessPiece blockPiece = board.getPiece(newPosition);
+
+            if(blockPiece == null){
+                moves.add(new ChessMove(myPosition, newPosition, null));
+            } else if (blockPiece.getTeamColor() != this.pieceColor) {
+                moves.add(new ChessMove(myPosition, newPosition, null));
             }
         }
         return moves;
