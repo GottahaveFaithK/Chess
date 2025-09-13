@@ -83,7 +83,101 @@ public class ChessPiece {
     }
 
     public List<ChessMove> diagonalMove(ChessBoard board, ChessPosition myPosition){
-        return List.of();
+        List<ChessMove> moves = new ArrayList<>();
+        int currentRow = myPosition.getRow();
+        int currentCol = myPosition.getColumn();
+        //TODO maybe switch all this to a recursive loop approach. It would be a lot nicer
+        while(true){
+            currentRow +=1;
+            currentCol +=1;
+
+            if(currentCol < 1 || currentCol > 8 || currentRow > 8 || currentRow < 1){
+                break;
+            }
+
+            ChessPosition newPosition = new ChessPosition(currentRow, currentCol);
+            ChessPiece blockPiece = board.getPiece(newPosition);
+
+            if(blockPiece == null){
+                moves.add(new ChessMove(myPosition, newPosition, null));
+            } else if (blockPiece.getTeamColor() != this.pieceColor){
+                moves.add(new ChessMove(myPosition, newPosition, null));
+                break;
+            } else {
+                break;
+            }
+        }
+
+        currentRow = myPosition.getRow();
+        currentCol = myPosition.getColumn();
+        while(true){
+            currentRow -=1;
+            currentCol +=1;
+
+            if(currentCol < 1 || currentCol > 8 || currentRow > 8 || currentRow < 1){
+                break;
+            }
+
+            ChessPosition newPosition = new ChessPosition(currentRow, currentCol);
+            ChessPiece blockPiece = board.getPiece(newPosition);
+
+            if(blockPiece == null){
+                moves.add(new ChessMove(myPosition, newPosition, null));
+            } else if (blockPiece.getTeamColor() != this.pieceColor){
+                moves.add(new ChessMove(myPosition, newPosition, null));
+                break;
+            } else {
+                break;
+            }
+        }
+
+        currentRow = myPosition.getRow();
+        currentCol = myPosition.getColumn();
+        while(true){
+            currentRow +=1;
+            currentCol -=1;
+
+            if(currentCol < 1 || currentCol > 8 || currentRow > 8 || currentRow < 1){
+                break;
+            }
+
+            ChessPosition newPosition = new ChessPosition(currentRow, currentCol);
+            ChessPiece blockPiece = board.getPiece(newPosition);
+
+            if(blockPiece == null){
+                moves.add(new ChessMove(myPosition, newPosition, null));
+            } else if (blockPiece.getTeamColor() != this.pieceColor){
+                moves.add(new ChessMove(myPosition, newPosition, null));
+                break;
+            } else {
+                break;
+            }
+        }
+
+        currentRow = myPosition.getRow();
+        currentCol = myPosition.getColumn();
+        while(true){
+            currentRow -=1;
+            currentCol -=1;
+
+            if(currentCol < 1 || currentCol > 8 || currentRow > 8 || currentRow < 1){
+                break;
+            }
+
+            ChessPosition newPosition = new ChessPosition(currentRow, currentCol);
+            ChessPiece blockPiece = board.getPiece(newPosition);
+
+            if(blockPiece == null){
+                moves.add(new ChessMove(myPosition, newPosition, null));
+            } else if (blockPiece.getTeamColor() != this.pieceColor){
+                moves.add(new ChessMove(myPosition, newPosition, null));
+                break;
+            } else {
+                break;
+            }
+        }
+
+        return moves;
     }
 
     public List<ChessMove> slideMove(ChessBoard board, ChessPosition myPosition){
