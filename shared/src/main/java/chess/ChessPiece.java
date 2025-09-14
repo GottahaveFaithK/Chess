@@ -123,7 +123,8 @@ public class ChessPiece {
         int currentRow = myPosition.getRow();
         int currentCol = myPosition.getColumn();
         int rowChange = (this.pieceColor == ChessGame.TeamColor.WHITE) ? 1 : -1;
-        boolean isAtStart = (this.pieceColor == ChessGame.TeamColor.WHITE && currentRow == 2) || (this.pieceColor == ChessGame.TeamColor.BLACK && currentRow == 7);
+        boolean isAtStart = (this.pieceColor == ChessGame.TeamColor.WHITE && currentRow == 2) ||
+                (this.pieceColor == ChessGame.TeamColor.BLACK && currentRow == 7);
         int promotionRow = (this.pieceColor == ChessGame.TeamColor.WHITE) ? 8 : 1;
         int nextRow = currentRow + rowChange;
         if(nextRow >= 1 && nextRow<= 8){
@@ -149,7 +150,8 @@ public class ChessPiece {
         return moves;
     }
 
-    public List<ChessMove> getSlides(ChessBoard board, ChessPosition myPosition, int rowChange, int colChange, int currentRow, int currentCol, int pieceRange){
+    public List<ChessMove> getSlides(ChessBoard board, ChessPosition myPosition, int rowChange, int colChange,
+                                     int currentRow, int currentCol, int pieceRange){
         List<ChessMove> moves = new ArrayList<>();
         for(int i = 0; i < pieceRange; i++){
             currentRow += rowChange;
