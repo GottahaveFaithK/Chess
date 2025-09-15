@@ -55,6 +55,8 @@ public class ChessPiece {
      * danger
      * @return Collection of valid moves
      */
+
+    //ToDo contemplate changing the movement style to a Class instead of having all the functions here
     public Collection<ChessMove> pieceMoves(ChessBoard board, ChessPosition myPosition) {
         ChessPiece piece = board.getPiece(myPosition);
         return switch (piece.getPieceType()) {
