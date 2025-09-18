@@ -59,12 +59,12 @@ public class ChessPiece {
     public Collection<ChessMove> pieceMoves(ChessBoard board, ChessPosition myPosition) {
         ChessPiece piece = board.getPiece(myPosition);
         return switch (piece.getPieceType()) {
+            case KING -> king(board, myPosition);
             case QUEEN -> queen(board, myPosition);
             case BISHOP -> diagonalMove(board, myPosition, 7);
             case KNIGHT -> knight(board, myPosition);
             case ROOK -> slideMove(board, myPosition, 7);
             case PAWN -> pawn(board, myPosition);
-            default -> throw new IllegalStateException("Unexpected value: " + piece.getPieceType());
         };
     }
 
@@ -87,6 +87,13 @@ public class ChessPiece {
         moves.addAll(getSlides(board, myPosition, 0, -1, currentRow, currentCol,pieceRange));
         moves.addAll(getSlides(board, myPosition, -1, 0, currentRow, currentCol,pieceRange));
         moves.addAll(getSlides(board, myPosition, 1, 0, currentRow, currentCol,pieceRange));
+        return moves;
+    }
+
+    public List<ChessMove>  king(ChessBoard board, ChessPosition myPosition){
+        List<ChessMove> moves = new ArrayList<>();
+        moves.addAll(diagonalMove(board, myPosition, 1));
+        moves.addAll(slideMove(board, myPosition, 1));
         return moves;
     }
 
