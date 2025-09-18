@@ -17,7 +17,7 @@ public class ChessPiece {
     private final PieceType type;
     //private boolean hasMoved;
 
-    public ChessPiece(ChessGame.TeamColor pieceColor, ChessPiece.PieceType type) {
+    public ChessPiece(ChessGame.TeamColor pieceColor, PieceType type) {
         this.pieceColor = pieceColor;
         this.type = type;
         //this.hasMoved = false;
@@ -56,16 +56,15 @@ public class ChessPiece {
      * @return Collection of valid moves
      */
 
-    //ToDo contemplate changing the movement style to a Class instead of having all the functions here
     public Collection<ChessMove> pieceMoves(ChessBoard board, ChessPosition myPosition) {
         ChessPiece piece = board.getPiece(myPosition);
         return switch (piece.getPieceType()) {
-            case KING -> king(board, myPosition);
             case QUEEN -> queen(board, myPosition);
             case BISHOP -> diagonalMove(board, myPosition, 7);
             case KNIGHT -> knight(board, myPosition);
             case ROOK -> slideMove(board, myPosition, 7);
             case PAWN -> pawn(board, myPosition);
+            default -> throw new IllegalStateException("Unexpected value: " + piece.getPieceType());
         };
     }
 
@@ -88,13 +87,6 @@ public class ChessPiece {
         moves.addAll(getSlides(board, myPosition, 0, -1, currentRow, currentCol,pieceRange));
         moves.addAll(getSlides(board, myPosition, -1, 0, currentRow, currentCol,pieceRange));
         moves.addAll(getSlides(board, myPosition, 1, 0, currentRow, currentCol,pieceRange));
-        return moves;
-    }
-
-    public List<ChessMove> king(ChessBoard board, ChessPosition myPosition){
-        List<ChessMove> moves = new ArrayList<>();
-        moves.addAll(diagonalMove(board, myPosition, 1));
-        moves.addAll(slideMove(board, myPosition, 1));
         return moves;
     }
 
