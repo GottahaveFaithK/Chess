@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="Attempt with errors, may revert if I can't get to work by today">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="undid changes, fixed a few things (Phase 0)">
+      <change afterPath="$PROJECT_DIR$/shared/src/test/java/passoff/chess/extracredit/CastlingTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/test/java/passoff/chess/extracredit/EnPassantTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/test/java/passoff/chess/game/ChessGameTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/test/java/passoff/chess/game/FullGameTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/test/java/passoff/chess/game/GameStatusTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/test/java/passoff/chess/game/MakeMoveTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/test/java/passoff/chess/game/ValidMovesTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessPiece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/King.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,13 +77,18 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/faith/OneDrive/Documents/Classes/2025/cs240/Chess",
+    "last_opened_file_path": "C:/Users/faith/OneDrive/Documents/Classes/2025/cs240/Chess/shared/src/test/java/passoff/chess",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "org.jetbrains.plugins.gitlab.GitLabSettingsConfigurable"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\faith\OneDrive\Documents\Classes\2025\cs240\Chess\shared\src\test\java\passoff\chess" />
+    </key>
+  </component>
   <component name="RunManager" selected="JUnit.All in shared">
     <configuration name="All in shared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shared" />
@@ -328,7 +338,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758158410083</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="undid changes, fixed a few things (Phase 0)">
+      <option name="closed" value="true" />
+      <created>1758158881622</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1758158881622</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -376,6 +394,7 @@
     <MESSAGE value="more readability changes" />
     <MESSAGE value="added a to-do note for later today" />
     <MESSAGE value="Attempt with errors, may revert if I can't get to work by today" />
-    <option name="LAST_COMMIT_MESSAGE" value="Attempt with errors, may revert if I can't get to work by today" />
+    <MESSAGE value="undid changes, fixed a few things (Phase 0)" />
+    <option name="LAST_COMMIT_MESSAGE" value="undid changes, fixed a few things (Phase 0)" />
   </component>
 </project>
