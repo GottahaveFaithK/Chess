@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="minor setup changes for phase 1">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="Impl get and set Teamturn (Phase 1)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessGame.java" afterDir="false" />
     </list>
@@ -355,7 +355,23 @@
       <option name="project" value="LOCAL" />
       <updated>1758777249309</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Outlined a basic idea for functions with comments">
+      <option name="closed" value="true" />
+      <created>1758951956194</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1758951956194</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Impl get and set Teamturn (Phase 1)">
+      <option name="closed" value="true" />
+      <created>1758952196388</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1758952196388</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -406,6 +422,8 @@
     <MESSAGE value="undid changes, fixed a few things (Phase 0)" />
     <MESSAGE value="added the phase 1 test files, removed redundant lines" />
     <MESSAGE value="minor setup changes for phase 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor setup changes for phase 1" />
+    <MESSAGE value="Outlined a basic idea for functions with comments" />
+    <MESSAGE value="Impl get and set Teamturn (Phase 1)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Impl get and set Teamturn (Phase 1)" />
   </component>
 </project>

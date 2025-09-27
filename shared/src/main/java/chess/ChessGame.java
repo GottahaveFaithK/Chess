@@ -11,8 +11,11 @@ import java.util.Collection;
 public class ChessGame {
 
     private TeamColor teamTurn;
+    private ChessBoard myBoard;
     public ChessGame() {
         teamTurn = TeamColor.WHITE;
+        myBoard = new ChessBoard();
+        myBoard.resetBoard();
     }
 
     /**
@@ -106,8 +109,7 @@ public class ChessGame {
      * @param board the new board to use
      */
     public void setBoard(ChessBoard board) {
-        throw new RuntimeException("Not implemented");
-        //need a private chessboard field
+        myBoard = board;
     }
 
     /**
@@ -116,8 +118,7 @@ public class ChessGame {
      * @return the chessboard
      */
     public ChessBoard getBoard() {
-        throw new RuntimeException("Not implemented");
-        //return said private chessboard field
+        return myBoard;
     }
 
 
