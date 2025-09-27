@@ -1,6 +1,7 @@
 package chess;
 
 import java.util.Collection;
+import java.util.Objects;
 
 /**
  * For a class that can manage a chess game, making moves on a board
@@ -122,4 +123,21 @@ public class ChessGame {
     }
 
 
+    //note, if I add more variables I will need to update these
+    @Override
+    public String toString() {
+        return String.format("%s%s", teamTurn, myBoard);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        ChessGame chessGame = (ChessGame) o;
+        return teamTurn == chessGame.teamTurn && Objects.equals(myBoard, chessGame.myBoard);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(teamTurn, myBoard);
+    }
 }
