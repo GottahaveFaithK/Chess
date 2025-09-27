@@ -19,6 +19,10 @@ public class ChessGame {
      */
     public TeamColor getTeamTurn() {
         throw new RuntimeException("Not implemented");
+        //white starts. Perhaps set a variable that just changes after a turn is made?
+        // Could swap it after movePiece since that is what ends a turn?
+        //or maybe setTeamTurn handles that anyway
+        //have setTeamTurn change a ChessGame class variable?
     }
 
     /**
@@ -47,6 +51,7 @@ public class ChessGame {
      */
     public Collection<ChessMove> validMoves(ChessPosition startPosition) {
         throw new RuntimeException("Not implemented");
+        //discard any moves that put me in check/checkmate
     }
 
     /**
@@ -57,6 +62,7 @@ public class ChessGame {
      */
     public void makeMove(ChessMove move) throws InvalidMoveException {
         throw new RuntimeException("Not implemented");
+        //call to chessboard? Deal with pawn promotion
     }
 
     /**
@@ -67,6 +73,7 @@ public class ChessGame {
      */
     public boolean isInCheck(TeamColor teamColor) {
         throw new RuntimeException("Not implemented");
+        //how can I tell if the king is in Check?
     }
 
     /**
@@ -88,6 +95,8 @@ public class ChessGame {
      */
     public boolean isInStalemate(TeamColor teamColor) {
         throw new RuntimeException("Not implemented");
+        //not as bad as I thought. It's: my king is not currently in check, but I have zero moves that wouldnt put it in check
+        //basically: every move is invalid
     }
 
     /**
@@ -97,6 +106,7 @@ public class ChessGame {
      */
     public void setBoard(ChessBoard board) {
         throw new RuntimeException("Not implemented");
+        //need a private chessboard field
     }
 
     /**
@@ -106,6 +116,7 @@ public class ChessGame {
      */
     public ChessBoard getBoard() {
         throw new RuntimeException("Not implemented");
+        //return said private chessboard field
     }
 
 
