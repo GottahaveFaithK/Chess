@@ -10,15 +10,16 @@ import java.util.Collection;
  */
 public class ChessGame {
 
+    private TeamColor teamTurn;
     public ChessGame() {
-
+        teamTurn = TeamColor.WHITE;
     }
 
     /**
      * @return Which team's turn it is
      */
     public TeamColor getTeamTurn() {
-        throw new RuntimeException("Not implemented");
+        return teamTurn;
         //white starts. Perhaps set a variable that just changes after a turn is made?
         // Could swap it after movePiece since that is what ends a turn?
         //or maybe setTeamTurn handles that anyway
@@ -31,7 +32,7 @@ public class ChessGame {
      * @param team the team whose turn it is
      */
     public void setTeamTurn(TeamColor team) {
-        throw new RuntimeException("Not implemented");
+        teamTurn = team;
     }
 
     /**
