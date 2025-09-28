@@ -70,13 +70,12 @@ public class ChessGame {
         ChessPiece piece = myBoard.getPiece(move.getStartPosition());
 
         if (piece.getTeamColor() != teamTurn) {
-            throw new InvalidMoveException("It is not " + piece.getTeamColor() + "'s turn.");
+            throw new InvalidMoveException("It is " + piece.getTeamColor() + "'s turn.");
         }
 
         if(move.getPromotionPiece() != null){
             piece = new ChessPiece(piece.getTeamColor(), move.getPromotionPiece());
         }
-        piece = new ChessPiece(piece.getTeamColor(), move.getPromotionPiece());
 
         Collection<ChessMove> valid = validMoves(move.getStartPosition());
         if(valid == null || !valid.contains(move)){
@@ -85,11 +84,7 @@ public class ChessGame {
 
         myBoard.movePiece(move.getStartPosition(), move.getEndPosition(), piece);
 
-        if(teamTurn == TeamColor.WHITE){
-            teamTurn = TeamColor.BLACK;
-        } else {
-            teamTurn = TeamColor.WHITE;
-        }
+        teamTurn = (piece.getTeamColor() == TeamColor.WHITE) ? TeamColor.BLACK : TeamColor.WHITE;
     }
 
     /**

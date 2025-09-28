@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="Large progress on makeMove function (Phase 1)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="Make move also now handles invalid moves 90% certain (Phase 1)">
       <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -395,7 +394,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759018013950</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Make move also now handles invalid moves 90% certain (Phase 1)">
+      <option name="closed" value="true" />
+      <created>1759019160425</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1759019160425</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -425,7 +432,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="impl p(0), pieces and moves, fixed the basic errors from last time" />
     <MESSAGE value="Fixed build error with duplicate source roots (phase 0)" />
     <MESSAGE value="Added overrides (Phase 0)" />
     <MESSAGE value="Implemented most of the phase 0 structure. Set up switch statement for moves" />
@@ -450,6 +456,7 @@
     <MESSAGE value="Impl get and set board (Phase 1)" />
     <MESSAGE value="added override methods (Phase 1)" />
     <MESSAGE value="Large progress on makeMove function (Phase 1)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Large progress on makeMove function (Phase 1)" />
+    <MESSAGE value="Make move also now handles invalid moves 90% certain (Phase 1)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make move also now handles invalid moves 90% certain (Phase 1)" />
   </component>
 </project>
