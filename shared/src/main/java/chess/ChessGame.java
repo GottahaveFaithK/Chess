@@ -66,11 +66,22 @@ public class ChessGame {
      * @throws InvalidMoveException if move is invalid
      */
     public void makeMove(ChessMove move) throws InvalidMoveException {
+
         ChessPiece piece = myBoard.getPiece(move.getStartPosition());
+
+        if (piece.getTeamColor() != teamTurn) {
+            throw new InvalidMoveException("It is not " + piece.getTeamColor() + "'s turn.");
+        }
+
         if(move.getPromotionPiece() != null){
             piece = new ChessPiece(piece.getTeamColor(), move.getPromotionPiece());
         }
         piece = new ChessPiece(piece.getTeamColor(), move.getPromotionPiece());
+
+        Collection<ChessMove> valid = validMoves(move.getStartPosition());
+        if(valid == null || !valid.contains(move)){
+            throw new InvalidMoveException("Move unavailable (Illegal or in Check)");
+        }
 
         myBoard.movePiece(move.getStartPosition(), move.getEndPosition(), piece);
 
@@ -79,7 +90,6 @@ public class ChessGame {
         } else {
             teamTurn = TeamColor.WHITE;
         }
-        //implement invalid move exception. But why?
     }
 
     /**
@@ -112,7 +122,7 @@ public class ChessGame {
      */
     public boolean isInStalemate(TeamColor teamColor) {
         throw new RuntimeException("Not implemented");
-        //not as bad as I thought. It's: my king is not currently in check, but I have zero moves that wouldnt put it in check
+        //not as bad as I thought. It's: my king is not currently in check, but I have zero moves that wouldn't put it in check
         //basically: every move is invalid
     }
 
