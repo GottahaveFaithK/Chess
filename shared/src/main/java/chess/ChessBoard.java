@@ -17,20 +17,22 @@ public class ChessBoard {
 
     }
 
-    public void setWhiteKingPos(ChessPosition pos){
-        whiteKingPos = pos;
+    public void setKingPos(ChessPosition pos, ChessGame.TeamColor color){
+        if(color == ChessGame.TeamColor.WHITE){
+            whiteKingPos = pos;
+        } else {
+            blackKingPos = pos;
+        }
+
     }
 
-    public void setBlackKingPos(ChessPosition pos){
-        blackKingPos = pos;
-    }
 
-    public ChessPosition getWhiteKingPos(){
-        return whiteKingPos;
-    }
-
-    public ChessPosition getBlackKingPos(){
-        return blackKingPos;
+    public ChessPosition getKingPos(ChessGame.TeamColor color){
+        if(color == ChessGame.TeamColor.WHITE){
+            return whiteKingPos;
+        } else {
+            return blackKingPos;
+        }
     }
 
     /**
@@ -50,6 +52,9 @@ public class ChessBoard {
     public void movePiece(ChessPosition oldPos, ChessPosition newPos, ChessPiece piece){
         addPiece(newPos, piece);
         removePiece(oldPos);
+        if(piece.getPieceType() == ChessPiece.PieceType.KING){
+            setKingPos(newPos, piece.getTeamColor());
+        }
     }
 
     /**

@@ -124,6 +124,8 @@ public class ChessGame {
      */
     public void setBoard(ChessBoard board) {
         myBoard = board;
+        setKingStartPos(TeamColor.WHITE);
+        setKingStartPos(TeamColor.BLACK);
     }
 
     /**
@@ -133,6 +135,18 @@ public class ChessGame {
      */
     public ChessBoard getBoard() {
         return myBoard;
+    }
+
+    private void setKingStartPos(TeamColor color){
+        for (int row = 0; row < 8; row++) {
+            for (int col = 0; col < 8; col++) {
+                ChessPosition myPos = new ChessPosition(row+1, col+1);
+                ChessPiece piece = myBoard.getPiece(myPos);
+                if (piece.getPieceType() == ChessPiece.PieceType.KING && piece.getTeamColor() == color){
+                    myBoard.setKingPos(myPos, color);
+                }
+            }
+        }
     }
 
 
