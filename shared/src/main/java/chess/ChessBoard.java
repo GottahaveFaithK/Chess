@@ -10,10 +10,27 @@ import java.util.Objects;
  * signature of the existing methods.
  */
 public class ChessBoard {
-
+    private ChessPosition whiteKingPos;
+    private ChessPosition blackKingPos;
     private final ChessPiece[][] board = new ChessPiece[8][8];
     public ChessBoard() {
-        
+
+    }
+
+    public void setWhiteKingPos(ChessPosition pos){
+        whiteKingPos = pos;
+    }
+
+    public void setBlackKingPos(ChessPosition pos){
+        blackKingPos = pos;
+    }
+
+    public ChessPosition getWhiteKingPos(){
+        return whiteKingPos;
+    }
+
+    public ChessPosition getBlackKingPos(){
+        return blackKingPos;
     }
 
     /**
@@ -78,6 +95,8 @@ public class ChessBoard {
         addPiece(new ChessPosition(1, 6), new ChessPiece(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.BISHOP));
         addPiece(new ChessPosition(1, 5), new ChessPiece(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.KING));
         addPiece(new ChessPosition(1, 4), new ChessPiece(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.QUEEN));
+        whiteKingPos = new ChessPosition(1,5);
+        blackKingPos = new ChessPosition(8,5);
     }
 
     @Override
