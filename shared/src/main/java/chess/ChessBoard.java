@@ -26,8 +26,13 @@ public class ChessBoard {
         board[pos.getRow()-1][pos.getColumn()-1] = piece;
     }
 
+    public void removePiece(ChessPosition pos) {
+        board[pos.getRow()-1][pos.getColumn()-1] = null;
+    }
+
     public void movePiece(ChessPosition oldPos, ChessPosition newPos, ChessPiece piece){
-        //TODO code movePiece
+        addPiece(newPos, piece);
+        removePiece(oldPos);
     }
 
     /**

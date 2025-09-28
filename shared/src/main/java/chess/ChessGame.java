@@ -24,10 +24,6 @@ public class ChessGame {
      */
     public TeamColor getTeamTurn() {
         return teamTurn;
-        //white starts. Perhaps set a variable that just changes after a turn is made?
-        // Could swap it after movePiece since that is what ends a turn?
-        //or maybe setTeamTurn handles that anyway
-        //have setTeamTurn change a ChessGame class variable?
     }
 
     /**
