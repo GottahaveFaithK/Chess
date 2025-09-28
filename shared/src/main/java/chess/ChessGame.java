@@ -66,8 +66,20 @@ public class ChessGame {
      * @throws InvalidMoveException if move is invalid
      */
     public void makeMove(ChessMove move) throws InvalidMoveException {
-        throw new RuntimeException("Not implemented");
-        //call to chessboard? Deal with pawn promotion
+        ChessPiece piece = myBoard.getPiece(move.getStartPosition());
+        if(move.getPromotionPiece() != null){
+            piece = new ChessPiece(piece.getTeamColor(), move.getPromotionPiece());
+        }
+        piece = new ChessPiece(piece.getTeamColor(), move.getPromotionPiece());
+
+        myBoard.movePiece(move.getStartPosition(), move.getEndPosition(), piece);
+
+        if(teamTurn == TeamColor.WHITE){
+            teamTurn = TeamColor.BLACK;
+        } else {
+            teamTurn = TeamColor.WHITE;
+        }
+        //implement invalid move exception. But why?
     }
 
     /**
