@@ -52,6 +52,7 @@ public class ChessGame {
      */
     public Collection<ChessMove> validMoves(ChessPosition startPosition) {
         throw new RuntimeException("Not implemented");
+        //what if I made a new board to simulate each move and check every opponents move against the king??
         //discard any moves that put me in check/checkmate
     }
 
