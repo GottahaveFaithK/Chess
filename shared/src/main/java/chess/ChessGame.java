@@ -53,9 +53,27 @@ public class ChessGame {
      * startPosition
      */
     public Collection<ChessMove> validMoves(ChessPosition startPosition) {
-        throw new RuntimeException("Not implemented");
-        //what if I made a new board to simulate each move and check every opponents move against the king??
-        //discard any moves that put me in check/checkmate
+        ChessBoard testBoard = createTestBoard();
+        ChessPiece piece = testBoard.getPiece(startPosition);
+        Collection<ChessMove> validMoveList = new ArrayList<>();
+        Collection<ChessMove> moveList = piece.pieceMoves(testBoard, startPosition);
+        chess.ChessGame.TeamColor pieceColor = piece.getTeamColor();
+        for (ChessMove move : moveList){
+            testBoard = createTestBoard();
+            piece = testBoard.getPiece(startPosition);
+            if(move.getPromotionPiece() != null) {
+                piece = new ChessPiece(pieceColor, move.getPromotionPiece());
+            }
+            testBoard.movePiece(move.getStartPosition(), move.getEndPosition(), piece);
+            ChessBoard originalBoard = myBoard;
+            myBoard = testBoard;
+            if(!isInCheck(piece.getTeamColor())){
+                validMoveList.add(move);
+            }
+            myBoard = originalBoard;
+        }
+        return validMoveList;
+
     }
 
     /**
@@ -67,6 +85,10 @@ public class ChessGame {
     public void makeMove(ChessMove move) throws InvalidMoveException {
 
         ChessPiece piece = myBoard.getPiece(move.getStartPosition());
+
+        if(piece == null){
+            throw new InvalidMoveException("There is no piece at " + move.getStartPosition());
+        }
 
         if (piece.getTeamColor() != teamTurn) {
             throw new InvalidMoveException("It is " + piece.getTeamColor() + "'s turn.");
