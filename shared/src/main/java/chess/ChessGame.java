@@ -159,13 +159,32 @@ public class ChessGame {
             for (int col = 0; col < 8; col++) {
                 ChessPosition myPos = new ChessPosition(row+1, col+1);
                 ChessPiece piece = myBoard.getPiece(myPos);
-                if (piece.getPieceType() == ChessPiece.PieceType.KING && piece.getTeamColor() == color){
+                if (piece != null && piece.getPieceType() == ChessPiece.PieceType.KING && piece.getTeamColor() == color){
                     myBoard.setKingPos(myPos, color);
                 }
             }
         }
     }
 
+    private ChessBoard createTestBoard(){
+        ChessBoard testBoard = new ChessBoard();
+
+        for (int row = 1; row <= 8; row++) {
+            for (int col = 1; col <= 8; col++) {
+                ChessPosition pos = new ChessPosition(row, col);
+                ChessPiece piece = myBoard.getPiece(pos);
+
+                if (piece != null) {
+                    ChessPiece copyPiece = new ChessPiece(piece.getTeamColor(), piece.getPieceType());
+                    testBoard.addPiece(pos, copyPiece);
+                }
+            }
+        }
+
+        testBoard.setKingPos(myBoard.getKingPos(TeamColor.WHITE), TeamColor.WHITE);
+        testBoard.setKingPos(myBoard.getKingPos(TeamColor.BLACK), TeamColor.BLACK);
+        return testBoard;
+    }
 
     //note, if I add more variables I will need to update these
     @Override
