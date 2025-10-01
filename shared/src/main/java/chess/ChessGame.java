@@ -140,7 +140,22 @@ public class ChessGame {
      * @return True if the specified team is in checkmate
      */
     public boolean isInCheckmate(TeamColor teamColor) {
-        throw new RuntimeException("Not implemented");
+        if(!isInCheck(teamColor)){
+            return false;
+        }
+        for (int row = 0; row < 8; row++) {
+            for (int col = 0; col < 8; col++) {
+                ChessPosition myPos = new ChessPosition(row+1, col+1);
+                ChessPiece piece = myBoard.getPiece(myPos);
+                if(piece != null && piece.getTeamColor() == teamColor){
+                    Collection<ChessMove> moves = validMoves(myPos);
+                    if(moves != null && !moves.isEmpty()){
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
     }
 
     /**
@@ -151,9 +166,22 @@ public class ChessGame {
      * @return True if the specified team is in stalemate, otherwise false
      */
     public boolean isInStalemate(TeamColor teamColor) {
-        throw new RuntimeException("Not implemented");
-        //not as bad as I thought. It's: my king is not currently in check, but I have zero moves that wouldn't put it in check
-        //basically: every move is invalid
+        if(isInCheck(teamColor)){
+            return false;
+        }
+        for (int row = 0; row < 8; row++) {
+            for (int col = 0; col < 8; col++) {
+                ChessPosition myPos = new ChessPosition(row+1, col+1);
+                ChessPiece piece = myBoard.getPiece(myPos);
+                if(piece != null && piece.getTeamColor() == teamColor){
+                    Collection<ChessMove> moves = validMoves(myPos);
+                    if(moves != null && !moves.isEmpty()){
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
     }
 
     /**
