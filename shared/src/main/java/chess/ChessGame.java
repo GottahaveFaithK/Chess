@@ -59,7 +59,7 @@ public class ChessGame {
         chess.ChessGame.TeamColor pieceColor = piece.getTeamColor();
         if(piece.getPieceType() == ChessPiece.PieceType.PAWN)
             moveList.addAll(getEnPassantMoves(startPosition, piece));
-        if(piece.getPieceType() == ChessPiece.PieceType.ROOK || piece.getPieceType() == ChessPiece.PieceType.KING)
+        if(piece.getPieceType() == ChessPiece.PieceType.KING)
             moveList.addAll(getCastlingMoves(startPosition, piece));
         for (ChessMove move : moveList){
             testBoard = createTestBoard();
@@ -181,7 +181,7 @@ public class ChessGame {
         myBoard = board;
         setKingStartPos(TeamColor.WHITE);
         setKingStartPos(TeamColor.BLACK);
-        setHasMoveds();
+        setHasMoved();
     }
 
     /**
@@ -205,7 +205,7 @@ public class ChessGame {
         }
     }
 
-    private void setHasMoveds(){
+    private void setHasMoved(){
         ChessPiece piece = myBoard.getPiece(new ChessPosition(1, 8));
         myBoard.setWhiteKingsideMoved(piece == null || piece.getPieceType() != ChessPiece.PieceType.ROOK || piece.getTeamColor() != TeamColor.WHITE);
         piece = myBoard.getPiece(new ChessPosition(1, 1));
@@ -250,8 +250,68 @@ public class ChessGame {
 
     private Collection<ChessMove> getCastlingMoves(ChessPosition pos, ChessPiece piece){
         Collection<ChessMove> moves = new ArrayList<>();
+        int row = pos.getRow();
+        if(piece.getTeamColor() == TeamColor.WHITE){
+            if (!myBoard.hasWhiteKingMoved() && !myBoard.hasWhiteKingsideMoved()) {
+                if (myBoard.getPiece(new ChessPosition(row, 6)) == null &&
+                        myBoard.getPiece(new ChessPosition(row, 7)) == null) {
+                    if(isCastlingSafe(pos, new ChessPosition(row,7), piece.getTeamColor()))
+                        moves.add(new ChessMove(pos, new ChessPosition(row,7), null));
+                }
+            }
+
+            if (!myBoard.hasWhiteKingMoved() && !myBoard.hasWhiteQueensideMoved()) {
+                if (myBoard.getPiece(new ChessPosition(row, 4)) == null &&
+                        myBoard.getPiece(new ChessPosition(row, 3)) == null &&
+                        myBoard.getPiece(new ChessPosition(row, 2)) == null) {
+                    if(isCastlingSafe(pos, new ChessPosition(row,3), piece.getTeamColor()))
+                        moves.add(new ChessMove(pos, new ChessPosition(row,3), null));
+                }
+            }
+        } else {
+            if (!myBoard.hasBlackKingMoved() && !myBoard.hasBlackKingsideMoved()) {
+                if (myBoard.getPiece(new ChessPosition(row, 6)) == null &&
+                        myBoard.getPiece(new ChessPosition(row, 7)) == null) {
+                    if(isCastlingSafe(pos, new ChessPosition(row,7), piece.getTeamColor()))
+                        moves.add(new ChessMove(pos, new ChessPosition(row,7), null));
+                }
+            }
+
+            if (!myBoard.hasBlackKingMoved() && !myBoard.hasBlackQueensideMoved()) {
+                if (myBoard.getPiece(new ChessPosition(row, 4)) == null &&
+                        myBoard.getPiece(new ChessPosition(row, 3)) == null &&
+                        myBoard.getPiece(new ChessPosition(row, 2)) == null) {
+                    if(isCastlingSafe(pos, new ChessPosition(row,3), piece.getTeamColor()))
+                        moves.add(new ChessMove(pos, new ChessPosition(row,3), null));
+                }
+            }
+        }
 
         return moves;
+    }
+
+    private boolean isCastlingSafe(ChessPosition oldPos, ChessPosition newPos, TeamColor color){
+        int startCol = oldPos.getColumn();
+        int endCol = newPos.getColumn();
+        int step = (endCol > startCol) ? 1 : -1;
+
+        for (int col = startCol; col != endCol + step; col += step) {
+            ChessBoard testBoard = createTestBoard();
+            ChessPiece king = testBoard.getPiece(oldPos);
+
+            ChessPosition testPos = new ChessPosition(oldPos.getRow(), col);
+            testBoard.movePiece(oldPos, testPos, king);
+
+            ChessBoard original = myBoard;
+            myBoard = testBoard;
+            boolean inCheck = isInCheck(color);
+            myBoard = original;
+
+            if (inCheck) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private Collection<ChessMove> getEnPassantMoves(ChessPosition pos, ChessPiece piece){
