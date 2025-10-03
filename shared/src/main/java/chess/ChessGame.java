@@ -181,6 +181,7 @@ public class ChessGame {
         myBoard = board;
         setKingStartPos(TeamColor.WHITE);
         setKingStartPos(TeamColor.BLACK);
+        setHasMoveds();
     }
 
     /**
@@ -202,6 +203,21 @@ public class ChessGame {
                 }
             }
         }
+    }
+
+    private void setHasMoveds(){
+        ChessPiece piece = myBoard.getPiece(new ChessPosition(1, 8));
+        myBoard.setWhiteKingsideMoved(piece == null || piece.getPieceType() != ChessPiece.PieceType.ROOK || piece.getTeamColor() != TeamColor.WHITE);
+        piece = myBoard.getPiece(new ChessPosition(1, 1));
+        myBoard.setWhiteQueensideMoved(piece == null || piece.getPieceType() != ChessPiece.PieceType.ROOK || piece.getTeamColor() != TeamColor.WHITE);
+        piece = myBoard.getPiece(new ChessPosition(8, 8));
+        myBoard.setBlackKingsideMoved(piece == null || piece.getPieceType() != ChessPiece.PieceType.ROOK || piece.getTeamColor() != TeamColor.BLACK);
+        piece = myBoard.getPiece(new ChessPosition(8, 1));
+        myBoard.setBlackQueensideMoved(piece == null || piece.getPieceType() != ChessPiece.PieceType.ROOK || piece.getTeamColor() != TeamColor.BLACK);
+        piece = myBoard.getPiece(new ChessPosition(1, 5));
+        myBoard.setWhiteKingMoved(piece == null || piece.getPieceType() != ChessPiece.PieceType.KING || piece.getTeamColor() != TeamColor.WHITE);
+        piece = myBoard.getPiece(new ChessPosition(8, 5));
+        myBoard.setBlackKingMoved(piece == null || piece.getPieceType() != ChessPiece.PieceType.KING || piece.getTeamColor() != TeamColor.BLACK);
     }
 
     private ChessBoard createTestBoard(){

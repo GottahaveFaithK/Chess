@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="added enpassant to valid moves (Phase 1)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessBoard.java" afterDir="false" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="enpassant working (perhaps a clumsy impl) (Phase 1)">
       <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -525,7 +523,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759531599000</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="enpassant working (perhaps a clumsy impl) (Phase 1)">
+      <option name="closed" value="true" />
+      <created>1759532675823</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1759532675823</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -555,7 +561,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Attempt with errors, may revert if I can't get to work by today" />
     <MESSAGE value="undid changes, fixed a few things (Phase 0)" />
     <MESSAGE value="added the phase 1 test files, removed redundant lines" />
     <MESSAGE value="minor setup changes for phase 1" />
@@ -580,6 +585,7 @@
     <MESSAGE value="chessboard now handles setting vars for lastmove and castling bools (Phase 1)" />
     <MESSAGE value="getter for lastmove (Phase 1)" />
     <MESSAGE value="added enpassant to valid moves (Phase 1)" />
-    <option name="LAST_COMMIT_MESSAGE" value="added enpassant to valid moves (Phase 1)" />
+    <MESSAGE value="enpassant working (perhaps a clumsy impl) (Phase 1)" />
+    <option name="LAST_COMMIT_MESSAGE" value="enpassant working (perhaps a clumsy impl) (Phase 1)" />
   </component>
 </project>
