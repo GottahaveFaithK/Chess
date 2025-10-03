@@ -12,12 +12,12 @@ import java.util.Objects;
 public class ChessBoard {
     private ChessPosition whiteKingPos;
     private ChessPosition blackKingPos;
-    private boolean whiteRookKingside;
-    private boolean whiteRookQueenside;
-    private boolean blackRookKingside;
-    private boolean blackRookQueenside;
-    private boolean whiteKing;
-    private boolean blackKing;
+    private boolean whiteRookKingsideMoved;
+    private boolean whiteRookQueensideMoved;
+    private boolean blackRookKingsideMoved;
+    private boolean blackRookQueensideMoved;
+    private boolean whiteKingMoved;
+    private boolean blackKingMoved;
     private ChessMove lastMove;
 
     private final ChessPiece[][] board = new ChessPiece[8][8];
@@ -60,8 +60,30 @@ public class ChessBoard {
     public void movePiece(ChessPosition oldPos, ChessPosition newPos, ChessPiece piece){
         addPiece(newPos, piece);
         removePiece(oldPos);
+        lastMove = new ChessMove(oldPos, newPos, null); //this doesn't track promotion history
         if(piece.getPieceType() == ChessPiece.PieceType.KING){
             setKingPos(newPos, piece.getTeamColor());
+            if(piece.getTeamColor() == ChessGame.TeamColor.WHITE) {
+                whiteKingMoved = true;
+            } else {
+                blackKingMoved = true;
+            }
+        }
+
+        if(piece.getPieceType() == ChessPiece.PieceType.ROOK){
+            if(piece.getTeamColor() == ChessGame.TeamColor.WHITE) {
+                if(oldPos.equals(new ChessPosition(1,1))){
+                    whiteRookQueensideMoved = true;
+                } else {
+                    whiteRookKingsideMoved = true;
+                }
+            } else {
+                if(oldPos.equals(new ChessPosition(8,1))){
+                    blackRookQueensideMoved = true;
+                } else {
+                    blackRookKingsideMoved = true;
+                }
+            }
         }
     }
 
@@ -110,36 +132,36 @@ public class ChessBoard {
         addPiece(new ChessPosition(1, 4), new ChessPiece(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.QUEEN));
         whiteKingPos = new ChessPosition(1,5);
         blackKingPos = new ChessPosition(8,5);
-        whiteRookKingside = false;
-        whiteRookQueenside = false;
-        whiteKing = false;
-        blackRookKingside = false;
-        blackRookQueenside = false;
-        blackKing = false;
+        whiteRookKingsideMoved = false;
+        whiteRookQueensideMoved = false;
+        whiteKingMoved = false;
+        blackRookKingsideMoved = false;
+        blackRookQueensideMoved = false;
+        blackKingMoved = false;
     }
 
     public boolean hasBlackKingMoved() {
-        return blackKing;
+        return blackKingMoved;
     }
 
     public boolean hasWhiteKingMoved() {
-        return whiteKing;
+        return whiteKingMoved;
     }
 
     public boolean hasBlackQueensideMoved() {
-        return blackRookQueenside;
+        return blackRookQueensideMoved;
     }
 
     public boolean hasBlackKingsideMoved(){
-        return blackRookKingside;
+        return blackRookKingsideMoved;
     }
 
     public boolean hasWhiteQueensideMoved(){
-        return whiteRookQueenside;
+        return whiteRookQueensideMoved;
     }
 
     public boolean hasWhiteKingsideMoved(){
-        return whiteRookKingside;
+        return whiteRookKingsideMoved;
     }
 
     @Override
