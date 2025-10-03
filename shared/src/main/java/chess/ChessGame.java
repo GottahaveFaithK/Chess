@@ -2,7 +2,6 @@ package chess;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -207,7 +206,15 @@ public class ChessGame {
 
     private ChessBoard createTestBoard(){
         ChessBoard testBoard = new ChessBoard();
-
+        testBoard.setKingPos(myBoard.getKingPos(TeamColor.WHITE), TeamColor.WHITE);
+        testBoard.setKingPos(myBoard.getKingPos(TeamColor.BLACK), TeamColor.BLACK);
+        testBoard.setLastMove(myBoard.getLastMove());
+        testBoard.setWhiteKingMoved(myBoard.hasWhiteKingMoved());
+        testBoard.setBlackKingMoved(myBoard.hasBlackKingMoved());
+        testBoard.setWhiteKingsideMoved(myBoard.hasWhiteKingsideMoved());
+        testBoard.setWhiteQueensideMoved(myBoard.hasWhiteQueensideMoved());
+        testBoard.setBlackKingsideMoved(myBoard.hasBlackKingsideMoved());
+        testBoard.setBlackQueensideMoved(myBoard.hasBlackQueensideMoved());
         for (int row = 1; row <= 8; row++) {
             for (int col = 1; col <= 8; col++) {
                 ChessPosition pos = new ChessPosition(row, col);

@@ -58,6 +58,16 @@ public class ChessBoard {
     }
 
     public void movePiece(ChessPosition oldPos, ChessPosition newPos, ChessPiece piece){
+        if(piece.getPieceType() == ChessPiece.PieceType.PAWN){
+            if(oldPos.getColumn() != newPos.getColumn()) {
+                if (getPiece(newPos) == null) {
+                    int rowChange = (piece.getTeamColor() == ChessGame.TeamColor.WHITE) ? -1 : 1;
+                    ChessPosition capturedPawnPos = new ChessPosition(newPos.getRow() + rowChange, newPos.getColumn());
+                    removePiece(capturedPawnPos);
+                }
+            }
+        }
+
         addPiece(newPos, piece);
         removePiece(oldPos);
         lastMove = new ChessMove(oldPos, newPos, null); //this doesn't track promotion history
@@ -71,16 +81,16 @@ public class ChessBoard {
         }
 
         if(piece.getPieceType() == ChessPiece.PieceType.ROOK){
-            if(piece.getTeamColor() == ChessGame.TeamColor.WHITE) {
-                if(oldPos.equals(new ChessPosition(1,1))){
+            if (piece.getTeamColor() == ChessGame.TeamColor.WHITE) {
+                if (oldPos.equals(new ChessPosition(1, 1))) {
                     whiteRookQueensideMoved = true;
-                } else {
+                } else if (oldPos.equals(new ChessPosition(1, 8))) {
                     whiteRookKingsideMoved = true;
                 }
             } else {
                 if(oldPos.equals(new ChessPosition(8,1))){
                     blackRookQueensideMoved = true;
-                } else {
+                } else if (oldPos.equals(new ChessPosition(8,8))) {
                     blackRookKingsideMoved = true;
                 }
             }
@@ -138,6 +148,34 @@ public class ChessBoard {
         blackRookKingsideMoved = false;
         blackRookQueensideMoved = false;
         blackKingMoved = false;
+    }
+
+    public void setBlackKingMoved(boolean moved) {
+        blackKingMoved = moved;
+    }
+
+    public void setWhiteKingMoved(boolean moved) {
+        whiteKingMoved = moved;
+    }
+
+    public void setBlackQueensideMoved(boolean moved) {
+        blackRookQueensideMoved = moved;
+    }
+
+    public void setBlackKingsideMoved(boolean moved){
+        blackRookKingsideMoved = moved;
+    }
+
+    public void setWhiteQueensideMoved(boolean moved){
+        whiteRookQueensideMoved = moved;
+    }
+
+    public void setWhiteKingsideMoved(boolean moved){
+        whiteRookKingsideMoved = moved;
+    }
+
+    public void setLastMove(ChessMove move) {
+        lastMove = move;
     }
 
     public boolean hasBlackKingMoved() {

@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="getter for lastmove (Phase 1)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="added enpassant to valid moves (Phase 1)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,41 +50,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;JUnit.All in shared.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BishopMoveTests.bishopMoveUntilEdge.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BishopMoveTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ChessBoardTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.KingMoveTests.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.KnightMoveTests.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.PawnMoveTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.QueenMoveTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RookMoveTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.passoff.chess in shared.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.passoff.chess.game in shared.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/faith/OneDrive/Documents/Classes/2025/cs240/Chess/shared/src/test/java/passoff/chess&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.gitlab.GitLabSettingsConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "JUnit.All in shared.executor": "Run",
+    "JUnit.BishopMoveTests.bishopMoveUntilEdge.executor": "Run",
+    "JUnit.BishopMoveTests.executor": "Run",
+    "JUnit.ChessBoardTests.executor": "Run",
+    "JUnit.EnPassantTests.executor": "Run",
+    "JUnit.KingMoveTests.executor": "Debug",
+    "JUnit.KnightMoveTests.executor": "Debug",
+    "JUnit.PawnMoveTests.executor": "Run",
+    "JUnit.QueenMoveTests.executor": "Run",
+    "JUnit.RookMoveTests.executor": "Run",
+    "JUnit.passoff.chess in shared.executor": "Run",
+    "JUnit.passoff.chess.game in shared.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/faith/OneDrive/Documents/Classes/2025/cs240/Chess/shared/src/test/java/passoff/chess",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.gitlab.GitLabSettingsConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\faith\OneDrive\Documents\Classes\2025\cs240\Chess\shared\src\test\java\passoff\chess" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.passoff.chess.game in shared">
+  <component name="RunManager" selected="JUnit.EnPassantTests">
     <configuration name="All in shared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shared" />
       <option name="PACKAGE_NAME" value="" />
@@ -92,16 +94,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ChessBoardTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EnPassantTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shared" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="passoff.chess.*" />
+          <option name="PATTERN" value="passoff.chess.extracredit.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="passoff.chess" />
-      <option name="MAIN_CLASS_NAME" value="passoff.chess.ChessBoardTests" />
+      <option name="PACKAGE_NAME" value="passoff.chess.extracredit" />
+      <option name="MAIN_CLASS_NAME" value="passoff.chess.extracredit.EnPassantTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -163,11 +165,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.EnPassantTests" />
         <item itemvalue="JUnit.passoff.chess.game in shared" />
         <item itemvalue="JUnit.All in shared" />
         <item itemvalue="JUnit.PawnMoveTests" />
         <item itemvalue="JUnit.passoff.chess in shared" />
-        <item itemvalue="JUnit.ChessBoardTests" />
       </list>
     </recent_temporary>
   </component>
@@ -515,7 +517,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759526465591</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="added enpassant to valid moves (Phase 1)">
+      <option name="closed" value="true" />
+      <created>1759531599000</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1759531599000</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -545,7 +555,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added a to-do note for later today" />
     <MESSAGE value="Attempt with errors, may revert if I can't get to work by today" />
     <MESSAGE value="undid changes, fixed a few things (Phase 0)" />
     <MESSAGE value="added the phase 1 test files, removed redundant lines" />
@@ -570,6 +579,7 @@
     <MESSAGE value="vars and getters for castling (Phase 1)" />
     <MESSAGE value="chessboard now handles setting vars for lastmove and castling bools (Phase 1)" />
     <MESSAGE value="getter for lastmove (Phase 1)" />
-    <option name="LAST_COMMIT_MESSAGE" value="getter for lastmove (Phase 1)" />
+    <MESSAGE value="added enpassant to valid moves (Phase 1)" />
+    <option name="LAST_COMMIT_MESSAGE" value="added enpassant to valid moves (Phase 1)" />
   </component>
 </project>
