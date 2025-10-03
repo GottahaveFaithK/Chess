@@ -12,6 +12,14 @@ import java.util.Objects;
 public class ChessBoard {
     private ChessPosition whiteKingPos;
     private ChessPosition blackKingPos;
+    private boolean whiteRookKingside;
+    private boolean whiteRookQueenside;
+    private boolean blackRookKingside;
+    private boolean blackRookQueenside;
+    private boolean whiteKing;
+    private boolean blackKing;
+    private ChessMove lastMove;
+
     private final ChessPiece[][] board = new ChessPiece[8][8];
     public ChessBoard() {
 
@@ -102,6 +110,36 @@ public class ChessBoard {
         addPiece(new ChessPosition(1, 4), new ChessPiece(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.QUEEN));
         whiteKingPos = new ChessPosition(1,5);
         blackKingPos = new ChessPosition(8,5);
+        whiteRookKingside = false;
+        whiteRookQueenside = false;
+        whiteKing = false;
+        blackRookKingside = false;
+        blackRookQueenside = false;
+        blackKing = false;
+    }
+
+    public boolean hasBlackKingMoved() {
+        return blackKing;
+    }
+
+    public boolean hasWhiteKingMoved() {
+        return whiteKing;
+    }
+
+    public boolean hasBlackQueensideMoved() {
+        return blackRookQueenside;
+    }
+
+    public boolean hasBlackKingsideMoved(){
+        return blackRookKingside;
+    }
+
+    public boolean hasWhiteQueensideMoved(){
+        return whiteRookQueenside;
+    }
+
+    public boolean hasWhiteKingsideMoved(){
+        return whiteRookKingside;
     }
 
     @Override
