@@ -164,6 +164,10 @@ public class ChessBoard {
         return whiteRookKingsideMoved;
     }
 
+    public ChessMove getLastMove() {
+        return lastMove;
+    }
+
     @Override
     public String toString() {
         return Arrays.toString(board);
