@@ -68,9 +68,6 @@ public class ChessBoard {
             }
         }
 
-        addPiece(newPos, piece);
-        removePiece(oldPos);
-        lastMove = new ChessMove(oldPos, newPos, null); //this doesn't track promotion history
         if(piece.getPieceType() == ChessPiece.PieceType.KING){
             setKingPos(newPos, piece.getTeamColor());
             if(piece.getTeamColor() == ChessGame.TeamColor.WHITE) {
@@ -78,7 +75,35 @@ public class ChessBoard {
             } else {
                 blackKingMoved = true;
             }
+
+            int colDiff = newPos.getColumn() - oldPos.getColumn();
+            if(Math.abs(colDiff) == 2){
+                ChessPosition oldRookPos, newRookPos;
+
+                if(colDiff > 0){
+                    oldRookPos = new ChessPosition(oldPos.getRow(), 8);
+                    newRookPos = new ChessPosition(oldPos.getRow(), 6);
+                } else {
+                    oldRookPos = new ChessPosition(oldPos.getRow(), 1);
+                    newRookPos = new ChessPosition(oldPos.getRow(), 4);
+                }
+
+                ChessPiece rook = getPiece(oldRookPos);
+                removePiece(oldRookPos);
+                addPiece(newRookPos, rook);
+                if(piece.getTeamColor() == ChessGame.TeamColor.WHITE){
+                    if(colDiff > 0) whiteRookKingsideMoved = true;
+                    else whiteRookQueensideMoved = true;
+                } else {
+                    if(colDiff > 0) blackRookKingsideMoved = true;
+                    else blackRookQueensideMoved = true;
+                }
+            }
         }
+
+        addPiece(newPos, piece);
+        removePiece(oldPos);
+        lastMove = new ChessMove(oldPos, newPos, null); //this doesn't track promotion history
 
         if(piece.getPieceType() == ChessPiece.PieceType.ROOK){
             if (piece.getTeamColor() == ChessGame.TeamColor.WHITE) {
@@ -95,6 +120,7 @@ public class ChessBoard {
                 }
             }
         }
+
     }
 
     /**
