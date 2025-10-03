@@ -2,6 +2,7 @@ package chess;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -57,6 +58,10 @@ public class ChessGame {
         Collection<ChessMove> validMoveList = new ArrayList<>();
         Collection<ChessMove> moveList = piece.pieceMoves(testBoard, startPosition);
         chess.ChessGame.TeamColor pieceColor = piece.getTeamColor();
+        if(piece.getPieceType() == ChessPiece.PieceType.PAWN)
+            moveList.addAll(getEnPassantMoves(startPosition, piece));
+        if(piece.getPieceType() == ChessPiece.PieceType.ROOK || piece.getPieceType() == ChessPiece.PieceType.KING)
+            moveList.addAll(getCastlingMoves(startPosition, piece));
         for (ChessMove move : moveList){
             testBoard = createTestBoard();
             piece = testBoard.getPiece(startPosition);
@@ -218,6 +223,33 @@ public class ChessGame {
         testBoard.setKingPos(myBoard.getKingPos(TeamColor.WHITE), TeamColor.WHITE);
         testBoard.setKingPos(myBoard.getKingPos(TeamColor.BLACK), TeamColor.BLACK);
         return testBoard;
+    }
+
+    private Collection<ChessMove> getCastlingMoves(ChessPosition pos, ChessPiece piece){
+        Collection<ChessMove> moves = new ArrayList<>();
+
+        return moves;
+    }
+
+    private Collection<ChessMove> getEnPassantMoves(ChessPosition pos, ChessPiece piece){
+        Collection<ChessMove> moves = new ArrayList<>();
+        ChessMove lastMove = myBoard.getLastMove();
+        if (lastMove == null) {
+            return moves;
+        }
+        ChessPosition lastPosStart = lastMove.getStartPosition();
+        ChessPosition lastPosEnd = lastMove.getEndPosition();
+        if(myBoard.getPiece(lastPosEnd).getPieceType() == ChessPiece.PieceType.PAWN){
+            int rowChange = (piece.getTeamColor() == ChessGame.TeamColor.WHITE) ? 1 : -1;
+            if(Math.abs(lastPosStart.getRow() - lastPosEnd.getRow()) == 2){
+                if (Math.abs(lastPosEnd.getColumn() - pos.getColumn()) == 1 &&
+                        lastPosEnd.getRow() == pos.getRow()) {
+                    ChessPosition capturePos = new ChessPosition(pos.getRow() + rowChange, lastPosEnd.getColumn());
+                    moves.add(new ChessMove(pos, capturePos, null));
+                }
+            }
+        }
+        return moves;
     }
 
     //note, if I add more variables I will need to update these
