@@ -153,6 +153,8 @@ public class ChessGame {
      * @param teamColor which team to check for stalemate
      * @return True if the specified team is in stalemate, otherwise false
      */
+
+    //for is in stalemate, maybe eventually store past boards and implement the 3 turn rule or something?
     public boolean isInStalemate(TeamColor teamColor) {
         return !isInCheck(teamColor) && noValidMoves(teamColor);
     }
