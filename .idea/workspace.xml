@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="passing extra credit tests! (Phase 1)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="some formatting fixes, reduced nested loops (Phase 1)">
       <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -181,14 +180,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00001" summary="changes w errors (will fix later)">
-      <option name="closed" value="true" />
-      <created>1757370045952</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1757370045952</updated>
     </task>
     <task id="LOCAL-00002" summary="impl p(0), pieces and moves, fixed the basic errors from last time">
       <option name="closed" value="true" />
@@ -574,7 +565,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759536082903</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="some formatting fixes, reduced nested loops (Phase 1)">
+      <option name="closed" value="true" />
+      <created>1759549580005</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1759549580006</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -604,7 +603,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Impl get and set Teamturn (Phase 1)" />
     <MESSAGE value="Impl get and set board (Phase 1)" />
     <MESSAGE value="added override methods (Phase 1)" />
     <MESSAGE value="Large progress on makeMove function (Phase 1)" />
@@ -629,6 +627,7 @@
     <MESSAGE value="impl getCastlingMoves (Phase 1)" />
     <MESSAGE value="impl castling (also possibly rough) (Phase 1)" />
     <MESSAGE value="passing extra credit tests! (Phase 1)" />
-    <option name="LAST_COMMIT_MESSAGE" value="passing extra credit tests! (Phase 1)" />
+    <MESSAGE value="some formatting fixes, reduced nested loops (Phase 1)" />
+    <option name="LAST_COMMIT_MESSAGE" value="some formatting fixes, reduced nested loops (Phase 1)" />
   </component>
 </project>

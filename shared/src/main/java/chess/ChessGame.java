@@ -57,10 +57,12 @@ public class ChessGame {
         Collection<ChessMove> validMoveList = new ArrayList<>();
         Collection<ChessMove> moveList = piece.pieceMoves(testBoard, startPosition);
         chess.ChessGame.TeamColor pieceColor = piece.getTeamColor();
-        if(piece.getPieceType() == ChessPiece.PieceType.PAWN)
+        if(piece.getPieceType() == ChessPiece.PieceType.PAWN){
             moveList.addAll(getEnPassantMoves(startPosition, piece));
-        if(piece.getPieceType() == ChessPiece.PieceType.KING)
+        }
+        if(piece.getPieceType() == ChessPiece.PieceType.KING){
             moveList.addAll(getCastlingMoves(startPosition, piece));
+        }
         for (ChessMove move : moveList){
             testBoard = createTestBoard();
             piece = testBoard.getPiece(startPosition);
@@ -284,8 +286,9 @@ public class ChessGame {
         Collection<ChessMove> moves = new ArrayList<>();
         if (myBoard.getPiece(new ChessPosition(row, 6)) == null &&
                 myBoard.getPiece(new ChessPosition(row, 7)) == null) {
-            if(isCastlingSafe(pos, new ChessPosition(row,7), piece.getTeamColor()))
+            if(isCastlingSafe(pos, new ChessPosition(row,7), piece.getTeamColor())){
                 moves.add(new ChessMove(pos, new ChessPosition(row,7), null));
+            }
         }
         return moves;
     }
@@ -295,8 +298,9 @@ public class ChessGame {
         if (myBoard.getPiece(new ChessPosition(row, 4)) == null &&
                 myBoard.getPiece(new ChessPosition(row, 3)) == null &&
                 myBoard.getPiece(new ChessPosition(row, 2)) == null) {
-            if(isCastlingSafe(pos, new ChessPosition(row,3), piece.getTeamColor()))
+            if(isCastlingSafe(pos, new ChessPosition(row,3), piece.getTeamColor())){
                 moves.add(new ChessMove(pos, new ChessPosition(row,3), null));
+            }
         }
         return moves;
     }
@@ -352,7 +356,9 @@ public class ChessGame {
 
     @Override
     public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || getClass() != o.getClass()){
+            return false;
+        }
         ChessGame chessGame = (ChessGame) o;
         return teamTurn == chessGame.teamTurn && Objects.equals(myBoard, chessGame.myBoard);
     }

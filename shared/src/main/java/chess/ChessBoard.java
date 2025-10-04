@@ -91,11 +91,17 @@ public class ChessBoard {
                 removePiece(oldRookPos);
                 addPiece(newRookPos, new ChessPiece(piece.getTeamColor(), ChessPiece.PieceType.ROOK));
                 if(piece.getTeamColor() == ChessGame.TeamColor.WHITE){
-                    if(colChange > 0) whiteRookKingsideMoved = true;
-                    else whiteRookQueensideMoved = true;
+                    if(colChange > 0){
+                        whiteRookKingsideMoved = true;
+                    } else{
+                        whiteRookQueensideMoved = true;
+                    }
                 } else {
-                    if(colChange > 0) blackRookKingsideMoved = true;
-                    else blackRookQueensideMoved = true;
+                    if(colChange > 0){
+                        blackRookKingsideMoved = true;
+                    } else{
+                        blackRookQueensideMoved = true;
+                    }
                 }
             }
         }
