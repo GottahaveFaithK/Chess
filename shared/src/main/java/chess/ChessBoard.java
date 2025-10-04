@@ -76,11 +76,11 @@ public class ChessBoard {
                 blackKingMoved = true;
             }
 
-            int colDiff = newPos.getColumn() - oldPos.getColumn();
-            if(Math.abs(colDiff) == 2){
+            int colChange = newPos.getColumn() - oldPos.getColumn();
+            if(Math.abs(colChange) == 2){
                 ChessPosition oldRookPos, newRookPos;
 
-                if(colDiff > 0){
+                if(colChange > 0){
                     oldRookPos = new ChessPosition(oldPos.getRow(), 8);
                     newRookPos = new ChessPosition(oldPos.getRow(), 6);
                 } else {
@@ -88,14 +88,13 @@ public class ChessBoard {
                     newRookPos = new ChessPosition(oldPos.getRow(), 4);
                 }
 
-                ChessPiece rook = getPiece(oldRookPos);
                 removePiece(oldRookPos);
-                addPiece(newRookPos, rook);
+                addPiece(newRookPos, new ChessPiece(piece.getTeamColor(), ChessPiece.PieceType.ROOK));
                 if(piece.getTeamColor() == ChessGame.TeamColor.WHITE){
-                    if(colDiff > 0) whiteRookKingsideMoved = true;
+                    if(colChange > 0) whiteRookKingsideMoved = true;
                     else whiteRookQueensideMoved = true;
                 } else {
-                    if(colDiff > 0) blackRookKingsideMoved = true;
+                    if(colChange > 0) blackRookKingsideMoved = true;
                     else blackRookQueensideMoved = true;
                 }
             }

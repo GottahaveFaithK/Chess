@@ -297,15 +297,13 @@ public class ChessGame {
 
         for (int col = startCol; col != endCol + step; col += step) {
             ChessBoard testBoard = createTestBoard();
-            ChessPiece king = testBoard.getPiece(oldPos);
-
+            ChessPiece piece = testBoard.getPiece(oldPos);
             ChessPosition testPos = new ChessPosition(oldPos.getRow(), col);
-            testBoard.movePiece(oldPos, testPos, king);
-
-            ChessBoard original = myBoard;
+            testBoard.movePiece(oldPos, testPos, piece);
+            ChessBoard originalBoard = myBoard;
             myBoard = testBoard;
             boolean inCheck = isInCheck(color);
-            myBoard = original;
+            myBoard = originalBoard;
 
             if (inCheck) {
                 return false;
