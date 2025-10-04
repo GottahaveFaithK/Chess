@@ -123,13 +123,20 @@ public class ChessGame {
             for (int col = 0; col < 8; col++) {
                 ChessPosition myPos = new ChessPosition(row+1, col+1);
                 ChessPiece piece = myBoard.getPiece(myPos);
-                if(piece != null && piece.getTeamColor() != teamColor){
-                    Collection<ChessMove> possibleMoves = piece.pieceMoves(myBoard, myPos);
-                    for (ChessMove move : possibleMoves) {
-                        if (move.getEndPosition().equals(kingPos)) {
-                            return true;
-                        }
-                    }
+                if (checkMoves(piece, myPos, kingPos, teamColor)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean checkMoves(ChessPiece piece, ChessPosition myPos, ChessPosition kingPos, TeamColor teamColor){
+        if(piece != null && piece.getTeamColor() != teamColor){
+            Collection<ChessMove> possibleMoves = piece.pieceMoves(myBoard, myPos);
+            for (ChessMove move : possibleMoves) {
+                if (move.getEndPosition().equals(kingPos)) {
+                    return true;
                 }
             }
         }
@@ -255,40 +262,42 @@ public class ChessGame {
         int row = pos.getRow();
         if(piece.getTeamColor() == TeamColor.WHITE){
             if (!myBoard.hasWhiteKingMoved() && !myBoard.hasWhiteKingsideMoved()) {
-                if (myBoard.getPiece(new ChessPosition(row, 6)) == null &&
-                        myBoard.getPiece(new ChessPosition(row, 7)) == null) {
-                    if(isCastlingSafe(pos, new ChessPosition(row,7), piece.getTeamColor()))
-                        moves.add(new ChessMove(pos, new ChessPosition(row,7), null));
-                }
+                moves.addAll(castleKingside(piece, pos, row));
             }
-
             if (!myBoard.hasWhiteKingMoved() && !myBoard.hasWhiteQueensideMoved()) {
-                if (myBoard.getPiece(new ChessPosition(row, 4)) == null &&
-                        myBoard.getPiece(new ChessPosition(row, 3)) == null &&
-                        myBoard.getPiece(new ChessPosition(row, 2)) == null) {
-                    if(isCastlingSafe(pos, new ChessPosition(row,3), piece.getTeamColor()))
-                        moves.add(new ChessMove(pos, new ChessPosition(row,3), null));
-                }
+                moves.addAll(castleQueenside(piece, pos, row));
             }
         } else {
             if (!myBoard.hasBlackKingMoved() && !myBoard.hasBlackKingsideMoved()) {
-                if (myBoard.getPiece(new ChessPosition(row, 6)) == null &&
-                        myBoard.getPiece(new ChessPosition(row, 7)) == null) {
-                    if(isCastlingSafe(pos, new ChessPosition(row,7), piece.getTeamColor()))
-                        moves.add(new ChessMove(pos, new ChessPosition(row,7), null));
-                }
+                moves.addAll(castleKingside(piece, pos, row));
             }
 
             if (!myBoard.hasBlackKingMoved() && !myBoard.hasBlackQueensideMoved()) {
-                if (myBoard.getPiece(new ChessPosition(row, 4)) == null &&
-                        myBoard.getPiece(new ChessPosition(row, 3)) == null &&
-                        myBoard.getPiece(new ChessPosition(row, 2)) == null) {
-                    if(isCastlingSafe(pos, new ChessPosition(row,3), piece.getTeamColor()))
-                        moves.add(new ChessMove(pos, new ChessPosition(row,3), null));
-                }
+                moves.addAll(castleQueenside(piece, pos, row));
             }
         }
 
+        return moves;
+    }
+
+    private Collection<ChessMove> castleKingside(ChessPiece piece, ChessPosition pos, int row){
+        Collection<ChessMove> moves = new ArrayList<>();
+        if (myBoard.getPiece(new ChessPosition(row, 6)) == null &&
+                myBoard.getPiece(new ChessPosition(row, 7)) == null) {
+            if(isCastlingSafe(pos, new ChessPosition(row,7), piece.getTeamColor()))
+                moves.add(new ChessMove(pos, new ChessPosition(row,7), null));
+        }
+        return moves;
+    }
+
+    private Collection<ChessMove> castleQueenside(ChessPiece piece, ChessPosition pos, int row){
+        Collection<ChessMove> moves = new ArrayList<>();
+        if (myBoard.getPiece(new ChessPosition(row, 4)) == null &&
+                myBoard.getPiece(new ChessPosition(row, 3)) == null &&
+                myBoard.getPiece(new ChessPosition(row, 2)) == null) {
+            if(isCastlingSafe(pos, new ChessPosition(row,3), piece.getTeamColor()))
+                moves.add(new ChessMove(pos, new ChessPosition(row,3), null));
+        }
         return moves;
     }
 
