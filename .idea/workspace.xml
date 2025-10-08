@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="some formatting fixes, reduced nested loops (Phase 1)">
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessGame.java" afterDir="false" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="more formatting fixes (Phase 1)">
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/DataAccessException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +74,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/faith/OneDrive/Documents/Classes/2025/cs240/Chess/shared/src/test/java/passoff/chess",
+    "last_opened_file_path": "C:/Users/faith/OneDrive/Documents/Classes/2025/cs240/Chess/server/src/main/java",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -84,7 +86,14 @@
       <recent name="C:\Users\faith\OneDrive\Documents\Classes\2025\cs240\Chess\shared\src\test\java\passoff\chess" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CastlingTests">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in shared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shared" />
       <option name="PACKAGE_NAME" value="" />
@@ -123,21 +132,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PawnMoveTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="shared" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="passoff.chess.piecemoves.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="passoff.chess.piecemoves" />
-      <option name="MAIN_CLASS_NAME" value="passoff.chess.piecemoves.PawnMoveTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="passoff.chess.game in shared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shared" />
       <extension name="coverage">
@@ -165,11 +159,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.CastlingTests" />
         <item itemvalue="JUnit.EnPassantTests" />
         <item itemvalue="JUnit.passoff.chess.game in shared" />
         <item itemvalue="JUnit.All in shared" />
-        <item itemvalue="JUnit.PawnMoveTests" />
       </list>
     </recent_temporary>
   </component>
@@ -180,14 +174,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00002" summary="impl p(0), pieces and moves, fixed the basic errors from last time">
-      <option name="closed" value="true" />
-      <created>1757531758643</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1757531758643</updated>
     </task>
     <task id="LOCAL-00003" summary="Fixed build error with duplicate source roots (phase 0)">
       <option name="closed" value="true" />
@@ -573,7 +559,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759549580006</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="more formatting fixes (Phase 1)">
+      <option name="closed" value="true" />
+      <created>1759549962442</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1759549962442</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -603,7 +597,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Impl get and set board (Phase 1)" />
     <MESSAGE value="added override methods (Phase 1)" />
     <MESSAGE value="Large progress on makeMove function (Phase 1)" />
     <MESSAGE value="Make move also now handles invalid moves 90% certain (Phase 1)" />
@@ -628,6 +621,7 @@
     <MESSAGE value="impl castling (also possibly rough) (Phase 1)" />
     <MESSAGE value="passing extra credit tests! (Phase 1)" />
     <MESSAGE value="some formatting fixes, reduced nested loops (Phase 1)" />
-    <option name="LAST_COMMIT_MESSAGE" value="some formatting fixes, reduced nested loops (Phase 1)" />
+    <MESSAGE value="more formatting fixes (Phase 1)" />
+    <option name="LAST_COMMIT_MESSAGE" value="more formatting fixes (Phase 1)" />
   </component>
 </project>
