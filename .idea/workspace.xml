@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="more formatting fixes (Phase 1)">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/DataAccessException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="Added starter files (phase 3)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +53,7 @@
   "keyToString": {
     "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.Main.executor": "Run",
     "JUnit.All in shared.executor": "Run",
     "JUnit.BishopMoveTests.bishopMoveUntilEdge.executor": "Run",
     "JUnit.BishopMoveTests.executor": "Run",
@@ -74,7 +74,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/faith/OneDrive/Documents/Classes/2025/cs240/Chess/server/src/main/java",
+    "last_opened_file_path": "C:/Users/faith/OneDrive/Documents/Classes/2025/cs240/Chess/server/src/main/resources",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -83,6 +83,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\faith\OneDrive\Documents\Classes\2025\cs240\Chess\server\src\main\resources" />
+      <recent name="C:\Users\faith\OneDrive\Documents\Classes\2025\cs240\Chess\server\src\test\java" />
+      <recent name="C:\Users\faith\OneDrive\Documents\Classes\2025\cs240\Chess\server\src\main\java" />
       <recent name="C:\Users\faith\OneDrive\Documents\Classes\2025\cs240\Chess\shared\src\test\java\passoff\chess" />
     </key>
   </component>
@@ -174,14 +177,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Fixed build error with duplicate source roots (phase 0)">
-      <option name="closed" value="true" />
-      <created>1757540708693</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1757540708693</updated>
     </task>
     <task id="LOCAL-00004" summary="Added overrides (Phase 0)">
       <option name="closed" value="true" />
@@ -567,12 +562,31 @@
       <option name="project" value="LOCAL" />
       <updated>1759549962442</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Added starter files (phase 3)">
+      <option name="closed" value="true" />
+      <created>1759955220654</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1759955220654</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="RECENT_FILTERS">
       <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="main" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
         <entry key="User">
           <value>
             <list>
@@ -597,7 +611,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added override methods (Phase 1)" />
     <MESSAGE value="Large progress on makeMove function (Phase 1)" />
     <MESSAGE value="Make move also now handles invalid moves 90% certain (Phase 1)" />
     <MESSAGE value="Fixed impl of makeMove (game) (Phase 1)" />
@@ -622,6 +635,7 @@
     <MESSAGE value="passing extra credit tests! (Phase 1)" />
     <MESSAGE value="some formatting fixes, reduced nested loops (Phase 1)" />
     <MESSAGE value="more formatting fixes (Phase 1)" />
-    <option name="LAST_COMMIT_MESSAGE" value="more formatting fixes (Phase 1)" />
+    <MESSAGE value="Added starter files (phase 3)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added starter files (phase 3)" />
   </component>
 </project>
