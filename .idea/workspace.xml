@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl server.delete (phase 3)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="setup of various files (phase 3)">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,9 +16,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Record" />
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -31,7 +35,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/GottaHaveFaithK/Chess.git&quot;,
+    &quot;url&quot;: &quot;https://github.com/GottahaveFaithK/Chess.git&quot;,
     &quot;accountId&quot;: &quot;cbe44919-26da-4c6f-bb91-ff00de508cf6&quot;
   }
 }</component>
@@ -53,7 +57,7 @@
   "keyToString": {
     "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.Main.executor": "Debug",
+    "Application.Main.executor": "Run",
     "JUnit.All in shared.executor": "Run",
     "JUnit.BishopMoveTests.bishopMoveUntilEdge.executor": "Run",
     "JUnit.BishopMoveTests.executor": "Run",
@@ -65,6 +69,7 @@
     "JUnit.PawnMoveTests.executor": "Run",
     "JUnit.QueenMoveTests.executor": "Run",
     "JUnit.RookMoveTests.executor": "Run",
+    "JUnit.StandardAPITests.registerSuccess.executor": "Run",
     "JUnit.StandardAPITests.staticFilesSuccess.executor": "Debug",
     "JUnit.passoff.chess in shared.executor": "Run",
     "JUnit.passoff.chess.game in shared.executor": "Run",
@@ -79,7 +84,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.gitlab.GitLabSettingsConfigurable"
+    "settings.editor.selected.configurable": "actions.on.save"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -90,7 +95,7 @@
       <recent name="C:\Users\faith\OneDrive\Documents\Classes\2025\cs240\Chess\shared\src\test\java\passoff\chess" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.StandardAPITests.staticFilesSuccess">
+  <component name="RunManager" selected="JUnit.StandardAPITests.registerSuccess">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="server" />
@@ -128,6 +133,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="StandardAPITests.registerSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="passoff.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoff.server" />
+      <option name="MAIN_CLASS_NAME" value="passoff.server.StandardAPITests" />
+      <option name="METHOD_NAME" value="registerSuccess" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="StandardAPITests.staticFilesSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -140,20 +161,6 @@
       <option name="MAIN_CLASS_NAME" value="passoff.server.StandardAPITests" />
       <option name="METHOD_NAME" value="staticFilesSuccess" />
       <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="passoff.chess.game in shared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="shared" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="passoff.chess.game.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="passoff.chess.game" />
-      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -171,11 +178,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.StandardAPITests.staticFilesSuccess" />
+        <item itemvalue="JUnit.StandardAPITests.registerSuccess" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.StandardAPITests.staticFilesSuccess" />
         <item itemvalue="JUnit.CastlingTests" />
         <item itemvalue="JUnit.EnPassantTests" />
-        <item itemvalue="JUnit.passoff.chess.game in shared" />
       </list>
     </recent_temporary>
   </component>
@@ -186,22 +193,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Implemented most of the phase 0 structure. Set up switch statement for moves">
-      <option name="closed" value="true" />
-      <created>1757544319608</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1757544319608</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Finished switch statement setup (phase 0)">
-      <option name="closed" value="true" />
-      <created>1757733520613</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1757733520613</updated>
     </task>
     <task id="LOCAL-00008" summary="Passing Bishop move tests (Phase 0) (Make it cleaner later)">
       <option name="closed" value="true" />
@@ -579,7 +570,23 @@
       <option name="project" value="LOCAL" />
       <updated>1759956915606</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary=" need to impl clear and register, but hey, the network side is working (phase 3)">
+      <option name="closed" value="true" />
+      <created>1759957757858</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1759957757858</updated>
+    </task>
+    <task id="LOCAL-00056" summary="setup of various files (phase 3)">
+      <option name="closed" value="true" />
+      <created>1760390198938</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1760390198938</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -620,8 +627,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed impl of makeMove (game) (Phase 1)" />
-    <MESSAGE value="impl movePiece (Phase 1)" />
     <MESSAGE value="impl setters and getters for king positions (Phase 1)" />
     <MESSAGE value="now keep track of and update king positions for each color (Phase 1)" />
     <MESSAGE value="small comment added so I can remember an idea I had when I have more time (phase 1)" />
@@ -645,6 +650,8 @@
     <MESSAGE value="Added starter files (phase 3)" />
     <MESSAGE value="impl main file (phase 3)" />
     <MESSAGE value="impl server.delete (phase 3)" />
-    <option name="LAST_COMMIT_MESSAGE" value="impl server.delete (phase 3)" />
+    <MESSAGE value=" need to impl clear and register, but hey, the network side is working (phase 3)" />
+    <MESSAGE value="setup of various files (phase 3)" />
+    <option name="LAST_COMMIT_MESSAGE" value="setup of various files (phase 3)" />
   </component>
 </project>
