@@ -16,5 +16,3 @@ public class UserService {
         return new AuthData(user.username(), "zzyz"); //fix the zzyz with actual authtoken
     }
 }
-
-//TODO change datamodel to have an authdata and userdata instead
