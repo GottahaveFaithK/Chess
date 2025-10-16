@@ -7,8 +7,6 @@ import io.javalin.*;
 import io.javalin.http.Context;
 import service.UserService;
 
-import java.util.Map;
-
 public class Server {
 
     private final Javalin server;
@@ -22,7 +20,11 @@ public class Server {
 
         server.delete("db", ctx -> ctx.result("{}")); //ctx means context
         server.post("user", this::register);
-
+        server.post("session", this::login);
+        server.delete("session", this::logout);
+        server.get("game", this::listGames);
+        server.post("game", this::createGame);
+        server.put("game", this::joinGame);
         // Register your endpoints and exception handlers here.
 
     }
@@ -37,6 +39,27 @@ public class Server {
         var response = serializer.toJson(request);
         ctx.result(response);
     }
+
+    private void login(Context ctx) {
+        //impl login
+    }
+
+    private void logout(Context ctx) {
+        //impl logout
+    }
+
+    private void listGames(Context ctx) {
+        //impl listGames
+    }
+
+    private void createGame(Context ctx) {
+        //impl createGame
+    }
+
+    private void joinGame(Context ctx) {
+
+    }
+
 
     public int run(int desiredPort) {
         server.start(desiredPort);
