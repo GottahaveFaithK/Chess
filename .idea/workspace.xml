@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="outlined server functions, none implm (phase 3)">
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
-    </list>
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="created GameData record (phase 3)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -203,22 +201,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Impl Knight Moves (Phase 0)">
-      <option name="closed" value="true" />
-      <created>1757801847514</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1757801847514</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Impl Board Reset. Phase 0 is functional">
-      <option name="closed" value="true" />
-      <created>1757803794029</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1757803794029</updated>
     </task>
     <task id="LOCAL-00016" summary="some readability changes">
       <option name="closed" value="true" />
@@ -596,7 +578,23 @@
       <option name="project" value="LOCAL" />
       <updated>1760578156045</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="outlined server functions, none impl (phase 3)">
+      <option name="closed" value="true" />
+      <created>1760578295861</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1760578295861</updated>
+    </task>
+    <task id="LOCAL-00064" summary="created GameData record (phase 3)">
+      <option name="closed" value="true" />
+      <created>1760578447572</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1760578447572</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -637,8 +635,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="impl createTestBoard (Phase 1)" />
-    <MESSAGE value="impl validMoves, now passing MakeMoveTests, ValidMovesTests, and ChessGameTests (Phase 1)" />
     <MESSAGE value="possibly impl isInCheckmate and isInStalemate (Phase 1)" />
     <MESSAGE value="removed unused import, passing all required tests (Phase 1)" />
     <MESSAGE value="added cleaner helpful function (Phase 1)" />
@@ -662,6 +658,8 @@
     <MESSAGE value="finished TODO (phase 3)" />
     <MESSAGE value="fixed small piece of a test (phase 3)" />
     <MESSAGE value="outlined server functions, none implm (phase 3)" />
-    <option name="LAST_COMMIT_MESSAGE" value="outlined server functions, none implm (phase 3)" />
+    <MESSAGE value="outlined server functions, none impl (phase 3)" />
+    <MESSAGE value="created GameData record (phase 3)" />
+    <option name="LAST_COMMIT_MESSAGE" value="created GameData record (phase 3)" />
   </component>
 </project>
