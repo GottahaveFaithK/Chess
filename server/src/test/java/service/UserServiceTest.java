@@ -18,7 +18,7 @@ class UserServiceTest {
         var res = service.register(user);
         assertEquals(res.username(), user.username());
         assertNotNull(res.authToken());
-        //assertEquals(String.class, res.authToken().getclass());
+        assertEquals(String.class, res.authToken().getClass());
     }
 
 }
