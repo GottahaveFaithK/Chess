@@ -57,7 +57,7 @@ public class Server {
     }
 
     private void joinGame(Context ctx) {
-
+        //impl joinGame
     }
 
 
