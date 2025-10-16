@@ -1,10 +1,11 @@
 package dataaccess;
 
-import datamodel.User;
+import datamodel.UserData;
+import datamodel.UserData;
 
 
 public interface DataAccess {
-    void saveUser(User user);
+    void saveUser(UserData user);
 
     void getUser(String username);
 }

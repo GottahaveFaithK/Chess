@@ -2,7 +2,7 @@ package server;
 
 import com.google.gson.Gson;
 import dataaccess.DataAccess;
-import datamodel.User;
+import datamodel.UserData;
 import io.javalin.*;
 import io.javalin.http.Context;
 import service.UserService;
@@ -29,7 +29,7 @@ public class Server {
 
     private void register(Context ctx) {
         var serializer = new Gson();
-        var request = serializer.fromJson(ctx.body(), User.class);
+        var request = serializer.fromJson(ctx.body(), UserData.class);
 
         //call to the service and register
         var res = userService.register(request);
