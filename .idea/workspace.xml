@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="removing the past impl of MemoryDataAccess and its interface (didnt like it) (phase 3)">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/server/ClearHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/server/GameHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/server/UserHandler.java" afterDir="false" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="removed unneeded imports as part of refactor (phase 3)">
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/ClearService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/UserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/UserHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/UserServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,22 +208,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00021" summary="added the phase 1 test files, removed redundant lines">
-      <option name="closed" value="true" />
-      <created>1758775313897</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1758775313897</updated>
-    </task>
-    <task id="LOCAL-00022" summary="minor setup changes for phase 1">
-      <option name="closed" value="true" />
-      <created>1758777249309</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1758777249309</updated>
     </task>
     <task id="LOCAL-00023" summary="Outlined a basic idea for functions with comments">
       <option name="closed" value="true" />
@@ -603,7 +585,23 @@
       <option name="project" value="LOCAL" />
       <updated>1760737510228</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="impl new handler framework (phase 3)">
+      <option name="closed" value="true" />
+      <created>1760742222855</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1760742222855</updated>
+    </task>
+    <task id="LOCAL-00071" summary="removed unneeded imports as part of refactor (phase 3)">
+      <option name="closed" value="true" />
+      <created>1760742263624</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1760742263624</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -644,8 +642,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="getter for lastmove (Phase 1)" />
-    <MESSAGE value="added enpassant to valid moves (Phase 1)" />
     <MESSAGE value="enpassant working (perhaps a clumsy impl) (Phase 1)" />
     <MESSAGE value="impl setHasMoveds (the boolean flags) (Phase 1)" />
     <MESSAGE value="impl getCastlingMoves (Phase 1)" />
@@ -669,6 +665,8 @@
     <MESSAGE value="scaffolding for game interface and memoryDAO (phase 3)" />
     <MESSAGE value="scaffolding for user interface and memoryDAO (phase 3)" />
     <MESSAGE value="removing the past impl of MemoryDataAccess and its interface (didnt like it) (phase 3)" />
-    <option name="LAST_COMMIT_MESSAGE" value="removing the past impl of MemoryDataAccess and its interface (didnt like it) (phase 3)" />
+    <MESSAGE value="impl new handler framework (phase 3)" />
+    <MESSAGE value="removed unneeded imports as part of refactor (phase 3)" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed unneeded imports as part of refactor (phase 3)" />
   </component>
 </project>

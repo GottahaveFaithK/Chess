@@ -14,7 +14,7 @@ public class UserHandler {
 
     public void register(Context ctx) {
         var serializer = new Gson();
-        var request = serializer.fromJson(ctx.body(), UserData.class);
+        UserData request = serializer.fromJson(ctx.body(), UserData.class);
 
         var res = userService.register(request);
 
