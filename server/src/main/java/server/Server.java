@@ -12,7 +12,6 @@ public class Server {
     private final UserHandler userHandler;
     private final GameHandler gameHandler;
     private final ClearHandler clearHandler;
-    private UserDAO userDAO;
 
     public Server() {
 
