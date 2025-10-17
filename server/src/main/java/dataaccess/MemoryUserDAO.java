@@ -5,18 +5,16 @@ import model.UserData;
 import java.util.HashMap;
 
 public class MemoryUserDAO implements UserDAO {
-    private HashMap<String, UserData> userStorage = new HashMap<>();
+    private HashMap<String, UserData> users = new HashMap<>();
 
     @Override
     public void createUser(UserData user) {
-        //TODO impl this
+        users.put(user.username(), user);
     }
 
     @Override
     public UserData getUser(String username) {
-        UserData test = new UserData("cow", "password", "cow@gmail.com");
-        return test;
-        //TODO test this to see if interface is working
+        return users.get(username);
     }
 
     @Override

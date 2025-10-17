@@ -1,6 +1,6 @@
 package service;
 
-import dataaccess.MemoryDataAccess;
+import dataaccess.MemoryUserDAO;
 import model.UserData;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +13,7 @@ class UserServiceTest {
         var user = new UserData("joe", "j@j", "j");
         var at = "xyz";
 
-        var da = new MemoryDataAccess();
+        var da = new MemoryUserDAO();
         var service = new UserService(da);
         var res = service.register(user);
         assertEquals(res.username(), user.username());

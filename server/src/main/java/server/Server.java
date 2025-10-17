@@ -1,7 +1,7 @@
 package server;
 
 import com.google.gson.Gson;
-import dataaccess.DataAccess;
+import dataaccess.UserDAO;
 import model.UserData;
 import io.javalin.*;
 import io.javalin.http.Context;
@@ -11,11 +11,11 @@ public class Server {
 
     private final Javalin server;
     private UserService userService;
-    private DataAccess dataAccess;
+    private UserDAO userDAO;
 
     public Server() {
 
-        userService = new UserService(dataAccess);
+        userService = new UserService(userDAO);
         server = Javalin.create(config -> config.staticFiles.add("web"));
 
         server.delete("db", ctx -> ctx.result("{}")); //ctx means context

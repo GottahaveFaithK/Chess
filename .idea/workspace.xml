@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="scaffolding for game interface and memoryDAO (phase 3)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="scaffolding for user interface and memoryDAO (phase 3)">
       <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryUserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/UserServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,14 +207,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Attempt with errors, may revert if I can't get to work by today">
-      <option name="closed" value="true" />
-      <created>1758158410083</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1758158410083</updated>
     </task>
     <task id="LOCAL-00020" summary="undid changes, fixed a few things (Phase 0)">
       <option name="closed" value="true" />
@@ -597,7 +592,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760736811832</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="scaffolding for user interface and memoryDAO (phase 3)">
+      <option name="closed" value="true" />
+      <created>1760737096909</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1760737096909</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -638,7 +641,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="vars and getters for castling (Phase 1)" />
     <MESSAGE value="chessboard now handles setting vars for lastmove and castling bools (Phase 1)" />
     <MESSAGE value="getter for lastmove (Phase 1)" />
     <MESSAGE value="added enpassant to valid moves (Phase 1)" />
@@ -663,6 +665,7 @@
     <MESSAGE value="renamed file to fit requirements (phase 3)" />
     <MESSAGE value="scaffolding for Auth interface and memoryDAO (phase 3)" />
     <MESSAGE value="scaffolding for game interface and memoryDAO (phase 3)" />
-    <option name="LAST_COMMIT_MESSAGE" value="scaffolding for game interface and memoryDAO (phase 3)" />
+    <MESSAGE value="scaffolding for user interface and memoryDAO (phase 3)" />
+    <option name="LAST_COMMIT_MESSAGE" value="scaffolding for user interface and memoryDAO (phase 3)" />
   </component>
 </project>
