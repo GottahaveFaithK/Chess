@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="removed unneeded imports as part of refactor (phase 3)">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/ClearService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/UserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/UserHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" afterDir="false" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl base structure for clearservice and gameservice (phase 3)">
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/GameHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/GameHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,14 +204,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Outlined a basic idea for functions with comments">
-      <option name="closed" value="true" />
-      <created>1758951956194</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1758951956194</updated>
     </task>
     <task id="LOCAL-00024" summary="Impl get and set Teamturn (Phase 1)">
       <option name="closed" value="true" />
@@ -601,7 +589,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760742263624</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="impl base structure for clearservice and gameservice (phase 3)">
+      <option name="closed" value="true" />
+      <created>1760743543855</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1760743543855</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -642,7 +638,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="enpassant working (perhaps a clumsy impl) (Phase 1)" />
     <MESSAGE value="impl setHasMoveds (the boolean flags) (Phase 1)" />
     <MESSAGE value="impl getCastlingMoves (Phase 1)" />
     <MESSAGE value="impl castling (also possibly rough) (Phase 1)" />
@@ -667,6 +662,7 @@
     <MESSAGE value="removing the past impl of MemoryDataAccess and its interface (didnt like it) (phase 3)" />
     <MESSAGE value="impl new handler framework (phase 3)" />
     <MESSAGE value="removed unneeded imports as part of refactor (phase 3)" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed unneeded imports as part of refactor (phase 3)" />
+    <MESSAGE value="impl base structure for clearservice and gameservice (phase 3)" />
+    <option name="LAST_COMMIT_MESSAGE" value="impl base structure for clearservice and gameservice (phase 3)" />
   </component>
 </project>
