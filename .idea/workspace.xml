@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl base structure for clearservice and gameservice (phase 3)">
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/GameHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/GameHandler.java" afterDir="false" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="restructured server to work with gamehandler  (phase 3)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/ClearHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/ClearHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,22 +206,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Impl get and set Teamturn (Phase 1)">
-      <option name="closed" value="true" />
-      <created>1758952196388</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1758952196388</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Impl get and set board (Phase 1)">
-      <option name="closed" value="true" />
-      <created>1758952722195</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1758952722195</updated>
     </task>
     <task id="LOCAL-00026" summary="added override methods (Phase 1)">
       <option name="closed" value="true" />
@@ -597,7 +583,23 @@
       <option name="project" value="LOCAL" />
       <updated>1760743543855</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="Game Handler outline (phase 3)">
+      <option name="closed" value="true" />
+      <created>1760743873517</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1760743873517</updated>
+    </task>
+    <task id="LOCAL-00074" summary="restructured server to work with gamehandler  (phase 3)">
+      <option name="closed" value="true" />
+      <created>1760744024067</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1760744024067</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -638,8 +640,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="impl setHasMoveds (the boolean flags) (Phase 1)" />
-    <MESSAGE value="impl getCastlingMoves (Phase 1)" />
     <MESSAGE value="impl castling (also possibly rough) (Phase 1)" />
     <MESSAGE value="passing extra credit tests! (Phase 1)" />
     <MESSAGE value="some formatting fixes, reduced nested loops (Phase 1)" />
@@ -663,6 +663,8 @@
     <MESSAGE value="impl new handler framework (phase 3)" />
     <MESSAGE value="removed unneeded imports as part of refactor (phase 3)" />
     <MESSAGE value="impl base structure for clearservice and gameservice (phase 3)" />
-    <option name="LAST_COMMIT_MESSAGE" value="impl base structure for clearservice and gameservice (phase 3)" />
+    <MESSAGE value="Game Handler outline (phase 3)" />
+    <MESSAGE value="restructured server to work with gamehandler  (phase 3)" />
+    <option name="LAST_COMMIT_MESSAGE" value="restructured server to work with gamehandler  (phase 3)" />
   </component>
 </project>

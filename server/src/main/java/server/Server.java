@@ -11,7 +11,7 @@ public class Server {
     private final Javalin server;
     private final UserHandler userHandler;
     private final GameHandler gameHandler;
-    //private final ClearHandler clearHandler;
+    private final ClearHandler clearHandler;
     private UserDAO userDAO;
 
     public Server() {
@@ -26,7 +26,7 @@ public class Server {
 
         userHandler = new UserHandler(userService);
         gameHandler = new GameHandler(gameService);
-        //clearHandler = new ClearHandler(clearService);
+        clearHandler = new ClearHandler(clearService);
 
         server = Javalin.create(config -> config.staticFiles.add("web"));
 
@@ -35,7 +35,8 @@ public class Server {
     }
 
     private void registerRoutes() {
-        server.delete("db", ctx -> ctx.result("{}")); //ctx means context
+        //server.delete("db", ctx -> ctx.result("{}")); //ctx means context
+        server.delete("db", clearHandler::clear);
         server.post("user", userHandler::register);
         server.post("session", userHandler::login);
         server.delete("session", userHandler::logout);
