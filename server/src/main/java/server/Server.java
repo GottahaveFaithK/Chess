@@ -1,7 +1,7 @@
 package server;
 
 import com.google.gson.Gson;
-import dataaccess.UserDAO;
+import dataaccess.*;
 import model.UserData;
 import io.javalin.*;
 import io.javalin.http.Context;
@@ -10,56 +10,36 @@ import service.UserService;
 public class Server {
 
     private final Javalin server;
-    private UserService userService;
+    private final UserHandler userHandler;
     private UserDAO userDAO;
 
     public Server() {
 
-        userService = new UserService(userDAO);
+        UserDAO userDAO = new MemoryUserDAO();
+        GameDAO gameDAO = new MemoryGameDAO();
+        AuthDAO authDAO = new MemoryAuthDAO();
+
+        UserService userService = new UserService(userDAO, authDAO);
+        //GameService gameService = new GameService(gameDAO, authDAO);
+        //ClearService clearService = new ClearService(userDAO, gameDAO, authDAO);
+
+        userHandler = new UserHandler(userService);
+
         server = Javalin.create(config -> config.staticFiles.add("web"));
+        
+        registerRoutes();
 
+    }
+
+    private void registerRoutes() {
         server.delete("db", ctx -> ctx.result("{}")); //ctx means context
-        server.post("user", this::register);
-        server.post("session", this::login);
-        server.delete("session", this::logout);
-        server.get("game", this::listGames);
-        server.post("game", this::createGame);
-        server.put("game", this::joinGame);
-        // Register your endpoints and exception handlers here.
-
+        server.post("user", userHandler::register);
+        server.post("session", userHandler::login);
+        server.delete("session", userHandler::logout);
+        //server.get("game", this::listGames);
+        //server.post("game", this::createGame);
+        //server.put("game", this::joinGame);
     }
-
-    private void register(Context ctx) {
-        var serializer = new Gson();
-        var request = serializer.fromJson(ctx.body(), UserData.class);
-
-        //call to the service and register
-        var res = userService.register(request);
-
-        var response = serializer.toJson(request);
-        ctx.result(response);
-    }
-
-    private void login(Context ctx) {
-        //impl login
-    }
-
-    private void logout(Context ctx) {
-        //impl logout
-    }
-
-    private void listGames(Context ctx) {
-        //impl listGames
-    }
-
-    private void createGame(Context ctx) {
-        //impl createGame
-    }
-
-    private void joinGame(Context ctx) {
-        //impl joinGame
-    }
-
 
     public int run(int desiredPort) {
         server.start(desiredPort);
