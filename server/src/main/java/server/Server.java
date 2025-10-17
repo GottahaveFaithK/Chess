@@ -1,10 +1,7 @@
 package server;
 
-import com.google.gson.Gson;
 import dataaccess.*;
-import model.UserData;
 import io.javalin.*;
-import io.javalin.http.Context;
 import service.UserService;
 
 public class Server {
@@ -26,7 +23,7 @@ public class Server {
         userHandler = new UserHandler(userService);
 
         server = Javalin.create(config -> config.staticFiles.add("web"));
-        
+
         registerRoutes();
 
     }
