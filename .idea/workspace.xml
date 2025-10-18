@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="restructured server to work with gamehandler  (phase 3)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="final tidying up of server before stopping for the day (phase 3)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/ClearHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/ClearHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/UserServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,25 +106,10 @@
       <recent name="service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceTest.register">
+  <component name="RunManager" selected="JUnit.UserServiceTest.registerNegative">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="server" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CastlingTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="shared" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="passoff.chess.extracredit.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="passoff.chess.extracredit" />
-      <option name="MAIN_CLASS_NAME" value="passoff.chess.extracredit.CastlingTests" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -162,7 +146,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest.register" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserServiceTest.registerNegative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
@@ -172,7 +156,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="service" />
       <option name="MAIN_CLASS_NAME" value="service.UserServiceTest" />
-      <option name="METHOD_NAME" value="register" />
+      <option name="METHOD_NAME" value="registerNegative" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.registerPositive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="service" />
+      <option name="MAIN_CLASS_NAME" value="service.UserServiceTest" />
+      <option name="METHOD_NAME" value="registerPositive" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -191,11 +191,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserServiceTest.register" />
+        <item itemvalue="JUnit.UserServiceTest.registerNegative" />
+        <item itemvalue="JUnit.UserServiceTest.registerPositive" />
         <item itemvalue="JUnit.StandardAPITests.registerSuccess" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.StandardAPITests.staticFilesSuccess" />
-        <item itemvalue="JUnit.CastlingTests" />
       </list>
     </recent_temporary>
   </component>
@@ -206,22 +206,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00026" summary="added override methods (Phase 1)">
-      <option name="closed" value="true" />
-      <created>1758952928521</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1758952928521</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Large progress on makeMove function (Phase 1)">
-      <option name="closed" value="true" />
-      <created>1759018013950</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1759018013950</updated>
     </task>
     <task id="LOCAL-00028" summary="Make move also now handles invalid moves 90% certain (Phase 1)">
       <option name="closed" value="true" />
@@ -599,7 +583,23 @@
       <option name="project" value="LOCAL" />
       <updated>1760744024067</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="added clearHandler outline (phase 3)">
+      <option name="closed" value="true" />
+      <created>1760744193904</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1760744193904</updated>
+    </task>
+    <task id="LOCAL-00076" summary="final tidying up of server before stopping for the day (phase 3)">
+      <option name="closed" value="true" />
+      <created>1760744356868</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1760744356868</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -640,8 +640,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="impl castling (also possibly rough) (Phase 1)" />
-    <MESSAGE value="passing extra credit tests! (Phase 1)" />
     <MESSAGE value="some formatting fixes, reduced nested loops (Phase 1)" />
     <MESSAGE value="more formatting fixes (Phase 1)" />
     <MESSAGE value="Added starter files (phase 3)" />
@@ -665,6 +663,8 @@
     <MESSAGE value="impl base structure for clearservice and gameservice (phase 3)" />
     <MESSAGE value="Game Handler outline (phase 3)" />
     <MESSAGE value="restructured server to work with gamehandler  (phase 3)" />
-    <option name="LAST_COMMIT_MESSAGE" value="restructured server to work with gamehandler  (phase 3)" />
+    <MESSAGE value="added clearHandler outline (phase 3)" />
+    <MESSAGE value="final tidying up of server before stopping for the day (phase 3)" />
+    <option name="LAST_COMMIT_MESSAGE" value="final tidying up of server before stopping for the day (phase 3)" />
   </component>
 </project>
