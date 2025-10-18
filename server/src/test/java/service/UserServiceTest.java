@@ -29,8 +29,9 @@ class UserServiceTest {
         AuthDAO authDAO = new MemoryAuthDAO();
         UserService userService = new UserService(userDAO, authDAO);
         userService.register(user);
-        assertThrows(AlreadyTakenException.class, () -> userService.register(user));
-
+        ResponseException ex = assertThrows(ResponseException.class, () -> userService.register(user));
+        assertEquals(403, ex.getHttpResponseCode());
+        assertEquals("Error: already taken", ex.getMessage());
     }
 
 }

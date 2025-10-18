@@ -19,7 +19,7 @@ public class UserService {
         try {
             userDAO.createUser(user);
         } catch (DataAccessException e) {
-            throw new AlreadyTakenException("Username already taken");
+            throw new ResponseException("Error: already taken", 403);
         }
         return new AuthData(user.username(), "zzyz"); //fix the zzyz with actual authtoken
     }
