@@ -5,44 +5,52 @@ import chess.ChessGame;
 import model.GameData;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
 public class MemoryGameDAO implements GameDAO {
-    private HashMap<String, GameData> gameStorage = new HashMap<>();
+    private final HashMap<Integer, GameData> gameStorage = new HashMap<>();
 
     @Override
-    public void createGame(GameData game) {
-        //TODO impl this
+    public void createGame(GameData game) throws DataAccessException {
+        if (game.gameName() != null) {
+            gameStorage.put(game.gameID(), game);
+        } else {
+            throw new DataAccessException("Game name is null");
+        }
     }
 
     @Override
-    public void updateGame(GameData game) {
-        //TODO impl this
+    public void updateGame(int gameID, ChessGame updatedGame) {
+        GameData current = getGame(gameID);
+        if (current != null) {
+            gameStorage.put(gameID, new GameData(
+                    gameID,
+                    current.whiteUsername(),
+                    current.blackUsername(),
+                    current.gameName(),
+                    updatedGame));
+        }
     }
 
     @Override
     public GameData getGame(int id) {
-        GameData test = new GameData(67, "white", "black", "hades",
-                new ChessGame());
-        return test;
-        //TODO  test interface with this
+        return gameStorage.get(id);
     }
 
     @Override
-    public List<GameData> listGames() {
-        List<GameData> test = new ArrayList<>();
-        return test;
-        //TODO impl this
+    public Collection<GameData> listGames() {
+        return gameStorage.values();
     }
 
     @Override
     public void deleteGame(GameData game) {
-        //TODO impl this
+        gameStorage.remove(game.gameID());
     }
 
     @Override
     public void deleteAllGames() {
-        //TODO impl this
+        gameStorage.clear();
     }
 }
