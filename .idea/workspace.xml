@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="updated code for responseerror (phase 3)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="error is now working! :D (phase 3)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/AlreadyTakenException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryAuthDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryAuthDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +93,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "actions.on.save"
+    "settings.editor.selected.configurable": "configurable.group.tools"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -213,14 +213,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00032" summary="now keep track of and update king positions for each color (Phase 1)">
-      <option name="closed" value="true" />
-      <created>1759022982341</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1759022982341</updated>
     </task>
     <task id="LOCAL-00033" summary="small comment added so I can remember an idea I had when I have more time (phase 1)">
       <option name="closed" value="true" />
@@ -606,7 +598,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760812326574</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="error is now working! :D (phase 3)">
+      <option name="closed" value="true" />
+      <created>1760812722608</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1760812722608</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -647,7 +647,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="impl server.delete (phase 3)" />
     <MESSAGE value=" need to impl clear and register, but hey, the network side is working (phase 3)" />
     <MESSAGE value="setup of various files (phase 3)" />
     <MESSAGE value="updated some files, created a test (phase 3)" />
@@ -672,6 +671,7 @@
     <MESSAGE value="Register user now throws proper error (phase 3)" />
     <MESSAGE value="added responseexception class (phase 3)" />
     <MESSAGE value="updated code for responseerror (phase 3)" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated code for responseerror (phase 3)" />
+    <MESSAGE value="error is now working! :D (phase 3)" />
+    <option name="LAST_COMMIT_MESSAGE" value="error is now working! :D (phase 3)" />
   </component>
 </project>

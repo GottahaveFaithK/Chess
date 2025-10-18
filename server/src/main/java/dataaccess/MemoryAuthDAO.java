@@ -9,14 +9,12 @@ public class MemoryAuthDAO implements AuthDAO {
 
     @Override
     public void createAuth(AuthData authData) {
-        //TODO impl this
+        authStorage.put(authData.authToken(), authData);
     }
 
     @Override
     public AuthData getAuth(String authToken) {
-        AuthData test = new AuthData("cow", "xyz");
-        return test;
-        //TODO write test for this to test interface
+        return authStorage.get(authToken);
     }
 
     @Override

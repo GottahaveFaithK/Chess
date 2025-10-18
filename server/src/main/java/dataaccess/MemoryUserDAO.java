@@ -23,11 +23,11 @@ public class MemoryUserDAO implements UserDAO {
 
     @Override
     public void deleteUser(UserData user) {
-        //TODO impl this
+        users.remove(user.username());
     }
 
     @Override
     public void deleteAllUsers() {
-        //TODO impl this
+        users.clear();
     }
 }
