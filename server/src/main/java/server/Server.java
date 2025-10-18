@@ -2,8 +2,10 @@ package server;
 
 import dataaccess.*;
 import io.javalin.*;
+import io.javalin.http.Context;
 import service.ClearService;
 import service.GameService;
+import service.ResponseException;
 import service.UserService;
 
 public class Server {
@@ -35,6 +37,7 @@ public class Server {
 
     private void registerRoutes() {
         //server.delete("db", ctx -> ctx.result("{}")); //ctx means context
+        server.exception(ResponseException.class, this::exceptionHandler);
         server.delete("db", clearHandler::clear);
         server.post("user", userHandler::register);
         server.post("session", userHandler::login);
@@ -42,6 +45,11 @@ public class Server {
         server.get("game", gameHandler::listGames);
         server.post("game", gameHandler::createGame);
         server.put("game", gameHandler::joinGame);
+    }
+
+    private void exceptionHandler(ResponseException ex, Context ctx) {
+        ctx.status(ex.getHttpResponseCode());
+        ctx.json(ex.toJson());
     }
 
     public int run(int desiredPort) {

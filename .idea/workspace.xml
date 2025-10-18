@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="added responseexception class (phase 3)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="updated code for responseerror (phase 3)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/AlreadyTakenException.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +114,7 @@
       <recent name="service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="server" />
@@ -198,9 +198,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.UserServiceTest" />
         <item itemvalue="JUnit.UserServiceTest.registerNegative" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.UserServiceTest.registerPositive" />
         <item itemvalue="JUnit.StandardAPITests.registerSuccess" />
       </list>
@@ -213,14 +213,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00031" summary="impl setters and getters for king positions (Phase 1)">
-      <option name="closed" value="true" />
-      <created>1759022127747</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1759022127747</updated>
     </task>
     <task id="LOCAL-00032" summary="now keep track of and update king positions for each color (Phase 1)">
       <option name="closed" value="true" />
@@ -606,7 +598,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760812077845</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="updated code for responseerror (phase 3)">
+      <option name="closed" value="true" />
+      <created>1760812326574</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1760812326574</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -647,7 +647,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="impl main file (phase 3)" />
     <MESSAGE value="impl server.delete (phase 3)" />
     <MESSAGE value=" need to impl clear and register, but hey, the network side is working (phase 3)" />
     <MESSAGE value="setup of various files (phase 3)" />
@@ -672,6 +671,7 @@
     <MESSAGE value="created a registerNegative test (phase 3)" />
     <MESSAGE value="Register user now throws proper error (phase 3)" />
     <MESSAGE value="added responseexception class (phase 3)" />
-    <option name="LAST_COMMIT_MESSAGE" value="added responseexception class (phase 3)" />
+    <MESSAGE value="updated code for responseerror (phase 3)" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated code for responseerror (phase 3)" />
   </component>
 </project>
