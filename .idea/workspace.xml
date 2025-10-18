@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="created a registerNegative test (phase 3)">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/AlreadyTakenException.java" afterDir="false" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="Register user now throws proper error (phase 3)">
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/ResponseException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryUserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/model/AuthData.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/model/AuthData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/model/GameData.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/model/GameData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/model/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/model/UserData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +108,10 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\faith\OneDrive\Documents\Classes\2025\cs240\Chess\shared\src\main\java" />
+      <recent name="C:\Users\faith\OneDrive\Documents\Classes\2025\cs240\Chess\shared" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="service" />
     </key>
@@ -198,10 +201,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.UserServiceTest" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.UserServiceTest.registerNegative" />
         <item itemvalue="JUnit.UserServiceTest.registerPositive" />
         <item itemvalue="JUnit.StandardAPITests.registerSuccess" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -212,14 +215,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Fixed impl of makeMove (game) (Phase 1)">
-      <option name="closed" value="true" />
-      <created>1759020229064</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1759020229064</updated>
     </task>
     <task id="LOCAL-00030" summary="impl movePiece (Phase 1)">
       <option name="closed" value="true" />
@@ -605,7 +600,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760808724280</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="Register user now throws proper error (phase 3)">
+      <option name="closed" value="true" />
+      <created>1760809996977</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1760809996977</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -646,7 +649,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="more formatting fixes (Phase 1)" />
     <MESSAGE value="Added starter files (phase 3)" />
     <MESSAGE value="impl main file (phase 3)" />
     <MESSAGE value="impl server.delete (phase 3)" />
@@ -671,6 +673,7 @@
     <MESSAGE value="added clearHandler outline (phase 3)" />
     <MESSAGE value="final tidying up of server before stopping for the day (phase 3)" />
     <MESSAGE value="created a registerNegative test (phase 3)" />
-    <option name="LAST_COMMIT_MESSAGE" value="created a registerNegative test (phase 3)" />
+    <MESSAGE value="Register user now throws proper error (phase 3)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Register user now throws proper error (phase 3)" />
   </component>
 </project>
