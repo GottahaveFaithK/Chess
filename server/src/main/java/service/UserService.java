@@ -1,6 +1,7 @@
 package service;
 
 import dataaccess.AuthDAO;
+import dataaccess.DataAccessException;
 import dataaccess.UserDAO;
 import model.UserData;
 import model.AuthData;
@@ -15,7 +16,11 @@ public class UserService {
     }
 
     public AuthData register(UserData user) {
-        userDAO.createUser(user);
+        try {
+            userDAO.createUser(user);
+        } catch (DataAccessException e) {
+            throw new AlreadyTakenException("Username already taken");
+        }
         return new AuthData(user.username(), "zzyz"); //fix the zzyz with actual authtoken
     }
 }

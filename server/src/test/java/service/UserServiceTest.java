@@ -29,7 +29,7 @@ class UserServiceTest {
         AuthDAO authDAO = new MemoryAuthDAO();
         UserService userService = new UserService(userDAO, authDAO);
         userService.register(user);
-        assertThrows(DataAccessException.class, () -> userService.register(user));
+        assertThrows(AlreadyTakenException.class, () -> userService.register(user));
 
     }
 

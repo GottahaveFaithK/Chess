@@ -8,8 +8,12 @@ public class MemoryUserDAO implements UserDAO {
     private HashMap<String, UserData> users = new HashMap<>();
 
     @Override
-    public void createUser(UserData user) {
-        users.put(user.username(), user);
+    public void createUser(UserData user) throws DataAccessException {
+        if (users.containsKey(user.username())) {
+            throw new DataAccessException("Username already taken");
+        } else {
+            users.put(user.username(), user);
+        }
     }
 
     @Override
