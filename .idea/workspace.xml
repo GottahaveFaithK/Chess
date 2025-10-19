@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="added test for login (phase 3)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="login passing pos and neg service tests (phase 3)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/UserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/UserHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +114,7 @@
       <recent name="service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="server" />
@@ -198,9 +198,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.UserServiceTest" />
         <item itemvalue="JUnit.UserServiceTest.loginWorks" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.UserServiceTest.registerNegative" />
         <item itemvalue="JUnit.UserServiceTest.registerPositive" />
       </list>
@@ -213,14 +213,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00039" summary="added cleaner helpful function (Phase 1)">
-      <option name="closed" value="true" />
-      <created>1759280071442</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1759280071442</updated>
     </task>
     <task id="LOCAL-00040" summary="vars and getters for castling (Phase 1)">
       <option name="closed" value="true" />
@@ -606,7 +598,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760835137684</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="login passing pos and neg service tests (phase 3)">
+      <option name="closed" value="true" />
+      <created>1760835564026</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1760835564026</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -647,7 +647,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="outlined server functions, none impl (phase 3)" />
     <MESSAGE value="created GameData record (phase 3)" />
     <MESSAGE value="renamed file to fit requirements (phase 3)" />
     <MESSAGE value="scaffolding for Auth interface and memoryDAO (phase 3)" />
@@ -672,6 +671,7 @@
     <MESSAGE value="impl clear method (phase 3)" />
     <MESSAGE value="added login at service and DAO layers (phase 3)" />
     <MESSAGE value="added test for login (phase 3)" />
-    <option name="LAST_COMMIT_MESSAGE" value="added test for login (phase 3)" />
+    <MESSAGE value="login passing pos and neg service tests (phase 3)" />
+    <option name="LAST_COMMIT_MESSAGE" value="login passing pos and neg service tests (phase 3)" />
   </component>
 </project>
