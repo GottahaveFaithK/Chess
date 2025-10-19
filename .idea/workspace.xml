@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="added login at service and DAO layers (phase 3)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="added test for login (phase 3)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/test/java/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/UserServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,7 +114,7 @@
       <recent name="service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceTest.loginWorks">
+  <component name="RunManager" selected="JUnit.UserServiceTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="server" />
@@ -197,9 +198,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserServiceTest" />
         <item itemvalue="JUnit.UserServiceTest.loginWorks" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.UserServiceTest" />
         <item itemvalue="JUnit.UserServiceTest.registerNegative" />
         <item itemvalue="JUnit.UserServiceTest.registerPositive" />
       </list>
@@ -212,14 +213,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00038" summary="removed unused import, passing all required tests (Phase 1)">
-      <option name="closed" value="true" />
-      <created>1759279595547</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1759279595547</updated>
     </task>
     <task id="LOCAL-00039" summary="added cleaner helpful function (Phase 1)">
       <option name="closed" value="true" />
@@ -605,7 +598,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760834928065</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="added test for login (phase 3)">
+      <option name="closed" value="true" />
+      <created>1760835137683</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1760835137684</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -646,7 +647,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="outlined server functions, none implm (phase 3)" />
     <MESSAGE value="outlined server functions, none impl (phase 3)" />
     <MESSAGE value="created GameData record (phase 3)" />
     <MESSAGE value="renamed file to fit requirements (phase 3)" />
@@ -671,6 +671,7 @@
     <MESSAGE value="impl memorygame (phase 3)" />
     <MESSAGE value="impl clear method (phase 3)" />
     <MESSAGE value="added login at service and DAO layers (phase 3)" />
-    <option name="LAST_COMMIT_MESSAGE" value="added login at service and DAO layers (phase 3)" />
+    <MESSAGE value="added test for login (phase 3)" />
+    <option name="LAST_COMMIT_MESSAGE" value="added test for login (phase 3)" />
   </component>
 </project>
