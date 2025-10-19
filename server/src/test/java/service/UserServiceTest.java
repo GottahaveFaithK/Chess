@@ -72,4 +72,26 @@ class UserServiceTest {
         assertEquals("Error: unauthorized", ex.getMessage());
     }
 
+    @Test
+    void logoutPositive() {
+        var user = new UserData("joe", "j@j", "j@jmail.com");
+        UserDAO userDAO = new MemoryUserDAO();
+        AuthDAO authDAO = new MemoryAuthDAO();
+        UserService userService = new UserService(userDAO, authDAO);
+        var res = userService.register(user);
+        var response = userService.logout(res.authToken());
+        assertTrue(response);
+    }
+
+    @Test
+    void logoutNegative() {
+        var user = new UserData("joe", "j@j", "j@jmail.com");
+        UserDAO userDAO = new MemoryUserDAO();
+        AuthDAO authDAO = new MemoryAuthDAO();
+        UserService userService = new UserService(userDAO, authDAO);
+        userService.register(user);
+        ResponseException ex = assertThrows(ResponseException.class, () -> userService.logout("ion"));
+        assertEquals(401, ex.getHttpResponseCode());
+        assertEquals("Error: unauthorized", ex.getMessage());
+    }
 }

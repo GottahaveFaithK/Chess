@@ -38,7 +38,17 @@ public class UserService {
             AuthData authData = new AuthData(user.username(), generateToken());
             authDAO.createAuth(authData);
             return authData;
-            
+
+        } catch (DataAccessException e) {
+            throw new ResponseException("Error: unauthorized", 401);
+        }
+    }
+
+    public boolean logout(String authToken) {
+        try {
+            authDAO.getAuth(authToken);
+            authDAO.deleteAuth(authToken);
+            return true;
         } catch (DataAccessException e) {
             throw new ResponseException("Error: unauthorized", 401);
         }

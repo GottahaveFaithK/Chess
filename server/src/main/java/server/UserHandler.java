@@ -51,6 +51,10 @@ public class UserHandler {
     }
 
     public void logout(Context ctx) {
-        //TODO logout
+        var serializer = new Gson();
+        String authToken = ctx.formParam("authorization");
+        var res = userService.logout(authToken);
+        var response = serializer.toJson(res);
+        ctx.result(response);
     }
 }
