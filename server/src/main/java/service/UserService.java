@@ -29,6 +29,21 @@ public class UserService {
         return authData;
     }
 
+    public AuthData login(UserData user) {
+        try {
+            UserData myUser = userDAO.getUser(user.username());
+            if (!user.password().equals(myUser.password())) {
+                throw new ResponseException("Error: unauthorized", 401);
+            }
+            AuthData authData = new AuthData(user.username(), generateToken());
+            authDAO.createAuth(authData);
+            return authData;
+            
+        } catch (DataAccessException e) {
+            throw new ResponseException("Error: unauthorized", 401);
+        }
+    }
+
     public static String generateToken() {
         return UUID.randomUUID().toString();
     }

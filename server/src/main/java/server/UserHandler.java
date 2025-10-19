@@ -18,12 +18,19 @@ public class UserHandler {
 
         var res = userService.register(request);
 
-        var response = serializer.toJson(request);
+        var response = serializer.toJson(res);
         ctx.result(response);
     }
 
     public void login(Context ctx) {
-        //TODO login
+        var serializer = new Gson();
+        UserData request = serializer.fromJson(ctx.body(), UserData.class);
+
+        var res = userService.login(request);
+
+        var response = serializer.toJson(res);
+        ctx.result(response);
+
     }
 
     public void logout(Context ctx) {

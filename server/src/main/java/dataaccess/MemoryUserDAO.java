@@ -17,8 +17,12 @@ public class MemoryUserDAO implements UserDAO {
     }
 
     @Override
-    public UserData getUser(String username) {
-        return users.get(username);
+    public UserData getUser(String username) throws DataAccessException {
+        if (users.get(username) == null) {
+            throw new DataAccessException("Invalid Username");
+        } else {
+            return users.get(username);
+        }
     }
 
     @Override
