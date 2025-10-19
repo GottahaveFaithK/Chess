@@ -79,8 +79,9 @@ class UserServiceTest {
         AuthDAO authDAO = new MemoryAuthDAO();
         UserService userService = new UserService(userDAO, authDAO);
         var res = userService.register(user);
-        var response = userService.logout(res.authToken());
-        assertTrue(response);
+        userService.logout(res.authToken());
+        assertThrows(DataAccessException.class, () -> authDAO.getAuth(res.authToken()));
+
     }
 
     @Test

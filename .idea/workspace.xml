@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl logout (phase 3)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="fixed some error messsages being thrown when they shouldnt (phase 3)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/ClearHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/ClearHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/UserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/UserHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/UserServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +114,7 @@
       <recent name="service" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.UserServiceTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="server" />
@@ -200,8 +198,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.UserServiceTest" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.UserServiceTest.loginWorks" />
         <item itemvalue="JUnit.UserServiceTest.registerNegative" />
         <item itemvalue="JUnit.UserServiceTest.registerPositive" />
@@ -215,14 +213,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00042" summary="getter for lastmove (Phase 1)">
-      <option name="closed" value="true" />
-      <created>1759526465591</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1759526465591</updated>
     </task>
     <task id="LOCAL-00043" summary="added enpassant to valid moves (Phase 1)">
       <option name="closed" value="true" />
@@ -608,7 +598,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760838169989</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="fixed some error messsages being thrown when they shouldnt (phase 3)">
+      <option name="closed" value="true" />
+      <created>1760839264577</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1760839264577</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -649,7 +647,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="scaffolding for Auth interface and memoryDAO (phase 3)" />
     <MESSAGE value="scaffolding for game interface and memoryDAO (phase 3)" />
     <MESSAGE value="scaffolding for user interface and memoryDAO (phase 3)" />
     <MESSAGE value="removing the past impl of MemoryDataAccess and its interface (didnt like it) (phase 3)" />
@@ -674,6 +671,7 @@
     <MESSAGE value="login passing pos and neg service tests (phase 3)" />
     <MESSAGE value="register and login now handle bad requests (phase 3)" />
     <MESSAGE value="impl logout (phase 3)" />
-    <option name="LAST_COMMIT_MESSAGE" value="impl logout (phase 3)" />
+    <MESSAGE value="fixed some error messsages being thrown when they shouldnt (phase 3)" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed some error messsages being thrown when they shouldnt (phase 3)" />
   </component>
 </project>
