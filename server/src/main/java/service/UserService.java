@@ -44,11 +44,10 @@ public class UserService {
         }
     }
 
-    public boolean logout(String authToken) {
+    public void logout(String authToken) {
         try {
             authDAO.getAuth(authToken);
             authDAO.deleteAuth(authToken);
-            return true;
         } catch (DataAccessException e) {
             throw new ResponseException("Error: unauthorized", 401);
         }

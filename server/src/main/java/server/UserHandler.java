@@ -6,6 +6,8 @@ import model.UserData;
 import service.ResponseException;
 import service.UserService;
 
+import java.util.Map;
+
 public class UserHandler {
     private final UserService userService;
 
@@ -14,47 +16,43 @@ public class UserHandler {
     }
 
     public void register(Context ctx) {
-        String username = ctx.formParam("username");
-        String password = ctx.formParam("password");
-        String email = ctx.formParam("email");
+        var serializer = new Gson();
+        UserData request = serializer.fromJson(ctx.body(), UserData.class);
 
-        if (username == null || username.isEmpty() ||
-                password == null || password.isEmpty() ||
-                email == null || email.isEmpty()) {
+        if (request.username() == null || request.username().isEmpty() ||
+                request.password() == null || request.password().isEmpty() ||
+                request.email() == null || request.email().isEmpty()) {
             throw new ResponseException("Error: bad request", 400);
-        } else {
-            var serializer = new Gson();
-            UserData request = serializer.fromJson(ctx.body(), UserData.class);
-
-            var res = userService.register(request);
-
-            var response = serializer.toJson(res);
-            ctx.result(response);
         }
+
+        var res = userService.register(request);
+
+        var response = serializer.toJson(res);
+        ctx.result(response);
+
     }
 
     public void login(Context ctx) {
-        String username = ctx.formParam("username");
-        String password = ctx.formParam("password");
+        var serializer = new Gson();
+        UserData request = serializer.fromJson(ctx.body(), UserData.class);
 
-        if (username == null || username.isEmpty() || password == null || password.isEmpty()) {
+        if (request.username() == null || request.username().isEmpty() ||
+                request.password() == null || request.password().isEmpty()) {
             throw new ResponseException("Error: bad request", 400);
-        } else {
-            var serializer = new Gson();
-            UserData request = serializer.fromJson(ctx.body(), UserData.class);
-
-            var res = userService.login(request);
-
-            var response = serializer.toJson(res);
-            ctx.result(response);
         }
+
+        var res = userService.login(request);
+
+        var response = serializer.toJson(res);
+        ctx.result(response);
     }
 
     public void logout(Context ctx) {
         var serializer = new Gson();
-        String authToken = ctx.formParam("authorization");
-        var res = userService.logout(authToken);
-        var response = serializer.toJson(res);
-        ctx.result(response);
+        String authToken = ctx.header("authorization");
+        userService.logout(authToken);
+        ctx.result(serializer.toJson(Map.of()));
+        ctx.status(200);
+
     }
 }
