@@ -34,4 +34,16 @@ class UserServiceTest {
         assertEquals("Error: already taken", ex.getMessage());
     }
 
+    @Test
+    void loginWorks() {
+        var user = new UserData("joe", "j@j", "j@jmail.com");
+        UserDAO userDAO = new MemoryUserDAO();
+        AuthDAO authDAO = new MemoryAuthDAO();
+        UserService userService = new UserService(userDAO, authDAO);
+        userService.register(user);
+        var response = userService.login(user);
+        assertEquals(response.username(), user.username());
+        assertNotNull(response.authToken());
+    }
+
 }
