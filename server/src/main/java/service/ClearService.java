@@ -15,4 +15,10 @@ public class ClearService {
         this.authDAO = authDAO;
     }
 
+    public void clear() {
+        authDAO.deleteAllAuth();
+        userDAO.deleteAllUsers();
+        gameDAO.deleteAllGames();
+    }
+
 }

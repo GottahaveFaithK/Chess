@@ -8,6 +8,8 @@ import service.GameService;
 import service.ResponseException;
 import service.UserService;
 
+import java.util.Map;
+
 public class Server {
 
     private final Javalin server;
@@ -30,6 +32,11 @@ public class Server {
         clearHandler = new ClearHandler(clearService);
 
         server = Javalin.create(config -> config.staticFiles.add("web"));
+
+        server.exception(Exception.class, (ex, ctx) -> {
+            ctx.status(500);
+            ctx.json(Map.of("message", "Error: " + ex.getMessage()));
+        });
 
         registerRoutes();
 

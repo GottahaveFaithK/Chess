@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl memoryAuth (phase 3)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl memorygame (phase 3)">
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/service/ClearServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/GameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/GameDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryGameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryGameDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/ClearHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/ClearHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/ClearService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/ClearService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +22,8 @@
         <option value="JUnit5 Test Class" />
         <option value="Record" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Exception" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -213,14 +215,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00035" summary="impl createTestBoard (Phase 1)">
-      <option name="closed" value="true" />
-      <created>1759200532524</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1759200532524</updated>
     </task>
     <task id="LOCAL-00036" summary="impl validMoves, now passing MakeMoveTests, ValidMovesTests, and ChessGameTests (Phase 1)">
       <option name="closed" value="true" />
@@ -606,7 +600,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760826832744</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="impl memorygame (phase 3)">
+      <option name="closed" value="true" />
+      <created>1760827982408</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1760827982408</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -647,7 +649,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updated some files, created a test (phase 3)" />
     <MESSAGE value="finished TODO (phase 3)" />
     <MESSAGE value="fixed small piece of a test (phase 3)" />
     <MESSAGE value="outlined server functions, none implm (phase 3)" />
@@ -672,6 +673,7 @@
     <MESSAGE value="error is now working! :D (phase 3)" />
     <MESSAGE value="now have correct authToken and some more memory DAO work (phase 3)" />
     <MESSAGE value="impl memoryAuth (phase 3)" />
-    <option name="LAST_COMMIT_MESSAGE" value="impl memoryAuth (phase 3)" />
+    <MESSAGE value="impl memorygame (phase 3)" />
+    <option name="LAST_COMMIT_MESSAGE" value="impl memorygame (phase 3)" />
   </component>
 </project>

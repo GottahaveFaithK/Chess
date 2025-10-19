@@ -11,6 +11,7 @@ public class ClearHandler {
     }
 
     public void clear(Context ctx) {
-        //TODO impl this
+        clearService.clear();
+        //ctx.status(200);
     }
 }
