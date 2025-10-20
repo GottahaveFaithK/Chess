@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="working on createGame (phase 3)">
-      <change afterPath="$PROJECT_DIR$/server/src/test/java/service/GameServiceTest.java" afterDir="false" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl pos serviceTest for create game (phase 3)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/service/GameServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/GameServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +67,9 @@
     "JUnit.CastlingTests.executor": "Run",
     "JUnit.ChessBoardTests.executor": "Run",
     "JUnit.EnPassantTests.executor": "Run",
+    "JUnit.GameServiceTest.createGameNoName.executor": "Run",
     "JUnit.GameServiceTest.createGamePositive.executor": "Run",
+    "JUnit.GameServiceTest.executor": "Run",
     "JUnit.KingMoveTests.executor": "Debug",
     "JUnit.KnightMoveTests.executor": "Debug",
     "JUnit.PawnMoveTests.executor": "Run",
@@ -115,10 +117,50 @@
       <recent name="service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GameServiceTest.createGamePositive">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+  <component name="RunManager" selected="JUnit.GameServiceTest">
+    <configuration name="GameServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="service" />
+      <option name="MAIN_CLASS_NAME" value="service.GameServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameServiceTest.createGameNoAuth" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="service" />
+      <option name="MAIN_CLASS_NAME" value="service.GameServiceTest" />
+      <option name="METHOD_NAME" value="createGameNoAuth" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameServiceTest.createGameNoName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="service" />
+      <option name="MAIN_CLASS_NAME" value="service.GameServiceTest" />
+      <option name="METHOD_NAME" value="createGameNoName" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -154,38 +196,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest.loginWorks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="service" />
-      <option name="MAIN_CLASS_NAME" value="service.UserServiceTest" />
-      <option name="METHOD_NAME" value="loginWorks" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTest.registerNegative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="service" />
-      <option name="MAIN_CLASS_NAME" value="service.UserServiceTest" />
-      <option name="METHOD_NAME" value="registerNegative" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="client" />
       <method v="2">
@@ -199,11 +209,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GameServiceTest" />
+        <item itemvalue="JUnit.GameServiceTest.createGameNoAuth" />
+        <item itemvalue="JUnit.GameServiceTest.createGameNoName" />
         <item itemvalue="JUnit.GameServiceTest.createGamePositive" />
         <item itemvalue="JUnit.UserServiceTest" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.UserServiceTest.loginWorks" />
-        <item itemvalue="JUnit.UserServiceTest.registerNegative" />
       </list>
     </recent_temporary>
   </component>
@@ -214,14 +224,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00046" summary="impl getCastlingMoves (Phase 1)">
-      <option name="closed" value="true" />
-      <created>1759534809174</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1759534809174</updated>
     </task>
     <task id="LOCAL-00047" summary="impl castling (also possibly rough) (Phase 1)">
       <option name="closed" value="true" />
@@ -607,7 +609,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760990673918</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="impl pos serviceTest for create game (phase 3)">
+      <option name="closed" value="true" />
+      <created>1760991143192</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1760991143192</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -648,7 +658,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="removing the past impl of MemoryDataAccess and its interface (didnt like it) (phase 3)" />
     <MESSAGE value="impl new handler framework (phase 3)" />
     <MESSAGE value="removed unneeded imports as part of refactor (phase 3)" />
     <MESSAGE value="impl base structure for clearservice and gameservice (phase 3)" />
@@ -673,6 +682,7 @@
     <MESSAGE value="fixed some error messsages being thrown when they shouldnt (phase 3)" />
     <MESSAGE value="fixed logoutPositive test (phase 3)" />
     <MESSAGE value="working on createGame (phase 3)" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on createGame (phase 3)" />
+    <MESSAGE value="impl pos serviceTest for create game (phase 3)" />
+    <option name="LAST_COMMIT_MESSAGE" value="impl pos serviceTest for create game (phase 3)" />
   </component>
 </project>
