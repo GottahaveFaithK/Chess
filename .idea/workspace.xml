@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl gamehandler creategame (phase 3)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl creategame (phase 3)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/GameHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/GameHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/GameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/GameDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryGameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryGameDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,14 +218,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00049" summary="passing extra credit tests! (Phase 1)">
-      <option name="closed" value="true" />
-      <created>1759536082903</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1759536082903</updated>
     </task>
     <task id="LOCAL-00050" summary="some formatting fixes, reduced nested loops (Phase 1)">
       <option name="closed" value="true" />
@@ -610,7 +603,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761000495312</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="impl creategame (phase 3)">
+      <option name="closed" value="true" />
+      <created>1761000960664</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1761000960664</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -651,7 +652,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="impl base structure for clearservice and gameservice (phase 3)" />
     <MESSAGE value="Game Handler outline (phase 3)" />
     <MESSAGE value="restructured server to work with gamehandler  (phase 3)" />
     <MESSAGE value="added clearHandler outline (phase 3)" />
@@ -676,6 +676,7 @@
     <MESSAGE value="impl pos serviceTest for create game (phase 3)" />
     <MESSAGE value="tested error 400 and 401 for create game (phase 3)" />
     <MESSAGE value="impl gamehandler creategame (phase 3)" />
-    <option name="LAST_COMMIT_MESSAGE" value="impl gamehandler creategame (phase 3)" />
+    <MESSAGE value="impl creategame (phase 3)" />
+    <option name="LAST_COMMIT_MESSAGE" value="impl creategame (phase 3)" />
   </component>
 </project>

@@ -27,7 +27,7 @@ public class MemoryGameDAO implements GameDAO {
     }
 
     @Override
-    public void updateGame(int gameID, ChessGame updatedGame) {
+    public void updateGame(int gameID, ChessGame updatedGame) throws DataAccessException {
         GameData current = getGame(gameID);
         if (current != null) {
             gameStorage.put(gameID, new GameData(
@@ -37,6 +37,8 @@ public class MemoryGameDAO implements GameDAO {
                     current.gameName(),
                     updatedGame)
             );
+        } else {
+            throw new DataAccessException("Game Id is null");
         }
     }
 
@@ -51,8 +53,13 @@ public class MemoryGameDAO implements GameDAO {
     }
 
     @Override
-    public void deleteGame(GameData game) {
-        gameStorage.remove(game.gameID());
+    public void deleteGame(GameData game) throws DataAccessException {
+        GameData current = getGame(game.gameID());
+        if (current != null) {
+            gameStorage.remove(game.gameID());
+        } else {
+            throw new DataAccessException("Game Id is null");
+        }
     }
 
     @Override

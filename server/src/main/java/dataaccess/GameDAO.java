@@ -9,13 +9,13 @@ import java.util.List;
 public interface GameDAO {
     int createGame(String gameName) throws DataAccessException;
 
-    void updateGame(int gameID, ChessGame updatedGame);
+    void updateGame(int gameID, ChessGame updatedGame) throws DataAccessException;
 
-    GameData getGame(int id);
+    GameData getGame(int id) throws DataAccessException;
 
     Collection<GameData> listGames();
 
-    void deleteGame(GameData game);
+    void deleteGame(GameData game) throws DataAccessException;
 
     void deleteAllGames();
 }
