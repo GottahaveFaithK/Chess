@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="tested error 400 and 401 for create game (phase 3)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl gamehandler creategame (phase 3)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/server/GameHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/GameHandler.java" afterDir="false" />
     </list>
@@ -118,7 +118,14 @@
       <recent name="service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GameServiceTest">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GameServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -182,21 +189,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="service" />
-      <option name="MAIN_CLASS_NAME" value="service.UserServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="client" />
       <method v="2">
@@ -210,11 +202,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.GameServiceTest" />
         <item itemvalue="JUnit.GameServiceTest.createGameNoAuth" />
         <item itemvalue="JUnit.GameServiceTest.createGameNoName" />
         <item itemvalue="JUnit.GameServiceTest.createGamePositive" />
-        <item itemvalue="JUnit.UserServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -225,14 +217,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00048" summary="passing extra credit tests! (Phase 1)">
-      <option name="closed" value="true" />
-      <created>1759536025064</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1759536025065</updated>
     </task>
     <task id="LOCAL-00049" summary="passing extra credit tests! (Phase 1)">
       <option name="closed" value="true" />
@@ -618,7 +602,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760999961615</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="impl gamehandler creategame (phase 3)">
+      <option name="closed" value="true" />
+      <created>1761000495312</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1761000495312</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -659,7 +651,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="removed unneeded imports as part of refactor (phase 3)" />
     <MESSAGE value="impl base structure for clearservice and gameservice (phase 3)" />
     <MESSAGE value="Game Handler outline (phase 3)" />
     <MESSAGE value="restructured server to work with gamehandler  (phase 3)" />
@@ -684,6 +675,7 @@
     <MESSAGE value="working on createGame (phase 3)" />
     <MESSAGE value="impl pos serviceTest for create game (phase 3)" />
     <MESSAGE value="tested error 400 and 401 for create game (phase 3)" />
-    <option name="LAST_COMMIT_MESSAGE" value="tested error 400 and 401 for create game (phase 3)" />
+    <MESSAGE value="impl gamehandler creategame (phase 3)" />
+    <option name="LAST_COMMIT_MESSAGE" value="impl gamehandler creategame (phase 3)" />
   </component>
 </project>

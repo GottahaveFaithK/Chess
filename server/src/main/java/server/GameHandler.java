@@ -1,8 +1,11 @@
 package server;
 
 import com.google.gson.Gson;
+import model.GameData;
 import service.GameService;
 import io.javalin.http.Context;
+
+import java.util.Map;
 
 
 public class GameHandler {
@@ -15,10 +18,11 @@ public class GameHandler {
     public void createGame(Context ctx) {
         var serializer = new Gson();
         String authToken = ctx.header("authorization");
-        String gameName = serializer.fromJson(ctx.body(), String.class);
-        var res = gameService.createGame(gameName, authToken);
-        var response = serializer.toJson(res);
-        ctx.result(response);
+        GameData request = serializer.fromJson(ctx.body(), GameData.class);
+        var res = gameService.createGame(request.gameName(), authToken);
+        var response = Map.of("gameID", res);
+        ctx.result(serializer.toJson(response));
+        ctx.status(200);
     }
 
     public void listGames(Context ctx) {
