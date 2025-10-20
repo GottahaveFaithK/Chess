@@ -11,11 +11,16 @@ import java.util.List;
 
 public class MemoryGameDAO implements GameDAO {
     private final HashMap<Integer, GameData> gameStorage = new HashMap<>();
+    private int lastUsedID = 0;
 
     @Override
-    public void createGame(GameData game) throws DataAccessException {
-        if (game.gameName() != null) {
-            gameStorage.put(game.gameID(), game);
+    public int createGame(String gameName) throws DataAccessException {
+        if (gameName != null && !gameName.isBlank()) {
+            int newID = lastUsedID + 1;
+            GameData gameData = new GameData(newID, null, null, gameName, new ChessGame());
+            gameStorage.put(newID, gameData);
+            lastUsedID = newID;
+            return newID;
         } else {
             throw new DataAccessException("Game name is null");
         }
@@ -30,7 +35,8 @@ public class MemoryGameDAO implements GameDAO {
                     current.whiteUsername(),
                     current.blackUsername(),
                     current.gameName(),
-                    updatedGame));
+                    updatedGame)
+            );
         }
     }
 
