@@ -6,6 +6,9 @@ import service.GameService;
 import io.javalin.http.Context;
 import service.ResponseException;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -35,7 +38,21 @@ public class GameHandler {
         if (authToken == null || authToken.isEmpty()) {
             throw new ResponseException("Error: bad request", 400);
         }
-        //var res = gameService.
+        var serializer = new Gson();
+        var res = gameService.listGames(authToken);
+        List<Map<String, Object>> gamesFormatted = new ArrayList<>();
+        for (GameData game : res) {
+            Map<String, Object> formatted = new HashMap<>();
+            formatted.put("gameID", game.gameID());
+            formatted.put("whiteUsername", game.whiteUsername() == null ? null : game.whiteUsername());
+            formatted.put("blackUsername", game.blackUsername() == null ? null : game.blackUsername());
+            formatted.put("gameName", game.gameName());
+            gamesFormatted.add(formatted);
+        }
+
+        var response = serializer.toJson(Map.of("games", gamesFormatted));
+        ctx.result(response);
+        ctx.status(200);
     }
 
     public void joinGame(Context ctx) {

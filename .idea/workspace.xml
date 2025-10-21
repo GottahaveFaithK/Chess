@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl joingame on handler level (phase 3)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl list games tests, and listgames on DAO and service layers (phase 3)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/server/GameHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/GameHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/service/GameServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/GameServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +61,7 @@
     "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Application.Main.executor": "Run",
+    "JUnit.All in server.executor": "Run",
     "JUnit.All in shared.executor": "Run",
     "JUnit.BishopMoveTests.bishopMoveUntilEdge.executor": "Run",
     "JUnit.BishopMoveTests.executor": "Run",
@@ -123,10 +122,18 @@
       <recent name="service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GameServiceTest">
+  <component name="RunManager" selected="JUnit.All in server">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -142,22 +149,6 @@
       <option name="PACKAGE_NAME" value="service" />
       <option name="MAIN_CLASS_NAME" value="service.GameServiceTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GameServiceTest.joinGamePositive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="service" />
-      <option name="MAIN_CLASS_NAME" value="service.GameServiceTest" />
-      <option name="METHOD_NAME" value="joinGamePositive" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -205,11 +196,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in server" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.GameServiceTest" />
         <item itemvalue="JUnit.GameServiceTest.listGamesPositive" />
         <item itemvalue="JUnit.passoff.server in server" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.GameServiceTest.joinGamePositive" />
       </list>
     </recent_temporary>
   </component>
@@ -220,14 +211,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00053" summary="impl main file (phase 3)">
-      <option name="closed" value="true" />
-      <created>1759956343017</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1759956343017</updated>
     </task>
     <task id="LOCAL-00054" summary="impl server.delete (phase 3)">
       <option name="closed" value="true" />
@@ -613,7 +596,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761008487454</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="impl list games tests, and listgames on DAO and service layers (phase 3)">
+      <option name="closed" value="true" />
+      <created>1761009487142</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1761009487142</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -654,7 +645,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="final tidying up of server before stopping for the day (phase 3)" />
     <MESSAGE value="created a registerNegative test (phase 3)" />
     <MESSAGE value="Register user now throws proper error (phase 3)" />
     <MESSAGE value="added responseexception class (phase 3)" />
@@ -679,6 +669,7 @@
     <MESSAGE value="updated updateGame and deleteGame to throw errors (phase 3)" />
     <MESSAGE value="impl joingame tests (and joingame on service/DOA layer) (phase 3)" />
     <MESSAGE value="impl joingame on handler level (phase 3)" />
-    <option name="LAST_COMMIT_MESSAGE" value="impl joingame on handler level (phase 3)" />
+    <MESSAGE value="impl list games tests, and listgames on DAO and service layers (phase 3)" />
+    <option name="LAST_COMMIT_MESSAGE" value="impl list games tests, and listgames on DAO and service layers (phase 3)" />
   </component>
 </project>
