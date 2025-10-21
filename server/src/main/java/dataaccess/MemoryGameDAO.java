@@ -64,6 +64,7 @@ public class MemoryGameDAO implements GameDAO {
         return gameStorage.values();
     }
 
+
     @Override
     public void deleteAllGames() {
         gameStorage.clear();
