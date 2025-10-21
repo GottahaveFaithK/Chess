@@ -50,6 +50,9 @@ public class UserHandler {
     public void logout(Context ctx) {
         var serializer = new Gson();
         String authToken = ctx.header("authorization");
+        if (authToken == null || authToken.isEmpty()) {
+            throw new ResponseException("Error: bad request", 400);
+        }
         userService.logout(authToken);
         ctx.result(serializer.toJson(Map.of()));
         ctx.status(200);
