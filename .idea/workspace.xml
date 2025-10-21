@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="passing all tests (phase 3)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/GameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/GameDAO.java" afterDir="false" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl clear all test (phase 3)">
       <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryGameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryGameDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryUserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/service/ClearServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/ClearServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,14 +213,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00055" summary=" need to impl clear and register, but hey, the network side is working (phase 3)">
-      <option name="closed" value="true" />
-      <created>1759957757858</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1759957757858</updated>
     </task>
     <task id="LOCAL-00056" summary="setup of various files (phase 3)">
       <option name="closed" value="true" />
@@ -611,7 +598,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761010581557</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="impl clear all test (phase 3)">
+      <option name="closed" value="true" />
+      <created>1761011212031</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1761011212031</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -652,7 +647,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Register user now throws proper error (phase 3)" />
     <MESSAGE value="added responseexception class (phase 3)" />
     <MESSAGE value="updated code for responseerror (phase 3)" />
     <MESSAGE value="error is now working! :D (phase 3)" />
@@ -677,6 +671,7 @@
     <MESSAGE value="impl joingame on handler level (phase 3)" />
     <MESSAGE value="impl list games tests, and listgames on DAO and service layers (phase 3)" />
     <MESSAGE value="passing all tests (phase 3)" />
-    <option name="LAST_COMMIT_MESSAGE" value="passing all tests (phase 3)" />
+    <MESSAGE value="impl clear all test (phase 3)" />
+    <option name="LAST_COMMIT_MESSAGE" value="impl clear all test (phase 3)" />
   </component>
 </project>
