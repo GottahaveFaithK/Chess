@@ -64,19 +64,6 @@ public class MemoryGameDAO implements GameDAO {
         return gameStorage.values();
     }
 
-    /*@Override
-    public void deleteGame(GameData game) throws DataAccessException {
-        GameData current = getGame(game.gameID());
-        if (current != null) {
-            gameStorage.remove(game.gameID());
-        } else {
-            throw new DataAccessException("Game Id is null");
-        }
-        //style thing, maybe redesign the exception to be thrown in getGame?
-    }
-
-     */
-
     @Override
     public void deleteAllGames() {
         gameStorage.clear();
