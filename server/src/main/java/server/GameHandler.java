@@ -31,7 +31,11 @@ public class GameHandler {
     }
 
     public void listGames(Context ctx) {
-        //TODO impl file
+        String authToken = ctx.header("authorization");
+        if (authToken == null || authToken.isEmpty()) {
+            throw new ResponseException("Error: bad request", 400);
+        }
+        //var res = gameService.
     }
 
     public void joinGame(Context ctx) {

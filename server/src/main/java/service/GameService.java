@@ -5,6 +5,8 @@ import dataaccess.DataAccessException;
 import dataaccess.GameDAO;
 import model.GameData;
 
+import java.util.Collection;
+
 public class GameService {
     private final AuthDAO authDAO;
     private final GameDAO gameDAO;
@@ -25,6 +27,15 @@ public class GameService {
         } catch (DataAccessException e) {
             throw new ResponseException("Error: unauthorized", 401);
         }
+    }
+
+    public Collection<GameData> listGames(String authToken) {
+        try {
+            authDAO.getAuth(authToken);
+        } catch (DataAccessException e) {
+            throw new ResponseException("Error: unauthorized", 401);
+        }
+        return gameDAO.listGames();
     }
 
     public void joinGame(String playerColor, int gameID, String authToken) {

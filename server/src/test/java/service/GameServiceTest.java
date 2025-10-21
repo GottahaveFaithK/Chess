@@ -101,4 +101,35 @@ public class GameServiceTest {
         assertEquals("Error: already taken", ex.getMessage());
     }
 
+    @Test
+    void listGamesPositive() {
+        var user = new UserData("joe", "j@j", "j@jmail.com");
+        UserDAO userDAO = new MemoryUserDAO();
+        AuthDAO authDAO = new MemoryAuthDAO();
+        GameDAO gameDAO = new MemoryGameDAO();
+        UserService userService = new UserService(userDAO, authDAO);
+        var res = userService.register(user);
+        GameService gameService = new GameService(gameDAO, authDAO);
+        gameService.createGame("myGame", res.authToken());
+        gameService.createGame("otherGame", res.authToken());
+        var games = gameService.listGames(res.authToken());
+        assertEquals(2, games.size());
+    }
+
+    @Test
+    void listGamesNoAuth() {
+        var user = new UserData("joe", "j@j", "j@jmail.com");
+        UserDAO userDAO = new MemoryUserDAO();
+        AuthDAO authDAO = new MemoryAuthDAO();
+        GameDAO gameDAO = new MemoryGameDAO();
+        UserService userService = new UserService(userDAO, authDAO);
+        var res = userService.register(user);
+        GameService gameService = new GameService(gameDAO, authDAO);
+        gameService.createGame("myGame", res.authToken());
+        ResponseException ex = assertThrows(ResponseException.class, ()
+                -> gameService.listGames(""));
+        assertEquals(401, ex.getHttpResponseCode());
+        assertEquals("Error: unauthorized", ex.getMessage());
+    }
+
 }
