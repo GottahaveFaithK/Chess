@@ -27,24 +27,36 @@ public class MemoryGameDAO implements GameDAO {
     }
 
     @Override
-    public void updateGame(int gameID, ChessGame updatedGame) throws DataAccessException {
-        GameData current = getGame(gameID);
-        if (current != null) {
-            gameStorage.put(gameID, new GameData(
-                    gameID,
-                    current.whiteUsername(),
-                    current.blackUsername(),
-                    current.gameName(),
+    public void updateGame(GameData game, ChessGame updatedGame, String color, String username) throws DataAccessException {
+        if (color.equals("WHITE") && game.whiteUsername() == null) {
+            gameStorage.put(game.gameID(), new GameData(
+                    game.gameID(),
+                    username,
+                    game.blackUsername(),
+                    game.gameName(),
+                    updatedGame)
+            );
+        } else if (color.equals("BLACK") && game.blackUsername() == null) {
+            gameStorage.put(game.gameID(), new GameData(
+                    game.gameID(),
+                    game.whiteUsername(),
+                    username,
+                    game.gameName(),
                     updatedGame)
             );
         } else {
-            throw new DataAccessException("Game Id is null");
+            throw new DataAccessException("Color already taken");
         }
     }
 
     @Override
-    public GameData getGame(int id) {
-        return gameStorage.get(id);
+    public GameData getGame(int id) throws DataAccessException {
+        GameData myGame = gameStorage.get(id);
+        if (myGame != null) {
+            return myGame;
+        } else {
+            throw new DataAccessException("Game ID is invalid");
+        }
     }
 
     @Override
@@ -60,6 +72,7 @@ public class MemoryGameDAO implements GameDAO {
         } else {
             throw new DataAccessException("Game Id is null");
         }
+        //style thing, maybe redesign the exception to be thrown in getGame?
     }
 
     @Override

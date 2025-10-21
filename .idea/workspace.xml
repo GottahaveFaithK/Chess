@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl creategame (phase 3)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="updated updateGame and deleteGame to throw errors (phase 3)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/GameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/GameDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryGameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryGameDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/service/GameServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/GameServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +74,7 @@
     "JUnit.GameServiceTest.createGameNoName.executor": "Run",
     "JUnit.GameServiceTest.createGamePositive.executor": "Run",
     "JUnit.GameServiceTest.executor": "Run",
+    "JUnit.GameServiceTest.joinGamePositive.executor": "Run",
     "JUnit.KingMoveTests.executor": "Debug",
     "JUnit.KnightMoveTests.executor": "Debug",
     "JUnit.PawnMoveTests.executor": "Run",
@@ -119,7 +122,7 @@
       <recent name="service" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.GameServiceTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="server" />
@@ -174,7 +177,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameServiceTest.createGamePositive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameServiceTest.joinGamePositive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
@@ -184,7 +187,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="service" />
       <option name="MAIN_CLASS_NAME" value="service.GameServiceTest" />
-      <option name="METHOD_NAME" value="createGamePositive" />
+      <option name="METHOD_NAME" value="joinGamePositive" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -203,11 +206,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.GameServiceTest" />
+        <item itemvalue="JUnit.GameServiceTest.joinGamePositive" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.GameServiceTest.createGameNoAuth" />
         <item itemvalue="JUnit.GameServiceTest.createGameNoName" />
-        <item itemvalue="JUnit.GameServiceTest.createGamePositive" />
       </list>
     </recent_temporary>
   </component>
@@ -218,14 +221,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00050" summary="some formatting fixes, reduced nested loops (Phase 1)">
-      <option name="closed" value="true" />
-      <created>1759549580005</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1759549580006</updated>
     </task>
     <task id="LOCAL-00051" summary="more formatting fixes (Phase 1)">
       <option name="closed" value="true" />
@@ -611,7 +606,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761000960664</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="updated updateGame and deleteGame to throw errors (phase 3)">
+      <option name="closed" value="true" />
+      <created>1761002888175</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1761002888175</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -652,7 +655,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Game Handler outline (phase 3)" />
     <MESSAGE value="restructured server to work with gamehandler  (phase 3)" />
     <MESSAGE value="added clearHandler outline (phase 3)" />
     <MESSAGE value="final tidying up of server before stopping for the day (phase 3)" />
@@ -677,6 +679,18 @@
     <MESSAGE value="tested error 400 and 401 for create game (phase 3)" />
     <MESSAGE value="impl gamehandler creategame (phase 3)" />
     <MESSAGE value="impl creategame (phase 3)" />
-    <option name="LAST_COMMIT_MESSAGE" value="impl creategame (phase 3)" />
+    <MESSAGE value="updated updateGame and deleteGame to throw errors (phase 3)" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated updateGame and deleteGame to throw errors (phase 3)" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/service/GameService.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

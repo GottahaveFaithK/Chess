@@ -26,4 +26,26 @@ public class GameService {
             throw new ResponseException("Error: unauthorized", 401);
         }
     }
+
+    public void joinGame(String playerColor, int gameID, String authToken) {
+        try {
+            authDAO.getAuth(authToken);
+        } catch (DataAccessException e) {
+            throw new ResponseException("Error: unauthorized", 401);
+        }
+        try {
+            GameData myGame = gameDAO.getGame(gameID);
+            if (playerColor.equals("WHITE") || playerColor.equals("BLACK")) {
+                try {
+                    gameDAO.updateGame(myGame, myGame.game(), playerColor, authDAO.getAuth(authToken).username());
+                } catch (DataAccessException e) {
+                    throw new ResponseException("Error: already taken", 403);
+                }
+            } else {
+                throw new ResponseException("Error: this is where I break", 400);
+            }
+        } catch (DataAccessException e) {
+            throw new ResponseException("Error: bad request", 400);
+        }
+    }
 }
