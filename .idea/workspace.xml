@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl clear all test (phase 3)">
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryGameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryGameDAO.java" afterDir="false" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="removed unused methods for quality (phase 3)">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mindrot_jbcrypt.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/DatabaseManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/passoff/server/DatabaseTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +63,7 @@
     "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Application.Main.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
     "JUnit.All in server.executor": "Run",
     "JUnit.All in shared.executor": "Run",
     "JUnit.BishopMoveTests.bishopMoveUntilEdge.executor": "Run",
@@ -90,6 +94,9 @@
     "JUnit.passoff.chess.game in shared.executor": "Run",
     "JUnit.passoff.server in server.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -98,19 +105,20 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/faith/OneDrive/Documents/Classes/2025/cs240/Chess/server/src/main/resources",
-    "project.structure.last.edited": "Modules",
+    "last_opened_file_path": "C:/Users/faith/OneDrive/Documents/Classes/2025/cs240/Chess/server/src/test/java/passoff/server",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
+    "project.structure.side.proportion": "0.60114944",
     "settings.editor.selected.configurable": "configurable.group.tools"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\faith\OneDrive\Documents\Classes\2025\cs240\Chess\server\src\test\java\passoff\server" />
+      <recent name="C:\Users\faith\OneDrive\Documents\Classes\2025\cs240\Chess\server\src\main\java\dataaccess" />
       <recent name="C:\Users\faith\OneDrive\Documents\Classes\2025\cs240\Chess\server\src\main\resources" />
       <recent name="C:\Users\faith\OneDrive\Documents\Classes\2025\cs240\Chess\server\src\test\java" />
       <recent name="C:\Users\faith\OneDrive\Documents\Classes\2025\cs240\Chess\server\src\main\java" />
-      <recent name="C:\Users\faith\OneDrive\Documents\Classes\2025\cs240\Chess\shared\src\test\java\passoff\chess" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -123,7 +131,7 @@
       <recent name="service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ClearServiceTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="server" />
@@ -198,10 +206,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.ClearServiceTest" />
         <item itemvalue="JUnit.ClearServiceTest.clearAll" />
         <item itemvalue="JUnit.All in server" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.GameServiceTest" />
       </list>
     </recent_temporary>
@@ -213,30 +221,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00056" summary="setup of various files (phase 3)">
-      <option name="closed" value="true" />
-      <created>1760390198938</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1760390198938</updated>
-    </task>
-    <task id="LOCAL-00057" summary="setup of various files (phase 3)">
-      <option name="closed" value="true" />
-      <created>1760400535527</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1760400535527</updated>
-    </task>
-    <task id="LOCAL-00058" summary="updated some files, created a test (phase 3)">
-      <option name="closed" value="true" />
-      <created>1760576431868</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1760576431869</updated>
     </task>
     <task id="LOCAL-00059" summary="finished TODO (phase 3)">
       <option name="closed" value="true" />
@@ -606,7 +590,31 @@
       <option name="project" value="LOCAL" />
       <updated>1761011212031</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="commented out unused methods for quality (phase 3)">
+      <option name="closed" value="true" />
+      <created>1761011312668</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1761011312668</updated>
+    </task>
+    <task id="LOCAL-00106" summary="removed unused methods for quality (phase 3)">
+      <option name="closed" value="true" />
+      <created>1761011395645</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1761011395645</updated>
+    </task>
+    <task id="LOCAL-00107" summary="removed unused methods for quality (phase 3)">
+      <option name="closed" value="true" />
+      <created>1761011407904</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1761011407904</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -647,8 +655,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added responseexception class (phase 3)" />
-    <MESSAGE value="updated code for responseerror (phase 3)" />
     <MESSAGE value="error is now working! :D (phase 3)" />
     <MESSAGE value="now have correct authToken and some more memory DAO work (phase 3)" />
     <MESSAGE value="impl memoryAuth (phase 3)" />
@@ -672,6 +678,8 @@
     <MESSAGE value="impl list games tests, and listgames on DAO and service layers (phase 3)" />
     <MESSAGE value="passing all tests (phase 3)" />
     <MESSAGE value="impl clear all test (phase 3)" />
-    <option name="LAST_COMMIT_MESSAGE" value="impl clear all test (phase 3)" />
+    <MESSAGE value="commented out unused methods for quality (phase 3)" />
+    <MESSAGE value="removed unused methods for quality (phase 3)" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed unused methods for quality (phase 3)" />
   </component>
 </project>
