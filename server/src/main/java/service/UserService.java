@@ -5,6 +5,7 @@ import dataaccess.DataAccessException;
 import dataaccess.UserDAO;
 import model.UserData;
 import model.AuthData;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.util.UUID;
 
@@ -19,8 +20,10 @@ public class UserService {
     }
 
     public AuthData register(UserData user) {
+        String hashPwd = BCrypt.hashpw(user.password(), BCrypt.gensalt());
+        var hashUser = new UserData(user.username(), hashPwd, user.email());
         try {
-            userDAO.createUser(user);
+            userDAO.createUser(hashUser);
         } catch (DataAccessException e) {
             throw new ResponseException("Error: already taken", 403);
         }
