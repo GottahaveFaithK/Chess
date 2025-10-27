@@ -35,7 +35,7 @@ public class UserService {
     public AuthData login(UserData user) {
         try {
             UserData myUser = userDAO.getUser(user.username());
-            if (!user.password().equals(myUser.password())) {
+            if (myUser == null || !BCrypt.checkpw(user.password(), myUser.password())) {
                 throw new ResponseException("Error: unauthorized", 401);
             }
             AuthData authData = new AuthData(user.username(), generateToken());
