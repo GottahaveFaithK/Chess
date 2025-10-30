@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="quick removal of unused import(Phase 4)">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlUserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="sketched out mysqluserdao methods (Phase 4)">
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/dataaccess/UserDAOTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,14 +218,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00070" summary="impl new handler framework (phase 3)">
-      <option name="closed" value="true" />
-      <created>1760742222855</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1760742222855</updated>
     </task>
     <task id="LOCAL-00071" summary="removed unneeded imports as part of refactor (phase 3)">
       <option name="closed" value="true" />
@@ -612,7 +603,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761866838374</updated>
     </task>
-    <option name="localTasksCounter" value="119" />
+    <task id="LOCAL-00119" summary="sketched out mysqluserdao methods (Phase 4)">
+      <option name="closed" value="true" />
+      <created>1761868195074</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1761868195074</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -653,7 +652,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed logoutPositive test (phase 3)" />
     <MESSAGE value="working on createGame (phase 3)" />
     <MESSAGE value="impl pos serviceTest for create game (phase 3)" />
     <MESSAGE value="tested error 400 and 401 for create game (phase 3)" />
@@ -678,6 +676,7 @@
     <MESSAGE value="impl all AuthDAO methods except for delete auth(Phase 4)" />
     <MESSAGE value="impl delete auth, all tests passing(Phase 4)" />
     <MESSAGE value="quick removal of unused import(Phase 4)" />
-    <option name="LAST_COMMIT_MESSAGE" value="quick removal of unused import(Phase 4)" />
+    <MESSAGE value="sketched out mysqluserdao methods (Phase 4)" />
+    <option name="LAST_COMMIT_MESSAGE" value="sketched out mysqluserdao methods (Phase 4)" />
   </component>
 </project>

@@ -21,7 +21,7 @@ public class MySqlUserDAO implements UserDAO {
     }
 
     @Override
-    public void deleteAllUsers() {
+    public void deleteAllUsers() throws DataAccessException {
 
     }
 

@@ -9,5 +9,5 @@ public interface UserDAO {
 
     //void deleteUser(UserData user);
 
-    void deleteAllUsers();
+    void deleteAllUsers() throws DataAccessException;
 }
