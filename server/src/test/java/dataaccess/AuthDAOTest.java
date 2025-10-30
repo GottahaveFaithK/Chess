@@ -34,7 +34,7 @@ public class AuthDAOTest {
         authDAO.createAuth(authData);
 
         DataAccessException ex = assertThrows(DataAccessException.class, () -> authDAO.createAuth(secondAuth));
-        assertEquals("Error: duplicate auth", ex.getMessage());
+        assertTrue(ex.getMessage().startsWith("Unable to insert auth data:"));
     }
 
     @Test

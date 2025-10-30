@@ -1,8 +1,11 @@
 package dataaccess;
 
+import com.google.gson.Gson;
 import model.AuthData;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class MySqlAuthDAO implements AuthDAO {
@@ -13,12 +16,34 @@ public class MySqlAuthDAO implements AuthDAO {
 
     @Override
     public void createAuth(AuthData authData) throws DataAccessException {
-
+        var statement = "INSERT INTO auth (token, username) VALUES (?, ?)";
+        String json = new Gson().toJson(authData);
+        try (var conn = DatabaseManager.getConnection(); var preparedStatement = conn.prepareStatement(statement)) {
+            preparedStatement.setString(1, authData.authToken());
+            preparedStatement.setString(2, authData.username());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new DataAccessException("Unable to insert auth data: " + e.getMessage());
+        }
     }
 
     @Override
     public AuthData getAuth(String authToken) throws DataAccessException {
-        return null;
+        try (Connection conn = DatabaseManager.getConnection()) {
+            var statement = "SELECT token, username FROM auth WHERE token = ?";
+            try (PreparedStatement ps = conn.prepareStatement(statement)) {
+                ps.setString(1, authToken);
+                try (ResultSet rs = ps.executeQuery()) {
+                    if (rs.next()) {
+                        return new AuthData(rs.getString("username"), rs.getString("token"));
+                    } else {
+                        throw new DataAccessException("Auth token doesn't exist");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            throw new DataAccessException("Cant read data" + e.getMessage());
+        }
     }
 
     @Override
@@ -27,8 +52,13 @@ public class MySqlAuthDAO implements AuthDAO {
     }
 
     @Override
-    public void deleteAllAuth() {
-
+    public void deleteAllAuth() throws DataAccessException {
+        try (var conn = DatabaseManager.getConnection();
+             var ps = conn.prepareStatement("DELETE FROM auth")) {
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new DataAccessException("Unable to delete all auth: " + e.getMessage());
+        }
     }
 
     private final String[] create = {

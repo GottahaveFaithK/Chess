@@ -1,6 +1,7 @@
 package service;
 
 import dataaccess.AuthDAO;
+import dataaccess.DataAccessException;
 import dataaccess.GameDAO;
 import dataaccess.UserDAO;
 
@@ -16,9 +17,13 @@ public class ClearService {
     }
 
     public void clear() {
-        authDAO.deleteAllAuth();
-        userDAO.deleteAllUsers();
-        gameDAO.deleteAllGames();
+        try {
+            authDAO.deleteAllAuth();
+            userDAO.deleteAllUsers();
+            gameDAO.deleteAllGames();
+        } catch (DataAccessException e) {
+            throw new ResponseException("Error: Can't Delete All", 500);
+        }
     }
 
 }
