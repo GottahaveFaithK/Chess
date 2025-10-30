@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl all AuthDAO tests(Phase 4)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl all AuthDAO methods except for delete auth(Phase 4)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/AuthDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/AuthDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlAuthDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlAuthDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/ClearService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/ClearService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/dataaccess/AuthDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/dataaccess/AuthDAOTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,14 +219,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00067" summary="scaffolding for game interface and memoryDAO (phase 3)">
-      <option name="closed" value="true" />
-      <created>1760736811832</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1760736811832</updated>
     </task>
     <task id="LOCAL-00068" summary="scaffolding for user interface and memoryDAO (phase 3)">
       <option name="closed" value="true" />
@@ -615,7 +604,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761860482024</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="impl all AuthDAO methods except for delete auth(Phase 4)">
+      <option name="closed" value="true" />
+      <created>1761866091124</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1761866091124</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -656,7 +653,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="register and login now handle bad requests (phase 3)" />
     <MESSAGE value="impl logout (phase 3)" />
     <MESSAGE value="fixed some error messsages being thrown when they shouldnt (phase 3)" />
     <MESSAGE value="fixed logoutPositive test (phase 3)" />
@@ -681,6 +677,7 @@
     <MESSAGE value="authTable creation works! (Phase 4)" />
     <MESSAGE value="wrote positive createAuth test (Phase 4)" />
     <MESSAGE value="impl all AuthDAO tests(Phase 4)" />
-    <option name="LAST_COMMIT_MESSAGE" value="impl all AuthDAO tests(Phase 4)" />
+    <MESSAGE value="impl all AuthDAO methods except for delete auth(Phase 4)" />
+    <option name="LAST_COMMIT_MESSAGE" value="impl all AuthDAO methods except for delete auth(Phase 4)" />
   </component>
 </project>

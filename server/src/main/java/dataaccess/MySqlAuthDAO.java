@@ -31,9 +31,9 @@ public class MySqlAuthDAO implements AuthDAO {
     public AuthData getAuth(String authToken) throws DataAccessException {
         try (Connection conn = DatabaseManager.getConnection()) {
             var statement = "SELECT token, username FROM auth WHERE token = ?";
-            try (PreparedStatement ps = conn.prepareStatement(statement)) {
-                ps.setString(1, authToken);
-                try (ResultSet rs = ps.executeQuery()) {
+            try (PreparedStatement preparedStatement = conn.prepareStatement(statement)) {
+                preparedStatement.setString(1, authToken);
+                try (ResultSet rs = preparedStatement.executeQuery()) {
                     if (rs.next()) {
                         return new AuthData(rs.getString("username"), rs.getString("token"));
                     } else {
@@ -48,14 +48,23 @@ public class MySqlAuthDAO implements AuthDAO {
 
     @Override
     public void deleteAuth(String authToken) throws DataAccessException {
-        //throw new DataAccessException("Auth token doesn't exist");
+        try (var conn = DatabaseManager.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement("DELETE FROM auth WHERE token = ?")) {
+            preparedStatement.setString(1, authToken);
+            int deleted = preparedStatement.executeUpdate();
+            if (deleted == 0) {
+                throw new DataAccessException("Auth token doesn't exist");
+            }
+        } catch (SQLException e) {
+            throw new DataAccessException("Failed to delete auth");
+        }
     }
 
     @Override
     public void deleteAllAuth() throws DataAccessException {
         try (var conn = DatabaseManager.getConnection();
-             var ps = conn.prepareStatement("DELETE FROM auth")) {
-            ps.executeUpdate();
+             PreparedStatement preparedStatement = conn.prepareStatement("DELETE FROM auth")) {
+            preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new DataAccessException("Unable to delete all auth: " + e.getMessage());
         }
