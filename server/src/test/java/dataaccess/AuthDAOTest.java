@@ -2,7 +2,6 @@ package dataaccess;
 
 import model.AuthData;
 import org.junit.jupiter.api.Test;
-import service.ResponseException;
 
 import java.util.UUID;
 
