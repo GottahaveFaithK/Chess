@@ -28,7 +28,11 @@ public class UserService {
             throw new ResponseException("Error: already taken", 403);
         }
         model.AuthData authData = new AuthData(user.username(), generateToken());
-        authDAO.createAuth(authData);
+        try {
+            authDAO.createAuth(authData);
+        } catch (DataAccessException e) {
+            throw new ResponseException("Error: Duplicate Auth", 403);
+        }
         return authData;
     }
 

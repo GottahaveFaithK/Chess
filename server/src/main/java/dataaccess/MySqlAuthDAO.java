@@ -12,7 +12,7 @@ public class MySqlAuthDAO implements AuthDAO {
     }
 
     @Override
-    public void createAuth(AuthData authData) {
+    public void createAuth(AuthData authData) throws DataAccessException {
 
     }
 
@@ -22,8 +22,8 @@ public class MySqlAuthDAO implements AuthDAO {
     }
 
     @Override
-    public void deleteAuth(String authToken) {
-
+    public void deleteAuth(String authToken) throws DataAccessException {
+        //throw new DataAccessException("Auth token doesn't exist");
     }
 
     @Override

@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="authTable creation works! (Phase 4)">
-      <change afterPath="$PROJECT_DIR$/server/src/test/java/dataaccess/AuthDAOTest.java" afterDir="false" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="wrote positive createAuth test (Phase 4)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/AuthDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/AuthDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlAuthDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlAuthDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/dataaccess/AuthDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/dataaccess/AuthDAOTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,14 +224,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00065" summary="renamed file to fit requirements (phase 3)">
-      <option name="closed" value="true" />
-      <created>1760578582004</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1760578582004</updated>
     </task>
     <task id="LOCAL-00066" summary="scaffolding for Auth interface and memoryDAO (phase 3)">
       <option name="closed" value="true" />
@@ -614,7 +609,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761857590128</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL-00114" summary="wrote positive createAuth test (Phase 4)">
+      <option name="closed" value="true" />
+      <created>1761858602792</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1761858602792</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -655,7 +658,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added test for login (phase 3)" />
     <MESSAGE value="login passing pos and neg service tests (phase 3)" />
     <MESSAGE value="register and login now handle bad requests (phase 3)" />
     <MESSAGE value="impl logout (phase 3)" />
@@ -680,27 +682,7 @@
     <MESSAGE value="initializes database, mysqlAuthDAO framework exists (Phase 4)" />
     <MESSAGE value="should create the auth table in database (Phase 4)" />
     <MESSAGE value="authTable creation works! (Phase 4)" />
-    <option name="LAST_COMMIT_MESSAGE" value="authTable creation works! (Phase 4)" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/test/java/service/UserServiceTest.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/test/java/service/UserServiceTest.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/test/java/service/UserServiceTest.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="wrote positive createAuth test (Phase 4)" />
+    <option name="LAST_COMMIT_MESSAGE" value="wrote positive createAuth test (Phase 4)" />
   </component>
 </project>
