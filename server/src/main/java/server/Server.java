@@ -22,7 +22,12 @@ public class Server {
         initializeDatabase();
         UserDAO userDAO = new MemoryUserDAO();
         GameDAO gameDAO = new MemoryGameDAO();
-        AuthDAO authDAO = new MemoryAuthDAO();
+        AuthDAO authDAO;
+        try {
+            authDAO = new MySqlAuthDAO();
+        } catch (DataAccessException e) {
+            throw new ResponseException("Error: failed to create the table", 500);
+        }
 
         UserService userService = new UserService(userDAO, authDAO);
         GameService gameService = new GameService(gameDAO, authDAO);

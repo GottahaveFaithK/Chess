@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="initializes database, mysqlAuthDAO framework exists (Phase 4)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="should create the auth table in database (Phase 4)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlAuthDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlAuthDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +130,14 @@
       <recent name="service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceTest.loginWorks">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <option name="PACKAGE_NAME" value="" />
@@ -186,22 +193,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest.registerPositive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="service" />
-      <option name="MAIN_CLASS_NAME" value="service.UserServiceTest" />
-      <option name="METHOD_NAME" value="registerPositive" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="client" />
       <method v="2">
@@ -215,11 +206,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.UserServiceTest.loginWorks" />
         <item itemvalue="JUnit.All in server" />
         <item itemvalue="JUnit.UserServiceTest" />
         <item itemvalue="JUnit.UserServiceTest.registerNegative" />
-        <item itemvalue="JUnit.UserServiceTest.registerPositive" />
       </list>
     </recent_temporary>
   </component>
@@ -230,14 +221,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00063" summary="outlined server functions, none impl (phase 3)">
-      <option name="closed" value="true" />
-      <created>1760578295861</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1760578295861</updated>
     </task>
     <task id="LOCAL-00064" summary="created GameData record (phase 3)">
       <option name="closed" value="true" />
@@ -623,7 +606,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761853621720</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="should create the auth table in database (Phase 4)">
+      <option name="closed" value="true" />
+      <created>1761856230724</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1761856230724</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -664,7 +655,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="impl clear method (phase 3)" />
     <MESSAGE value="added login at service and DAO layers (phase 3)" />
     <MESSAGE value="added test for login (phase 3)" />
     <MESSAGE value="login passing pos and neg service tests (phase 3)" />
@@ -689,7 +679,8 @@
     <MESSAGE value="register now hashes password (Phase 4)" />
     <MESSAGE value="login now checks hashed password (Phase 4)" />
     <MESSAGE value="initializes database, mysqlAuthDAO framework exists (Phase 4)" />
-    <option name="LAST_COMMIT_MESSAGE" value="initializes database, mysqlAuthDAO framework exists (Phase 4)" />
+    <MESSAGE value="should create the auth table in database (Phase 4)" />
+    <option name="LAST_COMMIT_MESSAGE" value="should create the auth table in database (Phase 4)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
