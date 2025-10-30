@@ -7,6 +7,7 @@ import service.ClearService;
 import service.GameService;
 import service.ResponseException;
 import service.UserService;
+import dataaccess.DatabaseManager;
 
 import java.util.Map;
 
@@ -18,7 +19,7 @@ public class Server {
     private final ClearHandler clearHandler;
 
     public Server() {
-
+        initializeDatabase();
         UserDAO userDAO = new MemoryUserDAO();
         GameDAO gameDAO = new MemoryGameDAO();
         AuthDAO authDAO = new MemoryAuthDAO();
@@ -62,6 +63,15 @@ public class Server {
     public int run(int desiredPort) {
         server.start(desiredPort);
         return server.port();
+    }
+
+
+    private static void initializeDatabase() {
+        try {
+            DatabaseManager.createDatabase();
+        } catch (DataAccessException ex) {
+            throw new ResponseException("Error: failed to create the database", 500);
+        }
     }
 
     public void stop() {
