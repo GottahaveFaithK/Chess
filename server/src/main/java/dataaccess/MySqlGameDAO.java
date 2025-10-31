@@ -42,7 +42,7 @@ public class MySqlGameDAO implements GameDAO {
     private final String[] create = {
             """
             CREATE TABLE IF NOT EXISTS games (
-            `gameID` int NOT NULL,
+            `gameID` int NOT NULL AUTO_INCREMENT,
             `whiteUsername` varchar(256) DEFAULT NULL,
             `blackUsername` varchar(256) DEFAULT NULL,
             `gameName` varchar(256) NOT NULL,

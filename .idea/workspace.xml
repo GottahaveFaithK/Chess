@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl MySqlUserDAO, passing tests (Phase 4)">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlGameDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlUserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="outlined MySqlGameDAO (Phase 4)">
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/dataaccess/GameDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlGameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlGameDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,14 +227,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00076" summary="final tidying up of server before stopping for the day (phase 3)">
-      <option name="closed" value="true" />
-      <created>1760744356868</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1760744356868</updated>
     </task>
     <task id="LOCAL-00077" summary="created a registerNegative test (phase 3)">
       <option name="closed" value="true" />
@@ -622,7 +612,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761940395666</updated>
     </task>
-    <option name="localTasksCounter" value="125" />
+    <task id="LOCAL-00125" summary="outlined MySqlGameDAO (Phase 4)">
+      <option name="closed" value="true" />
+      <created>1761941466764</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1761941466764</updated>
+    </task>
+    <option name="localTasksCounter" value="126" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -663,7 +661,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updated updateGame and deleteGame to throw errors (phase 3)" />
     <MESSAGE value="impl joingame tests (and joingame on service/DOA layer) (phase 3)" />
     <MESSAGE value="impl joingame on handler level (phase 3)" />
     <MESSAGE value="impl list games tests, and listgames on DAO and service layers (phase 3)" />
@@ -688,6 +685,7 @@
     <MESSAGE value="spelling fix (Phase 4)" />
     <MESSAGE value="impl MySqlUserDAO  (Phase 4)" />
     <MESSAGE value="impl MySqlUserDAO, passing tests (Phase 4)" />
-    <option name="LAST_COMMIT_MESSAGE" value="impl MySqlUserDAO, passing tests (Phase 4)" />
+    <MESSAGE value="outlined MySqlGameDAO (Phase 4)" />
+    <option name="LAST_COMMIT_MESSAGE" value="outlined MySqlGameDAO (Phase 4)" />
   </component>
 </project>
