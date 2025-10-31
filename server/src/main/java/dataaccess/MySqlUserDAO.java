@@ -63,8 +63,8 @@ public class MySqlUserDAO implements UserDAO {
             """
             CREATE TABLE IF NOT EXISTS users (
             `username` varchar(256) NOT NULL,
-            `password` VARCHAR(256) NOT NULL,
-            `email` VARCHAR(256) NOT NULL,
+            `password` varchar(256) NOT NULL,
+            `email` varchar(256) NOT NULL,
             PRIMARY KEY (`username`)
             )
             """

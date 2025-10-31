@@ -21,11 +21,12 @@ public class Server {
     public Server() {
         initializeDatabase();
         UserDAO userDAO;
-        GameDAO gameDAO = new MemoryGameDAO();
+        GameDAO gameDAO;
         AuthDAO authDAO;
         try {
             authDAO = new MySqlAuthDAO();
             userDAO = new MySqlUserDAO();
+            gameDAO = new MySqlGameDAO();
         } catch (DataAccessException e) {
             throw new ResponseException("Error: failed to create the table", 500);
         }

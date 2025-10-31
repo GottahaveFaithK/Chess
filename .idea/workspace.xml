@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl MySqlUserDAO  (Phase 4)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl MySqlUserDAO, passing tests (Phase 4)">
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlGameDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlUserDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
@@ -228,14 +229,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00075" summary="added clearHandler outline (phase 3)">
-      <option name="closed" value="true" />
-      <created>1760744193904</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1760744193904</updated>
     </task>
     <task id="LOCAL-00076" summary="final tidying up of server before stopping for the day (phase 3)">
       <option name="closed" value="true" />
@@ -621,7 +614,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761879267001</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="impl MySqlUserDAO, passing tests (Phase 4)">
+      <option name="closed" value="true" />
+      <created>1761940395666</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1761940395666</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -662,7 +663,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="impl creategame (phase 3)" />
     <MESSAGE value="updated updateGame and deleteGame to throw errors (phase 3)" />
     <MESSAGE value="impl joingame tests (and joingame on service/DOA layer) (phase 3)" />
     <MESSAGE value="impl joingame on handler level (phase 3)" />
@@ -687,6 +687,7 @@
     <MESSAGE value="impl UserDAO tests (Phase 4)" />
     <MESSAGE value="spelling fix (Phase 4)" />
     <MESSAGE value="impl MySqlUserDAO  (Phase 4)" />
-    <option name="LAST_COMMIT_MESSAGE" value="impl MySqlUserDAO  (Phase 4)" />
+    <MESSAGE value="impl MySqlUserDAO, passing tests (Phase 4)" />
+    <option name="LAST_COMMIT_MESSAGE" value="impl MySqlUserDAO, passing tests (Phase 4)" />
   </component>
 </project>
