@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="sketched out mysqluserdao methods (Phase 4)">
-      <change afterPath="$PROJECT_DIR$/server/src/test/java/dataaccess/UserDAOTest.java" afterDir="false" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="test framework for UserDAO (Phase 4)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/dataaccess/UserDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/dataaccess/UserDAOTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,14 +219,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00071" summary="removed unneeded imports as part of refactor (phase 3)">
-      <option name="closed" value="true" />
-      <created>1760742263624</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1760742263624</updated>
     </task>
     <task id="LOCAL-00072" summary="impl base structure for clearservice and gameservice (phase 3)">
       <option name="closed" value="true" />
@@ -611,7 +604,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761868195074</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="test framework for UserDAO (Phase 4)">
+      <option name="closed" value="true" />
+      <created>1761868667195</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1761868667195</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -652,7 +653,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="working on createGame (phase 3)" />
     <MESSAGE value="impl pos serviceTest for create game (phase 3)" />
     <MESSAGE value="tested error 400 and 401 for create game (phase 3)" />
     <MESSAGE value="impl gamehandler creategame (phase 3)" />
@@ -677,6 +677,7 @@
     <MESSAGE value="impl delete auth, all tests passing(Phase 4)" />
     <MESSAGE value="quick removal of unused import(Phase 4)" />
     <MESSAGE value="sketched out mysqluserdao methods (Phase 4)" />
-    <option name="LAST_COMMIT_MESSAGE" value="sketched out mysqluserdao methods (Phase 4)" />
+    <MESSAGE value="test framework for UserDAO (Phase 4)" />
+    <option name="LAST_COMMIT_MESSAGE" value="test framework for UserDAO (Phase 4)" />
   </component>
 </project>
