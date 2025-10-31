@@ -24,7 +24,7 @@ public class UserDAOTest {
         UserDAO userDAO = new MySqlUserDAO();
         userDAO.deleteAllUsers();
         UserData userData = new UserData("User", "Password", "myEmail@gmail.com");
-        UserData secondUser = new UserData("User", "different person", "Other@gmail.com");
+        UserData secondUser = new UserData("User", "differentPerson", "Other@gmail.com");
         userDAO.createUser(userData);
         DataAccessException ex = assertThrows(DataAccessException.class, () -> userDAO.createUser(secondUser));
         assertTrue(ex.getMessage().startsWith("Username already taken"));
