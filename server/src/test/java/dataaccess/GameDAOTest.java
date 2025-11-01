@@ -146,7 +146,7 @@ public class GameDAOTest {
         gameDAO.deleteAllGames();
         gameDAO.createGame("cool name");
         DataAccessException ex = assertThrows(DataAccessException.class, () -> gameDAO.getGame(99));
-        assertEquals("Game ID is invalid", ex.getMessage());
+        assertEquals("Game doesn't exist", ex.getMessage());
     }
 
     @Test

@@ -1,12 +1,17 @@
 package dataaccess;
 
 import chess.ChessGame;
+import com.google.gson.Gson;
 import model.GameData;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.List;
+
+import static java.sql.Statement.RETURN_GENERATED_KEYS;
 
 public class MySqlGameDAO implements GameDAO {
 
@@ -16,7 +21,37 @@ public class MySqlGameDAO implements GameDAO {
 
     @Override
     public int createGame(String gameName) throws DataAccessException {
-        return 0;
+        GameData gameData;
+
+        if (gameName != null && !gameName.isBlank()) {
+            gameData = new GameData(0, null, null, gameName, new ChessGame());
+        } else {
+            throw new DataAccessException("Game name is null");
+        }
+
+        var statement = "INSERT INTO games (whiteUsername, blackUsername, gameName, game) VALUES (?, ?, ?, ?)";
+        String json = new Gson().toJson(gameData.game());
+
+        try (Connection conn = DatabaseManager.getConnection();
+             var preparedStatement = conn.prepareStatement(statement, RETURN_GENERATED_KEYS)) {
+
+            preparedStatement.setString(1, gameData.whiteUsername());
+            preparedStatement.setString(2, gameData.blackUsername());
+            preparedStatement.setString(3, gameName);
+            preparedStatement.setString(4, json);
+            preparedStatement.executeUpdate();
+
+            try (ResultSet rs = preparedStatement.getGeneratedKeys()) {
+                if (rs.next()) {
+                    return rs.getInt(1);
+                } else {
+                    throw new DataAccessException("Didn't create game ID");
+                }
+            }
+
+        } catch (Exception e) {
+            throw new DataAccessException("Unable to insert game data: " + e.getMessage());
+        }
     }
 
     @Override
@@ -31,7 +66,24 @@ public class MySqlGameDAO implements GameDAO {
 
     @Override
     public GameData getGame(int id) throws DataAccessException {
-        return null;
+        try (Connection conn = DatabaseManager.getConnection()) {
+            var statement = "SELECT gameID, whiteUsername, blackUsername, gameName, game FROM games WHERE gameID = ?";
+            try (PreparedStatement preparedStatement = conn.prepareStatement(statement)) {
+                preparedStatement.setInt(1, id);
+                try (ResultSet rs = preparedStatement.executeQuery()) {
+                    if (rs.next()) {
+                        var json = rs.getString("game");
+                        var game = new Gson().fromJson(json, ChessGame.class);
+                        return new GameData(rs.getInt("gameID"), rs.getString("whiteUsername"),
+                                rs.getString("blackUsername"), rs.getString("gameName"), game);
+                    } else {
+                        throw new DataAccessException("Game doesn't exist");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            throw new DataAccessException("Cant read data" + e.getMessage());
+        }
     }
 
     @Override

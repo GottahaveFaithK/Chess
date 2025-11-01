@@ -1,6 +1,5 @@
 package dataaccess;
 
-import com.google.gson.Gson;
 import model.AuthData;
 
 import java.sql.Connection;
@@ -17,7 +16,6 @@ public class MySqlAuthDAO implements AuthDAO {
     @Override
     public void createAuth(AuthData authData) throws DataAccessException {
         var statement = "INSERT INTO auth (token, username) VALUES (?, ?)";
-        String json = new Gson().toJson(authData);
         try (var conn = DatabaseManager.getConnection(); var preparedStatement = conn.prepareStatement(statement)) {
             preparedStatement.setString(1, authData.authToken());
             preparedStatement.setString(2, authData.username());

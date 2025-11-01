@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl some more gamedao tests (Phase 4)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="finish impl gameDao tests (Phase 4)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlAuthDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlAuthDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlGameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlGameDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/test/java/dataaccess/GameDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/dataaccess/GameDAOTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -133,15 +135,8 @@
       <recent name="service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserDAOTest">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="server" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AuthDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.GameDAOTest.getGame">
+    <configuration name="GameDAOTest.createGameID" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
@@ -150,20 +145,57 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="dataaccess" />
-      <option name="MAIN_CLASS_NAME" value="dataaccess.AuthDAOTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="dataaccess.GameDAOTest" />
+      <option name="METHOD_NAME" value="createGameID" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AuthDAOTest,createAuth and 2 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameDAOTest.createNullGameName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
-      <option name="TEST_OBJECT" value="pattern" />
-      <patterns>
-        <pattern testClass="dataaccess.AuthDAOTest,createAuth" />
-        <pattern testClass="dataaccess.AuthDAOTest,duplicateAuthTokens" />
-        <pattern testClass="dataaccess.AuthDAOTest,getAuth" />
-      </patterns>
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataaccess.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dataaccess" />
+      <option name="MAIN_CLASS_NAME" value="dataaccess.GameDAOTest" />
+      <option name="METHOD_NAME" value="createNullGameName" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameDAOTest.getGame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataaccess.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dataaccess" />
+      <option name="MAIN_CLASS_NAME" value="dataaccess.GameDAOTest" />
+      <option name="METHOD_NAME" value="getGame" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameDAOTest.updateGame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataaccess.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dataaccess" />
+      <option name="MAIN_CLASS_NAME" value="dataaccess.GameDAOTest" />
+      <option name="METHOD_NAME" value="updateGame" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -183,22 +215,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest.loginWorks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="service" />
-      <option name="MAIN_CLASS_NAME" value="service.UserServiceTest" />
-      <option name="METHOD_NAME" value="loginWorks" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="client" />
       <method v="2">
@@ -212,11 +228,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GameDAOTest.getGame" />
+        <item itemvalue="JUnit.GameDAOTest.updateGame" />
+        <item itemvalue="JUnit.GameDAOTest.createNullGameName" />
+        <item itemvalue="JUnit.GameDAOTest.createGameID" />
         <item itemvalue="JUnit.UserDAOTest" />
-        <item itemvalue="JUnit.AuthDAOTest" />
-        <item itemvalue="JUnit.AuthDAOTest,createAuth and 2 more" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.UserServiceTest.loginWorks" />
       </list>
     </recent_temporary>
   </component>
@@ -227,14 +243,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00080" summary="updated code for responseerror (phase 3)">
-      <option name="closed" value="true" />
-      <created>1760812326574</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1760812326574</updated>
     </task>
     <task id="LOCAL-00081" summary="error is now working! :D (phase 3)">
       <option name="closed" value="true" />
@@ -620,7 +628,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762015651241</updated>
     </task>
-    <option name="localTasksCounter" value="129" />
+    <task id="LOCAL-00129" summary="finish impl gameDao tests (Phase 4)">
+      <option name="closed" value="true" />
+      <created>1762017640733</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1762017640733</updated>
+    </task>
+    <option name="localTasksCounter" value="130" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -661,7 +677,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="passing all tests (phase 3)" />
     <MESSAGE value="impl clear all test (phase 3)" />
     <MESSAGE value="commented out unused methods for quality (phase 3)" />
     <MESSAGE value="removed unused methods for quality (phase 3)" />
@@ -686,6 +701,7 @@
     <MESSAGE value="outlined gamedao tests (Phase 4)" />
     <MESSAGE value="impl some gamedao tests (Phase 4)" />
     <MESSAGE value="impl some more gamedao tests (Phase 4)" />
-    <option name="LAST_COMMIT_MESSAGE" value="impl some more gamedao tests (Phase 4)" />
+    <MESSAGE value="finish impl gameDao tests (Phase 4)" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish impl gameDao tests (Phase 4)" />
   </component>
 </project>
