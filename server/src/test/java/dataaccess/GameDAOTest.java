@@ -33,10 +33,11 @@ public class GameDAOTest {
         assertEquals("cool name", res.gameName());
 
         ChessGame game = res.game();
+        ChessGame expectedGame = new ChessGame();
+
         assertEquals(ChessGame.TeamColor.WHITE, game.getTeamTurn());
         assertNotNull(game.getBoard());
-        ChessBoard board = new ChessBoard();
-        assertEquals(board, game.getBoard());
+        assertEquals(expectedGame.getBoard(), game.getBoard());
     }
 
     @Test
@@ -65,6 +66,7 @@ public class GameDAOTest {
         assertNull(res.blackUsername());
         assertEquals("cool name", res.gameName());
         ChessGame game = res.game();
+
         assertNull(game.getBoard().getPiece(new ChessPosition(1, 2)));
         assertNotNull(game.getBoard().getPiece(new ChessPosition(3, 3)));
         assertEquals(ChessGame.TeamColor.WHITE, game.getTeamTurn());
@@ -126,18 +128,21 @@ public class GameDAOTest {
     void getGame() throws DataAccessException {
         GameDAO gameDAO = new MySqlGameDAO();
         gameDAO.deleteAllGames();
+
         int id = gameDAO.createGame("cool name");
         var res = gameDAO.getGame(id);
+
         assertEquals(1, res.gameID());
         assertNull(res.whiteUsername());
         assertNull(res.blackUsername());
         assertEquals("cool name", res.gameName());
 
         ChessGame game = res.game();
+        ChessGame expectedGame = new ChessGame();
+
         assertEquals(ChessGame.TeamColor.WHITE, game.getTeamTurn());
         assertNotNull(game.getBoard());
-        ChessBoard board = new ChessBoard();
-        assertEquals(board, game.getBoard());
+        assertEquals(expectedGame.getBoard(), game.getBoard());
     }
 
     @Test

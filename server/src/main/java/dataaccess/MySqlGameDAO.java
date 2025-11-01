@@ -92,8 +92,15 @@ public class MySqlGameDAO implements GameDAO {
     }
 
     @Override
-    public void deleteAllGames() {
-
+    public void deleteAllGames() throws DataAccessException {
+        try (var conn = DatabaseManager.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement("DELETE FROM games");
+             PreparedStatement resetInc = conn.prepareStatement("ALTER TABLE games AUTO_INCREMENT = 1")) {
+            preparedStatement.executeUpdate();
+            resetInc.executeUpdate();
+        } catch (SQLException e) {
+            throw new DataAccessException("Unable to delete all games: " + e.getMessage());
+        }
     }
 
     private final String[] create = {

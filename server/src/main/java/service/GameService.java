@@ -29,13 +29,17 @@ public class GameService {
         }
     }
 
-    public Collection<GameData> listGames(String authToken) {
+    public Collection<GameData> listGames(String authToken) throws ResponseException {
         try {
             authDAO.getAuth(authToken);
+            try {
+                return gameDAO.listGames();
+            } catch (DataAccessException e) {
+                throw new ResponseException("Error: bad request", 400);
+            }
         } catch (DataAccessException e) {
             throw new ResponseException("Error: unauthorized", 401);
         }
-        return gameDAO.listGames();
     }
 
     public void joinGame(String playerColor, int gameID, String authToken) {
