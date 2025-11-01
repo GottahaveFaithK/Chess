@@ -22,10 +22,18 @@ public class GameService {
             try {
                 return gameDAO.createGame(gameName);
             } catch (DataAccessException e) {
-                throw new ResponseException("Error: bad request", 400);
+                if (e.getMessage().contains("Game name is null")) {
+                    throw new ResponseException("Error: bad request", 400);
+                } else {
+                    throw new ResponseException("Error: " + e.getMessage(), 500);
+                }
             }
         } catch (DataAccessException e) {
-            throw new ResponseException("Error: unauthorized", 401);
+            if (e.getMessage().contains("Auth token doesn't exist")) {
+                throw new ResponseException("Error: unauthorized", 401);
+            } else {
+                throw new ResponseException("Error: " + e.getMessage(), 500);
+            }
         }
     }
 
@@ -35,10 +43,14 @@ public class GameService {
             try {
                 return gameDAO.listGames();
             } catch (DataAccessException e) {
-                throw new ResponseException("Error: bad request", 400);
+                throw new ResponseException("Error: " + e.getMessage(), 500);
             }
         } catch (DataAccessException e) {
-            throw new ResponseException("Error: unauthorized", 401);
+            if (e.getMessage().contains("Auth token doesn't exist")) {
+                throw new ResponseException("Error: unauthorized", 401);
+            } else {
+                throw new ResponseException("Error: " + e.getMessage(), 500);
+            }
         }
     }
 
@@ -46,21 +58,31 @@ public class GameService {
         try {
             authDAO.getAuth(authToken);
         } catch (DataAccessException e) {
-            throw new ResponseException("Error: unauthorized", 401);
+            if (e.getMessage().contains("Auth token doesn't exist")) {
+                throw new ResponseException("Error: unauthorized", 401);
+            } else {
+                throw new ResponseException("Error: " + e.getMessage(), 500);
+            }
         }
         try {
             GameData myGame = gameDAO.getGame(gameID);
-            if (playerColor.equals("WHITE") || playerColor.equals("BLACK")) {
-                try {
-                    gameDAO.updateColor(myGame, myGame.game(), playerColor, authDAO.getAuth(authToken).username());
-                } catch (DataAccessException e) {
+            try {
+                gameDAO.updateColor(myGame, myGame.game(), playerColor, authDAO.getAuth(authToken).username());
+            } catch (DataAccessException e) {
+                if (e.getMessage().contains("Color already taken")) {
                     throw new ResponseException("Error: already taken", 403);
+                } else if (e.getMessage().contains("Invalid color")) {
+                    throw new ResponseException("Error: bad request", 400);
+                } else {
+                    throw new ResponseException("Error: " + e.getMessage(), 500);
                 }
-            } else {
-                throw new ResponseException("Error: this is where I break", 400);
             }
         } catch (DataAccessException e) {
-            throw new ResponseException("Error: bad request", 400);
+            if (e.getMessage().contains("Game doesn't exist")) {
+                throw new ResponseException("Error: bad request", 400);
+            } else {
+                throw new ResponseException("Error: " + e.getMessage(), 500);
+            }
         }
     }
 }

@@ -25,13 +25,17 @@ public class UserService {
         try {
             userDAO.createUser(hashUser);
         } catch (DataAccessException e) {
-            throw new ResponseException("Error: already taken", 403);
+            if (e.getMessage().contains("Username already taken")) {
+                throw new ResponseException("Error: already taken", 403);
+            } else {
+                throw new ResponseException("Error: " + e.getMessage(), 500);
+            }
         }
         model.AuthData authData = new AuthData(user.username(), generateToken());
         try {
             authDAO.createAuth(authData);
         } catch (DataAccessException e) {
-            throw new ResponseException("Error: Duplicate Auth", 403);
+            throw new ResponseException("Error: " + e.getMessage(), 500);
         }
         return authData;
     }
@@ -47,7 +51,10 @@ public class UserService {
             return authData;
 
         } catch (DataAccessException e) {
-            throw new ResponseException("Error: unauthorized", 401);
+            if (e.getMessage().contains("Invalid Username")) {
+                throw new ResponseException("Error: unauthorized", 401);
+            }
+            throw new ResponseException("Error: " + e.getMessage(), 500);
         }
     }
 
@@ -56,7 +63,11 @@ public class UserService {
             authDAO.getAuth(authToken);
             authDAO.deleteAuth(authToken);
         } catch (DataAccessException e) {
-            throw new ResponseException("Error: unauthorized", 401);
+            if (e.getMessage().contains("Auth token doesn't exist")) {
+                throw new ResponseException("Error: unauthorized", 401);
+            } else {
+                throw new ResponseException("Error: " + e.getMessage(), 500);
+            }
         }
     }
 

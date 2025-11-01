@@ -94,7 +94,24 @@ public class MySqlGameDAO implements GameDAO {
 
     @Override
     public void updateGame(int id, GameData updatedData) throws DataAccessException {
+        try (Connection conn = DatabaseManager.getConnection()) {
 
+            String json = new Gson().toJson(updatedData.game());
+            var statement = "UPDATE games SET game = ? WHERE gameID = ?";
+
+            try (PreparedStatement ps = conn.prepareStatement(statement)) {
+                ps.setString(1, json);
+                ps.setInt(2, id);
+
+                int affected = ps.executeUpdate();
+                if (affected == 0) {
+                    throw new DataAccessException("Game doesn't exist");
+                }
+
+            }
+        } catch (SQLException e) {
+            throw new DataAccessException("Cant update game" + e.getMessage());
+        }
     }
 
     @Override
@@ -120,8 +137,27 @@ public class MySqlGameDAO implements GameDAO {
     }
 
     @Override
-    public Collection<GameData> listGames() {
-        return List.of();
+    public Collection<GameData> listGames() throws DataAccessException {
+        Collection<GameData> gamesList = new java.util.ArrayList<>();
+        try (Connection conn = DatabaseManager.getConnection()) {
+            var statement = "SELECT gameID, whiteUsername, blackUsername, gameName, game FROM games";
+            try (PreparedStatement preparedStatement = conn.prepareStatement(statement)) {
+                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                    while (resultSet.next()) {
+                        ChessGame game = new Gson().fromJson(resultSet.getString("game"), ChessGame.class);
+                        gamesList.add(new GameData(
+                                resultSet.getInt("gameID"),
+                                resultSet.getString("whiteUsername"),
+                                resultSet.getString("blackUsername"),
+                                resultSet.getString("gameName"),
+                                game));
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            throw new DataAccessException("Cant read data" + e.getMessage());
+        }
+        return gamesList;
     }
 
     @Override

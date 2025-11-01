@@ -16,7 +16,7 @@ public class MySqlAuthDAO implements AuthDAO {
     @Override
     public void createAuth(AuthData authData) throws DataAccessException {
         var statement = "INSERT INTO auth (token, username) VALUES (?, ?)";
-        try (var conn = DatabaseManager.getConnection(); var preparedStatement = conn.prepareStatement(statement)) {
+        try (Connection conn = DatabaseManager.getConnection(); PreparedStatement preparedStatement = conn.prepareStatement(statement)) {
             preparedStatement.setString(1, authData.authToken());
             preparedStatement.setString(2, authData.username());
             preparedStatement.executeUpdate();
@@ -46,7 +46,7 @@ public class MySqlAuthDAO implements AuthDAO {
 
     @Override
     public void deleteAuth(String authToken) throws DataAccessException {
-        try (var conn = DatabaseManager.getConnection();
+        try (Connection conn = DatabaseManager.getConnection();
              PreparedStatement preparedStatement = conn.prepareStatement("DELETE FROM auth WHERE token = ?")) {
             preparedStatement.setString(1, authToken);
             int deleted = preparedStatement.executeUpdate();
@@ -60,7 +60,7 @@ public class MySqlAuthDAO implements AuthDAO {
 
     @Override
     public void deleteAllAuth() throws DataAccessException {
-        try (var conn = DatabaseManager.getConnection();
+        try (Connection conn = DatabaseManager.getConnection();
              PreparedStatement preparedStatement = conn.prepareStatement("DELETE FROM auth")) {
             preparedStatement.executeUpdate();
         } catch (SQLException e) {

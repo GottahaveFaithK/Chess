@@ -62,7 +62,7 @@ public class MemoryGameDAO implements GameDAO {
         if (myGame != null) {
             return myGame;
         } else {
-            throw new DataAccessException("Game ID is invalid");
+            throw new DataAccessException("Game doesn't exist");
         }
     }
 

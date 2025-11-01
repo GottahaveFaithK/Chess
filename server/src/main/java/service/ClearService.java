@@ -22,7 +22,7 @@ public class ClearService {
             userDAO.deleteAllUsers();
             gameDAO.deleteAllGames();
         } catch (DataAccessException e) {
-            throw new ResponseException("Error: Can't Delete All", 500);
+            throw new ResponseException("Error: " + e.getMessage(), 500);
         }
     }
 

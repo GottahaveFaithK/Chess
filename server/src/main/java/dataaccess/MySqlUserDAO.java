@@ -39,7 +39,7 @@ public class MySqlUserDAO implements UserDAO {
                         return new UserData(rs.getString("username"),
                                 rs.getString("password"), rs.getString("email"));
                     } else {
-                        throw new DataAccessException("User doesn't exist");
+                        throw new DataAccessException("Invalid Username");
                     }
                 }
             }

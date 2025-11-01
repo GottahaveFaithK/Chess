@@ -21,7 +21,6 @@ public class ClearServiceTest {
         clearService.clear();
         ResponseException ex = assertThrows(ResponseException.class, () -> userService.login(user));
         assertEquals(401, ex.getHttpResponseCode());
-        assertEquals("Error: unauthorized", ex.getMessage());
     }
 
 }

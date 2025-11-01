@@ -69,7 +69,7 @@ public class GameDAOTest {
 
         assertNull(game.getBoard().getPiece(new ChessPosition(1, 2)));
         assertNotNull(game.getBoard().getPiece(new ChessPosition(3, 3)));
-        assertEquals(ChessGame.TeamColor.WHITE, game.getTeamTurn());
+        assertEquals(ChessGame.TeamColor.BLACK, game.getTeamTurn());
         assertNotNull(game.getBoard());
         assertEquals(updatedGameData.game().getBoard(), game.getBoard());
     }

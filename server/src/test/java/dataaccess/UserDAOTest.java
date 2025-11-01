@@ -48,7 +48,7 @@ public class UserDAOTest {
         UserDAO userDAO = new MySqlUserDAO();
         userDAO.deleteAllUsers();
         DataAccessException ex = assertThrows(DataAccessException.class, () -> userDAO.getUser("User"));
-        assertEquals("User doesn't exist", ex.getMessage());
+        assertEquals("Invalid Username", ex.getMessage());
     }
 
     @Test
@@ -60,6 +60,6 @@ public class UserDAOTest {
         userDAO.createUser(userData);
         userDAO.deleteAllUsers();
         DataAccessException ex = assertThrows(DataAccessException.class, () -> userDAO.getUser("User"));
-        assertEquals("User doesn't exist", ex.getMessage());
+        assertEquals("Invalid Username", ex.getMessage());
     }
 }
