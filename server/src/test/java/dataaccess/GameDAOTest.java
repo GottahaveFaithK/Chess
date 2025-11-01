@@ -151,23 +151,41 @@ public class GameDAOTest {
 
     @Test
     void listGames() throws DataAccessException {
-        GameDAO gameDAO = new MemoryGameDAO();
+        GameDAO gameDAO = new MySqlGameDAO();
         gameDAO.deleteAllGames();
         int idOne = gameDAO.createGame("Game");
         int idTwo = gameDAO.createGame("Other Game");
         Collection<GameData> games = gameDAO.listGames();
-        assertEquals(3, games.size());
-
-
+        assertEquals(2, games.size());
+        GameData firstGame = checkInList(games, idOne);
+        GameData secondGame = checkInList(games, idTwo);
+        assertEquals("Game", firstGame.gameName());
+        assertEquals("Other Game", secondGame.gameName());
+        for (GameData g : games) {
+            ChessGame game = g.game();
+            assertNotNull(game);
+            assertEquals(ChessGame.TeamColor.WHITE, game.getTeamTurn());
+            assertNotNull(game.getBoard());
+        }
     }
 
-    @Test
-    void listGamesNegative() throws DataAccessException {
-        //TODO so.... the invalid error is handled in the server. Don't want to switch that.
+    private GameData checkInList(Collection<GameData> games, int id) {
+        for (GameData g : games) {
+            if (g.gameID() == id) {
+                return g;
+            }
+        }
+        throw new RuntimeException("Game not found: " + id);
     }
+
 
     @Test
     void deleteAllGames() throws DataAccessException {
-
+        GameDAO gameDAO = new MySqlGameDAO();
+        gameDAO.deleteAllGames();
+        int id = gameDAO.createGame("game");
+        gameDAO.deleteAllGames();
+        DataAccessException ex = assertThrows(DataAccessException.class, () -> gameDAO.getGame(id));
+        assertEquals("Game doesn't exist", ex.getMessage());
     }
 }
