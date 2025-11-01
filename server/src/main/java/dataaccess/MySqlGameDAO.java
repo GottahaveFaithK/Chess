@@ -20,7 +20,12 @@ public class MySqlGameDAO implements GameDAO {
     }
 
     @Override
-    public void updateGame(GameData game, ChessGame updatedGame, String color, String username) throws DataAccessException {
+    public void updateColor(GameData game, ChessGame updatedGame, String color, String username) throws DataAccessException {
+
+    }
+
+    @Override
+    public void updateGame(int id, GameData updatedData) throws DataAccessException {
 
     }
 

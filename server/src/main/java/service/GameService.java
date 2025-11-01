@@ -48,7 +48,7 @@ public class GameService {
             GameData myGame = gameDAO.getGame(gameID);
             if (playerColor.equals("WHITE") || playerColor.equals("BLACK")) {
                 try {
-                    gameDAO.updateGame(myGame, myGame.game(), playerColor, authDAO.getAuth(authToken).username());
+                    gameDAO.updateColor(myGame, myGame.game(), playerColor, authDAO.getAuth(authToken).username());
                 } catch (DataAccessException e) {
                     throw new ResponseException("Error: already taken", 403);
                 }

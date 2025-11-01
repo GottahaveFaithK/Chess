@@ -27,7 +27,7 @@ public class MemoryGameDAO implements GameDAO {
     }
 
     @Override
-    public void updateGame(GameData game, ChessGame updatedGame, String color, String username) throws DataAccessException {
+    public void updateColor(GameData game, ChessGame updatedGame, String color, String username) throws DataAccessException {
         if (color.equals("WHITE") && game.whiteUsername() == null) {
             gameStorage.put(game.gameID(), new GameData(
                     game.gameID(),
@@ -46,6 +46,15 @@ public class MemoryGameDAO implements GameDAO {
             );
         } else {
             throw new DataAccessException("Color already taken");
+        }
+    }
+
+    @Override
+    public void updateGame(int id, GameData updatedData) throws DataAccessException {
+        if (gameStorage.containsKey(id)) {
+            gameStorage.put(id, updatedData);
+        } else {
+            throw new DataAccessException("Game doesn't exist");
         }
     }
 
