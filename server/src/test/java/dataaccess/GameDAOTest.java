@@ -4,6 +4,8 @@ import chess.*;
 import model.GameData;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collection;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GameDAOTest {
@@ -89,26 +91,73 @@ public class GameDAOTest {
 
     @Test
     void updateColor() throws DataAccessException {
-
+        GameDAO gameDAO = new MySqlGameDAO();
+        gameDAO.deleteAllGames();
+        int id = gameDAO.createGame("cool name");
+        GameData myGameData = gameDAO.getGame(id);
+        ChessGame myGame = myGameData.game();
+        gameDAO.updateColor(myGameData, myGame, "WHITE", "white user");
+        var res = gameDAO.getGame(id);
+        assertEquals(1, res.gameID());
+        assertEquals("white user", res.whiteUsername());
+        assertNull(res.blackUsername());
+        assertEquals("cool name", res.gameName());
+        ChessGame game = res.game();
+        assertEquals(ChessGame.TeamColor.WHITE, game.getTeamTurn());
+        assertNotNull(game.getBoard());
+        ChessBoard board = new ChessBoard();
+        assertEquals(board, game.getBoard());
     }
 
     @Test
     void updateColorTaken() throws DataAccessException {
-
+        GameDAO gameDAO = new MySqlGameDAO();
+        gameDAO.deleteAllGames();
+        int id = gameDAO.createGame("cool name");
+        GameData myGameData = gameDAO.getGame(id);
+        ChessGame myGame = myGameData.game();
+        gameDAO.updateColor(myGameData, myGame, "WHITE", "white user");
+        DataAccessException ex = assertThrows(DataAccessException.class, ()
+                -> gameDAO.updateColor(myGameData, myGame, "WHITE", "Other User"));
+        assertEquals("Color already taken", ex.getMessage());
     }
 
     @Test
     void getGame() throws DataAccessException {
+        GameDAO gameDAO = new MySqlGameDAO();
+        gameDAO.deleteAllGames();
+        int id = gameDAO.createGame("cool name");
+        var res = gameDAO.getGame(id);
+        assertEquals(1, res.gameID());
+        assertNull(res.whiteUsername());
+        assertNull(res.blackUsername());
+        assertEquals("cool name", res.gameName());
 
+        ChessGame game = res.game();
+        assertEquals(ChessGame.TeamColor.WHITE, game.getTeamTurn());
+        assertNotNull(game.getBoard());
+        ChessBoard board = new ChessBoard();
+        assertEquals(board, game.getBoard());
     }
 
     @Test
     void getGameInvalidID() throws DataAccessException {
-
+        GameDAO gameDAO = new MySqlGameDAO();
+        gameDAO.deleteAllGames();
+        gameDAO.createGame("cool name");
+        DataAccessException ex = assertThrows(DataAccessException.class, () -> gameDAO.getGame(99));
+        assertEquals("Game ID is invalid", ex.getMessage());
     }
 
     @Test
     void listGames() throws DataAccessException {
+        GameDAO gameDAO = new MemoryGameDAO();
+        gameDAO.deleteAllGames();
+        int idOne = gameDAO.createGame("Game");
+        int idTwo = gameDAO.createGame("Other Game");
+        Collection<GameData> games = gameDAO.listGames();
+        assertEquals(3, games.size());
+
 
     }
 
