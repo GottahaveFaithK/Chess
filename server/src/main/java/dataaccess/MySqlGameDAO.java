@@ -55,8 +55,41 @@ public class MySqlGameDAO implements GameDAO {
     }
 
     @Override
-    public void updateColor(GameData game, ChessGame updatedGame, String color, String username) throws DataAccessException {
+    public void updateColor(GameData game, ChessGame updatedGame, String color, String username)
+            throws DataAccessException {
+        try (Connection conn = DatabaseManager.getConnection()) {
+            GameData existing = getGame(game.gameID());
 
+            if (color.equals("WHITE")) {
+                if (existing.whiteUsername() != null) {
+                    throw new DataAccessException("Color already taken");
+                }
+
+                var statement = "UPDATE games SET whiteUsername = ? WHERE gameID = ?";
+                try (PreparedStatement ps = conn.prepareStatement(statement)) {
+                    ps.setString(1, username);
+                    ps.setInt(2, game.gameID());
+                    ps.executeUpdate();
+                }
+
+            } else if (color.equals("BLACK")) {
+                if (existing.blackUsername() != null) {
+                    throw new DataAccessException("Color already taken");
+                }
+
+                var statement = "UPDATE games SET blackUsername = ? WHERE gameID = ?";
+                try (PreparedStatement ps = conn.prepareStatement(statement)) {
+                    ps.setString(1, username);
+                    ps.setInt(2, game.gameID());
+                    ps.executeUpdate();
+                }
+
+            } else {
+                throw new DataAccessException("Invalid color");
+            }
+        } catch (SQLException e) {
+            throw new DataAccessException("Cant read data" + e.getMessage());
+        }
     }
 
     @Override

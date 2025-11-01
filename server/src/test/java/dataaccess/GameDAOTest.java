@@ -95,20 +95,25 @@ public class GameDAOTest {
     void updateColor() throws DataAccessException {
         GameDAO gameDAO = new MySqlGameDAO();
         gameDAO.deleteAllGames();
+
         int id = gameDAO.createGame("cool name");
         GameData myGameData = gameDAO.getGame(id);
         ChessGame myGame = myGameData.game();
         gameDAO.updateColor(myGameData, myGame, "WHITE", "white user");
         var res = gameDAO.getGame(id);
+
         assertEquals(1, res.gameID());
         assertEquals("white user", res.whiteUsername());
         assertNull(res.blackUsername());
         assertEquals("cool name", res.gameName());
+
         ChessGame game = res.game();
+        ChessGame updated = new ChessGame();
+
         assertEquals(ChessGame.TeamColor.WHITE, game.getTeamTurn());
         assertNotNull(game.getBoard());
         ChessBoard board = new ChessBoard();
-        assertEquals(board, game.getBoard());
+        assertEquals(updated.getBoard(), game.getBoard());
     }
 
     @Test

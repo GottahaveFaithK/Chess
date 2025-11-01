@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl getgame and create game (Phase 4)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="fixed an error in my getgames tests. passing create, get, and delete tests (Phase 4)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/GameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/GameDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryGameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryGameDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlGameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlGameDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/dataaccess/GameDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/dataaccess/GameDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessBoard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,14 +249,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00082" summary="now have correct authToken and some more memory DAO work (phase 3)">
-      <option name="closed" value="true" />
-      <created>1760826770301</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1760826770302</updated>
     </task>
     <task id="LOCAL-00083" summary="impl memoryAuth (phase 3)">
       <option name="closed" value="true" />
@@ -645,7 +634,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762022304409</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="fixed an error in my getgames tests. passing create, get, and delete tests (Phase 4)">
+      <option name="closed" value="true" />
+      <created>1762024416752</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1762024416752</updated>
+    </task>
+    <option name="localTasksCounter" value="132" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -686,7 +683,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="commented out unused methods for quality (phase 3)" />
     <MESSAGE value="removed unused methods for quality (phase 3)" />
     <MESSAGE value="starter code (Phase 4)" />
     <MESSAGE value="register now hashes password (Phase 4)" />
@@ -711,6 +707,7 @@
     <MESSAGE value="impl some more gamedao tests (Phase 4)" />
     <MESSAGE value="finish impl gameDao tests (Phase 4)" />
     <MESSAGE value="impl getgame and create game (Phase 4)" />
-    <option name="LAST_COMMIT_MESSAGE" value="impl getgame and create game (Phase 4)" />
+    <MESSAGE value="fixed an error in my getgames tests. passing create, get, and delete tests (Phase 4)" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed an error in my getgames tests. passing create, get, and delete tests (Phase 4)" />
   </component>
 </project>
