@@ -9,7 +9,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
-import java.util.List;
 
 import static java.sql.Statement.RETURN_GENERATED_KEYS;
 
@@ -186,14 +185,6 @@ public class MySqlGameDAO implements GameDAO {
     };
 
     private void configure() throws DataAccessException {
-        try (Connection conn = DatabaseManager.getConnection()) {
-            for (String statement : create) {
-                try (var preparedStatement = conn.prepareStatement(statement)) {
-                    preparedStatement.executeUpdate();
-                }
-            }
-        } catch (SQLException ex) {
-            throw new DataAccessException("Unable to configure database");
-        }
+        InitializeTables.configureTable(create);
     }
 }

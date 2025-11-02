@@ -79,14 +79,6 @@ public class MySqlAuthDAO implements AuthDAO {
     };
 
     private void configure() throws DataAccessException {
-        try (Connection conn = DatabaseManager.getConnection()) {
-            for (String statement : create) {
-                try (var preparedStatement = conn.prepareStatement(statement)) {
-                    preparedStatement.executeUpdate();
-                }
-            }
-        } catch (SQLException ex) {
-            throw new DataAccessException("Unable to configure database");
-        }
+        InitializeTables.configureTable(create);
     }
 }
