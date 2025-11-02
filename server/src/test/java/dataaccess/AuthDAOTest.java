@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class AuthDAOTest {
     @Test
-    void createAuth() throws DataAccessException {
+    void createAndGetAuth() throws DataAccessException {
         AuthDAO authDAO = new MySqlAuthDAO();
         authDAO.deleteAllAuth();
         String token = UUID.randomUUID().toString();
@@ -34,20 +34,6 @@ public class AuthDAOTest {
 
         DataAccessException ex = assertThrows(DataAccessException.class, () -> authDAO.createAuth(secondAuth));
         assertTrue(ex.getMessage().startsWith("Unable to insert auth data:"));
-    }
-
-    @Test
-    void getAuth() throws DataAccessException {
-        AuthDAO authDAO = new MySqlAuthDAO();
-        authDAO.deleteAllAuth();
-        String token = UUID.randomUUID().toString();
-        AuthData authData = new AuthData("user", token);
-
-        authDAO.createAuth(authData);
-        var res = authDAO.getAuth(token);
-        assertNotNull(res);
-        assertEquals(authData.username(), res.username());
-        assertEquals(authData.authToken(), res.authToken());
     }
 
     @Test

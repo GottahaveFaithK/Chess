@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="passing all tests! (Phase 4)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="quality update (Phase 4)">
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/dataaccess/AuthDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/dataaccess/AuthDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/dataaccess/UserDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/dataaccess/UserDAOTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,14 +239,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00085" summary="impl clear method (phase 3)">
-      <option name="closed" value="true" />
-      <created>1760833811923</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1760833811923</updated>
     </task>
     <task id="LOCAL-00086" summary="added login at service and DAO layers (phase 3)">
       <option name="closed" value="true" />
@@ -631,7 +624,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762030642358</updated>
     </task>
-    <option name="localTasksCounter" value="134" />
+    <task id="LOCAL-00134" summary="quality update (Phase 4)">
+      <option name="closed" value="true" />
+      <created>1762045948083</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1762045948098</updated>
+    </task>
+    <option name="localTasksCounter" value="135" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -672,7 +673,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="register now hashes password (Phase 4)" />
     <MESSAGE value="login now checks hashed password (Phase 4)" />
     <MESSAGE value="initializes database, mysqlAuthDAO framework exists (Phase 4)" />
     <MESSAGE value="should create the auth table in database (Phase 4)" />
@@ -697,6 +697,7 @@
     <MESSAGE value="fixed an error in my getgames tests. passing create, get, and delete tests (Phase 4)" />
     <MESSAGE value="impl update color (Phase 4)" />
     <MESSAGE value="passing all tests! (Phase 4)" />
-    <option name="LAST_COMMIT_MESSAGE" value="passing all tests! (Phase 4)" />
+    <MESSAGE value="quality update (Phase 4)" />
+    <option name="LAST_COMMIT_MESSAGE" value="quality update (Phase 4)" />
   </component>
 </project>
