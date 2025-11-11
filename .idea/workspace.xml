@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl starter code (Phase 5)">
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/chessclient/chessClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="small file structure change (Phase 5)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -239,14 +236,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00088" summary="login passing pos and neg service tests (phase 3)">
-      <option name="closed" value="true" />
-      <created>1760835564026</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1760835564026</updated>
     </task>
     <task id="LOCAL-00089" summary="register and login now handle bad requests (phase 3)">
       <option name="closed" value="true" />
@@ -632,7 +621,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762204541389</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="small file structure change (Phase 5)">
+      <option name="closed" value="true" />
+      <created>1762816443069</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1762816443069</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -673,7 +670,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="should create the auth table in database (Phase 4)" />
     <MESSAGE value="authTable creation works! (Phase 4)" />
     <MESSAGE value="wrote positive createAuth test (Phase 4)" />
     <MESSAGE value="impl all AuthDAO tests(Phase 4)" />
@@ -698,6 +694,7 @@
     <MESSAGE value="quality update (Phase 4)" />
     <MESSAGE value="another code quality update (Phase 4)" />
     <MESSAGE value="impl starter code (Phase 5)" />
-    <option name="LAST_COMMIT_MESSAGE" value="impl starter code (Phase 5)" />
+    <MESSAGE value="small file structure change (Phase 5)" />
+    <option name="LAST_COMMIT_MESSAGE" value="small file structure change (Phase 5)" />
   </component>
 </project>
