@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="small file structure change (Phase 5)" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="small file structure change (planning) (Phase 5)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -236,14 +236,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00089" summary="register and login now handle bad requests (phase 3)">
-      <option name="closed" value="true" />
-      <created>1760836539608</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1760836539608</updated>
     </task>
     <task id="LOCAL-00090" summary="impl logout (phase 3)">
       <option name="closed" value="true" />
@@ -629,7 +621,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762816443069</updated>
     </task>
-    <option name="localTasksCounter" value="138" />
+    <task id="LOCAL-00138" summary="small file structure change (planning) (Phase 5)">
+      <option name="closed" value="true" />
+      <created>1762883576525</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1762883576525</updated>
+    </task>
+    <option name="localTasksCounter" value="139" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -670,7 +670,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="authTable creation works! (Phase 4)" />
     <MESSAGE value="wrote positive createAuth test (Phase 4)" />
     <MESSAGE value="impl all AuthDAO tests(Phase 4)" />
     <MESSAGE value="impl all AuthDAO methods except for delete auth(Phase 4)" />
@@ -695,6 +694,7 @@
     <MESSAGE value="another code quality update (Phase 4)" />
     <MESSAGE value="impl starter code (Phase 5)" />
     <MESSAGE value="small file structure change (Phase 5)" />
-    <option name="LAST_COMMIT_MESSAGE" value="small file structure change (Phase 5)" />
+    <MESSAGE value="small file structure change (planning) (Phase 5)" />
+    <option name="LAST_COMMIT_MESSAGE" value="small file structure change (planning) (Phase 5)" />
   </component>
 </project>

@@ -1,5 +1,5 @@
 package chessclient;
 
-public class chessClient {
+public class ServerFacade {
     //figure out what this does
 }
