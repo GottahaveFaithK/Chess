@@ -5,7 +5,7 @@ import chess.ChessPiece;
 
 public class ClientChessboard {
 
-    public void drawChessboardWhite() {
+    public void drawChessBoardWhite() {
         //draw chessboard from white's perspective
         drawHeadersFooters("White");
         drawBoard(1, 1); //do I want to give it a row and col or just a string
@@ -30,9 +30,9 @@ public class ClientChessboard {
 
     private void drawHeadersFooters(String color) {
         if (color.equals("White")) {
-            System.out.println("    a  b  c  d  e  f  g  h    ");
+            System.out.println(EscapeSequences.SET_TEXT_COLOR_LIGHT_BLUE + "    a  b  c  d  e  f  g  h    ");
         } else {
-            System.out.println("    h  g  f  e  d  c  b  a    ");
+            System.out.println(EscapeSequences.SET_TEXT_COLOR_BLUE + "    h  g  f  e  d  c  b  a    ");
         }
     }
 
