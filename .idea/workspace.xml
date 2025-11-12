@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="small name change (Phase 5)">
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" afterDir="false" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="reorganizing and small function outlines (Phase 5)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/ClientChessboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/ClientChessboard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -143,7 +141,14 @@
       <recent name="service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in server">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="client" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <option name="PACKAGE_NAME" value="" />
@@ -162,21 +167,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="service" />
       <option name="MAIN_CLASS_NAME" value="service.ClearServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GameDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dataaccess.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="dataaccess" />
-      <option name="MAIN_CLASS_NAME" value="dataaccess.GameDAOTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -226,11 +216,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.All in server" />
         <item itemvalue="JUnit.GameServiceTest" />
         <item itemvalue="JUnit.ClearServiceTest" />
         <item itemvalue="JUnit.StandardAPITests.clearData" />
-        <item itemvalue="JUnit.GameDAOTest" />
       </list>
     </recent_temporary>
   </component>
@@ -241,14 +231,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00091" summary="fixed some error messsages being thrown when they shouldnt (phase 3)">
-      <option name="closed" value="true" />
-      <created>1760839264577</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1760839264577</updated>
     </task>
     <task id="LOCAL-00092" summary="fixed logoutPositive test (phase 3)">
       <option name="closed" value="true" />
@@ -634,7 +616,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762896532351</updated>
     </task>
-    <option name="localTasksCounter" value="140" />
+    <task id="LOCAL-00140" summary="reorganizing and small function outlines (Phase 5)">
+      <option name="closed" value="true" />
+      <created>1762910050386</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1762910050387</updated>
+    </task>
+    <option name="localTasksCounter" value="141" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -675,7 +665,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="impl all AuthDAO tests(Phase 4)" />
     <MESSAGE value="impl all AuthDAO methods except for delete auth(Phase 4)" />
     <MESSAGE value="impl delete auth, all tests passing(Phase 4)" />
     <MESSAGE value="quick removal of unused import(Phase 4)" />
@@ -700,6 +689,7 @@
     <MESSAGE value="small file structure change (Phase 5)" />
     <MESSAGE value="small file structure change (planning) (Phase 5)" />
     <MESSAGE value="small name change (Phase 5)" />
-    <option name="LAST_COMMIT_MESSAGE" value="small name change (Phase 5)" />
+    <MESSAGE value="reorganizing and small function outlines (Phase 5)" />
+    <option name="LAST_COMMIT_MESSAGE" value="reorganizing and small function outlines (Phase 5)" />
   </component>
 </project>
