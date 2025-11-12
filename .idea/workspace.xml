@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="added some new colors (Phase 5)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="got checkerboard pattern printing, now just need to add piece functionality (Phase 5)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/ClientChessboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/ClientChessboard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -231,14 +232,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00096" summary="tested error 400 and 401 for create game (phase 3)">
-      <option name="closed" value="true" />
-      <created>1760999961614</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1760999961615</updated>
     </task>
     <task id="LOCAL-00097" summary="impl gamehandler creategame (phase 3)">
       <option name="closed" value="true" />
@@ -624,7 +617,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762967515028</updated>
     </task>
-    <option name="localTasksCounter" value="145" />
+    <task id="LOCAL-00145" summary="got checkerboard pattern printing, now just need to add piece functionality (Phase 5)">
+      <option name="closed" value="true" />
+      <created>1762969437647</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1762969437647</updated>
+    </task>
+    <option name="localTasksCounter" value="146" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -665,7 +666,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test framework for UserDAO (Phase 4)" />
     <MESSAGE value="impl UserDAO tests (Phase 4)" />
     <MESSAGE value="spelling fix (Phase 4)" />
     <MESSAGE value="impl MySqlUserDAO  (Phase 4)" />
@@ -690,6 +690,7 @@
     <MESSAGE value="impl getPieceChar (Phase 5)" />
     <MESSAGE value="impl draw headers/footers (Phase 5)" />
     <MESSAGE value="added some new colors (Phase 5)" />
-    <option name="LAST_COMMIT_MESSAGE" value="added some new colors (Phase 5)" />
+    <MESSAGE value="got checkerboard pattern printing, now just need to add piece functionality (Phase 5)" />
+    <option name="LAST_COMMIT_MESSAGE" value="got checkerboard pattern printing, now just need to add piece functionality (Phase 5)" />
   </component>
 </project>

@@ -2,44 +2,58 @@ package ui;
 
 import chess.ChessGame;
 import chess.ChessPiece;
+import chess.ChessPosition;
+import model.GameData;
 
 public class ClientChessboard {
 
+    private GameData currentGame;
+
+    public ClientChessboard(GameData game) {
+        currentGame = game;
+    }
+
+    public GameData getCurrentGame() {
+        return currentGame;
+    }
+
+    public void setCurrentGame(GameData game) {
+        currentGame = game;
+    }
+
     public void drawChessBoardWhite() {
-        //draw chessboard from white's perspective
         drawHeadersFooters("White");
-        drawBoard(1, 1);
+        drawBoard(8, 8);
         System.out.println("\n");
         drawHeadersFooters("White");
     }
 
     public void drawChessBoardBlack() {
-        //draw chessboard from black's perspective
-        //flippedRow = 8 - row + 1
-        //flippedCol = 8 - col + 1
         drawHeadersFooters("Black");
-        drawBoard(8, 8);
+        drawBoard(1, 1);
         System.out.println("\n");
         drawHeadersFooters("Black");
     }
 
     private void drawBoard(int startCol, int startRow) {
-        //iterate through rows and columns
-        //checkerboard pattern
-        //get piece and draw it
+        String displayColor = (startCol == 8 ? EscapeSequences.SET_TEXT_COLOR_LIGHT_BLUE :
+                EscapeSequences.SET_TEXT_COLOR_BLUE);
         int change = (startCol == 1 ? 1 : -1);
         for (int i = startRow; i != (startRow == 1 ? 9 : 0); i += (change)) {
-            int displayRow = (9 - i);
-            System.out.print("\n " + displayRow + " ");
+            System.out.print("\n " + displayColor + i + " " + EscapeSequences.RESET_TEXT_COLOR);
             for (int j = startCol; j != (startCol == 1 ? 9 : 0); j += (change)) {
                 boolean backgroundDark = ((i % 2 == 1) && (j % 2 == 1) || (i % 2 == 0) && (j % 2 == 0));
                 String backgroundColor = (backgroundDark ? EscapeSequences.SET_BG_COLOR_BLUE :
                         EscapeSequences.SET_BG_COLOR_LIGHT_BLUE);
-                System.out.print(backgroundColor + EscapeSequences.SET_TEXT_COLOR_WHITE + " a "
-                        + EscapeSequences.RESET_BG_COLOR + EscapeSequences.RESET_TEXT_COLOR);
+                String invisibleInk = (backgroundDark ? EscapeSequences.SET_TEXT_COLOR_BLUE :
+                        EscapeSequences.SET_TEXT_COLOR_LIGHT_BLUE);
+                String pieceData = getTextChar(getCurrentGame().game().getBoard().getPiece(new ChessPosition(i, j)));
+                System.out.print(backgroundColor + pieceData +
+                        EscapeSequences.RESET_BG_COLOR + EscapeSequences.RESET_TEXT_COLOR);
             }
         }
     }
+
 
     private void drawHeadersFooters(String color) {
         if (color.equals("White")) {
@@ -49,9 +63,19 @@ public class ClientChessboard {
         }
     }
 
-    private String getPieceChar(ChessPiece piece) {
-        if (piece.getPieceType() == null) {
+    private String getTextChar(ChessPiece piece) {
+        if (piece == null) {
             return "   ";
+        } else if (piece.getTeamColor() == ChessGame.TeamColor.WHITE) {
+            return EscapeSequences.SET_TEXT_COLOR_WHITE + whiteTextChars(piece);
+        } else {
+            return EscapeSequences.SET_TEXT_COLOR_BLACK + blackTextChars(piece);
+        }
+    }
+
+    private String getPieceChar(ChessPiece piece, String invisibleInk) {
+        if (piece == null) {
+            return invisibleInk + EscapeSequences.WHITE_PAWN;
         } else if (piece.getTeamColor() == ChessGame.TeamColor.WHITE) {
             return EscapeSequences.SET_TEXT_COLOR_WHITE + whitePieceChars(piece);
         } else {
@@ -69,6 +93,34 @@ public class ClientChessboard {
             case KNIGHT -> myPiece = EscapeSequences.WHITE_KNIGHT;
             case ROOK -> myPiece = EscapeSequences.WHITE_ROOK;
             case PAWN -> myPiece = EscapeSequences.WHITE_PAWN;
+        }
+        return myPiece;
+    }
+
+    public String whiteTextChars(ChessPiece piece) {
+        ChessPiece.PieceType type = piece.getPieceType();
+        String myPiece = "";
+        switch (type) {
+            case KING -> myPiece = " K ";
+            case QUEEN -> myPiece = " Q ";
+            case BISHOP -> myPiece = " B ";
+            case KNIGHT -> myPiece = " N ";
+            case ROOK -> myPiece = " R ";
+            case PAWN -> myPiece = " P ";
+        }
+        return myPiece;
+    }
+
+    public String blackTextChars(ChessPiece piece) {
+        ChessPiece.PieceType type = piece.getPieceType();
+        String myPiece = "";
+        switch (type) {
+            case KING -> myPiece = " k ";
+            case QUEEN -> myPiece = " q ";
+            case BISHOP -> myPiece = " b ";
+            case KNIGHT -> myPiece = " n ";
+            case ROOK -> myPiece = " r ";
+            case PAWN -> myPiece = " p ";
         }
         return myPiece;
     }
