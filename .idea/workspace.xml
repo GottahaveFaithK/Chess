@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="small file structure change (planning) (Phase 5)" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="small name change (Phase 5)">
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/ClientChessboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/ClientChessboard.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -236,14 +241,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00090" summary="impl logout (phase 3)">
-      <option name="closed" value="true" />
-      <created>1760838169989</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1760838169989</updated>
     </task>
     <task id="LOCAL-00091" summary="fixed some error messsages being thrown when they shouldnt (phase 3)">
       <option name="closed" value="true" />
@@ -629,7 +626,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762883576525</updated>
     </task>
-    <option name="localTasksCounter" value="139" />
+    <task id="LOCAL-00139" summary="small name change (Phase 5)">
+      <option name="closed" value="true" />
+      <created>1762896532351</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1762896532351</updated>
+    </task>
+    <option name="localTasksCounter" value="140" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -670,7 +675,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="wrote positive createAuth test (Phase 4)" />
     <MESSAGE value="impl all AuthDAO tests(Phase 4)" />
     <MESSAGE value="impl all AuthDAO methods except for delete auth(Phase 4)" />
     <MESSAGE value="impl delete auth, all tests passing(Phase 4)" />
@@ -695,6 +699,7 @@
     <MESSAGE value="impl starter code (Phase 5)" />
     <MESSAGE value="small file structure change (Phase 5)" />
     <MESSAGE value="small file structure change (planning) (Phase 5)" />
-    <option name="LAST_COMMIT_MESSAGE" value="small file structure change (planning) (Phase 5)" />
+    <MESSAGE value="small name change (Phase 5)" />
+    <option name="LAST_COMMIT_MESSAGE" value="small name change (Phase 5)" />
   </component>
 </project>
