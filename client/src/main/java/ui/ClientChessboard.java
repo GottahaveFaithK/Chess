@@ -1,5 +1,6 @@
 package ui;
 
+import chess.ChessGame;
 import chess.ChessPiece;
 
 public class ClientChessboard {
@@ -35,11 +36,14 @@ public class ClientChessboard {
 
     }
 
-    private void getPieceChar() {
-        //if piece is null then "  "
-        //check team
-        //set text color
-        //switch statement
+    private String getPieceChar(ChessPiece piece) {
+        if (piece.getPieceType() == null) {
+            return "  ";
+        } else if (piece.getTeamColor() == ChessGame.TeamColor.WHITE) {
+            return EscapeSequences.SET_TEXT_COLOR_WHITE + whitePieceChars(piece);
+        } else {
+            return EscapeSequences.SET_TEXT_COLOR_BLACK + blackPieceChars(piece);
+        }
     }
 
     private static String whitePieceChars(ChessPiece piece) {

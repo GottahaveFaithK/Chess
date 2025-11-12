@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="reorganizing and small function outlines (Phase 5)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="forgot to commit last night's changes (Phase 5)">
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/ClientChessboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/ClientChessboard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -231,14 +230,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00092" summary="fixed logoutPositive test (phase 3)">
-      <option name="closed" value="true" />
-      <created>1760839614684</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1760839614684</updated>
     </task>
     <task id="LOCAL-00093" summary="fixed logoutPositive test (phase 3)">
       <option name="closed" value="true" />
@@ -624,7 +615,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762910050387</updated>
     </task>
-    <option name="localTasksCounter" value="141" />
+    <task id="LOCAL-00141" summary="forgot to commit last night's changes (Phase 5)">
+      <option name="closed" value="true" />
+      <created>1762964389371</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1762964389371</updated>
+    </task>
+    <option name="localTasksCounter" value="142" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -665,7 +664,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="impl all AuthDAO methods except for delete auth(Phase 4)" />
     <MESSAGE value="impl delete auth, all tests passing(Phase 4)" />
     <MESSAGE value="quick removal of unused import(Phase 4)" />
     <MESSAGE value="sketched out mysqluserdao methods (Phase 4)" />
@@ -690,6 +688,7 @@
     <MESSAGE value="small file structure change (planning) (Phase 5)" />
     <MESSAGE value="small name change (Phase 5)" />
     <MESSAGE value="reorganizing and small function outlines (Phase 5)" />
-    <option name="LAST_COMMIT_MESSAGE" value="reorganizing and small function outlines (Phase 5)" />
+    <MESSAGE value="forgot to commit last night's changes (Phase 5)" />
+    <option name="LAST_COMMIT_MESSAGE" value="forgot to commit last night's changes (Phase 5)" />
   </component>
 </project>
