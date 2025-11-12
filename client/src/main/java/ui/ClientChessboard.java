@@ -7,18 +7,18 @@ public class ClientChessboard {
 
     public void drawChessboardWhite() {
         //draw chessboard from white's perspective
-        drawHeaders("White");
+        drawHeadersFooters("White");
         drawBoard(1, 1); //do I want to give it a row and col or just a string
-        drawFooters("White");
+        drawHeadersFooters("White");
     }
 
     public void drawChessBoardBlack() {
         //draw chessboard from black's perspective
         //flippedRow = 8 - row + 1
         //flippedCol = 8 - col + 1
-        drawHeaders("Black");
+        drawHeadersFooters("Black");
         drawBoard(8, 8); //do I want to give it a row and col or just a string
-        drawFooters("Black");
+        drawHeadersFooters("Black");
     }
 
     private void drawBoard(int startCol, int startRow) {
@@ -28,17 +28,17 @@ public class ClientChessboard {
 
     }
 
-    private void drawHeaders(String color) {
-        //if color (etc.)
-    }
-
-    private void drawFooters(String Color) {
-
+    private void drawHeadersFooters(String color) {
+        if (color.equals("White")) {
+            System.out.println("    a  b  c  d  e  f  g  h    ");
+        } else {
+            System.out.println("    h  g  f  e  d  c  b  a    ");
+        }
     }
 
     private String getPieceChar(ChessPiece piece) {
         if (piece.getPieceType() == null) {
-            return "  ";
+            return "   ";
         } else if (piece.getTeamColor() == ChessGame.TeamColor.WHITE) {
             return EscapeSequences.SET_TEXT_COLOR_WHITE + whitePieceChars(piece);
         } else {
