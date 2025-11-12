@@ -8,7 +8,8 @@ public class ClientChessboard {
     public void drawChessBoardWhite() {
         //draw chessboard from white's perspective
         drawHeadersFooters("White");
-        drawBoard(1, 1); //do I want to give it a row and col or just a string
+        drawBoard(1, 1);
+        System.out.println("\n");
         drawHeadersFooters("White");
     }
 
@@ -17,7 +18,8 @@ public class ClientChessboard {
         //flippedRow = 8 - row + 1
         //flippedCol = 8 - col + 1
         drawHeadersFooters("Black");
-        drawBoard(8, 8); //do I want to give it a row and col or just a string
+        drawBoard(8, 8);
+        System.out.println("\n");
         drawHeadersFooters("Black");
     }
 
@@ -25,7 +27,18 @@ public class ClientChessboard {
         //iterate through rows and columns
         //checkerboard pattern
         //get piece and draw it
-
+        int change = (startCol == 1 ? 1 : -1);
+        for (int i = startRow; i != (startRow == 1 ? 9 : 0); i += (change)) {
+            int displayRow = (9 - i);
+            System.out.print("\n " + displayRow + " ");
+            for (int j = startCol; j != (startCol == 1 ? 9 : 0); j += (change)) {
+                boolean backgroundDark = ((i % 2 == 1) && (j % 2 == 1) || (i % 2 == 0) && (j % 2 == 0));
+                String backgroundColor = (backgroundDark ? EscapeSequences.SET_BG_COLOR_BLUE :
+                        EscapeSequences.SET_BG_COLOR_LIGHT_BLUE);
+                System.out.print(backgroundColor + EscapeSequences.SET_TEXT_COLOR_WHITE + " a "
+                        + EscapeSequences.RESET_BG_COLOR + EscapeSequences.RESET_TEXT_COLOR);
+            }
+        }
     }
 
     private void drawHeadersFooters(String color) {
