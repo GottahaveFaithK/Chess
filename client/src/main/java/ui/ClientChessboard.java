@@ -54,18 +54,17 @@ public class ClientChessboard {
         }
     }
 
-
     private void drawHeadersFooters(String color) {
         String empty = EscapeSequences.EMPTY;
         String emptySide = EscapeSequences.EMPTYSIDE;
         if (color.equals("White")) {
-            System.out.print(EscapeSequences.SET_TEXT_COLOR_LIGHT_BLUE + " " + emptySide + emptySide + "a " + emptySide + "b " + emptySide
-                    + "c " + emptySide + "d " + emptySide + "e " + emptySide + "f " + emptySide + "g " + emptySide
-                    + "h " + emptySide + empty);
+            System.out.print(EscapeSequences.SET_TEXT_COLOR_LIGHT_BLUE + " " + emptySide + emptySide + "a " + emptySide
+                    + "b " + emptySide + "c " + emptySide + "d " + emptySide + "e " + emptySide + "f " + emptySide
+                    + "g " + emptySide + "h " + emptySide + empty);
         } else {
-            System.out.print(EscapeSequences.SET_TEXT_COLOR_BLUE + " " + emptySide + emptySide + "h " + emptySide + "g " + emptySide
-                    + "f " + emptySide + "e " + emptySide + "d " + emptySide + "c " + emptySide + "b " + emptySide
-                    + "a " + emptySide + empty);
+            System.out.print(EscapeSequences.SET_TEXT_COLOR_BLUE + " " + emptySide + emptySide + "h " + emptySide
+                    + "g " + emptySide + "f " + emptySide + "e " + emptySide + "d " + emptySide + "c " + emptySide
+                    + "b " + emptySide + "a " + emptySide + empty);
         }
     }
 
