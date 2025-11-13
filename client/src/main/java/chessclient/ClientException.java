@@ -1,8 +1,11 @@
 package chessclient;
 
 public class ClientException extends RuntimeException {
-    public ClientException(String message) {
+    private final int id;
+
+    public ClientException(String message, int id) {
         super(message);
+        this.id = id;
     }
 
 
