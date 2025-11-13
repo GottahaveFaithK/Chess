@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl serverfacade listgames (Phase 5)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="small changes to serverfacade (Phase 5)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/chessclient/ServerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/chessclient/ServerFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/test/java/client/ServerFacadeTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/test/java/client/ServerFacadeTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/EscapeSequences.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/EscapeSequences.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,19 +154,10 @@
       <recent name="service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ServerFacadeTests.joinWrongColor">
-    <configuration name="GameServiceTest.listGamesNoAuth" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="service" />
-      <option name="MAIN_CLASS_NAME" value="service.GameServiceTest" />
-      <option name="METHOD_NAME" value="listGamesNoAuth" />
-      <option name="TEST_OBJECT" value="method" />
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="client" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -246,11 +238,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.ServerFacadeTests.joinWrongColor" />
         <item itemvalue="JUnit.ServerFacadeTests.joinGame" />
         <item itemvalue="JUnit.ServerFacadeTests" />
         <item itemvalue="JUnit.ServerFacadeTests.listGames" />
-        <item itemvalue="JUnit.GameServiceTest.listGamesNoAuth" />
       </list>
     </recent_temporary>
   </component>
@@ -261,22 +253,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00108" summary="starter code (Phase 4)">
-      <option name="closed" value="true" />
-      <created>1761431464812</created>
-      <option name="number" value="00108" />
-      <option name="presentableId" value="LOCAL-00108" />
-      <option name="project" value="LOCAL" />
-      <updated>1761431464812</updated>
-    </task>
-    <task id="LOCAL-00109" summary="register now hashes password (Phase 4)">
-      <option name="closed" value="true" />
-      <created>1761597834069</created>
-      <option name="number" value="00109" />
-      <option name="presentableId" value="LOCAL-00109" />
-      <option name="project" value="LOCAL" />
-      <updated>1761597834069</updated>
     </task>
     <task id="LOCAL-00110" summary="login now checks hashed password (Phase 4)">
       <option name="closed" value="true" />
@@ -654,7 +630,23 @@
       <option name="project" value="LOCAL" />
       <updated>1763068534582</updated>
     </task>
-    <option name="localTasksCounter" value="157" />
+    <task id="LOCAL-00157" summary="impl serverfacade (Phase 5)">
+      <option name="closed" value="true" />
+      <created>1763074206895</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1763074206895</updated>
+    </task>
+    <task id="LOCAL-00158" summary="small changes to serverfacade (Phase 5)">
+      <option name="closed" value="true" />
+      <created>1763074237112</created>
+      <option name="number" value="00158" />
+      <option name="presentableId" value="LOCAL-00158" />
+      <option name="project" value="LOCAL" />
+      <updated>1763074237112</updated>
+    </task>
+    <option name="localTasksCounter" value="159" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -695,8 +687,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="impl update color (Phase 4)" />
-    <MESSAGE value="passing all tests! (Phase 4)" />
     <MESSAGE value="quality update (Phase 4)" />
     <MESSAGE value="another code quality update (Phase 4)" />
     <MESSAGE value="impl starter code (Phase 5)" />
@@ -720,6 +710,8 @@
     <MESSAGE value="impl serverfacade login, logout, register (Phase 5)" />
     <MESSAGE value="impl serverfacade creategame (Phase 5)" />
     <MESSAGE value="impl serverfacade listgames (Phase 5)" />
-    <option name="LAST_COMMIT_MESSAGE" value="impl serverfacade listgames (Phase 5)" />
+    <MESSAGE value="impl serverfacade (Phase 5)" />
+    <MESSAGE value="small changes to serverfacade (Phase 5)" />
+    <option name="LAST_COMMIT_MESSAGE" value="small changes to serverfacade (Phase 5)" />
   </component>
 </project>
