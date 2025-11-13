@@ -57,6 +57,7 @@ public class ChessClient {
 
     public void listGames() {
         //fresh off the press
+        //if it gets a client exception debug and name based off error message
     }
 
     public void playGame() {

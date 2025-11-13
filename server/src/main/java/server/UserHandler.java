@@ -2,11 +2,14 @@ package server;
 
 import com.google.gson.Gson;
 import io.javalin.http.Context;
-import model.UserData;
+import request.LoginRequest;
+import request.LogoutRequest;
+import request.RegisterRequest;
+import response.LoginResponse;
+import response.LogoutResponse;
+import response.RegisterResponse;
 import service.ResponseException;
 import service.UserService;
-
-import java.util.Map;
 
 public class UserHandler {
     private final UserService userService;
@@ -17,7 +20,7 @@ public class UserHandler {
 
     public void register(Context ctx) {
         var serializer = new Gson();
-        UserData request = serializer.fromJson(ctx.body(), UserData.class);
+        RegisterRequest request = serializer.fromJson(ctx.body(), RegisterRequest.class);
 
         if (request.username() == null || request.username().isEmpty() ||
                 request.password() == null || request.password().isEmpty() ||
@@ -26,15 +29,14 @@ public class UserHandler {
         }
 
         var res = userService.register(request);
-
-        var response = serializer.toJson(res);
-        ctx.result(response);
-
+        RegisterResponse response = new RegisterResponse(res.username(), res.authToken());
+        ctx.status(200);
+        ctx.result(serializer.toJson(response));
     }
 
     public void login(Context ctx) {
         var serializer = new Gson();
-        UserData request = serializer.fromJson(ctx.body(), UserData.class);
+        LoginRequest request = serializer.fromJson(ctx.body(), LoginRequest.class);
 
         if (request.username() == null || request.username().isEmpty() ||
                 request.password() == null || request.password().isEmpty()) {
@@ -43,8 +45,9 @@ public class UserHandler {
 
         var res = userService.login(request);
 
-        var response = serializer.toJson(res);
-        ctx.result(response);
+        LoginResponse response = new LoginResponse(res.username(), res.authToken());
+        ctx.status(200);
+        ctx.result(serializer.toJson(response));
     }
 
     public void logout(Context ctx) {
@@ -53,9 +56,10 @@ public class UserHandler {
         if (authToken == null || authToken.isEmpty()) {
             throw new ResponseException("Error: bad request", 400);
         }
-        userService.logout(authToken);
-        ctx.result(serializer.toJson(Map.of()));
+        LogoutRequest request = new LogoutRequest(authToken);
+        userService.logout(request);
+        LogoutResponse response = new LogoutResponse();
         ctx.status(200);
-
+        ctx.result(serializer.toJson(response));
     }
 }

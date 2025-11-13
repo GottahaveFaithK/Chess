@@ -2,6 +2,11 @@ package server;
 
 import com.google.gson.Gson;
 import model.GameData;
+import request.CreateGameRequest;
+import request.JoinGameRequest;
+import request.ListGamesRequest;
+import response.CreateGameResponse;
+import response.ListGamesResponse;
 import service.GameService;
 import io.javalin.http.Context;
 import service.ResponseException;
@@ -21,33 +26,37 @@ public class GameHandler {
 
     public void createGame(Context ctx) {
         var serializer = new Gson();
+        CreateGameRequest bodyRequest = serializer.fromJson(ctx.body(), CreateGameRequest.class);
         String authToken = ctx.header("authorization");
-        GameData request = serializer.fromJson(ctx.body(), GameData.class);
+        CreateGameRequest request = new CreateGameRequest(bodyRequest.gameName(), authToken);
+
         if (authToken == null || authToken.isEmpty() ||
                 request.gameName() == null || request.gameName().isEmpty()) {
             throw new ResponseException("Error: bad request", 400);
         }
-        var res = gameService.createGame(request.gameName(), authToken);
-        var response = Map.of("gameID", res);
-        ctx.result(serializer.toJson(response));
+
+        int gameID = gameService.createGame(request);
+        CreateGameResponse response = new CreateGameResponse(gameID);
         ctx.status(200);
+        ctx.result(serializer.toJson(response));
     }
 
     public void listGames(Context ctx) {
+        var serializer = new Gson();
         String authToken = ctx.header("authorization");
         if (authToken == null || authToken.isEmpty()) {
             throw new ResponseException("Error: bad request", 400);
         }
-        var serializer = new Gson();
-        var res = gameService.listGames(authToken);
-        List<Map<String, Object>> gamesFormatted = new ArrayList<>();
+        ListGamesRequest request = new ListGamesRequest(authToken);
+        var res = gameService.listGames(request);
+        List<ListGamesResponse> gamesFormatted = new ArrayList<>();
         for (GameData game : res) {
-            Map<String, Object> formatted = new HashMap<>();
-            formatted.put("gameID", game.gameID());
-            formatted.put("whiteUsername", game.whiteUsername() == null ? null : game.whiteUsername());
-            formatted.put("blackUsername", game.blackUsername() == null ? null : game.blackUsername());
-            formatted.put("gameName", game.gameName());
-            gamesFormatted.add(formatted);
+            gamesFormatted.add(new ListGamesResponse(
+                    game.gameID(),
+                    game.gameName(),
+                    game.whiteUsername(),
+                    game.blackUsername()
+            ));
         }
 
         var response = serializer.toJson(Map.of("games", gamesFormatted));
@@ -56,22 +65,17 @@ public class GameHandler {
     }
 
     public void joinGame(Context ctx) {
-        //make this prettier
-        //maybe figure out a better way to get the color and id
-        //maybe create a class for them???
         var serializer = new Gson();
         String authToken = ctx.header("authorization");
-        Map<String, Object> body = serializer.fromJson(ctx.body(), Map.class);
-        String color = (String) body.get("playerColor");
-        Double id = (Double) body.get("gameID");
-
+        JoinGameRequest body = serializer.fromJson(ctx.body(), JoinGameRequest.class);
         if (authToken == null || authToken.isEmpty() ||
-                color == null || color.isEmpty() || id == null) {
+                body.playerColor() == null || body.playerColor().isEmpty() || body.gameID() == null) {
             throw new ResponseException("Error: bad request", 400);
         }
-        int gameID = id.intValue();
-        gameService.joinGame(color, gameID, authToken);
-        ctx.result(serializer.toJson(Map.of()));
+
+        JoinGameRequest request = new JoinGameRequest(authToken, body.playerColor(), body.gameID());
+        gameService.joinGame(request);
         ctx.status(200);
+        ctx.result(serializer.toJson(Map.of()));
     }
 }

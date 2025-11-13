@@ -6,6 +6,9 @@ import dataaccess.UserDAO;
 import model.UserData;
 import model.AuthData;
 import org.mindrot.jbcrypt.BCrypt;
+import request.LoginRequest;
+import request.LogoutRequest;
+import request.RegisterRequest;
 
 import java.util.UUID;
 
@@ -19,9 +22,9 @@ public class UserService {
         this.authDAO = authDAO;
     }
 
-    public AuthData register(UserData user) {
-        String hashPwd = BCrypt.hashpw(user.password(), BCrypt.gensalt());
-        var hashUser = new UserData(user.username(), hashPwd, user.email());
+    public AuthData register(RegisterRequest request) {
+        String hashPwd = BCrypt.hashpw(request.password(), BCrypt.gensalt());
+        var hashUser = new UserData(request.username(), hashPwd, request.email());
         try {
             userDAO.createUser(hashUser);
         } catch (DataAccessException e) {
@@ -31,7 +34,7 @@ public class UserService {
                 throw new ResponseException("Error: " + e.getMessage(), 500);
             }
         }
-        model.AuthData authData = new AuthData(user.username(), generateToken());
+        model.AuthData authData = new AuthData(request.username(), generateToken());
         try {
             authDAO.createAuth(authData);
         } catch (DataAccessException e) {
@@ -40,13 +43,13 @@ public class UserService {
         return authData;
     }
 
-    public AuthData login(UserData user) {
+    public AuthData login(LoginRequest request) {
         try {
-            UserData myUser = userDAO.getUser(user.username());
-            if (myUser == null || !BCrypt.checkpw(user.password(), myUser.password())) {
+            UserData myUser = userDAO.getUser(request.username());
+            if (myUser == null || !BCrypt.checkpw(request.password(), myUser.password())) {
                 throw new ResponseException("Error: unauthorized", 401);
             }
-            AuthData authData = new AuthData(user.username(), generateToken());
+            AuthData authData = new AuthData(request.username(), generateToken());
             authDAO.createAuth(authData);
             return authData;
 
@@ -58,8 +61,9 @@ public class UserService {
         }
     }
 
-    public void logout(String authToken) {
+    public void logout(LogoutRequest request) {
         try {
+            String authToken = request.authToken();
             authDAO.getAuth(authToken);
             authDAO.deleteAuth(authToken);
         } catch (DataAccessException e) {

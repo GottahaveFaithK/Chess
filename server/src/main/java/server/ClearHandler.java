@@ -2,9 +2,10 @@ package server;
 
 import com.google.gson.Gson;
 import io.javalin.http.Context;
+import request.ClearDatabaseRequest;
+import response.ClearDatabaseResponse;
 import service.ClearService;
 
-import java.util.Map;
 
 public class ClearHandler {
     private final ClearService clearService;
@@ -14,9 +15,11 @@ public class ClearHandler {
     }
 
     public void clear(Context ctx) {
+        Gson serializer = new Gson();
+        ClearDatabaseRequest request = serializer.fromJson(ctx.body(), ClearDatabaseRequest.class);
         clearService.clear();
-        var serializer = new Gson();
-        ctx.result(serializer.toJson(Map.of()));
+        ClearDatabaseResponse response = new ClearDatabaseResponse();
+        ctx.result(serializer.toJson(response));
         ctx.status(200);
     }
 }

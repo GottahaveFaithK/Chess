@@ -3,6 +3,9 @@ package service;
 import dataaccess.*;
 import model.UserData;
 import org.junit.jupiter.api.Test;
+import request.LoginRequest;
+import request.LogoutRequest;
+import request.RegisterRequest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -10,50 +13,47 @@ class UserServiceTest {
 
     @Test
     void registerPositive() {
-        var user = new UserData("joe", "j@j", "j");
-
         UserDAO userDAO = new MemoryUserDAO();
         AuthDAO authDAO = new MemoryAuthDAO();
         UserService userService = new UserService(userDAO, authDAO);
-        var res = userService.register(user);
-        assertEquals(user.username(), res.username());
+        RegisterRequest registerRequest = new RegisterRequest("joe", "j@j", "j@jmail.com");
+        var res = userService.register(registerRequest);
+        assertEquals(registerRequest.username(), res.username());
         assertNotNull(res.authToken());
         assertEquals(String.class, res.authToken().getClass());
     }
 
     @Test
     void registerNegative() {
-        var user = new UserData("joe", "j@j", "j");
-
         UserDAO userDAO = new MemoryUserDAO();
         AuthDAO authDAO = new MemoryAuthDAO();
         UserService userService = new UserService(userDAO, authDAO);
-        userService.register(user);
-        ResponseException ex = assertThrows(ResponseException.class, () -> userService.register(user));
+        RegisterRequest registerRequest = new RegisterRequest("joe", "j@j", "j");
+        var res = userService.register(registerRequest);
+        ResponseException ex = assertThrows(ResponseException.class, () -> userService.register(registerRequest));
         assertEquals(403, ex.getHttpResponseCode());
         assertEquals("Error: already taken", ex.getMessage());
     }
 
     @Test
     void loginWorks() {
-        var user = new UserData("joe", "j@j", "j@jmail.com");
         UserDAO userDAO = new MemoryUserDAO();
         AuthDAO authDAO = new MemoryAuthDAO();
         UserService userService = new UserService(userDAO, authDAO);
-        userService.register(user);
-        var response = userService.login(user);
-        assertEquals(user.username(), response.username());
-        assertNotNull(response.authToken());
+        RegisterRequest registerRequest = new RegisterRequest("joe", "j@j", "j@jmail.com");
+        var res = userService.register(registerRequest);
+        assertEquals(registerRequest.username(), res.username());
+        assertNotNull(res.authToken());
     }
 
     @Test
     void loginWrongUsername() {
-        var user = new UserData("joe", "j@j", "j@jmail.com");
         UserDAO userDAO = new MemoryUserDAO();
         AuthDAO authDAO = new MemoryAuthDAO();
         UserService userService = new UserService(userDAO, authDAO);
-        userService.register(user);
-        var fakeUser = new UserData("bob", "j@j", "j@jmail.com");
+        RegisterRequest registerRequest = new RegisterRequest("joe", "j@j", "j@jmail.com");
+        userService.register(registerRequest);
+        var fakeUser = new LoginRequest("bob", "j@j");
         ResponseException ex = assertThrows(ResponseException.class, () -> userService.login(fakeUser));
         assertEquals(401, ex.getHttpResponseCode());
         assertEquals("Error: unauthorized", ex.getMessage());
@@ -61,12 +61,12 @@ class UserServiceTest {
 
     @Test
     void loginWrongPassword() {
-        var user = new UserData("joe", "j@j", "j@jmail.com");
+        var user = new RegisterRequest("joe", "j@j", "j@jmail.com");
         UserDAO userDAO = new MemoryUserDAO();
         AuthDAO authDAO = new MemoryAuthDAO();
         UserService userService = new UserService(userDAO, authDAO);
         userService.register(user);
-        var fakeUser = new UserData("joe", "eeeee", "j@jmail.com");
+        var fakeUser = new LoginRequest("joe", "eeeee");
         ResponseException ex = assertThrows(ResponseException.class, () -> userService.login(fakeUser));
         assertEquals(401, ex.getHttpResponseCode());
         assertEquals("Error: unauthorized", ex.getMessage());
@@ -74,24 +74,26 @@ class UserServiceTest {
 
     @Test
     void logoutPositive() {
-        var user = new UserData("joe", "j@j", "j@jmail.com");
+        var user = new RegisterRequest("joe", "j@j", "j@jmail.com");
         UserDAO userDAO = new MemoryUserDAO();
         AuthDAO authDAO = new MemoryAuthDAO();
         UserService userService = new UserService(userDAO, authDAO);
         var res = userService.register(user);
-        userService.logout(res.authToken());
+        LogoutRequest logout = new LogoutRequest(res.authToken());
+        userService.logout(logout);
         assertThrows(DataAccessException.class, () -> authDAO.getAuth(res.authToken()));
 
     }
 
     @Test
     void logoutNegative() {
-        var user = new UserData("joe", "j@j", "j@jmail.com");
+        var user = new RegisterRequest("joe", "j@j", "j@jmail.com");
         UserDAO userDAO = new MemoryUserDAO();
         AuthDAO authDAO = new MemoryAuthDAO();
         UserService userService = new UserService(userDAO, authDAO);
         userService.register(user);
-        ResponseException ex = assertThrows(ResponseException.class, () -> userService.logout("ion"));
+        LogoutRequest logout = new LogoutRequest("ion");
+        ResponseException ex = assertThrows(ResponseException.class, () -> userService.logout(logout));
         assertEquals(401, ex.getHttpResponseCode());
         assertEquals("Error: unauthorized", ex.getMessage());
     }

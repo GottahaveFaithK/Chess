@@ -4,6 +4,9 @@ import dataaccess.AuthDAO;
 import dataaccess.DataAccessException;
 import dataaccess.GameDAO;
 import model.GameData;
+import request.CreateGameRequest;
+import request.JoinGameRequest;
+import request.ListGamesRequest;
 
 import java.util.Collection;
 
@@ -16,8 +19,10 @@ public class GameService {
         this.authDAO = authDAO;
     }
 
-    public int createGame(String gameName, String authToken) {
+    public int createGame(CreateGameRequest request) {
         try {
+            String gameName = request.gameName();
+            String authToken = request.authToken();
             authDAO.getAuth(authToken);
             try {
                 return gameDAO.createGame(gameName);
@@ -37,9 +42,9 @@ public class GameService {
         }
     }
 
-    public Collection<GameData> listGames(String authToken) throws ResponseException {
+    public Collection<GameData> listGames(ListGamesRequest request) throws ResponseException {
         try {
-            authDAO.getAuth(authToken);
+            authDAO.getAuth(request.authToken());
             try {
                 return gameDAO.listGames();
             } catch (DataAccessException e) {
@@ -54,9 +59,9 @@ public class GameService {
         }
     }
 
-    public void joinGame(String playerColor, int gameID, String authToken) {
+    public void joinGame(JoinGameRequest request) {
         try {
-            authDAO.getAuth(authToken);
+            authDAO.getAuth(request.authToken());
         } catch (DataAccessException e) {
             if (e.getMessage().contains("Auth token doesn't exist")) {
                 throw new ResponseException("Error: unauthorized", 401);
@@ -64,10 +69,12 @@ public class GameService {
                 throw new ResponseException("Error: " + e.getMessage(), 500);
             }
         }
+
         try {
-            GameData myGame = gameDAO.getGame(gameID);
+            GameData myGame = gameDAO.getGame(request.gameID());
             try {
-                gameDAO.updateColor(myGame, myGame.game(), playerColor, authDAO.getAuth(authToken).username());
+                gameDAO.updateColor(myGame, myGame.game(), request.playerColor(),
+                        authDAO.getAuth(request.authToken()).username());
             } catch (DataAccessException e) {
                 if (e.getMessage().contains("Color already taken")) {
                     throw new ResponseException("Error: already taken", 403);

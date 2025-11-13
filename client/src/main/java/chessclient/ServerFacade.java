@@ -10,6 +10,8 @@ import java.net.http.HttpRequest.BodyPublishers;
 import java.net.http.HttpResponse.BodyHandlers;
 import java.util.List;
 
+import request.*;
+import response.*;
 
 public class ServerFacade {
     private final HttpClient client = HttpClient.newHttpClient();
@@ -21,15 +23,17 @@ public class ServerFacade {
 
     public List<ChessGame> listGames() {
         return null;
-        //TODO ask Bill
     }
 
-    private HttpRequest buildRequest(String method, String path, Object body) {
+    private HttpRequest buildRequest(String method, String path, Object body, String authToken) {
         var request = HttpRequest.newBuilder()
                 .uri(URI.create(serverUrl + path))
                 .method(method, makeRequestBody(body));
         if (body != null) {
             request.setHeader("Content-Type", "application/json");
+        }
+        if (authToken != null) {
+            request.setHeader("authorization", authToken);
         }
         return request.build();
     }
