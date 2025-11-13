@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="now draws with special chars (Phase 5)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="setting up client (Phase 5)">
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/chessclient/State.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/chessclient/ServerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/chessclient/ServerFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/ClientChessboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/ClientChessboard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,14 +233,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00099" summary="updated updateGame and deleteGame to throw errors (phase 3)">
-      <option name="closed" value="true" />
-      <created>1761002888175</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
-      <option name="project" value="LOCAL" />
-      <updated>1761002888175</updated>
     </task>
     <task id="LOCAL-00100" summary="impl joingame tests (and joingame on service/DOA layer) (phase 3)">
       <option name="closed" value="true" />
@@ -627,7 +618,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762978573362</updated>
     </task>
-    <option name="localTasksCounter" value="148" />
+    <task id="LOCAL-00148" summary="setting up client (Phase 5)">
+      <option name="closed" value="true" />
+      <created>1762980288134</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1762980288134</updated>
+    </task>
+    <option name="localTasksCounter" value="149" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -668,7 +667,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="impl MySqlUserDAO  (Phase 4)" />
     <MESSAGE value="impl MySqlUserDAO, passing tests (Phase 4)" />
     <MESSAGE value="outlined MySqlGameDAO (Phase 4)" />
     <MESSAGE value="outlined gamedao tests (Phase 4)" />
@@ -693,6 +691,7 @@
     <MESSAGE value="got checkerboard pattern printing, now just need to add piece functionality (Phase 5)" />
     <MESSAGE value="can now draw game (text version) (Phase 5)" />
     <MESSAGE value="now draws with special chars (Phase 5)" />
-    <option name="LAST_COMMIT_MESSAGE" value="now draws with special chars (Phase 5)" />
+    <MESSAGE value="setting up client (Phase 5)" />
+    <option name="LAST_COMMIT_MESSAGE" value="setting up client (Phase 5)" />
   </component>
 </project>
