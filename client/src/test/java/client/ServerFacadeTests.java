@@ -3,9 +3,11 @@ package client;
 import chessclient.ClientException;
 import chessclient.ServerFacade;
 import org.junit.jupiter.api.*;
+import request.CreateGameRequest;
 import request.LoginRequest;
 import request.LogoutRequest;
 import request.RegisterRequest;
+import response.CreateGameResponse;
 import response.LoginResponse;
 import response.RegisterResponse;
 import server.Server;
@@ -107,5 +109,28 @@ public class ServerFacadeTests {
         ClientException ex = assertThrows(ClientException.class, () -> facade.logout(logout));
         assertEquals(401, ex.getCode());
         assertEquals("Error", ex.getMessage());
+    }
+
+    @Test
+    public void createGame() {
+        //obligatory em dash —
+        RegisterRequest request = new RegisterRequest("user", "secret", "e@gmail.com");
+        facade.register(request);
+        LoginRequest login = new LoginRequest("user", "secret");
+        var auth = facade.login(login);
+        CreateGameRequest createGame = new CreateGameRequest(auth.authToken(), "myGame");
+        var res = facade.createGame(createGame);
+        assertEquals(1, res.gameId());
+    }
+
+    @Test
+    public void createGameNoName() {
+        RegisterRequest request = new RegisterRequest("user", "secret", "e@gmail.com");
+        facade.register(request);
+        LoginRequest login = new LoginRequest("user", "secret");
+        var auth = facade.login(login);
+        CreateGameRequest createGame = new CreateGameRequest(auth.authToken(), "");
+        ClientException ex = assertThrows(ClientException.class, () -> facade.createGame(createGame));
+        assertEquals(400, ex.getCode());
     }
 }

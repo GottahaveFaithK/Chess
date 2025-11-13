@@ -33,10 +33,16 @@ public class ServerFacade {
         return handleResponse(httpResponse, LoginResponse.class);
     }
 
-    public LogoutResponse logout(LogoutRequest request) {
+    public void logout(LogoutRequest request) {
         HttpRequest httpRequest = buildRequest("DELETE", "/session", request, request.authToken());
         var httpResponse = sendRequest(httpRequest);
-        return handleResponse(httpResponse, LogoutResponse.class);
+        handleResponse(httpResponse, LogoutResponse.class);
+    }
+
+    public CreateGameResponse createGame(CreateGameRequest request) {
+        HttpRequest httpRequest = buildRequest("POST", "/game", request, request.authToken());
+        var httpResponse = sendRequest(httpRequest);
+        return handleResponse(httpResponse, CreateGameResponse.class);
     }
 
     public void clearDatabase() {

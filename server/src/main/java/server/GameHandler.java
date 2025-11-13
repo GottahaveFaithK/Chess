@@ -28,7 +28,7 @@ public class GameHandler {
         var serializer = new Gson();
         CreateGameRequest bodyRequest = serializer.fromJson(ctx.body(), CreateGameRequest.class);
         String authToken = ctx.header("authorization");
-        CreateGameRequest request = new CreateGameRequest(bodyRequest.gameName(), authToken);
+        CreateGameRequest request = new CreateGameRequest(authToken, bodyRequest.gameName());
 
         if (authToken == null || authToken.isEmpty() ||
                 request.gameName() == null || request.gameName().isEmpty()) {
