@@ -1,6 +1,5 @@
 package chessclient;
 
-import chess.ChessGame;
 import com.google.gson.Gson;
 
 import java.net.*;
@@ -8,7 +7,6 @@ import java.net.http.*;
 import java.net.http.HttpRequest.BodyPublisher;
 import java.net.http.HttpRequest.BodyPublishers;
 import java.net.http.HttpResponse.BodyHandlers;
-import java.util.List;
 
 import request.*;
 import response.*;
@@ -61,10 +59,6 @@ public class ServerFacade {
         HttpRequest httpRequest = buildRequest("DELETE", "/db", null, null);
         var httpResponse = sendRequest(httpRequest);
         handleResponse(httpResponse, ClearDatabaseResponse.class);
-    }
-
-    public List<ChessGame> listGames() {
-        return null;
     }
 
     private HttpRequest buildRequest(String method, String path, Object body, String authToken) {
