@@ -21,6 +21,30 @@ public class ServerFacade {
         serverUrl = url;
     }
 
+    public RegisterResponse register(RegisterRequest request) {
+        HttpRequest httpRequest = buildRequest("POST", "/user", request, null);
+        var httpResponse = sendRequest(httpRequest);
+        return handleResponse(httpResponse, RegisterResponse.class);
+    }
+
+    public LoginResponse login(LoginRequest request) {
+        HttpRequest httpRequest = buildRequest("POST", "/session", request, null);
+        var httpResponse = sendRequest(httpRequest);
+        return handleResponse(httpResponse, LoginResponse.class);
+    }
+
+    public LogoutResponse logout(LogoutRequest request) {
+        HttpRequest httpRequest = buildRequest("DELETE", "/session", request, request.authToken());
+        var httpResponse = sendRequest(httpRequest);
+        return handleResponse(httpResponse, LogoutResponse.class);
+    }
+
+    public void clearDatabase() {
+        HttpRequest httpRequest = buildRequest("DELETE", "/db", null, null);
+        var httpResponse = sendRequest(httpRequest);
+        handleResponse(httpResponse, ClearDatabaseResponse.class);
+    }
+
     public List<ChessGame> listGames() {
         return null;
     }
