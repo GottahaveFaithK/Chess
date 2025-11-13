@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl serverfacade login, logout, register (Phase 5)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl serverfacade creategame (Phase 5)">
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/response/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/chessclient/ServerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/chessclient/ServerFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/test/java/client/ServerFacadeTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/test/java/client/ServerFacadeTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/GameHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/GameHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/response/ListGamesResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/response/ListGamesResponse.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,14 +89,17 @@
     "JUnit.GameServiceTest.createGamePositive.executor": "Run",
     "JUnit.GameServiceTest.executor": "Run",
     "JUnit.GameServiceTest.joinGamePositive.executor": "Run",
+    "JUnit.GameServiceTest.listGamesNoAuth.executor": "Run",
     "JUnit.GameServiceTest.listGamesPositive.executor": "Run",
     "JUnit.KingMoveTests.executor": "Debug",
     "JUnit.KnightMoveTests.executor": "Debug",
     "JUnit.PawnMoveTests.executor": "Run",
     "JUnit.QueenMoveTests.executor": "Run",
     "JUnit.RookMoveTests.executor": "Run",
-    "JUnit.ServerFacadeTests.createGame.executor": "Debug",
+    "JUnit.ServerFacadeTests.createGame.executor": "Run",
+    "JUnit.ServerFacadeTests.createGameNoName.executor": "Run",
     "JUnit.ServerFacadeTests.executor": "Run",
+    "JUnit.ServerFacadeTests.listGames.executor": "Run",
     "JUnit.ServerFacadeTests.missingField.executor": "Run",
     "JUnit.ServerFacadeTests.registerPositive.executor": "Run",
     "JUnit.ServerFacadeTests.sampleTest.executor": "Run",
@@ -148,7 +154,54 @@
       <recent name="service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ServerFacadeTests.createGameNoName">
+  <component name="RunManager" selected="JUnit.ServerFacadeTests">
+    <configuration name="GameServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="service" />
+      <option name="MAIN_CLASS_NAME" value="service.GameServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameServiceTest.listGamesNoAuth" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="service" />
+      <option name="MAIN_CLASS_NAME" value="service.GameServiceTest" />
+      <option name="METHOD_NAME" value="listGamesNoAuth" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameServiceTest.listGamesPositive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="service" />
+      <option name="MAIN_CLASS_NAME" value="service.GameServiceTest" />
+      <option name="METHOD_NAME" value="listGamesPositive" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ServerFacadeTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="client" />
       <extension name="coverage">
@@ -164,7 +217,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ServerFacadeTests.createGame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ServerFacadeTests.listGames" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="client" />
       <extension name="coverage">
         <pattern>
@@ -174,55 +227,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="client" />
       <option name="MAIN_CLASS_NAME" value="client.ServerFacadeTests" />
-      <option name="METHOD_NAME" value="createGame" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServerFacadeTests.createGameNoName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="client" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="client.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="client" />
-      <option name="MAIN_CLASS_NAME" value="client.ServerFacadeTests" />
-      <option name="METHOD_NAME" value="createGameNoName" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServerFacadeTests.missingField" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="client" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="client.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="client" />
-      <option name="MAIN_CLASS_NAME" value="client.ServerFacadeTests" />
-      <option name="METHOD_NAME" value="missingField" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServerFacadeTests.sampleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="client" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="client.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="client" />
-      <option name="MAIN_CLASS_NAME" value="client.ServerFacadeTests" />
-      <option name="METHOD_NAME" value="sampleTest" />
+      <option name="METHOD_NAME" value="listGames" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -241,11 +246,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ServerFacadeTests.createGameNoName" />
         <item itemvalue="JUnit.ServerFacadeTests" />
-        <item itemvalue="JUnit.ServerFacadeTests.createGame" />
-        <item itemvalue="JUnit.ServerFacadeTests.missingField" />
-        <item itemvalue="JUnit.ServerFacadeTests.sampleTest" />
+        <item itemvalue="JUnit.ServerFacadeTests.listGames" />
+        <item itemvalue="JUnit.GameServiceTest.listGamesNoAuth" />
+        <item itemvalue="JUnit.GameServiceTest.listGamesPositive" />
+        <item itemvalue="JUnit.GameServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -256,14 +261,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00106" summary="removed unused methods for quality (phase 3)">
-      <option name="closed" value="true" />
-      <created>1761011395645</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1761011395645</updated>
     </task>
     <task id="LOCAL-00107" summary="removed unused methods for quality (phase 3)">
       <option name="closed" value="true" />
@@ -649,7 +646,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763063602280</updated>
     </task>
-    <option name="localTasksCounter" value="155" />
+    <task id="LOCAL-00155" summary="impl serverfacade creategame (Phase 5)">
+      <option name="closed" value="true" />
+      <created>1763066735493</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1763066735493</updated>
+    </task>
+    <option name="localTasksCounter" value="156" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -690,7 +695,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="impl getgame and create game (Phase 4)" />
     <MESSAGE value="fixed an error in my getgames tests. passing create, get, and delete tests (Phase 4)" />
     <MESSAGE value="impl update color (Phase 4)" />
     <MESSAGE value="passing all tests! (Phase 4)" />
@@ -715,14 +719,15 @@
     <MESSAGE value="added request and response records (Phase 5)" />
     <MESSAGE value="refactored for request and response records (Phase 5)" />
     <MESSAGE value="impl serverfacade login, logout, register (Phase 5)" />
-    <option name="LAST_COMMIT_MESSAGE" value="impl serverfacade login, logout, register (Phase 5)" />
+    <MESSAGE value="impl serverfacade creategame (Phase 5)" />
+    <option name="LAST_COMMIT_MESSAGE" value="impl serverfacade creategame (Phase 5)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/chessclient/ServerFacade.java</url>
-          <line>89</line>
+          <line>95</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

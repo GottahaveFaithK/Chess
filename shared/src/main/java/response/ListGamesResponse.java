@@ -1,4 +1,7 @@
 package response;
 
-public record ListGamesResponse(int gameID, String gameName, String whiteUsername, String blackUsername) {
+import java.util.List;
+
+public record ListGamesResponse(List<Game> games) {
 }
+

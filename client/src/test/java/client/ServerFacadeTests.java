@@ -3,11 +3,8 @@ package client;
 import chessclient.ClientException;
 import chessclient.ServerFacade;
 import org.junit.jupiter.api.*;
-import request.CreateGameRequest;
-import request.LoginRequest;
-import request.LogoutRequest;
-import request.RegisterRequest;
-import response.CreateGameResponse;
+import request.*;
+import response.ListGamesResponse;
 import response.LoginResponse;
 import response.RegisterResponse;
 import server.Server;
@@ -132,5 +129,35 @@ public class ServerFacadeTests {
         CreateGameRequest createGame = new CreateGameRequest(auth.authToken(), "");
         ClientException ex = assertThrows(ClientException.class, () -> facade.createGame(createGame));
         assertEquals(400, ex.getCode());
+    }
+
+    @Test
+    public void listGames() {
+        RegisterRequest request = new RegisterRequest("user", "secret", "e@gmail.com");
+        facade.register(request);
+        LoginRequest login = new LoginRequest("user", "secret");
+        var auth = facade.login(login);
+        CreateGameRequest createGame = new CreateGameRequest(auth.authToken(), "myGame");
+        facade.createGame(createGame);
+        CreateGameRequest otherGame = new CreateGameRequest(auth.authToken(), "otherGame");
+        facade.createGame(otherGame);
+        ListGamesRequest listGames = new ListGamesRequest(auth.authToken());
+        ListGamesResponse res = facade.listGames(listGames);
+        assertEquals(2, res.games().size());
+    }
+
+    @Test
+    public void listGamesUnauthorized() {
+        RegisterRequest request = new RegisterRequest("user", "secret", "e@gmail.com");
+        facade.register(request);
+        LoginRequest login = new LoginRequest("user", "secret");
+        var auth = facade.login(login);
+        CreateGameRequest createGame = new CreateGameRequest(auth.authToken(), "myGame");
+        facade.createGame(createGame);
+        CreateGameRequest otherGame = new CreateGameRequest(auth.authToken(), "otherGame");
+        facade.createGame(otherGame);
+        ListGamesRequest listGames = new ListGamesRequest("e");
+        ClientException ex = assertThrows(ClientException.class, () -> facade.listGames(listGames));
+        assertEquals(401, ex.getCode());
     }
 }

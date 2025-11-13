@@ -6,6 +6,7 @@ import request.CreateGameRequest;
 import request.JoinGameRequest;
 import request.ListGamesRequest;
 import response.CreateGameResponse;
+import response.Game;
 import response.ListGamesResponse;
 import service.GameService;
 import io.javalin.http.Context;
@@ -49,9 +50,9 @@ public class GameHandler {
         }
         ListGamesRequest request = new ListGamesRequest(authToken);
         var res = gameService.listGames(request);
-        List<ListGamesResponse> gamesFormatted = new ArrayList<>();
+        List<Game> gamesFormatted = new ArrayList<>();
         for (GameData game : res) {
-            gamesFormatted.add(new ListGamesResponse(
+            gamesFormatted.add(new Game(
                     game.gameID(),
                     game.gameName(),
                     game.whiteUsername(),
@@ -59,8 +60,8 @@ public class GameHandler {
             ));
         }
 
-        var response = serializer.toJson(Map.of("games", gamesFormatted));
-        ctx.result(response);
+        ListGamesResponse response = new ListGamesResponse(gamesFormatted);
+        ctx.result(serializer.toJson(response));
         ctx.status(200);
     }
 
