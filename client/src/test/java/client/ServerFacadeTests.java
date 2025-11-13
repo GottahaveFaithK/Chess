@@ -4,6 +4,7 @@ import chessclient.ClientException;
 import chessclient.ServerFacade;
 import org.junit.jupiter.api.*;
 import request.*;
+import response.JoinGameResponse;
 import response.ListGamesResponse;
 import response.LoginResponse;
 import response.RegisterResponse;
@@ -159,5 +160,31 @@ public class ServerFacadeTests {
         ListGamesRequest listGames = new ListGamesRequest("e");
         ClientException ex = assertThrows(ClientException.class, () -> facade.listGames(listGames));
         assertEquals(401, ex.getCode());
+    }
+
+    @Test
+    public void joinGame() {
+        RegisterRequest request = new RegisterRequest("user", "secret", "e@gmail.com");
+        facade.register(request);
+        LoginRequest login = new LoginRequest("user", "secret");
+        var auth = facade.login(login);
+        CreateGameRequest createGame = new CreateGameRequest(auth.authToken(), "myGame");
+        facade.createGame(createGame);
+        JoinGameRequest joinGame = new JoinGameRequest(auth.authToken(), "WHITE", 1);
+        var res = facade.joinGame(joinGame);
+        assertEquals(new JoinGameResponse(), res);
+    }
+
+    @Test
+    public void joinWrongColor() {
+        RegisterRequest request = new RegisterRequest("user", "secret", "e@gmail.com");
+        facade.register(request);
+        LoginRequest login = new LoginRequest("user", "secret");
+        var auth = facade.login(login);
+        CreateGameRequest createGame = new CreateGameRequest(auth.authToken(), "myGame");
+        facade.createGame(createGame);
+        JoinGameRequest joinGame = new JoinGameRequest(auth.authToken(), "GREEN", 1);
+        ClientException ex = assertThrows(ClientException.class, () -> facade.joinGame(joinGame));
+        assertEquals(400, ex.getCode());
     }
 }

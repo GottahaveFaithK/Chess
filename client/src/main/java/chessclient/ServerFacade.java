@@ -51,6 +51,12 @@ public class ServerFacade {
         return handleResponse(httpResponse, ListGamesResponse.class);
     }
 
+    public JoinGameResponse joinGame(JoinGameRequest request) {
+        HttpRequest httpRequest = buildRequest("PUT", "/game", request, request.authToken());
+        var httpResponse = sendRequest(httpRequest);
+        return handleResponse(httpResponse, JoinGameResponse.class);
+    }
+
     public void clearDatabase() {
         HttpRequest httpRequest = buildRequest("DELETE", "/db", null, null);
         var httpResponse = sendRequest(httpRequest);
