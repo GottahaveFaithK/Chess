@@ -197,7 +197,7 @@ public class ChessClient {
                 return "Unexpected error, please try again. If this fails again, please restart program";
             }
         }
-        gameIDs.add(response.gameId());
+        gameIDs.add(response.gameID());
         return "Created game: " + params[0];
     }
 

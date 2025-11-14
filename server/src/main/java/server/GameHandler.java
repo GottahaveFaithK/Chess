@@ -37,9 +37,9 @@ public class GameHandler {
         }
 
         int gameID = gameService.createGame(request);
-        CreateGameResponse response = new CreateGameResponse(gameID);
         ctx.status(200);
-        ctx.result(serializer.toJson(response));
+        ctx.result(serializer.toJson(new CreateGameResponse(gameID)));
+        System.out.println(serializer.toJson(new CreateGameResponse(gameID)));
     }
 
     public void listGames(Context ctx) {

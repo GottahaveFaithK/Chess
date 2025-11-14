@@ -118,7 +118,7 @@ public class ServerFacadeTests {
         var auth = facade.login(login);
         CreateGameRequest createGame = new CreateGameRequest(auth.authToken(), "myGame");
         var res = facade.createGame(createGame);
-        assertEquals(1, res.gameId());
+        assertEquals(1, res.gameID());
     }
 
     @Test
