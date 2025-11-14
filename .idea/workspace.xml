@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="trying to pass some previous tests (Phase 5)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="passing almost all tests, now need to fix listgames (Phase 5)">
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/response/FormattedGamesData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/server/GameHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/GameHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/response/Game.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/response/ListGamesResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/response/ListGamesResponse.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +77,7 @@
     "JUnit.ChessBoardTests.executor": "Run",
     "JUnit.ClearServiceTest.clearAll.executor": "Run",
     "JUnit.ClearServiceTest.executor": "Run",
+    "JUnit.DatabaseTests.persistenceTest.executor": "Run",
     "JUnit.EnPassantTests.executor": "Run",
     "JUnit.GameDAOTest.createGameID.executor": "Run",
     "JUnit.GameDAOTest.createNullGameName.executor": "Run",
@@ -105,7 +110,8 @@
     "JUnit.ServerFacadeTests.usernameTaken.executor": "Run",
     "JUnit.StandardAPITests.clearData.executor": "Run",
     "JUnit.StandardAPITests.createGameSuccess.executor": "Debug",
-    "JUnit.StandardAPITests.executor": "Debug",
+    "JUnit.StandardAPITests.executor": "Run",
+    "JUnit.StandardAPITests.listGamesSuccess.executor": "Debug",
     "JUnit.StandardAPITests.registerSuccess.executor": "Run",
     "JUnit.StandardAPITests.staticFilesSuccess.executor": "Debug",
     "JUnit.UserDAOTest.executor": "Run",
@@ -164,25 +170,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in shared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="shared" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GameServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DatabaseTests.persistenceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="service.*" />
+          <option name="PATTERN" value="passoff.server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="service" />
-      <option name="MAIN_CLASS_NAME" value="service.GameServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="passoff.server" />
+      <option name="MAIN_CLASS_NAME" value="passoff.server.DatabaseTests" />
+      <option name="METHOD_NAME" value="persistenceTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -202,7 +201,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StandardAPITests.createGameSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StandardAPITests.listGamesSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
@@ -212,8 +211,22 @@
       </extension>
       <option name="PACKAGE_NAME" value="passoff.server" />
       <option name="MAIN_CLASS_NAME" value="passoff.server.StandardAPITests" />
-      <option name="METHOD_NAME" value="createGameSuccess" />
+      <option name="METHOD_NAME" value="listGamesSuccess" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="passoff.server in server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="passoff.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoff.server" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -232,10 +245,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in server" />
-        <item itemvalue="JUnit.StandardAPITests.createGameSuccess" />
         <item itemvalue="JUnit.StandardAPITests" />
-        <item itemvalue="JUnit.GameServiceTest" />
-        <item itemvalue="JUnit.All in shared" />
+        <item itemvalue="JUnit.DatabaseTests.persistenceTest" />
+        <item itemvalue="JUnit.StandardAPITests.listGamesSuccess" />
+        <item itemvalue="JUnit.passoff.server in server" />
       </list>
     </recent_temporary>
   </component>
@@ -246,14 +259,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00115" summary="impl all AuthDAO tests(Phase 4)">
-      <option name="closed" value="true" />
-      <created>1761860482024</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL-00115" />
-      <option name="project" value="LOCAL" />
-      <updated>1761860482024</updated>
     </task>
     <task id="LOCAL-00116" summary="impl all AuthDAO methods except for delete auth(Phase 4)">
       <option name="closed" value="true" />
@@ -639,7 +644,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763090690141</updated>
     </task>
-    <option name="localTasksCounter" value="164" />
+    <task id="LOCAL-00164" summary="passing almost all tests, now need to fix listgames (Phase 5)">
+      <option name="closed" value="true" />
+      <created>1763094493997</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1763094493997</updated>
+    </task>
+    <option name="localTasksCounter" value="165" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -680,7 +693,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="small name change (Phase 5)" />
     <MESSAGE value="reorganizing and small function outlines (Phase 5)" />
     <MESSAGE value="forgot to commit last night's changes (Phase 5)" />
     <MESSAGE value="impl getPieceChar (Phase 5)" />
@@ -705,7 +717,8 @@
     <MESSAGE value="impl create game and list games client methods (Phase 5)" />
     <MESSAGE value="impl chess client (Phase 5)" />
     <MESSAGE value="trying to pass some previous tests (Phase 5)" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying to pass some previous tests (Phase 5)" />
+    <MESSAGE value="passing almost all tests, now need to fix listgames (Phase 5)" />
+    <option name="LAST_COMMIT_MESSAGE" value="passing almost all tests, now need to fix listgames (Phase 5)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -715,37 +728,18 @@
           <line>2</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/main/java/server/GameHandler.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="19" />
+        </breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/server/src/main/java/server/GameHandler.java</url>
-          <line>67</line>
-          <properties class="server.GameHandler" method="joinGame">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/server/src/main/java/server/GameHandler.java</url>
-          <line>44</line>
+          <line>41</line>
           <properties class="server.GameHandler" method="listGames">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/server/src/main/java/server/GameHandler.java</url>
-          <line>27</line>
-          <properties class="server.GameHandler" method="createGame">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="15" />
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

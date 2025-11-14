@@ -6,16 +6,13 @@ import request.CreateGameRequest;
 import request.JoinGameRequest;
 import request.ListGamesRequest;
 import response.CreateGameResponse;
-import response.Game;
+import response.FormattedGamesData;
 import response.ListGamesResponse;
 import service.GameService;
 import io.javalin.http.Context;
 import service.ResponseException;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 public class GameHandler {
@@ -49,18 +46,14 @@ public class GameHandler {
             throw new ResponseException("Error: bad request", 400);
         }
         ListGamesRequest request = new ListGamesRequest(authToken);
-        var res = gameService.listGames(request);
-        List<Game> gamesFormatted = new ArrayList<>();
-        for (GameData game : res) {
-            gamesFormatted.add(new Game(
-                    game.gameID(),
-                    game.gameName(),
-                    game.whiteUsername(),
-                    game.blackUsername()
-            ));
+        Collection<GameData> games = gameService.listGames(request);
+        Collection<FormattedGamesData> formattedGames = new HashSet<>();
+        for (GameData data : games) {
+            formattedGames.add(new FormattedGamesData(data.gameID(), data.gameName(),
+                    data.whiteUsername(), data.blackUsername()));
         }
 
-        ListGamesResponse response = new ListGamesResponse(gamesFormatted);
+        Map<String, Object> response = Map.of("games", formattedGames);
         ctx.status(200);
         ctx.result(serializer.toJson(response));
     }
