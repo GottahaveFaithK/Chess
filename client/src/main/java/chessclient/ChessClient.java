@@ -4,7 +4,6 @@ import chess.ChessGame;
 import model.GameData;
 import request.*;
 import response.CreateGameResponse;
-import response.Game;
 import response.ListGamesResponse;
 import ui.ClientChessboard;
 
@@ -221,7 +220,7 @@ public class ChessClient {
             }
         }
         StringBuilder gamesList = new StringBuilder();
-        for (Game game : response.games()) {
+        for (GameData game : response.games()) {
             gamesList.append(String.format(
                     "%d : %s | White Player: %s | Black Player: %s%n",
                     game.gameID(),
