@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl sign in, sign out, register client methods (Phase 5)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl create game and list games client methods (Phase 5)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/chessclient/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/chessclient/State.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,9 +231,9 @@
       <list>
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main (1)" />
+        <item itemvalue="JUnit.ServerFacadeTests" />
         <item itemvalue="JUnit.ServerFacadeTests.joinWrongColor" />
         <item itemvalue="JUnit.ServerFacadeTests.joinGame" />
-        <item itemvalue="JUnit.ServerFacadeTests" />
       </list>
     </recent_temporary>
   </component>
@@ -243,14 +244,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00112" summary="should create the auth table in database (Phase 4)">
-      <option name="closed" value="true" />
-      <created>1761856230724</created>
-      <option name="number" value="00112" />
-      <option name="presentableId" value="LOCAL-00112" />
-      <option name="project" value="LOCAL" />
-      <updated>1761856230724</updated>
     </task>
     <task id="LOCAL-00113" summary="authTable creation works! (Phase 4)">
       <option name="closed" value="true" />
@@ -636,7 +629,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763081763006</updated>
     </task>
-    <option name="localTasksCounter" value="161" />
+    <task id="LOCAL-00161" summary="impl create game and list games client methods (Phase 5)">
+      <option name="closed" value="true" />
+      <created>1763084752808</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL-00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1763084752808</updated>
+    </task>
+    <option name="localTasksCounter" value="162" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -677,7 +678,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="impl starter code (Phase 5)" />
     <MESSAGE value="small file structure change (Phase 5)" />
     <MESSAGE value="small file structure change (planning) (Phase 5)" />
     <MESSAGE value="small name change (Phase 5)" />
@@ -702,7 +702,8 @@
     <MESSAGE value="small changes to serverfacade (Phase 5)" />
     <MESSAGE value="impl some client methods (Phase 5)" />
     <MESSAGE value="impl sign in, sign out, register client methods (Phase 5)" />
-    <option name="LAST_COMMIT_MESSAGE" value="impl sign in, sign out, register client methods (Phase 5)" />
+    <MESSAGE value="impl create game and list games client methods (Phase 5)" />
+    <option name="LAST_COMMIT_MESSAGE" value="impl create game and list games client methods (Phase 5)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

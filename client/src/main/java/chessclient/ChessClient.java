@@ -1,10 +1,16 @@
 package chessclient;
 
+import chess.ChessGame;
+import model.GameData;
 import request.*;
+import response.CreateGameResponse;
 import response.Game;
 import response.ListGamesResponse;
+import ui.ClientChessboard;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 import static ui.EscapeSequences.*;
@@ -14,6 +20,11 @@ public class ChessClient {
     private String user;
     private String authToken;
     private final ServerFacade server;
+    //make not final for phase 6
+    private final ClientChessboard board = new ClientChessboard(
+            new GameData(-1, "eee", "eee", "aaaa", new ChessGame())
+    );
+    List<Integer> gameIDs = new ArrayList<>();
     State state = State.SIGNEDOUT;
     String reset = RESET_TEXT_COLOR + RESET_BG_COLOR + RESET_TEXT_ITALIC;
 
@@ -173,9 +184,10 @@ public class ChessClient {
         if (params.length != 1) {
             return "Expected: \"create <NAME>\"";
         }
+        CreateGameResponse response;
         try {
             CreateGameRequest gameRequest = new CreateGameRequest(authToken, params[0]);
-            server.createGame(gameRequest);
+            response = server.createGame(gameRequest);
         } catch (ClientException e) {
             if (e.getCode() == 400) {
                 return "Expected: \"create <NAME>\"";
@@ -185,6 +197,7 @@ public class ChessClient {
                 return "Unexpected error, please try again. If this fails again, please restart program";
             }
         }
+        gameIDs.add(response.gameId());
         return "Created game: " + params[0];
     }
 
@@ -221,28 +234,91 @@ public class ChessClient {
     }
 
     public String joinGame(String... params) {
-        //join game
+        try {
+            assertNotInGame();
+        } catch (Exception e) {
+            return e.getMessage();
+        }
         try {
             assertSignedIn();
         } catch (Exception e) {
             return e.getMessage();
         }
-        return null;
+        if (params.length != 2) {
+            return "Expected: join <ID> [WHITE|BLACK]";
+        }
+        int gameId;
+        try {
+            gameId = Integer.parseInt(params[0]);
+        } catch (NumberFormatException e) {
+            return "\"<ID>\" must be a number, not " + params[0];
+        }
+        String color = params[1].toUpperCase().replace("\"", "");
+        try {
+            JoinGameRequest joinGame = new JoinGameRequest(authToken, color, gameId);
+            server.joinGame(joinGame);
+        } catch (ClientException e) {
+            if (e.getCode() == 400) {
+                return "Please pick either \"WHITE\" or \"BLACK\" as a color.";
+            } else if (e.getCode() == 401) {
+                return "You must sign in before you can do that";
+            } else if (e.getCode() == 403) {
+                return "Sorry, that color is already taken";
+            } else {
+                return "Unexpected error, please try again. If this fails again, please restart program";
+            }
+        }
+        if (color.equals("WHITE")) {
+            board.drawChessBoardWhite();
+            state = State.INGAME;
+            return "\nJoined game " + gameId + " as WHITE";
+        } else {
+            board.drawChessBoardBlack();
+            state = State.INGAME;
+            return "\nJoined game " + gameId + " as BLACK";
+        }
     }
 
     public String observeGame(String... params) {
-        //watch game
+        try {
+            assertNotInGame();
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+
         try {
             assertSignedIn();
         } catch (Exception e) {
             return e.getMessage();
         }
-        return null;
+
+        if (params.length != 1) {
+            return "Expected: \"observe <ID>\"";
+        }
+
+        int gameId;
+        try {
+            gameId = Integer.parseInt(params[0]);
+        } catch (NumberFormatException e) {
+            return "\"<ID>\" must be a number, not " + params[0];
+        }
+        if (!gameIDs.contains(gameId)) {
+            return "Game with ID " + gameId + " doesn't exist. Please list games and try again";
+        }
+        board.drawChessBoardWhite();
+        state = State.INGAME;
+        return "Successfully observing game " + gameId;
     }
 
     private void assertSignedIn() throws Exception {
         if (state == State.SIGNEDOUT) {
-            throw new Exception("You must sign in");
+            throw new Exception("You must sign in before you can do that");
+        }
+    }
+
+    private void assertNotInGame() throws Exception {
+        if (state == State.INGAME) {
+            throw new Exception("You can't do that while in a game");
         }
     }
 
