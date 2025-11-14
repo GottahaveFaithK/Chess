@@ -24,7 +24,7 @@ public class ClientChessboard {
     public void drawChessBoardWhite() {
         System.out.println();
         drawHeadersFooters("White");
-        drawBoard(8);
+        drawBoard(1, 8);
         System.out.println();
         drawHeadersFooters("White");
     }
@@ -32,21 +32,21 @@ public class ClientChessboard {
     public void drawChessBoardBlack() {
         System.out.println();
         drawHeadersFooters("Black");
-        drawBoard(1);
+        drawBoard(8, 1);
         System.out.println();
         drawHeadersFooters("Black");
     }
 
-    private void drawBoard(int startRow) {
+    private void drawBoard(int startCol, int startRow) {
         String displayColor = (startRow == 8 ? EscapeSequences.SET_TEXT_COLOR_LIGHT_BLUE :
                 EscapeSequences.SET_TEXT_COLOR_BLUE);
         int change = (startRow == 1 ? 1 : -1);
+        int colChange = (startCol == 1 ? 1 : -1);
         for (int i = startRow; i != (startRow == 1 ? 9 : 0); i += (change)) {
             System.out.print("\n " + displayColor + i + " " + EscapeSequences.RESET_TEXT_COLOR);
-            for (int j = 1; j != 9; j += 1) {
-                boolean backgroundDark = (startRow == 8 ?
-                        ((i % 2 == 1) && (j % 2 == 1) || (i % 2 == 0) && (j % 2 == 0)) :
-                        ((i % 2 == 1) && (j % 2 == 0) || (i % 2 == 0) && (j % 2 == 1)));
+            for (int j = startCol; j != (startCol == 1 ? 9 : 0); j += (colChange)) {
+                boolean backgroundDark =
+                        ((i % 2 == 1) && (j % 2 == 1) || (i % 2 == 0) && (j % 2 == 0));
                 String backgroundColor = (backgroundDark ? EscapeSequences.SET_BG_COLOR_BLUE :
                         EscapeSequences.SET_BG_COLOR_LIGHT_BLUE);
                 String pieceData = getPieceChar(getCurrentGame().game().getBoard().getPiece(new ChessPosition(i, j)));
