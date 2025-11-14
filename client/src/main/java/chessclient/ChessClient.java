@@ -1,5 +1,9 @@
 package chessclient;
 
+import request.LoginRequest;
+import request.LogoutRequest;
+import request.RegisterRequest;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -7,6 +11,8 @@ import static ui.EscapeSequences.*;
 
 
 public class ChessClient {
+    private String user;
+    private String authToken;
     private final ServerFacade server;
     State state = State.SIGNEDOUT;
     String reset = RESET_TEXT_COLOR + RESET_BG_COLOR + RESET_TEXT_ITALIC;
@@ -50,7 +56,13 @@ public class ChessClient {
             String selection = (tokens.length > 0) ? tokens[0] : "help";
             String[] params = Arrays.copyOfRange(tokens, 1, tokens.length);
             return switch (selection) {
-                case "list" -> listGames();
+                case "register" -> register(params);
+                case "login" -> login(params);
+                case "create" -> createGame(params);
+                case "join" -> joinGame(params);
+                case "observe" -> observeGame(params);
+                case "list" -> listGames(params);
+                case "logout" -> logout(params);
                 case "quit" -> "quit";
                 default -> help();
             };
@@ -81,18 +93,75 @@ public class ChessClient {
     }
 
     public String register(String... params) {
-        //register
-        return null;
+        try {
+            assertSignedOut();
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+        if (params.length != 3) {
+            return "Expected: \"register <USERNAME> <PASSWORD> <EMAIL>\"";
+        }
+        try {
+            RegisterRequest request = new RegisterRequest(params[0], params[1], params[2]);
+            server.register(request);
+        } catch (ClientException e) {
+            if (e.getCode() == 400) {
+                return "Expected: \"register <USERNAME> <PASSWORD> <EMAIL>\"";
+            } else if (e.getCode() == 403) {
+                return "Username is already taken";
+            } else {
+                return "Unexpected error, please try again. If this fails again, please restart program";
+            }
+        }
+        return login(params[0], params[1]);
     }
 
     public String login(String... params) {
-        //login
-        return null;
+        try {
+            assertSignedOut();
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+        if (params.length != 2) {
+            return "Expected: \"login <USERNAME> <PASSWORD>\"";
+        }
+        try {
+            LoginRequest loginRequest = new LoginRequest(params[0], params[1]);
+            authToken = server.login(loginRequest).authToken();
+        } catch (ClientException e) {
+            if (e.getCode() == 400) {
+                return "Expected: \"login <USERNAME> <PASSWORD>\"";
+            } else if (e.getCode() == 401) {
+                return "Invalid username or password";
+            } else {
+                return "Unexpected error, please try again. If this fails again, please restart program";
+            }
+        }
+        user = params[0];
+        state = State.SIGNEDIN;
+        return "Signed in as " + user;
     }
 
     public String logout(String... params) {
-        //logout
-        return null;
+        try {
+            assertSignedIn();
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+        try {
+            LogoutRequest request = new LogoutRequest(authToken);
+            server.logout(request);
+        } catch (ClientException e) {
+            if (e.getCode() == 401) {
+                return "You are already logged out";
+            } else {
+                return "Unexpected error, please try again. If this fails again, please restart program";
+            }
+        }
+        user = null;
+        state = State.SIGNEDOUT;
+        authToken = null;
+        return "Successfully signed out.";
     }
 
     public String createGame(String... params) {
@@ -106,7 +175,7 @@ public class ChessClient {
         return null;
     }
 
-    public String playGame(String... params) {
+    public String joinGame(String... params) {
         //join game
         return null;
     }
@@ -119,6 +188,12 @@ public class ChessClient {
     private void assertSignedIn() throws Exception {
         if (state == State.SIGNEDOUT) {
             throw new Exception("You must sign in");
+        }
+    }
+
+    private void assertSignedOut() throws Exception {
+        if (state == State.SIGNEDIN) {
+            throw new Exception("You are already signed in");
         }
     }
 
