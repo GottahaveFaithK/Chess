@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl some client methods (Phase 5)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl sign in, sign out, register client methods (Phase 5)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" afterDir="false" />
     </list>
@@ -153,7 +153,7 @@
       <recent name="service" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main (1)">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="server" />
@@ -228,8 +228,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main (1)" />
         <item itemvalue="JUnit.ServerFacadeTests.joinWrongColor" />
         <item itemvalue="JUnit.ServerFacadeTests.joinGame" />
         <item itemvalue="JUnit.ServerFacadeTests" />
@@ -243,14 +243,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00111" summary="initializes database, mysqlAuthDAO framework exists (Phase 4)">
-      <option name="closed" value="true" />
-      <created>1761853621720</created>
-      <option name="number" value="00111" />
-      <option name="presentableId" value="LOCAL-00111" />
-      <option name="project" value="LOCAL" />
-      <updated>1761853621720</updated>
     </task>
     <task id="LOCAL-00112" summary="should create the auth table in database (Phase 4)">
       <option name="closed" value="true" />
@@ -636,7 +628,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763077914005</updated>
     </task>
-    <option name="localTasksCounter" value="160" />
+    <task id="LOCAL-00160" summary="impl sign in, sign out, register client methods (Phase 5)">
+      <option name="closed" value="true" />
+      <created>1763081763006</created>
+      <option name="number" value="00160" />
+      <option name="presentableId" value="LOCAL-00160" />
+      <option name="project" value="LOCAL" />
+      <updated>1763081763006</updated>
+    </task>
+    <option name="localTasksCounter" value="161" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -677,7 +677,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="another code quality update (Phase 4)" />
     <MESSAGE value="impl starter code (Phase 5)" />
     <MESSAGE value="small file structure change (Phase 5)" />
     <MESSAGE value="small file structure change (planning) (Phase 5)" />
@@ -702,7 +701,8 @@
     <MESSAGE value="impl serverfacade (Phase 5)" />
     <MESSAGE value="small changes to serverfacade (Phase 5)" />
     <MESSAGE value="impl some client methods (Phase 5)" />
-    <option name="LAST_COMMIT_MESSAGE" value="impl some client methods (Phase 5)" />
+    <MESSAGE value="impl sign in, sign out, register client methods (Phase 5)" />
+    <option name="LAST_COMMIT_MESSAGE" value="impl sign in, sign out, register client methods (Phase 5)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,8 +1,8 @@
 package chessclient;
 
-import request.LoginRequest;
-import request.LogoutRequest;
-import request.RegisterRequest;
+import request.*;
+import response.Game;
+import response.ListGamesResponse;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -61,8 +61,8 @@ public class ChessClient {
                 case "create" -> createGame(params);
                 case "join" -> joinGame(params);
                 case "observe" -> observeGame(params);
-                case "list" -> listGames(params);
-                case "logout" -> logout(params);
+                case "list" -> listGames();
+                case "logout" -> logout();
                 case "quit" -> "quit";
                 default -> help();
             };
@@ -142,7 +142,7 @@ public class ChessClient {
         return "Signed in as " + user;
     }
 
-    public String logout(String... params) {
+    public String logout() {
         try {
             assertSignedIn();
         } catch (Exception e) {
@@ -165,23 +165,78 @@ public class ChessClient {
     }
 
     public String createGame(String... params) {
-        //let's play
-        return null;
+        try {
+            assertSignedIn();
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+        if (params.length != 1) {
+            return "Expected: \"create <NAME>\"";
+        }
+        try {
+            CreateGameRequest gameRequest = new CreateGameRequest(authToken, params[0]);
+            server.createGame(gameRequest);
+        } catch (ClientException e) {
+            if (e.getCode() == 400) {
+                return "Expected: \"create <NAME>\"";
+            } else if (e.getCode() == 401) {
+                return "You must sign in";
+            } else {
+                return "Unexpected error, please try again. If this fails again, please restart program";
+            }
+        }
+        return "Created game: " + params[0];
     }
 
-    public String listGames(String... params) {
-        //fresh off the press
-        //if it gets a client exception debug and name based off error message
-        return null;
+    public String listGames() {
+        try {
+            assertSignedIn();
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+        ListGamesResponse response;
+        try {
+            ListGamesRequest listGames = new ListGamesRequest(authToken);
+            response = server.listGames(listGames);
+        } catch (ClientException e) {
+            if (e.getCode() == 400) {
+                return "Expected: \"create <NAME>\"";
+            } else if (e.getCode() == 401) {
+                return "You must sign in";
+            } else {
+                return "Unexpected error, please try again. If this fails again, please restart program";
+            }
+        }
+        StringBuilder gamesList = new StringBuilder();
+        for (Game game : response.games()) {
+            gamesList.append(String.format(
+                    "%d : %s | White Player: %s | Black Player: %s%n",
+                    game.gameID(),
+                    game.gameName(),
+                    game.whiteUsername() == null ? "<none>" : game.whiteUsername(),
+                    game.blackUsername() == null ? "<none>" : game.blackUsername()
+            ));
+        }
+        return gamesList.toString();
     }
 
     public String joinGame(String... params) {
         //join game
+        try {
+            assertSignedIn();
+        } catch (Exception e) {
+            return e.getMessage();
+        }
         return null;
     }
 
     public String observeGame(String... params) {
         //watch game
+        try {
+            assertSignedIn();
+        } catch (Exception e) {
+            return e.getMessage();
+        }
         return null;
     }
 
