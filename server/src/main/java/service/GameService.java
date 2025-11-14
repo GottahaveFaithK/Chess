@@ -3,6 +3,7 @@ package service;
 import dataaccess.AuthDAO;
 import dataaccess.DataAccessException;
 import dataaccess.GameDAO;
+import model.AuthData;
 import model.GameData;
 import request.CreateGameRequest;
 import request.JoinGameRequest;
@@ -60,8 +61,9 @@ public class GameService {
     }
 
     public void joinGame(JoinGameRequest request) {
+        AuthData auth;
         try {
-            authDAO.getAuth(request.authToken());
+            auth = authDAO.getAuth(request.authToken());
         } catch (DataAccessException e) {
             if (e.getMessage().contains("Auth token doesn't exist")) {
                 throw new ResponseException("Error: unauthorized", 401);
@@ -74,7 +76,7 @@ public class GameService {
             GameData myGame = gameDAO.getGame(request.gameID());
             try {
                 gameDAO.updateColor(myGame, myGame.game(), request.playerColor(),
-                        authDAO.getAuth(request.authToken()).username());
+                        auth.username());
             } catch (DataAccessException e) {
                 if (e.getMessage().contains("Color already taken")) {
                     throw new ResponseException("Error: already taken", 403);

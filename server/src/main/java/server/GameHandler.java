@@ -61,8 +61,8 @@ public class GameHandler {
         }
 
         ListGamesResponse response = new ListGamesResponse(gamesFormatted);
-        ctx.result(serializer.toJson(response));
         ctx.status(200);
+        ctx.result(serializer.toJson(response));
     }
 
     public void joinGame(Context ctx) {
