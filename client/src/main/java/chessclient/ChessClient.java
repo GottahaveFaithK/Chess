@@ -234,11 +234,6 @@ public class ChessClient {
 
     public String joinGame(String... params) {
         try {
-            assertNotInGame();
-        } catch (Exception e) {
-            return e.getMessage();
-        }
-        try {
             assertSignedIn();
         } catch (Exception e) {
             return e.getMessage();
@@ -269,22 +264,14 @@ public class ChessClient {
         }
         if (color.equals("WHITE")) {
             board.drawChessBoardWhite();
-            state = State.INGAME;
             return "\nJoined game " + gameId + " as WHITE";
         } else {
             board.drawChessBoardBlack();
-            state = State.INGAME;
             return "\nJoined game " + gameId + " as BLACK";
         }
     }
 
     public String observeGame(String... params) {
-        try {
-            assertNotInGame();
-        } catch (Exception e) {
-            return e.getMessage();
-        }
-
         try {
             assertSignedIn();
         } catch (Exception e) {
@@ -305,7 +292,6 @@ public class ChessClient {
             return "Game with ID " + gameId + " doesn't exist. Please list games and try again";
         }
         board.drawChessBoardWhite();
-        state = State.INGAME;
         return "Successfully observing game " + gameId;
     }
 
@@ -315,11 +301,6 @@ public class ChessClient {
         }
     }
 
-    private void assertNotInGame() throws Exception {
-        if (state == State.INGAME) {
-            throw new Exception("You can't do that while in a game");
-        }
-    }
 
     private void assertSignedOut() throws Exception {
         if (state == State.SIGNEDIN) {
