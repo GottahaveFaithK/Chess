@@ -6,10 +6,6 @@ import ui.ClientChessboard;
 
 public class Main {
     public static void main(String[] args) {
-        ClientChessboard clientChessboard = new ClientChessboard(new
-                GameData(-3, "a", "b", "game", new ChessGame()));
-        clientChessboard.drawChessBoardWhite();
-        clientChessboard.drawChessBoardBlack();
         String serverUrl = "http://localhost:8080";
         if (args.length == 1) {
             serverUrl = args[0];
