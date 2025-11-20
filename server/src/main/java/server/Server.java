@@ -31,6 +31,7 @@ public class Server {
             throw new ResponseException("Error: failed to create the table", 500);
         }
 
+        //for websocket do ctx.enableAutomaticPings();
         UserService userService = new UserService(userDAO, authDAO);
         GameService gameService = new GameService(gameDAO, authDAO);
         ClearService clearService = new ClearService(gameDAO, userDAO, authDAO);
