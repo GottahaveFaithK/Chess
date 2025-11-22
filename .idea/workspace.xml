@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="small comment snippet for a future reminder (phase 6)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="removed automatic board printing (phase 6)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,14 +242,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00121" summary="impl UserDAO tests (Phase 4)">
-      <option name="closed" value="true" />
-      <created>1761879050875</created>
-      <option name="number" value="00121" />
-      <option name="presentableId" value="LOCAL-00121" />
-      <option name="project" value="LOCAL" />
-      <updated>1761879050875</updated>
     </task>
     <task id="LOCAL-00122" summary="impl UserDAO tests (Phase 4)">
       <option name="closed" value="true" />
@@ -636,7 +627,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763598384250</updated>
     </task>
-    <option name="localTasksCounter" value="170" />
+    <task id="LOCAL-00170" summary="removed automatic board printing (phase 6)">
+      <option name="closed" value="true" />
+      <created>1763672702626</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1763672702626</updated>
+    </task>
+    <option name="localTasksCounter" value="171" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -677,7 +676,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="got checkerboard pattern printing, now just need to add piece functionality (Phase 5)" />
     <MESSAGE value="can now draw game (text version) (Phase 5)" />
     <MESSAGE value="now draws with special chars (Phase 5)" />
     <MESSAGE value="setting up client (Phase 5)" />
@@ -702,7 +700,8 @@
     <MESSAGE value="final drawing fixes (Phase 5)" />
     <MESSAGE value="set up starter code (phase 6)" />
     <MESSAGE value="small comment snippet for a future reminder (phase 6)" />
-    <option name="LAST_COMMIT_MESSAGE" value="small comment snippet for a future reminder (phase 6)" />
+    <MESSAGE value="removed automatic board printing (phase 6)" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed automatic board printing (phase 6)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
