@@ -10,7 +10,7 @@ import static ui.Formatting.blueText;
 public class GameplayUI implements UIState {
     ChessClient client;
     ServerFacade server;
-    String playerColor;
+    String playerColor; //observer's will be null, maybe change for security
 
     public GameplayUI(ChessClient client, ServerFacade server, String color) {
         this.client = client;
@@ -39,7 +39,12 @@ public class GameplayUI implements UIState {
     }
 
     public String redraw() {
-        return null;
+        if (playerColor.equals("BLACK")) {
+            client.getBoard().drawChessBoardBlack();
+        } else {
+            client.getBoard().drawChessBoardWhite();
+        }
+        return "\nRedrew Board";
     }
 
     public String leave() {
@@ -51,6 +56,10 @@ public class GameplayUI implements UIState {
     }
 
     public String resign(String... params) {
+        //does it delete the game from the list? probably
+        //other player wins
+        //doesn't kick players out of game
+        //can't be called by observer
         return null;
     }
 
