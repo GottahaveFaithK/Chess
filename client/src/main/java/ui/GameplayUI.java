@@ -2,7 +2,7 @@ package ui;
 
 import java.util.Arrays;
 
-import static ui.Formatting.blueText;
+import static ui.Formatting.lightBlueText;
 
 public class GameplayUI implements UIState {
 
@@ -15,7 +15,7 @@ public class GameplayUI implements UIState {
     }
 
     public String printPrompt() {
-        return blueText + "[IN_GAME] >>> ";
+        return lightBlueText + "[IN_GAME] >>> ";
     }
 
     String help() {

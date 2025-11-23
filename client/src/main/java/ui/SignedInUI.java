@@ -14,6 +14,7 @@ import response.ListGamesResponse;
 import java.util.Arrays;
 
 import static ui.Formatting.blueText;
+import static ui.Formatting.lightBlueText;
 
 public class SignedInUI implements UIState {
     ChessClient client;
@@ -52,8 +53,7 @@ public class SignedInUI implements UIState {
                 observe <ID> - a game
                 logout - signs out of current account
                 quit - quit chess program
-                help - display possible commands (current menu)
-                """;
+                help - display possible commands (current menu)""";
     }
 
 

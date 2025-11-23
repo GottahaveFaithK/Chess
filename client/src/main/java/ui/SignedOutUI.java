@@ -8,7 +8,7 @@ import request.RegisterRequest;
 
 import java.util.Arrays;
 
-import static ui.Formatting.blueText;
+import static ui.Formatting.*;
 
 public class SignedOutUI implements UIState {
     ChessClient client;
@@ -33,7 +33,7 @@ public class SignedOutUI implements UIState {
     }
 
     public String printPrompt() {
-        return blueText + "[SIGNED_OUT] >>> ";
+        return "\n" + blueText + "[SIGNED_OUT] >>> ";
     }
 
     String help() {
@@ -41,24 +41,24 @@ public class SignedOutUI implements UIState {
                 register <USERNAME> <PASSWORD> <EMAIL> - to create an account
                 login <USERNAME> <PASSWORD> - to sign into existing account
                 quit - quit chess program
-                help - display possible commands (current menu)
-                """;
+                help - display possible commands (current menu)""";
     }
 
     String register(String... params) {
         if (params.length != 3) {
-            return "Expected: \"register <USERNAME> <PASSWORD> <EMAIL>\"";
+            return errorText + "Expected: \"register <USERNAME> <PASSWORD> <EMAIL>\"" + reset;
         }
         try {
             RegisterRequest request = new RegisterRequest(params[0], params[1], params[2]);
             server.register(request);
         } catch (ClientException e) {
             if (e.getCode() == 400) {
-                return "Expected: \"register <USERNAME> <PASSWORD> <EMAIL>\"";
+                return errorText + "Expected: \"register <USERNAME> <PASSWORD> <EMAIL>\"" + reset;
             } else if (e.getCode() == 403) {
-                return "Username is already taken";
+                return errorText + "Username is already taken" + reset;
             } else {
-                return "Unexpected error, please try again. If this fails again, please restart program";
+                return errorText + "Unexpected error, please try again. " +
+                        "If this fails again, please restart program" + reset;
             }
         }
         return login(params[0], params[1]);
@@ -66,18 +66,19 @@ public class SignedOutUI implements UIState {
 
     public String login(String... params) {
         if (params.length != 2) {
-            return "Expected: \"login <USERNAME> <PASSWORD>\"";
+            return errorText + "Expected: \"login <USERNAME> <PASSWORD>\"" + reset;
         }
         try {
             LoginRequest loginRequest = new LoginRequest(params[0], params[1]);
             client.setAuthToken(server.login(loginRequest).authToken());
         } catch (ClientException e) {
             if (e.getCode() == 400) {
-                return "Expected: \"login <USERNAME> <PASSWORD>\"";
+                return errorText + "Expected: \"login <USERNAME> <PASSWORD>\"" + reset;
             } else if (e.getCode() == 401) {
-                return "Invalid username or password";
+                return errorText + "Invalid username or password" + reset;
             } else {
-                return "Unexpected error, please try again. If this fails again, please restart program";
+                return errorText + "Unexpected error, please try again. " +
+                        "If this fails again, please restart program" + reset;
             }
         }
         client.setUser(params[0]);

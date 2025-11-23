@@ -2,7 +2,6 @@ package chessclient;
 
 import chess.ChessGame;
 import model.GameData;
-import request.*;
 import ui.ClientChessboard;
 import ui.SignedOutUI;
 import ui.UIState;
@@ -43,7 +42,7 @@ public class ChessClient {
 
             try {
                 result = state.handle(line);
-                System.out.print(blueText + result);
+                System.out.print(lightBlueText + result);
             } catch (Throwable e) {
                 var msg = e.toString();
                 System.out.print(errorText + msg + reset);
