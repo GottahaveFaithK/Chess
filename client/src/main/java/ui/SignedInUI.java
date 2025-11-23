@@ -13,8 +13,7 @@ import response.ListGamesResponse;
 
 import java.util.Arrays;
 
-import static ui.Formatting.blueText;
-import static ui.Formatting.lightBlueText;
+import static ui.Formatting.*;
 
 public class SignedInUI implements UIState {
     ChessClient client;
@@ -63,9 +62,10 @@ public class SignedInUI implements UIState {
             server.logout(request);
         } catch (ClientException e) {
             if (e.getCode() == 401) {
-                return "You are already logged out";
+                return errorText + "You are already logged out" + reset;
             } else {
-                return "Unexpected error, please try again. If this fails again, please restart program";
+                return errorText + "Unexpected error, please try again. " +
+                        "If this fails again, please restart program" + reset;
             }
         }
         client.setUser(null);
@@ -76,7 +76,7 @@ public class SignedInUI implements UIState {
 
     public String createGame(String... params) {
         if (params.length != 1) {
-            return "Expected: \"create <NAME>\"";
+            return errorText + "Expected: \"create <NAME>\"" + reset;
         }
         CreateGameResponse response;
         try {
@@ -84,11 +84,12 @@ public class SignedInUI implements UIState {
             response = server.createGame(gameRequest);
         } catch (ClientException e) {
             if (e.getCode() == 400) {
-                return "Expected: \"create <NAME>\"";
+                return errorText + "Expected: \"create <NAME>\"" + reset;
             } else if (e.getCode() == 401) {
-                return "You must sign in";
+                return errorText + "You must sign in" + reset;
             } else {
-                return "Unexpected error, please try again. If this fails again, please restart program";
+                return errorText + "Unexpected error, please try again. " +
+                        "If this fails again, please restart program" + reset;
             }
         }
 
@@ -103,11 +104,12 @@ public class SignedInUI implements UIState {
             response = server.listGames(listGames);
         } catch (ClientException e) {
             if (e.getCode() == 400) {
-                return "Expected: \"create <NAME>\"";
+                return errorText + "Expected: \"create <NAME>\"" + reset;
             } else if (e.getCode() == 401) {
-                return "You must sign in";
+                return errorText + "You must sign in" + reset;
             } else {
-                return "Unexpected error, please try again. If this fails again, please restart program";
+                return errorText + "Unexpected error, please try again. " +
+                        "If this fails again, please restart program" + reset;
             }
         }
         StringBuilder gamesList = new StringBuilder();
@@ -125,13 +127,13 @@ public class SignedInUI implements UIState {
 
     public String joinGame(String... params) {
         if (params.length != 2) {
-            return "Expected: join <ID> [WHITE|BLACK]";
+            return errorText + "Expected: join <ID> [WHITE|BLACK]" + reset;
         }
         int gameId;
         try {
             gameId = Integer.parseInt(params[0]);
         } catch (NumberFormatException e) {
-            return "\"<ID>\" must be a number, not " + params[0];
+            return errorText + "\"<ID>\" must be a number, not " + params[0] + reset;
         }
         String color = params[1].toUpperCase().replace("\"", "");
         try {
@@ -139,13 +141,14 @@ public class SignedInUI implements UIState {
             server.joinGame(joinGame);
         } catch (ClientException e) {
             if (e.getCode() == 400) {
-                return "Please pick either \"WHITE\" or \"BLACK\" as a color.";
+                return errorText + "Please pick either \"WHITE\" or \"BLACK\" as a color." + reset;
             } else if (e.getCode() == 401) {
-                return "You must sign in before you can do that";
+                return errorText + "You must sign in before you can do that" + reset;
             } else if (e.getCode() == 403) {
-                return "Sorry, that color is already taken";
+                return errorText + "Sorry, that color is already taken" + reset;
             } else {
-                return "Unexpected error, please try again. If this fails again, please restart program";
+                return errorText + "Unexpected error, please try again. " +
+                        "If this fails again, please restart program" + reset;
             }
         }
         if (color.equals("WHITE")) {
@@ -162,17 +165,17 @@ public class SignedInUI implements UIState {
     public String observeGame(String... params) {
 
         if (params.length != 1) {
-            return "Expected: \"observe <ID>\"";
+            return errorText + "Expected: \"observe <ID>\"" + reset;
         }
 
         int gameId;
         try {
             gameId = Integer.parseInt(params[0]);
         } catch (NumberFormatException e) {
-            return "\"<ID>\" must be a number, not " + params[0];
+            return errorText + "\"<ID>\" must be a number, not " + params[0] + reset;
         }
         if (!client.getGameIDs().contains(gameId)) {
-            return "Game with ID " + gameId + " doesn't exist. Please list games and try again";
+            return errorText + "Game with ID " + gameId + " doesn't exist. Please list games and try again" + reset;
         }
         client.getBoard().drawChessBoardWhite();
         return "Successfully observing game " + gameId;
