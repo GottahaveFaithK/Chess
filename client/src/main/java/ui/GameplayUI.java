@@ -5,15 +5,17 @@ import chessclient.ServerFacade;
 
 import java.util.Arrays;
 
-import static ui.Formatting.lightBlueText;
+import static ui.Formatting.blueText;
 
 public class GameplayUI implements UIState {
     ChessClient client;
     ServerFacade server;
+    String playerColor;
 
-    public GameplayUI(ChessClient client, ServerFacade server) {
+    public GameplayUI(ChessClient client, ServerFacade server, String color) {
         this.client = client;
         this.server = server;
+        playerColor = color;
     }
 
     @Override
@@ -22,7 +24,7 @@ public class GameplayUI implements UIState {
         String selection = (tokens.length > 0) ? tokens[0] : "help";
         String[] params = Arrays.copyOfRange(tokens, 1, tokens.length);
         return switch (selection) {
-            case "redraw" -> redraw(params);
+            case "redraw" -> redraw();
             case "leave" -> leave();
             case "move" -> move(params);
             case "resign" -> resign(params);
@@ -33,10 +35,10 @@ public class GameplayUI implements UIState {
     }
 
     public String printPrompt() {
-        return lightBlueText + "[IN_GAME] >>> ";
+        return blueText + "[IN_GAME] >>> ";
     }
 
-    public String redraw(String... params) {
+    public String redraw() {
         return null;
     }
 
@@ -63,7 +65,6 @@ public class GameplayUI implements UIState {
                 join <ID> [WHITE|BLACK] - a game
                 observe <ID> - a game
                 logout - signs out of current account
-                quit - quit chess program
                 help - display possible commands (current menu)
                 """;
     }

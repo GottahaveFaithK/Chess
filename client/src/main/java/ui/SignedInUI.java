@@ -51,7 +51,6 @@ public class SignedInUI implements UIState {
                 join <ID> [WHITE|BLACK] - a game
                 observe <ID> - a game
                 logout - signs out of current account
-                quit - quit chess program
                 help - display possible commands (current menu)""";
     }
 
@@ -153,13 +152,11 @@ public class SignedInUI implements UIState {
         }
         if (color.equals("WHITE")) {
             client.getBoard().drawChessBoardWhite();
-            client.setPlayerColor("WHITE");
-            client.setState(new GameplayUI(client, server));
+            client.setState(new GameplayUI(client, server, "WHITE"));
             return "\nJoined game " + gameId + " as WHITE";
         } else {
             client.getBoard().drawChessBoardBlack();
-            client.setPlayerColor("BLACK");
-            client.setState(new GameplayUI(client, server));
+            client.setState(new GameplayUI(client, server, "BLACK"));
             return "\nJoined game " + gameId + " as BLACK";
         }
     }
@@ -180,7 +177,7 @@ public class SignedInUI implements UIState {
             return errorText + "Game with ID " + gameId + " doesn't exist. Please list games and try again" + reset;
         }
         client.getBoard().drawChessBoardWhite();
-        client.setState(new GameplayUI(client, server));
+        client.setState(new GameplayUI(client, server, null));
         return "Successfully observing game " + gameId;
     }
 }

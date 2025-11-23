@@ -17,8 +17,6 @@ public class ChessClient {
     private String user;
     private String authToken;
     private UIState state;
-    private String playerColor;
-    private int gameID;
     List<Integer> gameIDs = new ArrayList<>();
     //make not final for phase 6
     private final ClientChessboard board = new ClientChessboard(
@@ -79,14 +77,6 @@ public class ChessClient {
 
     public ClientChessboard getBoard() {
         return board;
-    }
-
-    public String getPlayerColor() {
-        return playerColor;
-    }
-
-    public void setPlayerColor(String color) {
-        playerColor = color;
     }
 
 }
