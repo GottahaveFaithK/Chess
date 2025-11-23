@@ -6,29 +6,32 @@ import request.*;
 import response.CreateGameResponse;
 import response.ListGamesResponse;
 import ui.ClientChessboard;
+import ui.SignedOutUI;
+import ui.UIState;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-import static ui.EscapeSequences.*;
+import static ui.Formatting.*;
 
 
 public class ChessClient {
     private String user;
     private String authToken;
     private final ServerFacade server;
+    private UIState state;
+
     //make not final for phase 6
     private final ClientChessboard board = new ClientChessboard(
             new GameData(-1, "eee", "eee", "aaaa", new ChessGame())
     );
     List<Integer> gameIDs = new ArrayList<>();
-    State state = State.SIGNEDOUT;
-    String reset = RESET_TEXT_COLOR + RESET_BG_COLOR + RESET_TEXT_ITALIC;
 
     public ChessClient(String serverUrl) throws ClientException {
         server = new ServerFacade(serverUrl);
+        state = new SignedOutUI(this, server);
     }
 
     public void run() {
@@ -36,28 +39,34 @@ public class ChessClient {
         Scanner scanner = new Scanner(System.in);
         var result = "";
         while (!result.equals("quit")) {
-            printPrompt();
+            state.printPrompt();
             String line = scanner.nextLine();
 
             try {
-                result = eval(line);
-                System.out.print(SET_TEXT_COLOR_LIGHT_BLUE + result);
+                result = state.handle(line);
+                System.out.print(blueText + result);
             } catch (Throwable e) {
                 var msg = e.toString();
-                System.out.print(SET_TEXT_COLOR_LIGHT_RED + SET_TEXT_ITALIC + msg + reset);
+                System.out.print(errorText + msg + reset);
             }
         }
         System.out.println();
     }
 
-    private void printPrompt() {
-        System.out.print("\n" + reset);
-        if (state == State.SIGNEDOUT) {
-            System.out.print(SET_TEXT_COLOR_BLUE + "[SIGNED_OUT] ");
-        } else {
-            System.out.print(SET_TEXT_COLOR_BLUE + "[SIGNED_IN] ");
-        }
-        System.out.print(">>> ");
+    public void setState(UIState newState) {
+        this.state = newState;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public void setAuthToken(String token) {
+        this.authToken = token;
+    }
+
+    public String getAuthToken() {
+        return authToken;
     }
 
     public String eval(String input) {
@@ -78,27 +87,6 @@ public class ChessClient {
             };
         } catch (ClientException ex) {
             return ex.getMessage();
-        }
-    }
-
-    public String help() {
-        if (state == State.SIGNEDOUT) {
-            return """
-                    register <USERNAME> <PASSWORD> <EMAIL> - to create an account
-                    login <USERNAME> <PASSWORD> - to sign into existing account
-                    quit - quit chess program
-                    help - display possible commands (current menu)
-                    """;
-        } else {
-            return """
-                    create <NAME> - a game
-                    list - games
-                    join <ID> [WHITE|BLACK] - a game
-                    observe <ID> - a game
-                    logout - signs out of current account
-                    quit - quit chess program
-                    help - display possible commands (current menu)
-                    """;
         }
     }
 
@@ -293,19 +281,6 @@ public class ChessClient {
         }
         board.drawChessBoardWhite();
         return "Successfully observing game " + gameId;
-    }
-
-    private void assertSignedIn() throws Exception {
-        if (state == State.SIGNEDOUT) {
-            throw new Exception("You must sign in before you can do that");
-        }
-    }
-
-
-    private void assertSignedOut() throws Exception {
-        if (state == State.SIGNEDIN) {
-            throw new Exception("You are already signed in");
-        }
     }
 
 }
