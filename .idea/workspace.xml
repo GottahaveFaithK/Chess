@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="Impl UIState interface (phase 6)">
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/ui/Formatting.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/ui/GameplayUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/ui/SignedInUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/ui/SignedOutUI.java" afterDir="false" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="refactor SignedOutUI interface (phase 6)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/UIState.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/UIState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/GameplayUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/GameplayUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/SignedInUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/SignedInUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/SignedOutUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/SignedOutUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,14 +246,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00123" summary="spelling fix (Phase 4)">
-      <option name="closed" value="true" />
-      <created>1761879267001</created>
-      <option name="number" value="00123" />
-      <option name="presentableId" value="LOCAL-00123" />
-      <option name="project" value="LOCAL" />
-      <updated>1761879267001</updated>
     </task>
     <task id="LOCAL-00124" summary="impl MySqlUserDAO, passing tests (Phase 4)">
       <option name="closed" value="true" />
@@ -641,7 +631,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763853423364</updated>
     </task>
-    <option name="localTasksCounter" value="172" />
+    <task id="LOCAL-00172" summary="refactor SignedOutUI interface (phase 6)">
+      <option name="closed" value="true" />
+      <created>1763856004850</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1763856004850</updated>
+    </task>
+    <option name="localTasksCounter" value="173" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -682,7 +680,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="now draws with special chars (Phase 5)" />
     <MESSAGE value="setting up client (Phase 5)" />
     <MESSAGE value="outlining ChessClient  (Phase 5)" />
     <MESSAGE value="done for the night  (Phase 5)" />
@@ -707,7 +704,8 @@
     <MESSAGE value="small comment snippet for a future reminder (phase 6)" />
     <MESSAGE value="removed automatic board printing (phase 6)" />
     <MESSAGE value="Impl UIState interface (phase 6)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Impl UIState interface (phase 6)" />
+    <MESSAGE value="refactor SignedOutUI interface (phase 6)" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor SignedOutUI interface (phase 6)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

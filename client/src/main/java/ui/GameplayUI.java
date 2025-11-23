@@ -1,10 +1,16 @@
 package ui;
 
+import java.util.Arrays;
+
 import static ui.Formatting.blueText;
 
 public class GameplayUI implements UIState {
+
     @Override
     public String handle(String input) {
+        String[] tokens = input.toLowerCase().split(" ");
+        String selection = (tokens.length > 0) ? tokens[0] : "help";
+        String[] params = Arrays.copyOfRange(tokens, 1, tokens.length);
         return "gameplay";
     }
 

@@ -3,7 +3,6 @@ package ui;
 import chessclient.ChessClient;
 import chessclient.ClientException;
 import chessclient.ServerFacade;
-import chessclient.State;
 import request.LoginRequest;
 import request.RegisterRequest;
 
@@ -28,6 +27,7 @@ public class SignedOutUI implements UIState {
         return switch (selection) {
             case "register" -> register(params);
             case "login" -> login(params);
+            case "quit" -> "quit";
             default -> help();
         };
     }
@@ -46,10 +46,6 @@ public class SignedOutUI implements UIState {
     }
 
     String register(String... params) {
-        try {
-        } catch (Exception e) {
-            return e.getMessage();
-        }
         if (params.length != 3) {
             return "Expected: \"register <USERNAME> <PASSWORD> <EMAIL>\"";
         }
