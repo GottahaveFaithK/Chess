@@ -16,19 +16,17 @@ import static ui.Formatting.*;
 public class ChessClient {
     private String user;
     private String authToken;
-    private final ServerFacade server;
     private UIState state;
     private String playerColor;
     private int gameID;
-
+    List<Integer> gameIDs = new ArrayList<>();
     //make not final for phase 6
     private final ClientChessboard board = new ClientChessboard(
             new GameData(-1, "eee", "eee", "aaaa", new ChessGame())
     );
-    List<Integer> gameIDs = new ArrayList<>();
 
     public ChessClient(String serverUrl) throws ClientException {
-        server = new ServerFacade(serverUrl);
+        ServerFacade server = new ServerFacade(serverUrl);
         state = new SignedOutUI(this, server);
     }
 

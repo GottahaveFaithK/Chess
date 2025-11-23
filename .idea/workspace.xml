@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="fix printPrompt (phase 6)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl color change (phase 6)">
       <change beforePath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/Formatting.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/Formatting.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/GameplayUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/GameplayUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/SignedInUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/SignedInUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/SignedOutUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/SignedOutUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,22 +243,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00126" summary="outlined gamedao tests (Phase 4)">
-      <option name="closed" value="true" />
-      <created>1761941902509</created>
-      <option name="number" value="00126" />
-      <option name="presentableId" value="LOCAL-00126" />
-      <option name="project" value="LOCAL" />
-      <updated>1761941902509</updated>
-    </task>
-    <task id="LOCAL-00127" summary="impl some gamedao tests (Phase 4)">
-      <option name="closed" value="true" />
-      <created>1761963020748</created>
-      <option name="number" value="00127" />
-      <option name="presentableId" value="LOCAL-00127" />
-      <option name="project" value="LOCAL" />
-      <updated>1761963020748</updated>
     </task>
     <task id="LOCAL-00128" summary="impl some more gamedao tests (Phase 4)">
       <option name="closed" value="true" />
@@ -639,7 +620,23 @@
       <option name="project" value="LOCAL" />
       <updated>1763858073599</updated>
     </task>
-    <option name="localTasksCounter" value="175" />
+    <task id="LOCAL-00175" summary="print changes (phase 6)">
+      <option name="closed" value="true" />
+      <created>1763858591080</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL-00175" />
+      <option name="project" value="LOCAL" />
+      <updated>1763858591080</updated>
+    </task>
+    <task id="LOCAL-00176" summary="impl color change (phase 6)">
+      <option name="closed" value="true" />
+      <created>1763858794538</created>
+      <option name="number" value="00176" />
+      <option name="presentableId" value="LOCAL-00176" />
+      <option name="project" value="LOCAL" />
+      <updated>1763858794538</updated>
+    </task>
+    <option name="localTasksCounter" value="177" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -680,8 +677,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="done for the night  (Phase 5)" />
-    <MESSAGE value="impl some HttpRequest methods  (Phase 5)" />
     <MESSAGE value="added request and response records (Phase 5)" />
     <MESSAGE value="refactored for request and response records (Phase 5)" />
     <MESSAGE value="impl serverfacade login, logout, register (Phase 5)" />
@@ -705,7 +700,9 @@
     <MESSAGE value="refactor SignedOutUI interface (phase 6)" />
     <MESSAGE value="refactor SignedInUI interface (phase 6)" />
     <MESSAGE value="fix printPrompt (phase 6)" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix printPrompt (phase 6)" />
+    <MESSAGE value="print changes (phase 6)" />
+    <MESSAGE value="impl color change (phase 6)" />
+    <option name="LAST_COMMIT_MESSAGE" value="impl color change (phase 6)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

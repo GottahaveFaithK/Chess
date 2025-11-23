@@ -154,10 +154,12 @@ public class SignedInUI implements UIState {
         if (color.equals("WHITE")) {
             client.getBoard().drawChessBoardWhite();
             client.setPlayerColor("WHITE");
+            client.setState(new GameplayUI(client, server));
             return "\nJoined game " + gameId + " as WHITE";
         } else {
             client.getBoard().drawChessBoardBlack();
             client.setPlayerColor("BLACK");
+            client.setState(new GameplayUI(client, server));
             return "\nJoined game " + gameId + " as BLACK";
         }
     }
@@ -178,6 +180,7 @@ public class SignedInUI implements UIState {
             return errorText + "Game with ID " + gameId + " doesn't exist. Please list games and try again" + reset;
         }
         client.getBoard().drawChessBoardWhite();
+        client.setState(new GameplayUI(client, server));
         return "Successfully observing game " + gameId;
     }
 }
