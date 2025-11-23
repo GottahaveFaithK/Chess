@@ -38,7 +38,7 @@ public class ChessClient {
         Scanner scanner = new Scanner(System.in);
         var result = "";
         while (!result.equals("quit")) {
-            state.printPrompt();
+            System.out.print(state.printPrompt());
             String line = scanner.nextLine();
 
             try {

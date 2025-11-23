@@ -41,7 +41,7 @@ public class SignedInUI implements UIState {
     }
 
     public String printPrompt() {
-        return blueText + "[SIGNED_IN] >>> ";
+        return "\n" + blueText + "[SIGNED_IN] >>> ";
     }
 
     public String help() {
