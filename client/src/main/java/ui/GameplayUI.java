@@ -48,10 +48,12 @@ public class GameplayUI implements UIState {
     }
 
     public String leave() {
+        //will need websocket
         return null;
     }
 
     public String move(String... params) {
+        //will need websocket
         return null;
     }
 
@@ -60,6 +62,7 @@ public class GameplayUI implements UIState {
         //other player wins
         //doesn't kick players out of game
         //can't be called by observer
+        //will need websocket
         return null;
     }
 

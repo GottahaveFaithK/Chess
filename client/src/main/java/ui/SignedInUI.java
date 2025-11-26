@@ -159,6 +159,7 @@ public class SignedInUI implements UIState {
             client.setState(new GameplayUI(client, server, "BLACK"));
             return "\nJoined game " + gameId + " as BLACK";
         }
+        //notify clients using websocket
     }
 
     public String observeGame(String... params) {
@@ -176,6 +177,7 @@ public class SignedInUI implements UIState {
         if (!client.getGameIDs().contains(gameId)) {
             return errorText + "Game with ID " + gameId + " doesn't exist. Please list games and try again" + reset;
         }
+        //notify clients via websocket
         client.getBoard().drawChessBoardWhite();
         client.setState(new GameplayUI(client, server, null));
         return "Successfully observing game " + gameId;
