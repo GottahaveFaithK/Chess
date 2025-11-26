@@ -69,11 +69,11 @@ public class GameplayUI implements UIState {
 
     String help() {
         return """
-                create <NAME> - a game
-                list - games
-                join <ID> [WHITE|BLACK] - a game
-                observe <ID> - a game
-                logout - signs out of current account
+                redraw - redraw the chess board
+                leave - leave the game
+                move <piece position> <new position> - ex: e1 e2
+                resign - forfeit the game
+                highlight <piece position> - highlights all possible moves for the piece
                 help - display possible commands (current menu)
                 """;
     }

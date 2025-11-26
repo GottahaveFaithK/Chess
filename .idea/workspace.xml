@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="connect GameplayUI to client (phase 6)" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="comments for future (phase 6)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/GameplayUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/GameplayUI.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -239,14 +242,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00130" summary="impl getgame and create game (Phase 4)">
-      <option name="closed" value="true" />
-      <created>1762022304409</created>
-      <option name="number" value="00130" />
-      <option name="presentableId" value="LOCAL-00130" />
-      <option name="project" value="LOCAL" />
-      <updated>1762022304409</updated>
     </task>
     <task id="LOCAL-00131" summary="fixed an error in my getgames tests. passing create, get, and delete tests (Phase 4)">
       <option name="closed" value="true" />
@@ -632,7 +627,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763859703029</updated>
     </task>
-    <option name="localTasksCounter" value="179" />
+    <task id="LOCAL-00179" summary="comments for future (phase 6)">
+      <option name="closed" value="true" />
+      <created>1763859938326</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1763859938326</updated>
+    </task>
+    <option name="localTasksCounter" value="180" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -673,7 +676,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="impl serverfacade login, logout, register (Phase 5)" />
     <MESSAGE value="impl serverfacade creategame (Phase 5)" />
     <MESSAGE value="impl serverfacade listgames (Phase 5)" />
     <MESSAGE value="impl serverfacade (Phase 5)" />
@@ -698,7 +700,8 @@
     <MESSAGE value="impl color change (phase 6)" />
     <MESSAGE value="sketch GameplayUI functions (phase 6)" />
     <MESSAGE value="connect GameplayUI to client (phase 6)" />
-    <option name="LAST_COMMIT_MESSAGE" value="connect GameplayUI to client (phase 6)" />
+    <MESSAGE value="comments for future (phase 6)" />
+    <option name="LAST_COMMIT_MESSAGE" value="comments for future (phase 6)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
