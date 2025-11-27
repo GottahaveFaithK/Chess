@@ -103,7 +103,7 @@ public class ChessClient implements NotificationHandler {
 
     }
 
-    void loadGame() {
+    void loadGame(GameData game) {
 
     }
 }
