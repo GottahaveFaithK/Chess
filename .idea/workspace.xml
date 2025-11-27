@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl errormessage and notification handler (phase 6)">
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/websocket/messages/NotificationMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/websocket/messages/NotificationMessage.java" afterDir="false" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="added setters NotificationMessage ErrorMessage (phase 6)">
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/websocket/WebsocketCommunicator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,30 +242,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00135" summary="another code quality update (Phase 4)">
-      <option name="closed" value="true" />
-      <created>1762046081729</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
-      <option name="project" value="LOCAL" />
-      <updated>1762046081729</updated>
-    </task>
-    <task id="LOCAL-00136" summary="impl starter code (Phase 5)">
-      <option name="closed" value="true" />
-      <created>1762204541389</created>
-      <option name="number" value="00136" />
-      <option name="presentableId" value="LOCAL-00136" />
-      <option name="project" value="LOCAL" />
-      <updated>1762204541389</updated>
-    </task>
-    <task id="LOCAL-00137" summary="small file structure change (Phase 5)">
-      <option name="closed" value="true" />
-      <created>1762816443069</created>
-      <option name="number" value="00137" />
-      <option name="presentableId" value="LOCAL-00137" />
-      <option name="project" value="LOCAL" />
-      <updated>1762816443069</updated>
     </task>
     <task id="LOCAL-00138" summary="small file structure change (planning) (Phase 5)">
       <option name="closed" value="true" />
@@ -634,7 +611,31 @@
       <option name="project" value="LOCAL" />
       <updated>1764269678515</updated>
     </task>
-    <option name="localTasksCounter" value="184" />
+    <task id="LOCAL-00184" summary="impl NotificationMessage (phase 6)">
+      <option name="closed" value="true" />
+      <created>1764270868131</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1764270868131</updated>
+    </task>
+    <task id="LOCAL-00185" summary="impl LoadGameMessage (phase 6)">
+      <option name="closed" value="true" />
+      <created>1764271063059</created>
+      <option name="number" value="00185" />
+      <option name="presentableId" value="LOCAL-00185" />
+      <option name="project" value="LOCAL" />
+      <updated>1764271063059</updated>
+    </task>
+    <task id="LOCAL-00186" summary="added setters NotificationMessage ErrorMessage (phase 6)">
+      <option name="closed" value="true" />
+      <created>1764271131489</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
+      <option name="project" value="LOCAL" />
+      <updated>1764271131489</updated>
+    </task>
+    <option name="localTasksCounter" value="187" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -675,9 +676,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="impl some client methods (Phase 5)" />
-    <MESSAGE value="impl sign in, sign out, register client methods (Phase 5)" />
-    <MESSAGE value="impl create game and list games client methods (Phase 5)" />
     <MESSAGE value="impl chess client (Phase 5)" />
     <MESSAGE value="trying to pass some previous tests (Phase 5)" />
     <MESSAGE value="passing almost all tests, now need to fix listgames (Phase 5)" />
@@ -700,7 +698,10 @@
     <MESSAGE value="outlined a few functions that will need websocket (phase 6)" />
     <MESSAGE value="made the dependencies have the scope compile (phase 6)" />
     <MESSAGE value="impl errormessage and notification handler (phase 6)" />
-    <option name="LAST_COMMIT_MESSAGE" value="impl errormessage and notification handler (phase 6)" />
+    <MESSAGE value="impl NotificationMessage (phase 6)" />
+    <MESSAGE value="impl LoadGameMessage (phase 6)" />
+    <MESSAGE value="added setters NotificationMessage ErrorMessage (phase 6)" />
+    <option name="LAST_COMMIT_MESSAGE" value="added setters NotificationMessage ErrorMessage (phase 6)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
