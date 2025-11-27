@@ -1,10 +1,16 @@
 package chessclient;
 
 import chess.ChessGame;
+
 import model.GameData;
 import ui.ClientChessboard;
 import ui.SignedOutUI;
 import ui.UIState;
+import websocket.NotificationHandler;
+import websocket.messages.ErrorMessage;
+import websocket.messages.LoadGameMessage;
+import websocket.messages.NotificationMessage;
+import websocket.messages.ServerMessage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +19,7 @@ import java.util.Scanner;
 import static ui.Formatting.*;
 
 
-public class ChessClient {
+public class ChessClient implements NotificationHandler {
     private String user;
     private String authToken;
     private UIState state;
@@ -26,6 +32,16 @@ public class ChessClient {
     public ChessClient(String serverUrl) throws ClientException {
         ServerFacade server = new ServerFacade(serverUrl);
         state = new SignedOutUI(this, server);
+    }
+
+    @Override
+    public void notify(ServerMessage message) {
+        switch (message.getServerMessageType()) {
+            case NOTIFICATION -> displayNotification(((NotificationMessage) message).getMessage());
+            case ERROR -> displayError(((ErrorMessage) message).getErrorMessage());
+            case LOAD_GAME -> loadGame(((LoadGameMessage) message).getGame());
+        }
+
     }
 
     public void run() {
@@ -79,4 +95,15 @@ public class ChessClient {
         return board;
     }
 
+    void displayNotification() {
+
+    }
+
+    void displayError(String errorMessage) {
+
+    }
+
+    void loadGame() {
+
+    }
 }
