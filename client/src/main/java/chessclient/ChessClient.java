@@ -95,7 +95,7 @@ public class ChessClient implements NotificationHandler {
         return board;
     }
 
-    void displayNotification() {
+    void displayNotification(String message) {
 
     }
 

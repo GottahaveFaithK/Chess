@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="made the dependencies have the scope compile (phase 6)">
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/websocket/NotificationHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/websocket/messages/ErrorMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/websocket/messages/LoadGameMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/websocket/messages/NotificationMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" afterDir="false" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl errormessage and notification handler (phase 6)">
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/websocket/messages/NotificationMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/websocket/messages/NotificationMessage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,14 +241,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00134" summary="quality update (Phase 4)">
-      <option name="closed" value="true" />
-      <created>1762045948083</created>
-      <option name="number" value="00134" />
-      <option name="presentableId" value="LOCAL-00134" />
-      <option name="project" value="LOCAL" />
-      <updated>1762045948098</updated>
     </task>
     <task id="LOCAL-00135" summary="another code quality update (Phase 4)">
       <option name="closed" value="true" />
@@ -639,7 +626,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764209597570</updated>
     </task>
-    <option name="localTasksCounter" value="183" />
+    <task id="LOCAL-00183" summary="impl errormessage and notification handler (phase 6)">
+      <option name="closed" value="true" />
+      <created>1764269678514</created>
+      <option name="number" value="00183" />
+      <option name="presentableId" value="LOCAL-00183" />
+      <option name="project" value="LOCAL" />
+      <updated>1764269678515</updated>
+    </task>
+    <option name="localTasksCounter" value="184" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -680,7 +675,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="small changes to serverfacade (Phase 5)" />
     <MESSAGE value="impl some client methods (Phase 5)" />
     <MESSAGE value="impl sign in, sign out, register client methods (Phase 5)" />
     <MESSAGE value="impl create game and list games client methods (Phase 5)" />
@@ -705,7 +699,8 @@
     <MESSAGE value="wrote the help method for gameplayUI (phase 6)" />
     <MESSAGE value="outlined a few functions that will need websocket (phase 6)" />
     <MESSAGE value="made the dependencies have the scope compile (phase 6)" />
-    <option name="LAST_COMMIT_MESSAGE" value="made the dependencies have the scope compile (phase 6)" />
+    <MESSAGE value="impl errormessage and notification handler (phase 6)" />
+    <option name="LAST_COMMIT_MESSAGE" value="impl errormessage and notification handler (phase 6)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
