@@ -63,6 +63,8 @@ public class GameplayUI implements UIState {
         //doesn't kick players out of game
         //can't be called by observer
         //will need websocket
+        //prompt to confirm
+        //doesn't remove the player from the game
         return null;
     }
 
