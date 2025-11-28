@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="added a few classes to impl later (phase 6)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="pausing for the day (phase 6)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/websocket/WebsocketCommunicator.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/websocket/WebsocketCommunicator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/ConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/ConnectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,14 +243,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00139" summary="small name change (Phase 5)">
-      <option name="closed" value="true" />
-      <created>1762896532351</created>
-      <option name="number" value="00139" />
-      <option name="presentableId" value="LOCAL-00139" />
-      <option name="project" value="LOCAL" />
-      <updated>1762896532351</updated>
     </task>
     <task id="LOCAL-00140" summary="reorganizing and small function outlines (Phase 5)">
       <option name="closed" value="true" />
@@ -635,7 +628,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764273916329</updated>
     </task>
-    <option name="localTasksCounter" value="188" />
+    <task id="LOCAL-00188" summary="pausing for the day (phase 6)">
+      <option name="closed" value="true" />
+      <created>1764277182939</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL-00188" />
+      <option name="project" value="LOCAL" />
+      <updated>1764277182939</updated>
+    </task>
+    <option name="localTasksCounter" value="189" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -676,7 +677,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="trying to pass some previous tests (Phase 5)" />
     <MESSAGE value="passing almost all tests, now need to fix listgames (Phase 5)" />
     <MESSAGE value="no clue how but I fixed it (Phase 5)" />
     <MESSAGE value="slight drawing fixes (Phase 5)" />
@@ -701,7 +701,8 @@
     <MESSAGE value="impl LoadGameMessage (phase 6)" />
     <MESSAGE value="added setters NotificationMessage ErrorMessage (phase 6)" />
     <MESSAGE value="added a few classes to impl later (phase 6)" />
-    <option name="LAST_COMMIT_MESSAGE" value="added a few classes to impl later (phase 6)" />
+    <MESSAGE value="pausing for the day (phase 6)" />
+    <option name="LAST_COMMIT_MESSAGE" value="pausing for the day (phase 6)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
