@@ -113,15 +113,35 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
         ChessGame.TeamColor color = player.color();
 
         try {
+            validateMove(player, moveCommand);
             gameService.makeMove(player.gameID(), move);
         } catch (InvalidMoveException e) {
-            ConnectionManager.sendError(player.session().getRemote(), "Invalid move");
+            ConnectionManager.sendError(player.session().getRemote(), e.getMessage());
             return;
         }
 
         gameService.evaluateState(player.gameID(), color);
         GameService.GameState gameState = gameService.getState(player.gameID(), color);
         updatePlayersMove(player, gameState, moveCommand);
+    }
+
+    private void validateMove(PlayerInfo player, MakeMoveCommand move) throws InvalidMoveException {
+        if (player.isObserver()) {
+            throw new InvalidMoveException("Observer can't make moves");
+        }
+
+        GameService.GameState gameState = gameService.getState(player.gameID(), player.color());
+
+        if (gameState != GameService.GameState.IN_PROGRESS && gameState != GameService.GameState.CHECK) {
+            throw new InvalidMoveException("Game has ended");
+        }
+
+        GameData gameData = gameService.getGame(player.gameID());
+        ChessGame.TeamColor turnColor = gameData.game().getTeamTurn();
+
+        if (turnColor != player.color()) {
+            throw new InvalidMoveException("Not your turn");
+        }
     }
 
 
