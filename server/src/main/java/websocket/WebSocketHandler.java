@@ -30,17 +30,40 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
 
         UserGameCommand command = gson.fromJson(msg, UserGameCommand.class);
 
-        var conn = getConnection(command.authToken, session);
-        if (conn != null) {
-            switch (command.getCommandType()) {
-                case CONNECT -> join(conn, msg);
-                case MAKE_MOVE -> move(conn, msg);
-                case LEAVE -> leave(conn, msg);
-                case RESIGN -> resign(conn, msg);
-            }
+        if (command.getCommandType() == UserGameCommand.CommandType.CONNECT) {
+            join(session, command);
         } else {
-            ConnectionManager.sendError(session.getRemote(), "unknown user");
+            PlayerInfo conn = getConnection(command.getAuthToken(), session);
+            if (conn != null) {
+                switch (command.getCommandType()) {
+                    case MAKE_MOVE -> move(conn, msg);
+                    case LEAVE -> leave(conn, msg);
+                    case RESIGN -> resign(conn, msg);
+                }
+            } else {
+                ConnectionManager.sendError(session.getRemote(), "unknown user");
+            }
         }
+    }
+
+    private void join(Session session, UserGameCommand command) {
+
+    }
+
+    private void move(PlayerInfo player, String msg) {
+
+    }
+
+    private void leave(PlayerInfo player, String msg) {
+
+    }
+
+    private void resign(PlayerInfo player, String msg) {
+
+    }
+
+    private PlayerInfo getConnection(String authToken, Session session) {
+        return null;
     }
 
 
