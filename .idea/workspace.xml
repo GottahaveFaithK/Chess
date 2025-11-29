@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl handleMessage? (phase 6)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="starting to wire connectionManager (phase 6)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/ConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/ConnectionManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" afterDir="false" />
@@ -243,14 +243,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00144" summary="added some new colors (Phase 5)">
-      <option name="closed" value="true" />
-      <created>1762967515028</created>
-      <option name="number" value="00144" />
-      <option name="presentableId" value="LOCAL-00144" />
-      <option name="project" value="LOCAL" />
-      <updated>1762967515028</updated>
     </task>
     <task id="LOCAL-00145" summary="got checkerboard pattern printing, now just need to add piece functionality (Phase 5)">
       <option name="closed" value="true" />
@@ -636,7 +628,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764378122017</updated>
     </task>
-    <option name="localTasksCounter" value="193" />
+    <task id="LOCAL-00193" summary="starting to wire connectionManager (phase 6)">
+      <option name="closed" value="true" />
+      <created>1764379581190</created>
+      <option name="number" value="00193" />
+      <option name="presentableId" value="LOCAL-00193" />
+      <option name="project" value="LOCAL" />
+      <updated>1764379581190</updated>
+    </task>
+    <option name="localTasksCounter" value="194" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -677,7 +677,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="set up starter code (phase 6)" />
     <MESSAGE value="small comment snippet for a future reminder (phase 6)" />
     <MESSAGE value="removed automatic board printing (phase 6)" />
     <MESSAGE value="Impl UIState interface (phase 6)" />
@@ -702,7 +701,8 @@
     <MESSAGE value="impl makemovecommand (phase 6)" />
     <MESSAGE value="impl websocket in server (phase 6)" />
     <MESSAGE value="impl handleMessage? (phase 6)" />
-    <option name="LAST_COMMIT_MESSAGE" value="impl handleMessage? (phase 6)" />
+    <MESSAGE value="starting to wire connectionManager (phase 6)" />
+    <option name="LAST_COMMIT_MESSAGE" value="starting to wire connectionManager (phase 6)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
