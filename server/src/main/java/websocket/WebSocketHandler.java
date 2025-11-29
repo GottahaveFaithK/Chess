@@ -68,7 +68,8 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
         boolean observer = color.equals("null");
         PlayerInfo player = new PlayerInfo(session, authToken, gameID, color, observer);
 
-
+        connectionManager.addPlayer(player);
+        connectionManager.addSession(gameID, session);
     }
 
     private void move(PlayerInfo player, String msg) {
