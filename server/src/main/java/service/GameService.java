@@ -245,5 +245,17 @@ public class GameService {
         }
     }
 
+    public GameData getGame(int gameID) {
+        try {
+            return gameDAO.getGame(gameID);
+        } catch (DataAccessException e) {
+            if (e.getMessage().contains("Game doesn't exist")) {
+                throw new ResponseException("Error: bad request", 400);
+            } else {
+                throw new ResponseException("Error: " + e.getMessage(), 500);
+            }
+        }
+    }
+
 }
 
