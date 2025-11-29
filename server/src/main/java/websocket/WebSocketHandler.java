@@ -65,7 +65,7 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
         }
 
         String color = gameService.getPlayerColor(authToken, gameID);
-        boolean observer = color.equals("null");
+        boolean observer = color == null;
         PlayerInfo player = new PlayerInfo(session, authToken, gameID, color, observer);
 
         connectionManager.addPlayer(player);
