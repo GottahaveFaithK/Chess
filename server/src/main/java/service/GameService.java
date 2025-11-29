@@ -22,7 +22,8 @@ public class GameService {
         IN_PROGRESS,
         WINNER_WHITE,
         WINNER_BLACK,
-        CHECK
+        CHECK,
+        STALEMATE
     }
 
     public GameService(GameDAO gameDAO, AuthDAO authDAO) {
@@ -207,5 +208,36 @@ public class GameService {
             }
         }
     }
+
+    public GameState getState(int gameID, ChessGame.TeamColor color) {
+        GameData gameData;
+        try {
+            gameData = gameDAO.getGame(gameID);
+        } catch (DataAccessException e) {
+            if (e.getMessage().contains("Game doesn't exist")) {
+                throw new ResponseException("Error: bad request", 400);
+            } else {
+                throw new ResponseException("Error: " + e.getMessage(), 500);
+            }
+        }
+
+        ChessGame game = gameData.game();
+        ChessGame.Winner winner = game.getWinner();
+
+        if (winner == ChessGame.Winner.BLACK) {
+            return GameState.WINNER_BLACK;
+        } else if (winner == ChessGame.Winner.WHITE) {
+            return GameState.WINNER_WHITE;
+        } else if (winner == ChessGame.Winner.STALEMATE) {
+            return GameState.STALEMATE;
+        } else {
+            if (game.isInCheck(color)) {
+                return GameState.CHECK;
+            } else {
+                return GameState.IN_PROGRESS;
+            }
+        }
+    }
+
 }
 
