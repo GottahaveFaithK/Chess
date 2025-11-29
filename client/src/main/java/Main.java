@@ -1,8 +1,6 @@
 import chess.*;
 import chessclient.ChessClient;
 import chessclient.ClientException;
-import model.GameData;
-import ui.ClientChessboard;
 
 public class Main {
     public static void main(String[] args) {

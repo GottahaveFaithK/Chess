@@ -227,7 +227,4 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
         }
     }
 
-    //for deserializing make move commands may need to do it twice
-    //deserialize it to see what type it is
-    //if it is a make move command, deserialize again but as a make move command
 }
