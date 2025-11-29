@@ -77,6 +77,8 @@ public class GameplayUI implements UIState {
                 redraw - redraw the chess board
                 leave - leave the game
                 move <piece position> <new position> - ex: e1 e2
+                    If you are to promote a pawn, please type
+                    <piece position> <new position> <QUEEN/BISHOP/KNIGHT/ROOK>
                 resign - forfeit the game
                 highlight <piece position> - highlights all possible moves for the piece
                 help - display possible commands (current menu)

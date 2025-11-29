@@ -2,7 +2,6 @@ package websocket;
 
 import chess.ChessGame;
 import chess.ChessMove;
-import chess.ChessPosition;
 import chess.InvalidMoveException;
 import com.google.gson.Gson;
 import io.javalin.websocket.*;
@@ -127,7 +126,6 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
                                    MakeMoveCommand moveCommand) {
         Session session = player.session();
         String playerColor = player.color();
-        String printColor;
 
         GameData gameData = gameService.getGame(player.gameID());
         LoadGameMessage loadGameMessage = new LoadGameMessage(ServerMessage.ServerMessageType.LOAD_GAME, gameData);
