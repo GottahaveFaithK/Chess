@@ -6,6 +6,7 @@ import model.GameData;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class MemoryGameDAO implements GameDAO {
     private final HashMap<Integer, GameData> gameStorage = new HashMap<>();
@@ -75,5 +76,17 @@ public class MemoryGameDAO implements GameDAO {
     @Override
     public void deleteAllGames() {
         gameStorage.clear();
+    }
+
+    @Override
+    public String getPlayerColor(int gameID, String username) {
+        GameData game = gameStorage.get(gameID);
+        if (Objects.equals(game.whiteUsername(), username)) {
+            return "WHITE";
+        } else if (Objects.equals(game.blackUsername(), username)) {
+            return "BLACK";
+        } else {
+            return "NULL";
+        }
     }
 }

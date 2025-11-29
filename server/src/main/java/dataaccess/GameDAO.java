@@ -19,5 +19,7 @@ public interface GameDAO {
 
     //void deleteGame(GameData game) throws DataAccessException;
 
+    String getPlayerColor(int gameID, String username) throws DataAccessException;
+
     void deleteAllGames() throws DataAccessException;
 }

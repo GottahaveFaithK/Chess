@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="added PlayerInfo (phase 6)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="outlining a few methods (phase 6)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/ConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/ConnectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/GameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/GameDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryGameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryGameDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlGameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlGameDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -243,14 +248,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00146" summary="can now draw game (text version) (Phase 5)">
-      <option name="closed" value="true" />
-      <created>1762977137275</created>
-      <option name="number" value="00146" />
-      <option name="presentableId" value="LOCAL-00146" />
-      <option name="project" value="LOCAL" />
-      <updated>1762977137275</updated>
     </task>
     <task id="LOCAL-00147" summary="now draws with special chars (Phase 5)">
       <option name="closed" value="true" />
@@ -636,7 +633,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764386087514</updated>
     </task>
-    <option name="localTasksCounter" value="195" />
+    <task id="LOCAL-00195" summary="outlining a few methods (phase 6)">
+      <option name="closed" value="true" />
+      <created>1764387079153</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
+      <option name="project" value="LOCAL" />
+      <updated>1764387079153</updated>
+    </task>
+    <option name="localTasksCounter" value="196" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -677,7 +682,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="removed automatic board printing (phase 6)" />
     <MESSAGE value="Impl UIState interface (phase 6)" />
     <MESSAGE value="refactor SignedOutUI interface (phase 6)" />
     <MESSAGE value="refactor SignedInUI interface (phase 6)" />
@@ -702,7 +706,8 @@
     <MESSAGE value="impl handleMessage? (phase 6)" />
     <MESSAGE value="starting to wire connectionManager (phase 6)" />
     <MESSAGE value="added PlayerInfo (phase 6)" />
-    <option name="LAST_COMMIT_MESSAGE" value="added PlayerInfo (phase 6)" />
+    <MESSAGE value="outlining a few methods (phase 6)" />
+    <option name="LAST_COMMIT_MESSAGE" value="outlining a few methods (phase 6)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

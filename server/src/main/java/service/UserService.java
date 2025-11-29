@@ -75,6 +75,15 @@ public class UserService {
         }
     }
 
+    public boolean verify(String authToken) {
+        try {
+            authDAO.getAuth(authToken);
+            return true;
+        } catch (DataAccessException e) {
+            return false;
+        }
+    }
+
     public static String generateToken() {
         return UUID.randomUUID().toString();
     }

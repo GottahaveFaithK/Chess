@@ -4,12 +4,20 @@ import com.google.gson.Gson;
 import io.javalin.websocket.*;
 import org.eclipse.jetty.websocket.api.Session;
 import org.jetbrains.annotations.NotNull;
+import service.GameService;
+import service.UserService;
 import websocket.commands.UserGameCommand;
 
 
 public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsCloseHandler {
-
+    UserService userService;
+    GameService gameService;
     private final Gson gson = new Gson();
+
+    public WebSocketHandler(UserService userService, GameService gameService) {
+        this.userService = userService;
+        this.gameService = gameService;
+    }
 
 
     @Override
@@ -47,6 +55,13 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
     }
 
     private void join(Session session, UserGameCommand command) {
+        boolean authorized = userService.verify(command.getAuthToken());
+        if (!authorized) {
+            ConnectionManager.sendError(session.getRemote(), "unknown user");
+            return;
+        }
+
+        String color = gameService.getPlayerColor(command.getAuthToken(), command.getGameID());
 
     }
 

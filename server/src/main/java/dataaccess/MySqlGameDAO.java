@@ -171,6 +171,18 @@ public class MySqlGameDAO implements GameDAO {
         }
     }
 
+    @Override
+    public String getPlayerColor(int gameID, String username) throws DataAccessException {
+        GameData game = getGame(gameID);
+        if (username.equals(game.whiteUsername())) {
+            return "WHITE";
+        } else if (username.equals(game.blackUsername())) {
+            return "BLACK";
+        } else {
+            return null; // player not assigned yet
+        }
+    }
+
     private final String[] create = {
             """
             CREATE TABLE IF NOT EXISTS games (

@@ -94,4 +94,31 @@ public class GameService {
             }
         }
     }
+
+    public String getPlayerColor(String authToken, int gameID) {
+        String username;
+        try {
+            AuthData auth = authDAO.getAuth(authToken);
+            username = auth.username();
+        } catch (DataAccessException e) {
+            if (e.getMessage().contains("Auth token doesn't exist")) {
+                throw new ResponseException("Error: unauthorized", 401);
+            } else {
+                throw new ResponseException("Error: " + e.getMessage(), 500);
+            }
+        }
+
+        String playerColor;
+        try {
+            playerColor = gameDAO.getPlayerColor(gameID, username);
+        } catch (DataAccessException e) {
+            if (e.getMessage().contains("Game doesn't exist")) {
+                throw new ResponseException("Error: bad request", 400);
+            } else {
+                throw new ResponseException("Error: " + e.getMessage(), 500);
+            }
+        }
+
+        return playerColor;
+    }
 }
