@@ -81,4 +81,19 @@ public class ConnectionManager {
             //if I implement logging, log this
         }
     }
+
+    public void broadcastAll(Session session, ServerMessage message) {
+        PlayerInfo player = getPlayer(session);
+        List<Session> sessions = getSessions(player.gameID());
+        String msg = message.toString();
+        try {
+            for (Session c : sessions) {
+                if (c.isOpen()) {
+                    c.getRemote().sendString(msg);
+                }
+            }
+        } catch (IOException e) {
+            //if I implement logging, log this
+        }
+    }
 }
