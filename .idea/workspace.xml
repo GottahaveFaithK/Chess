@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="added winner enum (phase 6)">
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" afterDir="false" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl broadcastAll (phase 6)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,70 +242,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00155" summary="impl serverfacade creategame (Phase 5)">
-      <option name="closed" value="true" />
-      <created>1763066735493</created>
-      <option name="number" value="00155" />
-      <option name="presentableId" value="LOCAL-00155" />
-      <option name="project" value="LOCAL" />
-      <updated>1763066735493</updated>
-    </task>
-    <task id="LOCAL-00156" summary="impl serverfacade listgames (Phase 5)">
-      <option name="closed" value="true" />
-      <created>1763068534582</created>
-      <option name="number" value="00156" />
-      <option name="presentableId" value="LOCAL-00156" />
-      <option name="project" value="LOCAL" />
-      <updated>1763068534582</updated>
-    </task>
-    <task id="LOCAL-00157" summary="impl serverfacade (Phase 5)">
-      <option name="closed" value="true" />
-      <created>1763074206895</created>
-      <option name="number" value="00157" />
-      <option name="presentableId" value="LOCAL-00157" />
-      <option name="project" value="LOCAL" />
-      <updated>1763074206895</updated>
-    </task>
-    <task id="LOCAL-00158" summary="small changes to serverfacade (Phase 5)">
-      <option name="closed" value="true" />
-      <created>1763074237112</created>
-      <option name="number" value="00158" />
-      <option name="presentableId" value="LOCAL-00158" />
-      <option name="project" value="LOCAL" />
-      <updated>1763074237112</updated>
-    </task>
-    <task id="LOCAL-00159" summary="impl some client methods (Phase 5)">
-      <option name="closed" value="true" />
-      <created>1763077914005</created>
-      <option name="number" value="00159" />
-      <option name="presentableId" value="LOCAL-00159" />
-      <option name="project" value="LOCAL" />
-      <updated>1763077914005</updated>
-    </task>
-    <task id="LOCAL-00160" summary="impl sign in, sign out, register client methods (Phase 5)">
-      <option name="closed" value="true" />
-      <created>1763081763006</created>
-      <option name="number" value="00160" />
-      <option name="presentableId" value="LOCAL-00160" />
-      <option name="project" value="LOCAL" />
-      <updated>1763081763006</updated>
-    </task>
-    <task id="LOCAL-00161" summary="impl create game and list games client methods (Phase 5)">
-      <option name="closed" value="true" />
-      <created>1763084752808</created>
-      <option name="number" value="00161" />
-      <option name="presentableId" value="LOCAL-00161" />
-      <option name="project" value="LOCAL" />
-      <updated>1763084752808</updated>
-    </task>
-    <task id="LOCAL-00162" summary="impl chess client (Phase 5)">
-      <option name="closed" value="true" />
-      <created>1763087093060</created>
-      <option name="number" value="00162" />
-      <option name="presentableId" value="LOCAL-00162" />
-      <option name="project" value="LOCAL" />
-      <updated>1763087093060</updated>
     </task>
     <task id="LOCAL-00163" summary="trying to pass some previous tests (Phase 5)">
       <option name="closed" value="true" />
@@ -634,7 +571,71 @@
       <option name="project" value="LOCAL" />
       <updated>1764439645031</updated>
     </task>
-    <option name="localTasksCounter" value="204" />
+    <task id="LOCAL-00204" summary="impl updateWinner (phase 6)">
+      <option name="closed" value="true" />
+      <created>1764440319011</created>
+      <option name="number" value="00204" />
+      <option name="presentableId" value="LOCAL-00204" />
+      <option name="project" value="LOCAL" />
+      <updated>1764440319011</updated>
+    </task>
+    <task id="LOCAL-00205" summary="impl makeMove (may need to refactor) (phase 6)">
+      <option name="closed" value="true" />
+      <created>1764441208123</created>
+      <option name="number" value="00205" />
+      <option name="presentableId" value="LOCAL-00205" />
+      <option name="project" value="LOCAL" />
+      <updated>1764441208123</updated>
+    </task>
+    <task id="LOCAL-00206" summary="impl evalState (phase 6)">
+      <option name="closed" value="true" />
+      <created>1764442164953</created>
+      <option name="number" value="00206" />
+      <option name="presentableId" value="LOCAL-00206" />
+      <option name="project" value="LOCAL" />
+      <updated>1764442164953</updated>
+    </task>
+    <task id="LOCAL-00207" summary="impl getState (phase 6)">
+      <option name="closed" value="true" />
+      <created>1764442390398</created>
+      <option name="number" value="00207" />
+      <option name="presentableId" value="LOCAL-00207" />
+      <option name="project" value="LOCAL" />
+      <updated>1764442390398</updated>
+    </task>
+    <task id="LOCAL-00208" summary="fix check color evaluation (phase 6)">
+      <option name="closed" value="true" />
+      <created>1764442955622</created>
+      <option name="number" value="00208" />
+      <option name="presentableId" value="LOCAL-00208" />
+      <option name="project" value="LOCAL" />
+      <updated>1764442955622</updated>
+    </task>
+    <task id="LOCAL-00209" summary="added fields for easier messaging (phase 6)">
+      <option name="closed" value="true" />
+      <created>1764444518536</created>
+      <option name="number" value="00209" />
+      <option name="presentableId" value="LOCAL-00209" />
+      <option name="project" value="LOCAL" />
+      <updated>1764444518537</updated>
+    </task>
+    <task id="LOCAL-00210" summary="added getGame method (phase 6)">
+      <option name="closed" value="true" />
+      <created>1764444529624</created>
+      <option name="number" value="00210" />
+      <option name="presentableId" value="LOCAL-00210" />
+      <option name="project" value="LOCAL" />
+      <updated>1764444529624</updated>
+    </task>
+    <task id="LOCAL-00211" summary="impl broadcastAll (phase 6)">
+      <option name="closed" value="true" />
+      <created>1764444942461</created>
+      <option name="number" value="00211" />
+      <option name="presentableId" value="LOCAL-00211" />
+      <option name="project" value="LOCAL" />
+      <updated>1764444942461</updated>
+    </task>
+    <option name="localTasksCounter" value="212" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -675,14 +676,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="comments for future (phase 6)" />
-    <MESSAGE value="wrote the help method for gameplayUI (phase 6)" />
-    <MESSAGE value="outlined a few functions that will need websocket (phase 6)" />
-    <MESSAGE value="made the dependencies have the scope compile (phase 6)" />
-    <MESSAGE value="impl errormessage and notification handler (phase 6)" />
-    <MESSAGE value="impl NotificationMessage (phase 6)" />
-    <MESSAGE value="impl LoadGameMessage (phase 6)" />
-    <MESSAGE value="added setters NotificationMessage ErrorMessage (phase 6)" />
     <MESSAGE value="added a few classes to impl later (phase 6)" />
     <MESSAGE value="pausing for the day (phase 6)" />
     <MESSAGE value="outline notes for shared websocket (phase 6)" />
@@ -700,7 +693,15 @@
     <MESSAGE value="impl broadcast (phase 6)" />
     <MESSAGE value="updated join to broadcast (phase 6)" />
     <MESSAGE value="added winner enum (phase 6)" />
-    <option name="LAST_COMMIT_MESSAGE" value="added winner enum (phase 6)" />
+    <MESSAGE value="impl updateWinner (phase 6)" />
+    <MESSAGE value="impl makeMove (may need to refactor) (phase 6)" />
+    <MESSAGE value="impl evalState (phase 6)" />
+    <MESSAGE value="impl getState (phase 6)" />
+    <MESSAGE value="fix check color evaluation (phase 6)" />
+    <MESSAGE value="added fields for easier messaging (phase 6)" />
+    <MESSAGE value="added getGame method (phase 6)" />
+    <MESSAGE value="impl broadcastAll (phase 6)" />
+    <option name="LAST_COMMIT_MESSAGE" value="impl broadcastAll (phase 6)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

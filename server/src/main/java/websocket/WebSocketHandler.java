@@ -1,12 +1,19 @@
 package websocket;
 
+import chess.ChessGame;
+import chess.ChessMove;
+import chess.ChessPosition;
+import chess.InvalidMoveException;
 import com.google.gson.Gson;
 import io.javalin.websocket.*;
+import model.GameData;
 import org.eclipse.jetty.websocket.api.Session;
 import org.jetbrains.annotations.NotNull;
 import service.GameService;
 import service.UserService;
+import websocket.commands.MakeMoveCommand;
 import websocket.commands.UserGameCommand;
+import websocket.messages.LoadGameMessage;
 import websocket.messages.NotificationMessage;
 import websocket.messages.ServerMessage;
 
@@ -48,7 +55,10 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
             PlayerInfo conn = getConnection(command.getAuthToken(), session);
             if (conn != null) {
                 switch (command.getCommandType()) {
-                    case MAKE_MOVE -> move(conn, msg);
+                    case MAKE_MOVE -> {
+                        MakeMoveCommand move = gson.fromJson(msg, MakeMoveCommand.class);
+                        move(conn, move);
+                    }
                     case LEAVE -> leave(conn, msg);
                     case RESIGN -> resign(conn, msg);
                 }
@@ -87,9 +97,73 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
         connectionManager.broadcast(session, notification);
     }
 
-    private void move(PlayerInfo player, String msg) {
+    private void move(PlayerInfo player, MakeMoveCommand moveCommand) {
+        ChessMove move = moveCommand.getMove();
 
+        try {
+            gameService.makeMove(player.gameID(), move);
+        } catch (InvalidMoveException e) {
+            ConnectionManager.sendError(player.session().getRemote(), "Invalid move");
+        }
+
+        ChessGame.TeamColor color;
+        String tempColor = player.color().toLowerCase();
+
+        if (tempColor.equals("white")) {
+            color = ChessGame.TeamColor.WHITE;
+        } else if (tempColor.equals("black")) {
+            color = ChessGame.TeamColor.BLACK;
+        } else {
+            ConnectionManager.sendError(player.session().getRemote(), "Observer can't make moves");
+            return;
+        }
+
+        gameService.evaluateState(player.gameID(), color);
+        GameService.GameState gameState = gameService.getState(player.gameID(), color);
+        updatePlayersMove(player, gameState, color, moveCommand);
     }
+
+    private void updatePlayersMove(PlayerInfo player, GameService.GameState gameState, ChessGame.TeamColor color,
+                                   MakeMoveCommand moveCommand) {
+        Session session = player.session();
+        String playerColor = player.color();
+        String printColor;
+
+        GameData gameData = gameService.getGame(player.gameID());
+        LoadGameMessage loadGameMessage = new LoadGameMessage(ServerMessage.ServerMessageType.LOAD_GAME, gameData);
+        NotificationMessage notificationMessage;
+        if (gameState == GameService.GameState.IN_PROGRESS) {
+            notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
+                    playerColor + " made move " + moveCommand.getStartPos() + " to "
+                            + moveCommand.getEndPos());
+        } else if (gameState == GameService.GameState.CHECK) {
+            if (color == ChessGame.TeamColor.WHITE) {
+                notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
+                        playerColor + " made move " + moveCommand.getStartPos() + " to "
+                                + moveCommand.getEndPos() + "\nBlack is in check");
+            } else {
+                notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
+                        playerColor + " made move " + moveCommand.getStartPos() + " to "
+                                + moveCommand.getEndPos() + "\nWhite is in check");
+            }
+        } else if (gameState == GameService.GameState.WINNER_BLACK) {
+            notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
+                    playerColor + " made move " + moveCommand.getStartPos() + " to "
+                            + moveCommand.getEndPos() + "\nBlack won!");
+        } else if (gameState == GameService.GameState.WINNER_WHITE) {
+            notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
+                    playerColor + " made move " + moveCommand.getStartPos() + " to "
+                            + moveCommand.getEndPos() + "\nWhite won!");
+        } else {
+            notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
+                    playerColor + " made move " + moveCommand.getStartPos() + " to "
+                            + moveCommand.getEndPos() + "\nStalemate!");
+        }
+
+        connectionManager.broadcastAll(session, loadGameMessage);
+        connectionManager.broadcastAll(session, notificationMessage);
+    }
+
 
     private void leave(PlayerInfo player, String msg) {
 
@@ -107,11 +181,6 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
     private void enter() {
 
     }
-    //connect
-    //make move
-    //leave
-    //resign
-    //look at video at 11:02
 
     //for deserializing make move commands may need to do it twice
     //deserialize it to see what type it is
