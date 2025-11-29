@@ -84,6 +84,19 @@ public class UserService {
         }
     }
 
+    public String getUsername(String authToken) {
+        try {
+            AuthData auth = authDAO.getAuth(authToken);
+            return auth.username();
+        } catch (DataAccessException e) {
+            if (e.getMessage().contains("Auth token doesn't exist")) {
+                throw new ResponseException("Error: unauthorized", 401);
+            } else {
+                throw new ResponseException("Error: " + e.getMessage(), 500);
+            }
+        }
+    }
+
     public static String generateToken() {
         return UUID.randomUUID().toString();
     }

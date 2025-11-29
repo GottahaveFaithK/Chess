@@ -7,11 +7,14 @@ import org.jetbrains.annotations.NotNull;
 import service.GameService;
 import service.UserService;
 import websocket.commands.UserGameCommand;
+import websocket.messages.NotificationMessage;
+import websocket.messages.ServerMessage;
 
 
 public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsCloseHandler {
     UserService userService;
     GameService gameService;
+
     private final Gson gson = new Gson();
     ConnectionManager connectionManager = new ConnectionManager();
 
@@ -66,10 +69,22 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
 
         String color = gameService.getPlayerColor(authToken, gameID);
         boolean observer = color == null;
-        PlayerInfo player = new PlayerInfo(session, authToken, gameID, color, observer);
+        String username = userService.getUsername(authToken);
+        PlayerInfo player = new PlayerInfo(session, authToken, gameID, color, observer, username);
 
         connectionManager.addPlayer(player);
         connectionManager.addSession(gameID, session);
+
+        NotificationMessage notification;
+        if (observer) {
+            notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
+                    username + " joined as observer");
+        } else {
+            notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
+                    username + " joined as " + color);
+
+        }
+        connectionManager.broadcast(session, notification);
     }
 
     private void move(PlayerInfo player, String msg) {

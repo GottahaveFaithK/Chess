@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl sendError (phase 6)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl broadcast (phase 6)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/ConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/ConnectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/PlayerInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/PlayerInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,14 +244,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00152" summary="added request and response records (Phase 5)">
-      <option name="closed" value="true" />
-      <created>1763054890112</created>
-      <option name="number" value="00152" />
-      <option name="presentableId" value="LOCAL-00152" />
-      <option name="project" value="LOCAL" />
-      <updated>1763054890112</updated>
     </task>
     <task id="LOCAL-00153" summary="refactored for request and response records (Phase 5)">
       <option name="closed" value="true" />
@@ -635,7 +629,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764393345899</updated>
     </task>
-    <option name="localTasksCounter" value="201" />
+    <task id="LOCAL-00201" summary="impl broadcast (phase 6)">
+      <option name="closed" value="true" />
+      <created>1764437954222</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
+      <option name="project" value="LOCAL" />
+      <updated>1764437954222</updated>
+    </task>
+    <option name="localTasksCounter" value="202" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -676,7 +678,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="impl color change (phase 6)" />
     <MESSAGE value="sketch GameplayUI functions (phase 6)" />
     <MESSAGE value="connect GameplayUI to client (phase 6)" />
     <MESSAGE value="comments for future (phase 6)" />
@@ -701,7 +702,8 @@
     <MESSAGE value="impl join (phase 6)" />
     <MESSAGE value="fix null pointer exception (phase 6)" />
     <MESSAGE value="impl sendError (phase 6)" />
-    <option name="LAST_COMMIT_MESSAGE" value="impl sendError (phase 6)" />
+    <MESSAGE value="impl broadcast (phase 6)" />
+    <option name="LAST_COMMIT_MESSAGE" value="impl broadcast (phase 6)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
