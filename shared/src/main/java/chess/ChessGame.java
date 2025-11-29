@@ -58,6 +58,10 @@ public class ChessGame {
         this.winner = winner;
     }
 
+    public Winner getWinner() {
+        return winner;
+    }
+
     /**
      * Gets a valid moves for a piece at the given location
      *
