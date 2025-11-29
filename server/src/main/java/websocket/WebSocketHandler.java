@@ -78,8 +78,20 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
 
         String color = gameService.getPlayerColor(authToken, gameID);
         boolean observer = color == null;
+        ChessGame.TeamColor formattedColor;
+        if (!observer) {
+            if (color.equals("white")) {
+                formattedColor = ChessGame.TeamColor.WHITE;
+            } else if (color.equals("black")) {
+                formattedColor = ChessGame.TeamColor.BLACK;
+            } else {
+                return;
+            }
+        } else {
+            formattedColor = null;
+        }
         String username = userService.getUsername(authToken);
-        PlayerInfo player = new PlayerInfo(session, authToken, gameID, color, observer, username);
+        PlayerInfo player = new PlayerInfo(session, authToken, gameID, formattedColor, observer, username);
 
         connectionManager.addPlayer(player);
         connectionManager.addSession(gameID, session);
@@ -98,63 +110,53 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
 
     private void move(PlayerInfo player, MakeMoveCommand moveCommand) {
         ChessMove move = moveCommand.getMove();
+        ChessGame.TeamColor color = player.color();
 
         try {
             gameService.makeMove(player.gameID(), move);
         } catch (InvalidMoveException e) {
             ConnectionManager.sendError(player.session().getRemote(), "Invalid move");
-        }
-
-        ChessGame.TeamColor color;
-        String tempColor = player.color().toLowerCase();
-
-        if (tempColor.equals("white")) {
-            color = ChessGame.TeamColor.WHITE;
-        } else if (tempColor.equals("black")) {
-            color = ChessGame.TeamColor.BLACK;
-        } else {
-            ConnectionManager.sendError(player.session().getRemote(), "Observer can't make moves");
             return;
         }
 
         gameService.evaluateState(player.gameID(), color);
         GameService.GameState gameState = gameService.getState(player.gameID(), color);
-        updatePlayersMove(player, gameState, color, moveCommand);
+        updatePlayersMove(player, gameState, moveCommand);
     }
 
-    private void updatePlayersMove(PlayerInfo player, GameService.GameState gameState, ChessGame.TeamColor color,
-                                   MakeMoveCommand moveCommand) {
+
+    private void updatePlayersMove(PlayerInfo player, GameService.GameState gameState, MakeMoveCommand moveCommand) {
         Session session = player.session();
-        String playerColor = player.color();
+        ChessGame.TeamColor color = player.color();
 
         GameData gameData = gameService.getGame(player.gameID());
         LoadGameMessage loadGameMessage = new LoadGameMessage(ServerMessage.ServerMessageType.LOAD_GAME, gameData);
         NotificationMessage notificationMessage;
         if (gameState == GameService.GameState.IN_PROGRESS) {
             notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
-                    playerColor + " made move " + moveCommand.getStartPos() + " to "
+                    color + " made move " + moveCommand.getStartPos() + " to "
                             + moveCommand.getEndPos());
         } else if (gameState == GameService.GameState.CHECK) {
             if (color == ChessGame.TeamColor.WHITE) {
                 notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
-                        playerColor + " made move " + moveCommand.getStartPos() + " to "
-                                + moveCommand.getEndPos() + "\nBlack is in check");
+                        color + " made move " + moveCommand.getStartPos() + " to "
+                                + moveCommand.getEndPos() + "\nBLACK is in check");
             } else {
                 notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
-                        playerColor + " made move " + moveCommand.getStartPos() + " to "
-                                + moveCommand.getEndPos() + "\nWhite is in check");
+                        color + " made move " + moveCommand.getStartPos() + " to "
+                                + moveCommand.getEndPos() + "\nWHITE is in check");
             }
         } else if (gameState == GameService.GameState.WINNER_BLACK) {
             notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
-                    playerColor + " made move " + moveCommand.getStartPos() + " to "
-                            + moveCommand.getEndPos() + "\nBlack won!");
+                    color + " made move " + moveCommand.getStartPos() + " to "
+                            + moveCommand.getEndPos() + "\nBLACK won!");
         } else if (gameState == GameService.GameState.WINNER_WHITE) {
             notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
-                    playerColor + " made move " + moveCommand.getStartPos() + " to "
-                            + moveCommand.getEndPos() + "\nWhite won!");
+                    color + " made move " + moveCommand.getStartPos() + " to "
+                            + moveCommand.getEndPos() + "\nWHITE won!");
         } else {
             notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
-                    playerColor + " made move " + moveCommand.getStartPos() + " to "
+                    color + " made move " + moveCommand.getStartPos() + " to "
                             + moveCommand.getEndPos() + "\nStalemate!");
         }
 

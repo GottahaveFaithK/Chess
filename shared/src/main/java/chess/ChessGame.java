@@ -123,7 +123,7 @@ public class ChessGame {
 
         Collection<ChessMove> valid = validMoves(move.getStartPosition());
         if (valid == null || !valid.contains(move)) {
-            throw new InvalidMoveException("Move unavailable (Illegal or in Check)");
+            throw new InvalidMoveException("Invalid move");
         }
 
         myBoard.movePiece(move.getStartPosition(), move.getEndPosition(), piece);

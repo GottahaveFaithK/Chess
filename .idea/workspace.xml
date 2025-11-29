@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl makeMove methods (phase 6)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="updated help method for pawn promotion (phase 6)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/GameplayUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/GameplayUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlGameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlGameDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/PlayerInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/PlayerInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,14 +246,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00164" summary="passing almost all tests, now need to fix listgames (Phase 5)">
-      <option name="closed" value="true" />
-      <created>1763094493997</created>
-      <option name="number" value="00164" />
-      <option name="presentableId" value="LOCAL-00164" />
-      <option name="project" value="LOCAL" />
-      <updated>1763094493997</updated>
     </task>
     <task id="LOCAL-00165" summary="no clue how but I fixed it (Phase 5)">
       <option name="closed" value="true" />
@@ -636,7 +631,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764445065672</updated>
     </task>
-    <option name="localTasksCounter" value="213" />
+    <task id="LOCAL-00213" summary="updated help method for pawn promotion (phase 6)">
+      <option name="closed" value="true" />
+      <created>1764447134768</created>
+      <option name="number" value="00213" />
+      <option name="presentableId" value="LOCAL-00213" />
+      <option name="project" value="LOCAL" />
+      <updated>1764447134768</updated>
+    </task>
+    <option name="localTasksCounter" value="214" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -677,7 +680,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="pausing for the day (phase 6)" />
     <MESSAGE value="outline notes for shared websocket (phase 6)" />
     <MESSAGE value="impl makemovecommand (phase 6)" />
     <MESSAGE value="impl websocket in server (phase 6)" />
@@ -702,7 +704,8 @@
     <MESSAGE value="added getGame method (phase 6)" />
     <MESSAGE value="impl broadcastAll (phase 6)" />
     <MESSAGE value="impl makeMove methods (phase 6)" />
-    <option name="LAST_COMMIT_MESSAGE" value="impl makeMove methods (phase 6)" />
+    <MESSAGE value="updated help method for pawn promotion (phase 6)" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated help method for pawn promotion (phase 6)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

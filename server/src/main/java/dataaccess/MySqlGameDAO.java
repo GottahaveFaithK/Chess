@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.Objects;
 
 import static java.sql.Statement.RETURN_GENERATED_KEYS;
 
@@ -59,32 +60,51 @@ public class MySqlGameDAO implements GameDAO {
         try (Connection conn = DatabaseManager.getConnection()) {
             GameData existing = getGame(game.gameID());
 
-            if (color.equals("WHITE")) {
-                if (existing.whiteUsername() != null) {
-                    throw new DataAccessException("Color already taken");
-                }
+            switch (color) {
+                case "WHITE" -> {
+                    if (existing.whiteUsername() != null) {
+                        throw new DataAccessException("Color already taken");
+                    }
 
-                var statement = "UPDATE games SET whiteUsername = ? WHERE gameID = ?";
-                try (PreparedStatement ps = conn.prepareStatement(statement)) {
-                    ps.setString(1, username);
-                    ps.setInt(2, game.gameID());
-                    ps.executeUpdate();
-                }
+                    var statement = "UPDATE games SET whiteUsername = ? WHERE gameID = ?";
+                    try (PreparedStatement ps = conn.prepareStatement(statement)) {
+                        ps.setString(1, username);
+                        ps.setInt(2, game.gameID());
+                        ps.executeUpdate();
+                    }
 
-            } else if (color.equals("BLACK")) {
-                if (existing.blackUsername() != null) {
-                    throw new DataAccessException("Color already taken");
                 }
+                case "BLACK" -> {
+                    if (existing.blackUsername() != null) {
+                        throw new DataAccessException("Color already taken");
+                    }
 
-                var statement = "UPDATE games SET blackUsername = ? WHERE gameID = ?";
-                try (PreparedStatement ps = conn.prepareStatement(statement)) {
-                    ps.setString(1, username);
-                    ps.setInt(2, game.gameID());
-                    ps.executeUpdate();
+                    var statement = "UPDATE games SET blackUsername = ? WHERE gameID = ?";
+                    try (PreparedStatement ps = conn.prepareStatement(statement)) {
+                        ps.setString(1, username);
+                        ps.setInt(2, game.gameID());
+                        ps.executeUpdate();
+                    }
+
                 }
-
-            } else {
-                throw new DataAccessException("Invalid color");
+                case "none" -> {
+                    if (Objects.equals(existing.blackUsername(), username)) {
+                        var statement = "UPDATE games SET blackUsername = ? WHERE gameID = ?";
+                        try (PreparedStatement ps = conn.prepareStatement(statement)) {
+                            ps.setString(1, null);
+                            ps.setInt(2, game.gameID());
+                            ps.executeUpdate();
+                        }
+                    } else if (Objects.equals(existing.whiteUsername(), username)) {
+                        var statement = "UPDATE games SET blackUsername = ? WHERE gameID = ?";
+                        try (PreparedStatement ps = conn.prepareStatement(statement)) {
+                            ps.setString(1, null);
+                            ps.setInt(2, game.gameID());
+                            ps.executeUpdate();
+                        }
+                    }
+                }
+                default -> throw new DataAccessException("Invalid color");
             }
         } catch (SQLException e) {
             throw new DataAccessException("Cant read data" + e.getMessage());

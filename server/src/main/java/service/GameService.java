@@ -257,5 +257,9 @@ public class GameService {
         }
     }
 
+    public void leaveGame() {
+
+    }
+
 }
 
