@@ -1,17 +1,21 @@
 package websocket;
 
+import com.google.gson.Gson;
 import org.eclipse.jetty.websocket.api.RemoteEndpoint;
 import org.eclipse.jetty.websocket.api.Session;
+import websocket.messages.ErrorMessage;
+import websocket.messages.ServerMessage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class ConnectionManager {
-    private Map<Session, PlayerInfo> playerMap = new HashMap<>();
+    private final Map<Session, PlayerInfo> playerMap = new HashMap<>();
 
-    private Map<Integer, List<Session>> sessionMap = new HashMap<>();
+    private final Map<Integer, List<Session>> sessionMap = new HashMap<>();
     //look at pet shop
     //instead of just storing sessions, store a map with the game id as the key
     //then the value for the game id would be a set of sessions that belong to that game
@@ -19,7 +23,12 @@ public class ConnectionManager {
     //broadcast idea is the same
 
     public static void sendError(RemoteEndpoint remote, String message) {
-        //do something idk
+        ErrorMessage errorMessage = new ErrorMessage(ServerMessage.ServerMessageType.ERROR, message);
+        try {
+            remote.sendString(new Gson().toJson(errorMessage));
+        } catch (IOException e) {
+            System.err.println("Error: failed to send error message: " + e.getMessage());
+        }
     }
 
     public void addPlayer(PlayerInfo player) {
@@ -35,7 +44,7 @@ public class ConnectionManager {
     }
 
     public void addSession(int gameID, Session session) {
-        List<Session> sessions = sessionMap.computeIfAbsent(gameID, k -> new ArrayList<Session>());
+        List<Session> sessions = sessionMap.computeIfAbsent(gameID, k -> new ArrayList<>());
         // if no list exists yet
         // create a new list
         // put it in the map
