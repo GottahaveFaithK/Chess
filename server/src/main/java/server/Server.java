@@ -8,6 +8,7 @@ import service.GameService;
 import service.ResponseException;
 import service.UserService;
 import dataaccess.DatabaseManager;
+import websocket.WebSocketHandler;
 
 import java.util.Map;
 
@@ -17,6 +18,7 @@ public class Server {
     private final UserHandler userHandler;
     private final GameHandler gameHandler;
     private final ClearHandler clearHandler;
+    private final WebSocketHandler webSocketHandler;
 
     public Server() {
         initializeDatabase();
@@ -30,8 +32,8 @@ public class Server {
         } catch (DataAccessException e) {
             throw new ResponseException("Error: failed to create the table", 500);
         }
+        webSocketHandler = new WebSocketHandler();
 
-        //for websocket do ctx.enableAutomaticPings();
         UserService userService = new UserService(userDAO, authDAO);
         GameService gameService = new GameService(gameDAO, authDAO);
         ClearService clearService = new ClearService(gameDAO, userDAO, authDAO);
@@ -61,6 +63,11 @@ public class Server {
         server.get("game", gameHandler::listGames);
         server.post("game", gameHandler::createGame);
         server.put("game", gameHandler::joinGame);
+        server.ws("/ws", ws -> {
+            ws.onConnect(webSocketHandler);
+            ws.onMessage(webSocketHandler);
+            ws.onClose(webSocketHandler);
+        });
     }
 
     private void exceptionHandler(ResponseException ex, Context ctx) {
