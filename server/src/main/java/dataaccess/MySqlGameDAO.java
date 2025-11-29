@@ -96,7 +96,7 @@ public class MySqlGameDAO implements GameDAO {
                             ps.executeUpdate();
                         }
                     } else if (Objects.equals(existing.whiteUsername(), username)) {
-                        var statement = "UPDATE games SET blackUsername = ? WHERE gameID = ?";
+                        var statement = "UPDATE games SET whiteUsername = ? WHERE gameID = ?";
                         try (PreparedStatement ps = conn.prepareStatement(statement)) {
                             ps.setString(1, null);
                             ps.setInt(2, game.gameID());

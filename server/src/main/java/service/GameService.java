@@ -11,6 +11,7 @@ import model.GameData;
 import request.CreateGameRequest;
 import request.JoinGameRequest;
 import request.ListGamesRequest;
+import websocket.PlayerInfo;
 
 import java.util.Collection;
 
@@ -257,8 +258,18 @@ public class GameService {
         }
     }
 
-    public void leaveGame() {
-
+    public void leaveGame(GameData game, PlayerInfo player) {
+        try {
+            gameDAO.updateColor(game, game.game(), "none", player.username());
+        } catch (DataAccessException e) {
+            if (e.getMessage().contains("Color already taken")) {
+                throw new ResponseException("Error: already taken", 403);
+            } else if (e.getMessage().contains("Invalid color")) {
+                throw new ResponseException("Error: bad request", 400);
+            } else {
+                throw new ResponseException("Error: " + e.getMessage(), 500);
+            }
+        }
     }
 
 }

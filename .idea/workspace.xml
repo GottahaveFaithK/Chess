@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl validateMove (phase 6)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl getConnection (phase 6)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlGameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlGameDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -241,14 +244,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00167" summary="final drawing fixes (Phase 5)">
-      <option name="closed" value="true" />
-      <created>1763140697783</created>
-      <option name="number" value="00167" />
-      <option name="presentableId" value="LOCAL-00167" />
-      <option name="project" value="LOCAL" />
-      <updated>1763140697783</updated>
     </task>
     <task id="LOCAL-00168" summary="set up starter code (phase 6)">
       <option name="closed" value="true" />
@@ -634,7 +629,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764451238648</updated>
     </task>
-    <option name="localTasksCounter" value="216" />
+    <task id="LOCAL-00216" summary="impl getConnection (phase 6)">
+      <option name="closed" value="true" />
+      <created>1764451720521</created>
+      <option name="number" value="00216" />
+      <option name="presentableId" value="LOCAL-00216" />
+      <option name="project" value="LOCAL" />
+      <updated>1764451720521</updated>
+    </task>
+    <option name="localTasksCounter" value="217" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -675,7 +678,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="impl websocket in server (phase 6)" />
     <MESSAGE value="impl handleMessage? (phase 6)" />
     <MESSAGE value="starting to wire connectionManager (phase 6)" />
     <MESSAGE value="added PlayerInfo (phase 6)" />
@@ -700,7 +702,8 @@
     <MESSAGE value="updated help method for pawn promotion (phase 6)" />
     <MESSAGE value="impl structure changes (phase 6)" />
     <MESSAGE value="impl validateMove (phase 6)" />
-    <option name="LAST_COMMIT_MESSAGE" value="impl validateMove (phase 6)" />
+    <MESSAGE value="impl getConnection (phase 6)" />
+    <option name="LAST_COMMIT_MESSAGE" value="impl getConnection (phase 6)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

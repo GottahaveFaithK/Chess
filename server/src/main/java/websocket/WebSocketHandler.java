@@ -58,7 +58,7 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
                         MakeMoveCommand move = gson.fromJson(msg, MakeMoveCommand.class);
                         move(conn, move);
                     }
-                    case LEAVE -> leave(conn, msg);
+                    case LEAVE -> leave(conn);
                     case RESIGN -> resign(conn, msg);
                 }
             } else {
@@ -106,6 +106,24 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
 
         }
         connectionManager.broadcast(session, notification);
+    }
+
+
+    private void leave(PlayerInfo player) {
+        GameData gameData = gameService.getGame(player.gameID());
+        if (!player.isObserver()) {
+            gameService.leaveGame(gameData, player);
+        }
+
+        NotificationMessage notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
+                player.username() + " left the game");
+        connectionManager.broadcast(player.session(), notificationMessage);
+        connectionManager.removePlayer(player);
+        connectionManager.removeSession(player.gameID(), player.session());
+    }
+
+    private void resign(PlayerInfo player, String msg) {
+
     }
 
     private void move(PlayerInfo player, MakeMoveCommand moveCommand) {
@@ -184,15 +202,6 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
         connectionManager.broadcastAll(session, notificationMessage);
     }
 
-
-    private void leave(PlayerInfo player, String msg) {
-
-    }
-
-    private void resign(PlayerInfo player, String msg) {
-
-    }
-
     private PlayerInfo getConnection(String authToken, Session session) {
         PlayerInfo player = connectionManager.getPlayer(session);
         if (player != null && authToken.equals(player.authToken())) {
@@ -200,11 +209,6 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
         } else {
             return null;
         }
-    }
-
-
-    private void enter() {
-
     }
 
     //for deserializing make move commands may need to do it twice
