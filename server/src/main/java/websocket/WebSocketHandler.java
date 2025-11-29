@@ -123,7 +123,23 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
     }
 
     private void resign(PlayerInfo player, String msg) {
+        if (player.isObserver()) {
+            ConnectionManager.sendError(player.session().getRemote(), "Observer can't resign");
+            return;
+        }
 
+        NotificationMessage notificationMessage;
+        if (player.color() == ChessGame.TeamColor.WHITE) {
+            gameService.updateWinner(player.gameID(), ChessGame.Winner.BLACK);
+            notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
+                    player.username() + " resigned. BLACK won!");
+        } else {
+            gameService.updateWinner(player.gameID(), ChessGame.Winner.WHITE);
+            notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
+                    player.username() + " resigned. WHITE won!");
+        }
+
+        connectionManager.broadcastAll(player.session(), notificationMessage);
     }
 
     private void move(PlayerInfo player, MakeMoveCommand moveCommand) {
