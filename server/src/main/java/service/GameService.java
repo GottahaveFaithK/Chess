@@ -223,6 +223,12 @@ public class GameService {
 
         ChessGame game = gameData.game();
         ChessGame.Winner winner = game.getWinner();
+        ChessGame.TeamColor opponent;
+        if (color == ChessGame.TeamColor.BLACK) {
+            opponent = ChessGame.TeamColor.WHITE;
+        } else {
+            opponent = ChessGame.TeamColor.BLACK;
+        }
 
         if (winner == ChessGame.Winner.BLACK) {
             return GameState.WINNER_BLACK;
@@ -231,7 +237,7 @@ public class GameService {
         } else if (winner == ChessGame.Winner.STALEMATE) {
             return GameState.STALEMATE;
         } else {
-            if (game.isInCheck(color)) {
+            if (game.isInCheck(opponent)) {
                 return GameState.CHECK;
             } else {
                 return GameState.IN_PROGRESS;
