@@ -3,15 +3,16 @@ package websocket;
 import org.eclipse.jetty.websocket.api.RemoteEndpoint;
 import org.eclipse.jetty.websocket.api.Session;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class ConnectionManager {
-    private Map<Session, PlayerInfo> sessionMap = new HashMap<>();
-    
-    private Map<Integer, List<Session>> gameSessions = new HashMap<>();
-    //look at petshop
+    private Map<Session, PlayerInfo> playerMap = new HashMap<>();
+
+    private Map<Integer, List<Session>> sessionMap = new HashMap<>();
+    //look at pet shop
     //instead of just storing sessions, store a map with the game id as the key
     //then the value for the game id would be a set of sessions that belong to that game
 
@@ -19,5 +20,39 @@ public class ConnectionManager {
 
     public static void sendError(RemoteEndpoint remote, String message) {
         //do something idk
+    }
+
+    public void addPlayer(PlayerInfo player) {
+        playerMap.put(player.session(), player);
+    }
+
+    public void removePlayer(PlayerInfo player) {
+        playerMap.remove(player.session());
+    }
+
+    public PlayerInfo getPlayer(Session session) {
+        return playerMap.get(session);
+    }
+
+    public void addSession(int gameID, Session session) {
+        List<Session> sessions = sessionMap.computeIfAbsent(gameID, k -> new ArrayList<Session>());
+        // if no list exists yet
+        // create a new list
+        // put it in the map
+        sessions.add(session);
+    }
+
+    public void removeSession(int gameID, Session session) {
+        List<Session> sessions = sessionMap.get(gameID);
+        if (sessions != null) {
+            sessions.remove(session);
+            if (sessions.isEmpty()) {
+                sessionMap.remove(gameID);
+            }
+        }
+    }
+
+    public List<Session> getSessions(int gameID) {
+        return sessionMap.get(gameID);
     }
 }

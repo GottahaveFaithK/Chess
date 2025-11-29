@@ -13,6 +13,7 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
     UserService userService;
     GameService gameService;
     private final Gson gson = new Gson();
+    ConnectionManager connectionManager = new ConnectionManager();
 
     public WebSocketHandler(UserService userService, GameService gameService) {
         this.userService = userService;
@@ -55,13 +56,18 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
     }
 
     private void join(Session session, UserGameCommand command) {
-        boolean authorized = userService.verify(command.getAuthToken());
+        String authToken = command.getAuthToken();
+        int gameID = command.getGameID();
+        boolean authorized = userService.verify(authToken);
         if (!authorized) {
             ConnectionManager.sendError(session.getRemote(), "unknown user");
             return;
         }
 
-        String color = gameService.getPlayerColor(command.getAuthToken(), command.getGameID());
+        String color = gameService.getPlayerColor(authToken, gameID);
+        boolean observer = color.equals("null");
+        PlayerInfo player = new PlayerInfo(session, authToken, gameID, color, observer);
+
 
     }
 
