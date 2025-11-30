@@ -7,6 +7,7 @@ import ui.ClientChessboard;
 import ui.SignedOutUI;
 import ui.UIState;
 import websocket.NotificationHandler;
+import websocket.WebsocketFacade;
 import websocket.messages.ErrorMessage;
 import websocket.messages.LoadGameMessage;
 import websocket.messages.NotificationMessage;
@@ -31,6 +32,7 @@ public class ChessClient implements NotificationHandler {
 
     public ChessClient(String serverUrl) throws ClientException {
         ServerFacade server = new ServerFacade(serverUrl);
+        WebsocketFacade ws = new WebsocketFacade(serverUrl, this);
         state = new SignedOutUI(this, server);
     }
 
