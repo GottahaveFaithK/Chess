@@ -156,7 +156,6 @@ public class SignedInUI implements UIState {
 
         ws.joinGame(client.getAuthToken(), gameId);
 
-
         if (color.equals("WHITE")) {
             client.getBoard().drawChessBoardWhite();
             client.setState(new GameplayUI(client, server, "WHITE"));
@@ -183,7 +182,7 @@ public class SignedInUI implements UIState {
         if (!client.getGameIDs().contains(gameId)) {
             return errorText + "Game with ID " + gameId + " doesn't exist. Please list games and try again" + reset;
         }
-        //notify clients via websocket
+
         ws.joinGame(client.getAuthToken(), gameId);
 
         client.getBoard().drawChessBoardWhite();

@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl websocketfacade constructor (phase 6)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl observe and joingame in signedinUI(phase 6)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/SignedInUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/SignedInUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/SignedOutUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/SignedOutUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/websocket/WebsocketFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/websocket/WebsocketFacade.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,14 +237,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00172" summary="refactor SignedOutUI interface (phase 6)">
-      <option name="closed" value="true" />
-      <created>1763856004850</created>
-      <option name="number" value="00172" />
-      <option name="presentableId" value="LOCAL-00172" />
-      <option name="project" value="LOCAL" />
-      <updated>1763856004850</updated>
     </task>
     <task id="LOCAL-00173" summary="refactor SignedInUI interface (phase 6)">
       <option name="closed" value="true" />
@@ -632,7 +622,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764460807665</updated>
     </task>
-    <option name="localTasksCounter" value="221" />
+    <task id="LOCAL-00221" summary="impl observe and joingame in signedinUI(phase 6)">
+      <option name="closed" value="true" />
+      <created>1764461975122</created>
+      <option name="number" value="00221" />
+      <option name="presentableId" value="LOCAL-00221" />
+      <option name="project" value="LOCAL" />
+      <updated>1764461975122</updated>
+    </task>
+    <option name="localTasksCounter" value="222" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -673,7 +671,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added helper methods (phase 6)" />
     <MESSAGE value="setters and getters websockethandler (phase 6)" />
     <MESSAGE value="impl join (phase 6)" />
     <MESSAGE value="fix null pointer exception (phase 6)" />
@@ -698,7 +695,8 @@
     <MESSAGE value="impl resign (phase 6)" />
     <MESSAGE value="formatting fixes (phase 6)" />
     <MESSAGE value="impl websocketfacade constructor (phase 6)" />
-    <option name="LAST_COMMIT_MESSAGE" value="impl websocketfacade constructor (phase 6)" />
+    <MESSAGE value="impl observe and joingame in signedinUI(phase 6)" />
+    <option name="LAST_COMMIT_MESSAGE" value="impl observe and joingame in signedinUI(phase 6)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -25,10 +25,7 @@ public class ChessClient implements NotificationHandler {
     private String authToken;
     private UIState state;
     List<Integer> gameIDs = new ArrayList<>();
-    //make not final for phase 6
-    private final ClientChessboard board = new ClientChessboard(
-            new GameData(-1, "eee", "eee", "aaaa", new ChessGame())
-    );
+    private ClientChessboard board;
 
     public ChessClient(String serverUrl) throws ClientException {
         ServerFacade server = new ServerFacade(serverUrl);
@@ -98,14 +95,18 @@ public class ChessClient implements NotificationHandler {
     }
 
     void displayNotification(String message) {
-
+        System.out.println(blueText + message);
     }
 
     void displayError(String errorMessage) {
-
+        System.out.println(errorText + errorMessage + reset);
     }
 
     void loadGame(GameData game) {
-
+        if (board == null) {
+            board = new ClientChessboard(game);
+        } else {
+            board.setCurrentGame(game);
+        }
     }
 }
