@@ -5,6 +5,7 @@ import chessclient.ClientException;
 import chessclient.ServerFacade;
 import request.LoginRequest;
 import request.RegisterRequest;
+import websocket.WebsocketFacade;
 
 import java.util.Arrays;
 
@@ -13,10 +14,12 @@ import static ui.Formatting.*;
 public class SignedOutUI implements UIState {
     ChessClient client;
     ServerFacade server;
+    WebsocketFacade ws;
 
-    public SignedOutUI(ChessClient client, ServerFacade server) {
+    public SignedOutUI(ChessClient client, ServerFacade server, WebsocketFacade ws) {
         this.client = client;
         this.server = server;
+        this.ws = ws;
     }
 
     @Override
@@ -82,7 +85,7 @@ public class SignedOutUI implements UIState {
             }
         }
         client.setUser(params[0]);
-        client.setState(new SignedInUI(client, server));
+        client.setState(new SignedInUI(client, server, ws));
         return "Signed in as " + params[0];
     }
 }

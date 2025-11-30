@@ -10,6 +10,7 @@ import request.ListGamesRequest;
 import request.LogoutRequest;
 import response.CreateGameResponse;
 import response.ListGamesResponse;
+import websocket.WebsocketFacade;
 
 import java.util.Arrays;
 
@@ -18,10 +19,12 @@ import static ui.Formatting.*;
 public class SignedInUI implements UIState {
     ChessClient client;
     ServerFacade server;
+    WebsocketFacade ws;
 
-    public SignedInUI(ChessClient client, ServerFacade server) {
+    public SignedInUI(ChessClient client, ServerFacade server, WebsocketFacade ws) {
         this.client = client;
         this.server = server;
+        this.ws = ws;
     }
 
     @Override
@@ -68,7 +71,7 @@ public class SignedInUI implements UIState {
             }
         }
         client.setUser(null);
-        client.setState(new SignedOutUI(client, server));
+        client.setState(new SignedOutUI(client, server, ws));
         client.setAuthToken(null);
         return "Successfully signed out.";
     }
@@ -150,6 +153,10 @@ public class SignedInUI implements UIState {
                         "If this fails again, please restart program" + reset;
             }
         }
+
+        ws.joinGame(client.getAuthToken(), gameId);
+
+
         if (color.equals("WHITE")) {
             client.getBoard().drawChessBoardWhite();
             client.setState(new GameplayUI(client, server, "WHITE"));
@@ -159,7 +166,6 @@ public class SignedInUI implements UIState {
             client.setState(new GameplayUI(client, server, "BLACK"));
             return "\nJoined game " + gameId + " as BLACK";
         }
-        //notify clients using websocket
     }
 
     public String observeGame(String... params) {
@@ -178,6 +184,8 @@ public class SignedInUI implements UIState {
             return errorText + "Game with ID " + gameId + " doesn't exist. Please list games and try again" + reset;
         }
         //notify clients via websocket
+        ws.joinGame(client.getAuthToken(), gameId);
+
         client.getBoard().drawChessBoardWhite();
         client.setState(new GameplayUI(client, server, null));
         return "Successfully observing game " + gameId;

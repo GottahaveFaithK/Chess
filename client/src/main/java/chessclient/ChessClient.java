@@ -33,7 +33,7 @@ public class ChessClient implements NotificationHandler {
     public ChessClient(String serverUrl) throws ClientException {
         ServerFacade server = new ServerFacade(serverUrl);
         WebsocketFacade ws = new WebsocketFacade(serverUrl, this);
-        state = new SignedOutUI(this, server);
+        state = new SignedOutUI(this, server, ws);
     }
 
     @Override

@@ -3,6 +3,7 @@ package websocket;
 import chessclient.ClientException;
 import com.google.gson.Gson;
 import jakarta.websocket.*;
+import websocket.commands.UserGameCommand;
 import websocket.messages.ServerMessage;
 
 import java.io.IOException;
@@ -23,7 +24,6 @@ public class WebsocketFacade extends Endpoint {
             WebSocketContainer container = ContainerProvider.getWebSocketContainer();
             this.session = container.connectToServer(this, socketURI);
 
-            //set message handler
             this.session.addMessageHandler(new MessageHandler.Whole<String>() {
                 @Override
                 public void onMessage(String message) {
@@ -39,5 +39,15 @@ public class WebsocketFacade extends Endpoint {
     @Override
     public void onOpen(Session session, EndpointConfig endpointConfig) {
         //doesn't have to do anything, allegedly
+    }
+
+    public void joinGame(String authToken, int gameID) throws ClientException {
+        UserGameCommand joinCommand = new UserGameCommand(UserGameCommand.CommandType.CONNECT, authToken, gameID);
+
+        try {
+            session.getBasicRemote().sendText(new Gson().toJson(joinCommand));
+        } catch (IOException e) {
+            throw new ClientException("Websocket Failed: " + e.getMessage(), 500);
+        }
     }
 }
