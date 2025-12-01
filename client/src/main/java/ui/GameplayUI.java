@@ -12,8 +12,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 import static ui.Formatting.*;
-import static ui.Formatting.errorText;
-import static ui.Formatting.reset;
+import static ui.Formatting.ERROR_TEXT;
+import static ui.Formatting.RESET;
 
 public class GameplayUI implements UIState {
     ChessClient client;
@@ -51,7 +51,7 @@ public class GameplayUI implements UIState {
     }
 
     public String printPrompt() {
-        return "\n" + blueText + "[IN_GAME] >>> ";
+        return "\n" + BLUE_TEXT + "[IN_GAME] >>> ";
     }
 
     public String redraw() {
@@ -71,7 +71,7 @@ public class GameplayUI implements UIState {
 
     public String move(String... params) {
         if (params.length != 2 & params.length != 3) {
-            return errorText + "Expected: move <piece position> <new position>" + reset;
+            return ERROR_TEXT + "Expected: move <piece position> <new position>" + RESET;
         }
 
         ChessPiece.PieceType promotionType = null;
@@ -80,7 +80,7 @@ public class GameplayUI implements UIState {
             try {
                 promotionType = evalPromotion(params[2]);
             } catch (ClientException ex) {
-                return errorText + "Incorrect promotion type. \n Options are Queen, Bishop, Knight, Rook";
+                return ERROR_TEXT + "Incorrect promotion type. \n Options are Queen, Bishop, Knight, Rook";
             }
         }
 
@@ -91,7 +91,7 @@ public class GameplayUI implements UIState {
             startPos = calculateChesPos(params[0]);
             endPos = calculateChesPos(params[1]);
         } catch (ClientException e) {
-            return errorText + "Incorrect move. Example move: h8 h7" + reset;
+            return ERROR_TEXT + "Incorrect move. Example move: h8 h7" + RESET;
         }
 
         ChessMove myMove = new ChessMove(startPos, endPos, promotionType);

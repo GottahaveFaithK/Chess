@@ -53,10 +53,10 @@ public class ChessClient implements NotificationHandler {
 
             try {
                 result = state.handle(line);
-                System.out.print(lightBlueText + result);
+                System.out.print(LIGHT_BLUE_TEXT + result);
             } catch (Throwable e) {
                 var msg = e.toString();
-                System.out.print(errorText + msg + reset);
+                System.out.print(ERROR_TEXT + msg + RESET);
             }
         }
         System.out.println();
@@ -95,12 +95,12 @@ public class ChessClient implements NotificationHandler {
     }
 
     void displayNotification(String message) {
-        System.out.println(blueText + message);
+        System.out.println(BLUE_TEXT + message);
         System.out.print(state.printPrompt());
     }
 
     void displayError(String errorMessage) {
-        System.out.println(errorText + errorMessage + reset);
+        System.out.println(ERROR_TEXT + errorMessage + RESET);
         System.out.print(state.printPrompt());
     }
 

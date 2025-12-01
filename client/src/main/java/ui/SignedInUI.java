@@ -44,7 +44,7 @@ public class SignedInUI implements UIState {
     }
 
     public String printPrompt() {
-        return "\n" + blueText + "[SIGNED_IN] >>> ";
+        return "\n" + BLUE_TEXT + "[SIGNED_IN] >>> ";
     }
 
     public String help() {
@@ -64,10 +64,10 @@ public class SignedInUI implements UIState {
             server.logout(request);
         } catch (ClientException e) {
             if (e.getCode() == 401) {
-                return errorText + "You are already logged out" + reset;
+                return ERROR_TEXT + "You are already logged out" + RESET;
             } else {
-                return errorText + "Unexpected error, please try again. " +
-                        "If this fails again, please restart program" + reset;
+                return ERROR_TEXT + "Unexpected error, please try again. " +
+                        "If this fails again, please restart program" + RESET;
             }
         }
         client.setUser(null);
@@ -78,25 +78,29 @@ public class SignedInUI implements UIState {
 
     public String createGame(String... params) {
         if (params.length != 1) {
-            return errorText + "Expected: \"create <NAME>\"" + reset;
+            return ERROR_TEXT + "Expected: \"create <NAME>\"" + RESET;
         }
         CreateGameResponse response;
         try {
             CreateGameRequest gameRequest = new CreateGameRequest(client.getAuthToken(), params[0]);
             response = server.createGame(gameRequest);
         } catch (ClientException e) {
-            if (e.getCode() == 400) {
-                return errorText + "Expected: \"create <NAME>\"" + reset;
-            } else if (e.getCode() == 401) {
-                return errorText + "You must sign in" + reset;
-            } else {
-                return errorText + "Unexpected error, please try again. " +
-                        "If this fails again, please restart program" + reset;
-            }
+            return gameErrorText(e);
         }
 
         client.addGameID(response.gameID());
         return "Created game: " + params[0];
+    }
+
+    String gameErrorText(ClientException e) {
+        if (e.getCode() == 400) {
+            return ERROR_TEXT + "Expected: \"create <NAME>\"" + RESET;
+        } else if (e.getCode() == 401) {
+            return ERROR_TEXT + "You must sign in" + RESET;
+        } else {
+            return ERROR_TEXT + "Unexpected error, please try again. " +
+                    "If this fails again, please restart program" + RESET;
+        }
     }
 
     public String listGames() {
@@ -105,14 +109,7 @@ public class SignedInUI implements UIState {
             ListGamesRequest listGames = new ListGamesRequest(client.getAuthToken());
             response = server.listGames(listGames);
         } catch (ClientException e) {
-            if (e.getCode() == 400) {
-                return errorText + "Expected: \"create <NAME>\"" + reset;
-            } else if (e.getCode() == 401) {
-                return errorText + "You must sign in" + reset;
-            } else {
-                return errorText + "Unexpected error, please try again. " +
-                        "If this fails again, please restart program" + reset;
-            }
+            return gameErrorText(e);
         }
         StringBuilder gamesList = new StringBuilder();
         for (GameData game : response.games()) {
@@ -129,13 +126,13 @@ public class SignedInUI implements UIState {
 
     public String joinGame(String... params) {
         if (params.length != 2) {
-            return errorText + "Expected: join <ID> [WHITE|BLACK]" + reset;
+            return ERROR_TEXT + "Expected: join <ID> [WHITE|BLACK]" + RESET;
         }
         int gameId;
         try {
             gameId = Integer.parseInt(params[0]);
         } catch (NumberFormatException e) {
-            return errorText + "\"<ID>\" must be a number, not " + params[0] + reset;
+            return ERROR_TEXT + "\"<ID>\" must be a number, not " + params[0] + RESET;
         }
         String color = params[1].toUpperCase().replace("\"", "");
         try {
@@ -143,14 +140,14 @@ public class SignedInUI implements UIState {
             server.joinGame(joinGame);
         } catch (ClientException e) {
             if (e.getCode() == 400) {
-                return errorText + "Please pick either \"WHITE\" or \"BLACK\" as a color." + reset;
+                return ERROR_TEXT + "Please pick either \"WHITE\" or \"BLACK\" as a color." + RESET;
             } else if (e.getCode() == 401) {
-                return errorText + "You must sign in before you can do that" + reset;
+                return ERROR_TEXT + "You must sign in before you can do that" + RESET;
             } else if (e.getCode() == 403) {
-                return errorText + "Sorry, that color is already taken" + reset;
+                return ERROR_TEXT + "Sorry, that color is already taken" + RESET;
             } else {
-                return errorText + "Unexpected error, please try again. " +
-                        "If this fails again, please restart program" + reset;
+                return ERROR_TEXT + "Unexpected error, please try again. " +
+                        "If this fails again, please restart program" + RESET;
             }
         }
 
@@ -168,17 +165,17 @@ public class SignedInUI implements UIState {
     public String observeGame(String... params) {
 
         if (params.length != 1) {
-            return errorText + "Expected: \"observe <ID>\"" + reset;
+            return ERROR_TEXT + "Expected: \"observe <ID>\"" + RESET;
         }
 
         int gameId;
         try {
             gameId = Integer.parseInt(params[0]);
         } catch (NumberFormatException e) {
-            return errorText + "\"<ID>\" must be a number, not " + params[0] + reset;
+            return ERROR_TEXT + "\"<ID>\" must be a number, not " + params[0] + RESET;
         }
         if (!client.getGameIDs().contains(gameId)) {
-            return errorText + "Game with ID " + gameId + " doesn't exist. Please list games and try again" + reset;
+            return ERROR_TEXT + "Game with ID " + gameId + " doesn't exist. Please list games and try again" + RESET;
         }
 
         ws.joinGame(client.getAuthToken(), gameId);

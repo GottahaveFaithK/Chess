@@ -13,6 +13,7 @@ import request.JoinGameRequest;
 import request.ListGamesRequest;
 import websocket.PlayerInfo;
 
+import javax.xml.crypto.Data;
 import java.util.Collection;
 
 public class GameService {
@@ -90,13 +91,7 @@ public class GameService {
                 gameDAO.updateColor(myGame, myGame.game(), request.playerColor(),
                         auth.username());
             } catch (DataAccessException e) {
-                if (e.getMessage().contains("Color already taken")) {
-                    throw new ResponseException("Error: already taken", 403);
-                } else if (e.getMessage().contains("Invalid color")) {
-                    throw new ResponseException("Error: bad request", 400);
-                } else {
-                    throw new ResponseException("Error: " + e.getMessage(), 500);
-                }
+                throw colorError(e);
             }
         } catch (DataAccessException e) {
             if (e.getMessage().contains("Game doesn't exist")) {
@@ -104,6 +99,16 @@ public class GameService {
             } else {
                 throw new ResponseException("Error: " + e.getMessage(), 500);
             }
+        }
+    }
+
+    ResponseException colorError(DataAccessException e) {
+        if (e.getMessage().contains("Color already taken")) {
+            return new ResponseException("Error: already taken", 403);
+        } else if (e.getMessage().contains("Invalid color")) {
+            return new ResponseException("Error: bad request", 400);
+        } else {
+            return new ResponseException("Error: " + e.getMessage(), 500);
         }
     }
 
@@ -262,13 +267,7 @@ public class GameService {
         try {
             gameDAO.updateColor(game, game.game(), "none", player.username());
         } catch (DataAccessException e) {
-            if (e.getMessage().contains("Color already taken")) {
-                throw new ResponseException("Error: already taken", 403);
-            } else if (e.getMessage().contains("Invalid color")) {
-                throw new ResponseException("Error: bad request", 400);
-            } else {
-                throw new ResponseException("Error: " + e.getMessage(), 500);
-            }
+            throw colorError(e);
         }
     }
 

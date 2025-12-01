@@ -36,7 +36,7 @@ public class SignedOutUI implements UIState {
     }
 
     public String printPrompt() {
-        return "\n" + blueText + "[SIGNED_OUT] >>> ";
+        return "\n" + BLUE_TEXT + "[SIGNED_OUT] >>> ";
     }
 
     String help() {
@@ -49,19 +49,19 @@ public class SignedOutUI implements UIState {
 
     String register(String... params) {
         if (params.length != 3) {
-            return errorText + "Expected: \"register <USERNAME> <PASSWORD> <EMAIL>\"" + reset;
+            return ERROR_TEXT + "Expected: \"register <USERNAME> <PASSWORD> <EMAIL>\"" + RESET;
         }
         try {
             RegisterRequest request = new RegisterRequest(params[0], params[1], params[2]);
             server.register(request);
         } catch (ClientException e) {
             if (e.getCode() == 400) {
-                return errorText + "Expected: \"register <USERNAME> <PASSWORD> <EMAIL>\"" + reset;
+                return ERROR_TEXT + "Expected: \"register <USERNAME> <PASSWORD> <EMAIL>\"" + RESET;
             } else if (e.getCode() == 403) {
-                return errorText + "Username is already taken" + reset;
+                return ERROR_TEXT + "Username is already taken" + RESET;
             } else {
-                return errorText + "Unexpected error, please try again. " +
-                        "If this fails again, please restart program" + reset;
+                return ERROR_TEXT + "Unexpected error, please try again. " +
+                        "If this fails again, please restart program" + RESET;
             }
         }
         return login(params[0], params[1]);
@@ -69,19 +69,19 @@ public class SignedOutUI implements UIState {
 
     public String login(String... params) {
         if (params.length != 2) {
-            return errorText + "Expected: \"login <USERNAME> <PASSWORD>\"" + reset;
+            return ERROR_TEXT + "Expected: \"login <USERNAME> <PASSWORD>\"" + RESET;
         }
         try {
             LoginRequest loginRequest = new LoginRequest(params[0], params[1]);
             client.setAuthToken(server.login(loginRequest).authToken());
         } catch (ClientException e) {
             if (e.getCode() == 400) {
-                return errorText + "Expected: \"login <USERNAME> <PASSWORD>\"" + reset;
+                return ERROR_TEXT + "Expected: \"login <USERNAME> <PASSWORD>\"" + RESET;
             } else if (e.getCode() == 401) {
-                return errorText + "Invalid username or password" + reset;
+                return ERROR_TEXT + "Invalid username or password" + RESET;
             } else {
-                return errorText + "Unexpected error, please try again. " +
-                        "If this fails again, please restart program" + reset;
+                return ERROR_TEXT + "Unexpected error, please try again. " +
+                        "If this fails again, please restart program" + RESET;
             }
         }
         client.setUser(params[0]);
