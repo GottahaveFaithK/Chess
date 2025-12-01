@@ -61,6 +61,11 @@ public class GameplayUI implements UIState {
         return null;
     }
 
+    void calculateMove() {
+        char ch = 'h';
+        int pos = ch - 'a' + 1;
+    }
+
     public String resign(String... params) {
         //does it delete the game from the list? probably
         //other player wins

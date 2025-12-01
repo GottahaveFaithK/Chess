@@ -74,4 +74,24 @@ public class WebsocketFacade extends Endpoint {
             throw new ClientException("Websocket Failed: " + e.getMessage(), 500);
         }
     }
+
+    public void makeMove() {
+        //do something later
+    }
+
+    public void resign(String authToken, int gameID) throws ClientException {
+        UserGameCommand resignCommand = new UserGameCommand(UserGameCommand.CommandType.RESIGN, authToken, gameID);
+
+        try {
+            session.getBasicRemote().sendText(new Gson().toJson(resignCommand));
+        } catch (IOException e) {
+            throw new ClientException("Websocket Failed: " + e.getMessage(), 500);
+        }
+    }
+
+    public void leave(String authToken, int gameID) throws ClientException {
+
+    }
+
+
 }
