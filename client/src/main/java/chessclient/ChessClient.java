@@ -118,6 +118,6 @@ public class ChessClient implements NotificationHandler {
                 board.drawChessBoardBlack();
             }
         }
-        System.out.print(state.printPrompt());
+        System.out.print("\n");
     }
 }

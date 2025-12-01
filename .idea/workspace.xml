@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="now properly handing an error (phase 6)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="no longer allows double resign (phase 6)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/GameplayUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/GameplayUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/websocket/WebsocketFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/websocket/WebsocketFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/websocket/commands/MakeMoveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/websocket/commands/MakeMoveCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,6 +126,7 @@
     "JUnit.UserServiceTest.registerNegative.executor": "Run",
     "JUnit.UserServiceTest.registerPositive.executor": "Run",
     "JUnit.WebSocketTests.connectBadGameID.executor": "Run",
+    "JUnit.WebSocketTests.invalidResignGameOver.executor": "Run",
     "JUnit.java in server.executor": "Run",
     "JUnit.passoff.chess in shared.executor": "Run",
     "JUnit.passoff.chess.game in shared.executor": "Run",
@@ -165,7 +169,7 @@
       <recent name="service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.WebSocketTests.invalidResignGameOver">
+  <component name="RunManager" selected="Application.ClientMain">
     <configuration name="ClientMain" type="Application" factoryName="Application" singleton="false" temporary="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="client" />
@@ -242,11 +246,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.WebSocketTests.invalidResignGameOver" />
-        <item itemvalue="JUnit.java in server" />
-        <item itemvalue="JUnit.WebSocketTests.connectBadGameID" />
         <item itemvalue="Application.ClientMain" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.java in server" />
+        <item itemvalue="JUnit.WebSocketTests.invalidResignGameOver" />
+        <item itemvalue="JUnit.WebSocketTests.connectBadGameID" />
       </list>
     </recent_temporary>
   </component>
@@ -257,14 +261,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00182" summary="made the dependencies have the scope compile (phase 6)">
-      <option name="closed" value="true" />
-      <created>1764209597570</created>
-      <option name="number" value="00182" />
-      <option name="presentableId" value="LOCAL-00182" />
-      <option name="project" value="LOCAL" />
-      <updated>1764209597570</updated>
     </task>
     <task id="LOCAL-00183" summary="impl errormessage and notification handler (phase 6)">
       <option name="closed" value="true" />
@@ -650,7 +646,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764621582112</updated>
     </task>
-    <option name="localTasksCounter" value="231" />
+    <task id="LOCAL-00231" summary="no longer allows double resign (phase 6)">
+      <option name="closed" value="true" />
+      <created>1764623276871</created>
+      <option name="number" value="00231" />
+      <option name="presentableId" value="LOCAL-00231" />
+      <option name="project" value="LOCAL" />
+      <updated>1764623276871</updated>
+    </task>
+    <option name="localTasksCounter" value="232" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -691,7 +695,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="impl makeMove (may need to refactor) (phase 6)" />
     <MESSAGE value="impl evalState (phase 6)" />
     <MESSAGE value="impl getState (phase 6)" />
     <MESSAGE value="fix check color evaluation (phase 6)" />
@@ -716,7 +719,8 @@
     <MESSAGE value="impl leave (phase 6)" />
     <MESSAGE value="impl resign (phase 6)" />
     <MESSAGE value="now properly handing an error (phase 6)" />
-    <option name="LAST_COMMIT_MESSAGE" value="now properly handing an error (phase 6)" />
+    <MESSAGE value="no longer allows double resign (phase 6)" />
+    <option name="LAST_COMMIT_MESSAGE" value="no longer allows double resign (phase 6)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -725,6 +729,24 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="19" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java</url>
+          <line>45</line>
+          <properties class="websocket.WebSocketHandler" method="handleMessage">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ui/GameplayUI.java</url>
+          <line>111</line>
+          <properties class="ui.GameplayUI" method="calculateChesPos">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

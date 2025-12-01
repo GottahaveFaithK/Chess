@@ -230,7 +230,7 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
         }
 
         connectionManager.broadcastAll(session, loadGameMessage);
-        connectionManager.broadcastAll(session, notificationMessage);
+        connectionManager.broadcast(session, notificationMessage);
     }
 
     private PlayerInfo getConnection(String authToken, Session session) {
