@@ -5,6 +5,7 @@ import chessclient.ServerFacade;
 import websocket.WebsocketFacade;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 import static ui.Formatting.blueText;
 
@@ -36,7 +37,7 @@ public class GameplayUI implements UIState {
             case "redraw" -> redraw();
             case "leave" -> leave();
             case "move" -> move(params);
-            case "resign" -> resign(params);
+            case "resign" -> resign();
             case "highlight" -> highlight(params);
             case "quit" -> "quit";
             default -> help();
@@ -72,15 +73,14 @@ public class GameplayUI implements UIState {
         int pos = ch - 'a' + 1;
     }
 
-    public String resign(String... params) {
-        //does it delete the game from the list? probably
-        //other player wins
-        //doesn't kick players out of game
-        //can't be called by observer
-        //will need websocket
-        //prompt to confirm
-        //doesn't remove the player from the game
-        return null;
+    public String resign() {
+        System.out.println("You are about to resign. Please type \"yes\" to confirm");
+        Scanner scanner = new Scanner(System.in);
+        String line = scanner.nextLine();
+        if (line.equalsIgnoreCase("yes")) {
+            ws.resign(client.getAuthToken(), gameID);
+        }
+        return "Response = " + toString();
     }
 
     public String highlight(String... params) {
