@@ -66,7 +66,6 @@ public class ConnectionManager {
     }
 
     public void broadcast(Session excludeSession, ServerMessage message) {
-        System.out.println("triggered broadcast");
         PlayerInfo player = getPlayer(excludeSession);
         List<Session> sessions = getSessions(player.gameID());
         String json = new Gson().toJson(message);

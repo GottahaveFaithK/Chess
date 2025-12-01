@@ -35,12 +35,10 @@ public class ChessClient implements NotificationHandler {
 
     @Override
     public void notify(ServerMessage message) {
-        System.out.println("triggered notify");
         switch (message.getServerMessageType()) {
             case NOTIFICATION -> displayNotification(((NotificationMessage) message).getMessage());
             case ERROR -> displayError(((ErrorMessage) message).getErrorMessage());
             case LOAD_GAME -> loadGame(((LoadGameMessage) message).getGame());
-            default -> System.out.println("not proper getting message type");
         }
 
     }

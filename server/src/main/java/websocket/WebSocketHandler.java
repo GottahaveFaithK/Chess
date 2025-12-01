@@ -38,13 +38,11 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
     @Override
     public void handleConnect(WsConnectContext ctx) {
         System.out.println("Websocket connected");
-        System.out.println("triggered handleconnect");
         ctx.enableAutomaticPings();
     }
 
     @Override
     public void handleMessage(WsMessageContext ctx) throws Exception {
-        System.out.println("triggered handlemessage");
         String msg = ctx.message();
         Session session = ctx.session;
 
@@ -70,7 +68,6 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
     }
 
     private void join(Session session, UserGameCommand command) {
-        System.out.println("triggered join session");
         String authToken = command.getAuthToken();
         int gameID = command.getGameID();
         boolean authorized = userService.verify(authToken);

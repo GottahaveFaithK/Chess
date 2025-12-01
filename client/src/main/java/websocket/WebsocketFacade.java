@@ -25,7 +25,6 @@ public class WebsocketFacade extends Endpoint {
         try {
             url = url.replace("http", "ws");
             URI socketURI = new URI(url + "/ws");
-            System.out.println("Connecting to: " + socketURI);
             this.notificationHandler = notificationHandler;
 
             WebSocketContainer container = ContainerProvider.getWebSocketContainer();
@@ -34,11 +33,8 @@ public class WebsocketFacade extends Endpoint {
             this.session.addMessageHandler(new MessageHandler.Whole<String>() {
                 @Override
                 public void onMessage(String message) {
-                    System.out.println("triggered onMessage");
                     ServerMessage serverMessage = gsonMessages().fromJson(message, ServerMessage.class);
-                    System.out.println("About to call notify: " + notificationHandler);
                     notificationHandler.notify(serverMessage);
-                    System.out.println("notify call completed");
                 }
             });
         } catch (DeploymentException | IOException | URISyntaxException ex) {
