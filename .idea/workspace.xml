@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="removed print line debugging (phase 6)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/GameplayUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/GameplayUI.java" afterDir="false" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl leave (websocketfacade) (phase 6)">
       <change beforePath="$PROJECT_DIR$/client/src/main/java/websocket/WebsocketFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/websocket/WebsocketFacade.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -245,22 +243,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00176" summary="impl color change (phase 6)">
-      <option name="closed" value="true" />
-      <created>1763858794538</created>
-      <option name="number" value="00176" />
-      <option name="presentableId" value="LOCAL-00176" />
-      <option name="project" value="LOCAL" />
-      <updated>1763858794538</updated>
-    </task>
-    <task id="LOCAL-00177" summary="sketch GameplayUI functions (phase 6)">
-      <option name="closed" value="true" />
-      <created>1763859306077</created>
-      <option name="number" value="00177" />
-      <option name="presentableId" value="LOCAL-00177" />
-      <option name="project" value="LOCAL" />
-      <updated>1763859306077</updated>
     </task>
     <task id="LOCAL-00178" summary="connect GameplayUI to client (phase 6)">
       <option name="closed" value="true" />
@@ -638,7 +620,23 @@
       <option name="project" value="LOCAL" />
       <updated>1764609496309</updated>
     </task>
-    <option name="localTasksCounter" value="225" />
+    <task id="LOCAL-00225" summary="impl resign (websocketfacade) (phase 6)">
+      <option name="closed" value="true" />
+      <created>1764618142349</created>
+      <option name="number" value="00225" />
+      <option name="presentableId" value="LOCAL-00225" />
+      <option name="project" value="LOCAL" />
+      <updated>1764618142349</updated>
+    </task>
+    <task id="LOCAL-00226" summary="impl leave (websocketfacade) (phase 6)">
+      <option name="closed" value="true" />
+      <created>1764618176402</created>
+      <option name="number" value="00226" />
+      <option name="presentableId" value="LOCAL-00226" />
+      <option name="project" value="LOCAL" />
+      <updated>1764618176402</updated>
+    </task>
+    <option name="localTasksCounter" value="227" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -679,8 +677,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="impl sendError (phase 6)" />
-    <MESSAGE value="impl broadcast (phase 6)" />
     <MESSAGE value="updated join to broadcast (phase 6)" />
     <MESSAGE value="added winner enum (phase 6)" />
     <MESSAGE value="impl updateWinner (phase 6)" />
@@ -704,7 +700,9 @@
     <MESSAGE value="impl notifications client (phase 6)" />
     <MESSAGE value="join now works (phase 6)" />
     <MESSAGE value="removed print line debugging (phase 6)" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed print line debugging (phase 6)" />
+    <MESSAGE value="impl resign (websocketfacade) (phase 6)" />
+    <MESSAGE value="impl leave (websocketfacade) (phase 6)" />
+    <option name="LAST_COMMIT_MESSAGE" value="impl leave (websocketfacade) (phase 6)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
