@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="no longer allows double resign (phase 6)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" afterDir="false" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="passing all tests (phase 6)">
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/GameplayUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/GameplayUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/websocket/WebsocketFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/websocket/WebsocketFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/main/java/websocket/commands/MakeMoveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/websocket/commands/MakeMoveCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -261,14 +257,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00183" summary="impl errormessage and notification handler (phase 6)">
-      <option name="closed" value="true" />
-      <created>1764269678514</created>
-      <option name="number" value="00183" />
-      <option name="presentableId" value="LOCAL-00183" />
-      <option name="project" value="LOCAL" />
-      <updated>1764269678515</updated>
     </task>
     <task id="LOCAL-00184" summary="impl NotificationMessage (phase 6)">
       <option name="closed" value="true" />
@@ -654,7 +642,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764623276871</updated>
     </task>
-    <option name="localTasksCounter" value="232" />
+    <task id="LOCAL-00232" summary="passing all tests (phase 6)">
+      <option name="closed" value="true" />
+      <created>1764628449153</created>
+      <option name="number" value="00232" />
+      <option name="presentableId" value="LOCAL-00232" />
+      <option name="project" value="LOCAL" />
+      <updated>1764628449153</updated>
+    </task>
+    <option name="localTasksCounter" value="233" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -695,7 +691,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="impl evalState (phase 6)" />
     <MESSAGE value="impl getState (phase 6)" />
     <MESSAGE value="fix check color evaluation (phase 6)" />
     <MESSAGE value="added fields for easier messaging (phase 6)" />
@@ -720,7 +715,8 @@
     <MESSAGE value="impl resign (phase 6)" />
     <MESSAGE value="now properly handing an error (phase 6)" />
     <MESSAGE value="no longer allows double resign (phase 6)" />
-    <option name="LAST_COMMIT_MESSAGE" value="no longer allows double resign (phase 6)" />
+    <MESSAGE value="passing all tests (phase 6)" />
+    <option name="LAST_COMMIT_MESSAGE" value="passing all tests (phase 6)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

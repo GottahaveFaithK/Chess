@@ -22,7 +22,7 @@ public class MakeMoveCommand extends UserGameCommand {
 
     String format(ChessPosition pos) {
         int preCol = pos.getColumn();
-        char row = (char) pos.getRow();
+        int row = pos.getRow();
         char col = 'i';
         switch (preCol) {
             case 1 -> col = 'a';

@@ -96,7 +96,7 @@ public class GameplayUI implements UIState {
 
         ChessMove myMove = new ChessMove(startPos, endPos, promotionType);
         ws.makeMove(client.getAuthToken(), gameID, myMove);
-        return "Successfully made move";
+        return "making move...";
     }
 
     ChessPiece.PieceType evalPromotion(String piece) {
