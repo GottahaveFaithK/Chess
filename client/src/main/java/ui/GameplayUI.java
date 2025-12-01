@@ -2,6 +2,7 @@ package ui;
 
 import chessclient.ChessClient;
 import chessclient.ServerFacade;
+import websocket.WebsocketFacade;
 
 import java.util.Arrays;
 
@@ -10,12 +11,16 @@ import static ui.Formatting.blueText;
 public class GameplayUI implements UIState {
     ChessClient client;
     ServerFacade server;
-    String playerColor; //observer's will be null, maybe change for security
+    String playerColor;//observer's will be null, maybe change for security
+    int gameID;
+    WebsocketFacade ws;
 
-    public GameplayUI(ChessClient client, ServerFacade server, String color) {
+    public GameplayUI(ChessClient client, ServerFacade server, String color, int gameID, WebsocketFacade ws) {
         this.client = client;
         this.server = server;
         playerColor = color;
+        this.gameID = gameID;
+        this.ws = ws;
     }
 
     public String getPlayerColor() {
@@ -39,7 +44,7 @@ public class GameplayUI implements UIState {
     }
 
     public String printPrompt() {
-        return blueText + "[IN_GAME] >>> ";
+        return "\n" + blueText + "[IN_GAME] >>> ";
     }
 
     public String redraw() {
@@ -48,12 +53,13 @@ public class GameplayUI implements UIState {
         } else {
             client.getBoard().drawChessBoardWhite();
         }
-        return "\nRedrew Board";
+        return "\nRedrew Board\n";
     }
 
     public String leave() {
-        //will need websocket
-        return null;
+        ws.leave(client.getAuthToken(), gameID);
+        client.setState(new SignedInUI(client, server, ws));
+        return "\nLeft the Game";
     }
 
     public String move(String... params) {

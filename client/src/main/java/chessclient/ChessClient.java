@@ -96,14 +96,15 @@ public class ChessClient implements NotificationHandler {
 
     void displayNotification(String message) {
         System.out.println(blueText + message);
+        System.out.print(state.printPrompt());
     }
 
     void displayError(String errorMessage) {
         System.out.println(errorText + errorMessage + reset);
+        System.out.print(state.printPrompt());
     }
 
     void loadGame(GameData game) {
-        System.out.println("triggered loadgame");
         if (board == null) {
             board = new ClientChessboard(game);
         } else {
@@ -117,5 +118,6 @@ public class ChessClient implements NotificationHandler {
                 board.drawChessBoardBlack();
             }
         }
+        System.out.print(state.printPrompt());
     }
 }
