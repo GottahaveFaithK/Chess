@@ -2,8 +2,14 @@ package websocket;
 
 import chessclient.ClientException;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonObject;
 import jakarta.websocket.*;
 import websocket.commands.UserGameCommand;
+import websocket.messages.ErrorMessage;
+import websocket.messages.LoadGameMessage;
+import websocket.messages.NotificationMessage;
 import websocket.messages.ServerMessage;
 
 import java.io.IOException;
@@ -19,6 +25,7 @@ public class WebsocketFacade extends Endpoint {
         try {
             url = url.replace("http", "ws");
             URI socketURI = new URI(url + "/ws");
+            System.out.println("Connecting to: " + socketURI);
             this.notificationHandler = notificationHandler;
 
             WebSocketContainer container = ContainerProvider.getWebSocketContainer();
@@ -27,13 +34,34 @@ public class WebsocketFacade extends Endpoint {
             this.session.addMessageHandler(new MessageHandler.Whole<String>() {
                 @Override
                 public void onMessage(String message) {
-                    ServerMessage serverMessage = new Gson().fromJson(message, ServerMessage.class);
+                    System.out.println("triggered onMessage");
+                    ServerMessage serverMessage = gsonMessages().fromJson(message, ServerMessage.class);
+                    System.out.println("About to call notify: " + notificationHandler);
                     notificationHandler.notify(serverMessage);
+                    System.out.println("notify call completed");
                 }
             });
         } catch (DeploymentException | IOException | URISyntaxException ex) {
             throw new ClientException(ex.getMessage(), 500);
         }
+    }
+
+    public static Gson gsonMessages() {
+        GsonBuilder gsonBuilder = new GsonBuilder();
+
+        gsonBuilder.registerTypeAdapter(ServerMessage.class,
+                (JsonDeserializer<ServerMessage>) (el, type, ctx) -> {
+                    JsonObject obj = el.getAsJsonObject();
+                    String typeField = obj.get("serverMessageType").getAsString();
+
+                    return switch (ServerMessage.ServerMessageType.valueOf(typeField)) {
+                        case LOAD_GAME -> ctx.deserialize(el, LoadGameMessage.class);
+                        case NOTIFICATION -> ctx.deserialize(el, NotificationMessage.class);
+                        case ERROR -> ctx.deserialize(el, ErrorMessage.class);
+                    };
+                });
+
+        return gsonBuilder.create();
     }
 
     @Override

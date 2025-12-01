@@ -18,6 +18,10 @@ public class GameplayUI implements UIState {
         playerColor = color;
     }
 
+    public String getPlayerColor() {
+        return playerColor;
+    }
+
     @Override
     public String handle(String input) {
         String[] tokens = input.toLowerCase().split(" ");

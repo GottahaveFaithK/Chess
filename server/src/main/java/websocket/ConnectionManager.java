@@ -66,14 +66,15 @@ public class ConnectionManager {
     }
 
     public void broadcast(Session excludeSession, ServerMessage message) {
+        System.out.println("triggered broadcast");
         PlayerInfo player = getPlayer(excludeSession);
         List<Session> sessions = getSessions(player.gameID());
-        String msg = message.toString();
+        String json = new Gson().toJson(message);
         try {
             for (Session c : sessions) {
                 if (c.isOpen()) {
                     if (!c.equals(excludeSession)) {
-                        c.getRemote().sendString(msg);
+                        c.getRemote().sendString(json);
                     }
                 }
             }
@@ -85,13 +86,22 @@ public class ConnectionManager {
     public void broadcastAll(Session session, ServerMessage message) {
         PlayerInfo player = getPlayer(session);
         List<Session> sessions = getSessions(player.gameID());
-        String msg = message.toString();
+        String json = new Gson().toJson(message);
         try {
             for (Session c : sessions) {
                 if (c.isOpen()) {
-                    c.getRemote().sendString(msg);
+                    c.getRemote().sendString(json);
                 }
             }
+        } catch (IOException e) {
+            //if I implement logging, log this
+        }
+    }
+
+    public void broadcastPlayer(Session session, ServerMessage message) {
+        try {
+            String json = new Gson().toJson(message);
+            session.getRemote().sendString(json);
         } catch (IOException e) {
             //if I implement logging, log this
         }

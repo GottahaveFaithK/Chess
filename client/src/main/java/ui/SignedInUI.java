@@ -157,13 +157,11 @@ public class SignedInUI implements UIState {
         ws.joinGame(client.getAuthToken(), gameId);
 
         if (color.equals("WHITE")) {
-            client.getBoard().drawChessBoardWhite();
             client.setState(new GameplayUI(client, server, "WHITE"));
-            return "\nJoined game " + gameId + " as WHITE";
+            return "\nJoined game " + gameId + " as WHITE\n";
         } else {
-            client.getBoard().drawChessBoardBlack();
             client.setState(new GameplayUI(client, server, "BLACK"));
-            return "\nJoined game " + gameId + " as BLACK";
+            return "\nJoined game " + gameId + " as BLACK\n";
         }
     }
 

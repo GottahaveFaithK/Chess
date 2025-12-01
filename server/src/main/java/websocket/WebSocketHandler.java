@@ -38,11 +38,13 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
     @Override
     public void handleConnect(WsConnectContext ctx) {
         System.out.println("Websocket connected");
+        System.out.println("triggered handleconnect");
         ctx.enableAutomaticPings();
     }
 
     @Override
     public void handleMessage(WsMessageContext ctx) throws Exception {
+        System.out.println("triggered handlemessage");
         String msg = ctx.message();
         Session session = ctx.session;
 
@@ -68,6 +70,7 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
     }
 
     private void join(Session session, UserGameCommand command) {
+        System.out.println("triggered join session");
         String authToken = command.getAuthToken();
         int gameID = command.getGameID();
         boolean authorized = userService.verify(authToken);
@@ -80,9 +83,9 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
         boolean observer = color == null;
         ChessGame.TeamColor formattedColor;
         if (!observer) {
-            if (color.equals("white")) {
+            if (color.equalsIgnoreCase("white")) {
                 formattedColor = ChessGame.TeamColor.WHITE;
-            } else if (color.equals("black")) {
+            } else if (color.equalsIgnoreCase("black")) {
                 formattedColor = ChessGame.TeamColor.BLACK;
             } else {
                 return;
@@ -97,6 +100,8 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
         connectionManager.addSession(gameID, session);
 
         NotificationMessage notification;
+        LoadGameMessage loadGameMessage = new LoadGameMessage(ServerMessage.ServerMessageType.LOAD_GAME,
+                gameService.getGame(gameID));
         if (observer) {
             notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
                     username + " joined as observer");
@@ -105,6 +110,7 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
                     username + " joined as " + color);
 
         }
+        connectionManager.broadcastPlayer(session, loadGameMessage);
         connectionManager.broadcast(session, notification);
     }
 
