@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="impl resign (phase 6)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="now properly handing an error (phase 6)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/GameplayUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/GameplayUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" afterDir="false" />
@@ -165,7 +165,7 @@
       <recent name="service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.java in server">
+  <component name="RunManager" selected="JUnit.WebSocketTests.invalidResignGameOver">
     <configuration name="ClientMain" type="Application" factoryName="Application" singleton="false" temporary="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="client" />
@@ -176,21 +176,6 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="server" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServerFacadeTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="client" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="client.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="client" />
-      <option name="MAIN_CLASS_NAME" value="client.ServerFacadeTests" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -206,6 +191,23 @@
       <option name="PACKAGE_NAME" value="passoff.server" />
       <option name="MAIN_CLASS_NAME" value="passoff.server.WebSocketTests" />
       <option name="METHOD_NAME" value="connectBadGameID" />
+      <option name="TEST_OBJECT" value="method" />
+      <dir value="$PROJECT_DIR$/server/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WebSocketTests.invalidResignGameOver" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="passoff.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoff.server" />
+      <option name="MAIN_CLASS_NAME" value="passoff.server.WebSocketTests" />
+      <option name="METHOD_NAME" value="invalidResignGameOver" />
       <option name="TEST_OBJECT" value="method" />
       <dir value="$PROJECT_DIR$/server/src/test/java" />
       <method v="2">
@@ -235,15 +237,15 @@
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.ClientMain" />
       <item itemvalue="JUnit.WebSocketTests.connectBadGameID" />
+      <item itemvalue="JUnit.WebSocketTests.invalidResignGameOver" />
       <item itemvalue="JUnit.java in server" />
-      <item itemvalue="JUnit.ServerFacadeTests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WebSocketTests.invalidResignGameOver" />
         <item itemvalue="JUnit.java in server" />
         <item itemvalue="JUnit.WebSocketTests.connectBadGameID" />
         <item itemvalue="Application.ClientMain" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -255,14 +257,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00181" summary="outlined a few functions that will need websocket (phase 6)">
-      <option name="closed" value="true" />
-      <created>1764126292032</created>
-      <option name="number" value="00181" />
-      <option name="presentableId" value="LOCAL-00181" />
-      <option name="project" value="LOCAL" />
-      <updated>1764126292032</updated>
     </task>
     <task id="LOCAL-00182" summary="made the dependencies have the scope compile (phase 6)">
       <option name="closed" value="true" />
@@ -648,7 +642,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764620279164</updated>
     </task>
-    <option name="localTasksCounter" value="230" />
+    <task id="LOCAL-00230" summary="now properly handing an error (phase 6)">
+      <option name="closed" value="true" />
+      <created>1764621582112</created>
+      <option name="number" value="00230" />
+      <option name="presentableId" value="LOCAL-00230" />
+      <option name="project" value="LOCAL" />
+      <updated>1764621582112</updated>
+    </task>
+    <option name="localTasksCounter" value="231" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -689,7 +691,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="impl updateWinner (phase 6)" />
     <MESSAGE value="impl makeMove (may need to refactor) (phase 6)" />
     <MESSAGE value="impl evalState (phase 6)" />
     <MESSAGE value="impl getState (phase 6)" />
@@ -714,7 +715,8 @@
     <MESSAGE value="impl move (websocketfacade) (phase 6)" />
     <MESSAGE value="impl leave (phase 6)" />
     <MESSAGE value="impl resign (phase 6)" />
-    <option name="LAST_COMMIT_MESSAGE" value="impl resign (phase 6)" />
+    <MESSAGE value="now properly handing an error (phase 6)" />
+    <option name="LAST_COMMIT_MESSAGE" value="now properly handing an error (phase 6)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

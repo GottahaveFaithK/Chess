@@ -137,6 +137,12 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
             return;
         }
 
+        if (gameService.getState(player.gameID(), player.color()) != GameService.GameState.IN_PROGRESS &&
+                gameService.getState(player.gameID(), player.color()) != GameService.GameState.CHECK) {
+            ConnectionManager.sendError(player.session().getRemote(), "Game has already ended");
+            return;
+        }
+
         NotificationMessage notificationMessage;
         if (player.color() == ChessGame.TeamColor.WHITE) {
             gameService.updateWinner(player.gameID(), ChessGame.Winner.BLACK);
