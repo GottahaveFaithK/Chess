@@ -90,6 +90,13 @@ public class WebsocketFacade extends Endpoint {
     }
 
     public void leave(String authToken, int gameID) throws ClientException {
+        UserGameCommand leaveCommand = new UserGameCommand(UserGameCommand.CommandType.LEAVE, authToken, gameID);
+
+        try {
+            session.getBasicRemote().sendText(new Gson().toJson(leaveCommand));
+        } catch (IOException e) {
+            throw new ClientException("Websocket Failed: " + e.getMessage(), 500);
+        }
 
     }
 
