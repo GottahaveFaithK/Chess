@@ -4,6 +4,7 @@ import chess.ChessGame;
 import chess.ChessMove;
 import chess.InvalidMoveException;
 import com.google.gson.Gson;
+import dataaccess.DataAccessException;
 import io.javalin.websocket.*;
 import model.GameData;
 import org.eclipse.jetty.websocket.api.Session;
@@ -76,7 +77,12 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
             return;
         }
 
-        String color = gameService.getPlayerColor(authToken, gameID);
+        String color = null;
+        try {
+            color = gameService.getPlayerColor(authToken, gameID);
+        } catch (Exception e) {
+            ConnectionManager.sendError(session.getRemote(), "Incorrect Game ID");
+        }
         boolean observer = color == null;
         ChessGame.TeamColor formattedColor;
         if (!observer) {

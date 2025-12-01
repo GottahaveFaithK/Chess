@@ -80,7 +80,7 @@ public class GameplayUI implements UIState {
         if (line.equalsIgnoreCase("yes")) {
             ws.resign(client.getAuthToken(), gameID);
         }
-        return "Response = " + toString();
+        return "Response = " + line;
     }
 
     public String highlight(String... params) {
