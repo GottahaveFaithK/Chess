@@ -203,14 +203,37 @@ public class GameService {
             }
         }
 
+        ChessGame.TeamColor opponent;
+        if (color == ChessGame.TeamColor.BLACK) {
+            opponent = ChessGame.TeamColor.WHITE;
+        } else {
+            opponent = ChessGame.TeamColor.BLACK;
+        }
+
         ChessGame game = gameData.game();
         if (game.isInStalemate(color)) {
             game.setWinner(ChessGame.Winner.STALEMATE);
-        } else if (game.isInCheckmate(color)) {
+        } else if (game.isInCheckmate(opponent)) {
             if (color == ChessGame.TeamColor.BLACK) {
-                game.setWinner(ChessGame.Winner.WHITE);
-            } else if (color == ChessGame.TeamColor.WHITE) {
                 game.setWinner(ChessGame.Winner.BLACK);
+            } else if (color == ChessGame.TeamColor.WHITE) {
+                game.setWinner(ChessGame.Winner.WHITE);
+            }
+        }
+
+        GameData updatedData = new GameData(gameID,
+                gameData.whiteUsername(),
+                gameData.blackUsername(),
+                gameData.gameName(),
+                game);
+        
+        try {
+            gameDAO.updateGame(gameID, updatedData);
+        } catch (DataAccessException e) {
+            if (e.getMessage().contains("Game doesn't exist")) {
+                throw new ResponseException("Error: bad request", 400);
+            } else {
+                throw new ResponseException("Error: " + e.getMessage(), 500);
             }
         }
     }

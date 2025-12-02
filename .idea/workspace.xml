@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="checkmate before check (phase 6)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="fix highlight (phase 6)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/ClientChessboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/ClientChessboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/GameplayUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/GameplayUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,92 +60,92 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.ClientMain.executor": "Run",
-    "Application.Main (1).executor": "Run",
-    "Application.Main.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.All in server.executor": "Run",
-    "JUnit.All in shared.executor": "Run",
-    "JUnit.AuthDAOTest,createAuth and 2 more.executor": "Run",
-    "JUnit.AuthDAOTest.executor": "Run",
-    "JUnit.BishopMoveTests.bishopMoveUntilEdge.executor": "Run",
-    "JUnit.BishopMoveTests.executor": "Run",
-    "JUnit.CastlingTests.executor": "Run",
-    "JUnit.ChessBoardTests.executor": "Run",
-    "JUnit.ClearServiceTest.clearAll.executor": "Run",
-    "JUnit.ClearServiceTest.executor": "Run",
-    "JUnit.DatabaseTests.persistenceTest.executor": "Run",
-    "JUnit.EnPassantTests.executor": "Run",
-    "JUnit.GameDAOTest.createGameID.executor": "Run",
-    "JUnit.GameDAOTest.createNullGameName.executor": "Run",
-    "JUnit.GameDAOTest.deleteAllGames.executor": "Run",
-    "JUnit.GameDAOTest.executor": "Run",
-    "JUnit.GameDAOTest.getGame.executor": "Run",
-    "JUnit.GameDAOTest.gsonRoundTrip.executor": "Run",
-    "JUnit.GameDAOTest.updateGame.executor": "Run",
-    "JUnit.GameServiceTest.createGameNoAuth.executor": "Run",
-    "JUnit.GameServiceTest.createGameNoName.executor": "Run",
-    "JUnit.GameServiceTest.createGamePositive.executor": "Run",
-    "JUnit.GameServiceTest.executor": "Run",
-    "JUnit.GameServiceTest.joinGamePositive.executor": "Run",
-    "JUnit.GameServiceTest.listGamesNoAuth.executor": "Run",
-    "JUnit.GameServiceTest.listGamesPositive.executor": "Run",
-    "JUnit.KingMoveTests.executor": "Debug",
-    "JUnit.KnightMoveTests.executor": "Debug",
-    "JUnit.PawnMoveTests.executor": "Run",
-    "JUnit.QueenMoveTests.executor": "Run",
-    "JUnit.RookMoveTests.executor": "Run",
-    "JUnit.ServerFacadeTests.createGame.executor": "Run",
-    "JUnit.ServerFacadeTests.createGameNoName.executor": "Run",
-    "JUnit.ServerFacadeTests.executor": "Run",
-    "JUnit.ServerFacadeTests.joinGame.executor": "Run",
-    "JUnit.ServerFacadeTests.joinWrongColor.executor": "Run",
-    "JUnit.ServerFacadeTests.listGames.executor": "Run",
-    "JUnit.ServerFacadeTests.missingField.executor": "Run",
-    "JUnit.ServerFacadeTests.registerPositive.executor": "Run",
-    "JUnit.ServerFacadeTests.sampleTest.executor": "Run",
-    "JUnit.ServerFacadeTests.usernameTaken.executor": "Run",
-    "JUnit.StandardAPITests.clearData.executor": "Run",
-    "JUnit.StandardAPITests.createGameSuccess.executor": "Debug",
-    "JUnit.StandardAPITests.executor": "Run",
-    "JUnit.StandardAPITests.listGamesSuccess.executor": "Debug",
-    "JUnit.StandardAPITests.registerSuccess.executor": "Run",
-    "JUnit.StandardAPITests.staticFilesSuccess.executor": "Debug",
-    "JUnit.UserDAOTest.executor": "Run",
-    "JUnit.UserServiceTest.executor": "Run",
-    "JUnit.UserServiceTest.loginWorks.executor": "Debug",
-    "JUnit.UserServiceTest.register.executor": "Run",
-    "JUnit.UserServiceTest.registerNegative.executor": "Run",
-    "JUnit.UserServiceTest.registerPositive.executor": "Run",
-    "JUnit.WebSocketTests.connectBadGameID.executor": "Run",
-    "JUnit.WebSocketTests.invalidResignGameOver.executor": "Run",
-    "JUnit.java in server.executor": "Run",
-    "JUnit.passoff.chess in shared.executor": "Run",
-    "JUnit.passoff.chess.game in shared.executor": "Run",
-    "JUnit.passoff.server in server.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/faith/OneDrive/Documents/Classes/2025/cs240/Chess/shared/src/main/java",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.60114944",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.ClientMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.All in server.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in shared.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AuthDAOTest,createAuth and 2 more.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AuthDAOTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BishopMoveTests.bishopMoveUntilEdge.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BishopMoveTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CastlingTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ChessBoardTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClearServiceTest.clearAll.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClearServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseTests.persistenceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.EnPassantTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameDAOTest.createGameID.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameDAOTest.createNullGameName.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameDAOTest.deleteAllGames.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameDAOTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameDAOTest.getGame.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameDAOTest.gsonRoundTrip.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameDAOTest.updateGame.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameServiceTest.createGameNoAuth.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameServiceTest.createGameNoName.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameServiceTest.createGamePositive.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameServiceTest.joinGamePositive.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameServiceTest.listGamesNoAuth.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameServiceTest.listGamesPositive.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.KingMoveTests.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.KnightMoveTests.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.PawnMoveTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.QueenMoveTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RookMoveTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ServerFacadeTests.createGame.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ServerFacadeTests.createGameNoName.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ServerFacadeTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ServerFacadeTests.joinGame.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ServerFacadeTests.joinWrongColor.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ServerFacadeTests.listGames.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ServerFacadeTests.missingField.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ServerFacadeTests.registerPositive.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ServerFacadeTests.sampleTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ServerFacadeTests.usernameTaken.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StandardAPITests.clearData.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StandardAPITests.createGameSuccess.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.StandardAPITests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StandardAPITests.listGamesSuccess.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.StandardAPITests.registerSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StandardAPITests.staticFilesSuccess.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.UserDAOTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.loginWorks.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.UserServiceTest.register.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.registerNegative.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.registerPositive.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.WebSocketTests.connectBadGameID.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.WebSocketTests.invalidResignGameOver.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in server.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.passoff.chess in shared.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.passoff.chess.game in shared.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.passoff.server in server.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/faith/OneDrive/Documents/Classes/2025/cs240/Chess/shared/src/main/java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.60114944&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\faith\OneDrive\Documents\Classes\2025\cs240\Chess\shared\src\main\java" />
@@ -167,7 +165,7 @@
       <recent name="service" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ClientMain">
+  <component name="RunManager" selected="JUnit.java in server">
     <configuration name="ClientMain" type="Application" factoryName="Application" singleton="false" temporary="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="client" />
@@ -244,9 +242,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.java in server" />
         <item itemvalue="Application.ClientMain" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.java in server" />
         <item itemvalue="JUnit.WebSocketTests.invalidResignGameOver" />
         <item itemvalue="JUnit.WebSocketTests.connectBadGameID" />
       </list>
@@ -259,14 +257,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00190" summary="impl makemovecommand (phase 6)">
-      <option name="closed" value="true" />
-      <created>1764368207723</created>
-      <option name="number" value="00190" />
-      <option name="presentableId" value="LOCAL-00190" />
-      <option name="project" value="LOCAL" />
-      <updated>1764368207723</updated>
     </task>
     <task id="LOCAL-00191" summary="impl websocket in server (phase 6)">
       <option name="closed" value="true" />
@@ -652,7 +642,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764692773428</updated>
     </task>
-    <option name="localTasksCounter" value="239" />
+    <task id="LOCAL-00239" summary="fix highlight (phase 6)">
+      <option name="closed" value="true" />
+      <created>1764696399476</created>
+      <option name="number" value="00239" />
+      <option name="presentableId" value="LOCAL-00239" />
+      <option name="project" value="LOCAL" />
+      <updated>1764696399476</updated>
+    </task>
+    <option name="localTasksCounter" value="240" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -693,7 +691,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updated help method for pawn promotion (phase 6)" />
     <MESSAGE value="impl structure changes (phase 6)" />
     <MESSAGE value="impl validateMove (phase 6)" />
     <MESSAGE value="impl getConnection (phase 6)" />
@@ -718,7 +715,8 @@
     <MESSAGE value="fixed small problem (phase 6)" />
     <MESSAGE value="hopefully fixed broadcasts (phase 6)" />
     <MESSAGE value="checkmate before check (phase 6)" />
-    <option name="LAST_COMMIT_MESSAGE" value="checkmate before check (phase 6)" />
+    <MESSAGE value="fix highlight (phase 6)" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix highlight (phase 6)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
