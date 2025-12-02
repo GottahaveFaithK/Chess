@@ -206,16 +206,6 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
             notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
                     color + " made move " + moveCommand.getStartPos() + " to "
                             + moveCommand.getEndPos());
-        } else if (gameState == GameService.GameState.CHECK) {
-            if (color == ChessGame.TeamColor.WHITE) {
-                notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
-                        color + " made move " + moveCommand.getStartPos() + " to "
-                                + moveCommand.getEndPos() + "\nBLACK is in check");
-            } else {
-                notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
-                        color + " made move " + moveCommand.getStartPos() + " to "
-                                + moveCommand.getEndPos() + "\nWHITE is in check");
-            }
         } else if (gameState == GameService.GameState.WINNER_BLACK) {
             notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
                     color + " made move " + moveCommand.getStartPos() + " to "
@@ -226,6 +216,16 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
                     color + " made move " + moveCommand.getStartPos() + " to "
                             + moveCommand.getEndPos() + "\nWHITE won!");
             broadcastALl = true;
+        } else if (gameState == GameService.GameState.CHECK) {
+            if (color == ChessGame.TeamColor.WHITE) {
+                notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
+                        color + " made move " + moveCommand.getStartPos() + " to "
+                                + moveCommand.getEndPos() + "\nBLACK is in check");
+            } else {
+                notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
+                        color + " made move " + moveCommand.getStartPos() + " to "
+                                + moveCommand.getEndPos() + "\nWHITE is in check");
+            }
         } else {
             notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
                     color + " made move " + moveCommand.getStartPos() + " to "
