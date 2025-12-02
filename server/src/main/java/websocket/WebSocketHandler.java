@@ -201,6 +201,7 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
         GameData gameData = gameService.getGame(player.gameID());
         LoadGameMessage loadGameMessage = new LoadGameMessage(ServerMessage.ServerMessageType.LOAD_GAME, gameData);
         NotificationMessage notificationMessage;
+        boolean broadcastALl = false;
         if (gameState == GameService.GameState.IN_PROGRESS) {
             notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
                     color + " made move " + moveCommand.getStartPos() + " to "
@@ -219,18 +220,25 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
             notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
                     color + " made move " + moveCommand.getStartPos() + " to "
                             + moveCommand.getEndPos() + "\nBLACK won!");
+            broadcastALl = true;
         } else if (gameState == GameService.GameState.WINNER_WHITE) {
             notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
                     color + " made move " + moveCommand.getStartPos() + " to "
                             + moveCommand.getEndPos() + "\nWHITE won!");
+            broadcastALl = true;
         } else {
             notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
                     color + " made move " + moveCommand.getStartPos() + " to "
                             + moveCommand.getEndPos() + "\nStalemate!");
+            broadcastALl = true;
         }
 
         connectionManager.broadcastAll(session, loadGameMessage);
-        connectionManager.broadcast(session, notificationMessage);
+        if (broadcastALl) {
+            connectionManager.broadcastAll(session, notificationMessage);
+        } else {
+            connectionManager.broadcast(session, notificationMessage);
+        }
     }
 
     private PlayerInfo getConnection(String authToken, Session session) {
