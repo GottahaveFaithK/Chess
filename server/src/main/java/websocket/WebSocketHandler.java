@@ -201,7 +201,8 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
         GameData gameData = gameService.getGame(player.gameID());
         LoadGameMessage loadGameMessage = new LoadGameMessage(ServerMessage.ServerMessageType.LOAD_GAME, gameData);
         NotificationMessage notificationMessage;
-        boolean broadcastALl = false;
+        boolean gameOver = false;
+        String winner = null;
         if (gameState == GameService.GameState.IN_PROGRESS) {
             notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
                     color + " made move " + moveCommand.getStartPos() + " to "
@@ -209,13 +210,15 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
         } else if (gameState == GameService.GameState.WINNER_BLACK) {
             notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
                     color + " made move " + moveCommand.getStartPos() + " to "
-                            + moveCommand.getEndPos() + "\nBLACK won!");
-            broadcastALl = true;
+                            + moveCommand.getEndPos());
+            gameOver = true;
+            winner = "Black won!";
         } else if (gameState == GameService.GameState.WINNER_WHITE) {
             notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
                     color + " made move " + moveCommand.getStartPos() + " to "
-                            + moveCommand.getEndPos() + "\nWHITE won!");
-            broadcastALl = true;
+                            + moveCommand.getEndPos());
+            gameOver = true;
+            winner = "White won!";
         } else if (gameState == GameService.GameState.CHECK) {
             if (color == ChessGame.TeamColor.WHITE) {
                 notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
@@ -229,15 +232,17 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
         } else {
             notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
                     color + " made move " + moveCommand.getStartPos() + " to "
-                            + moveCommand.getEndPos() + "\nStalemate!");
-            broadcastALl = true;
+                            + moveCommand.getEndPos());
+            gameOver = true;
+            winner = "Stalemate!";
         }
 
         connectionManager.broadcastAll(session, loadGameMessage);
-        if (broadcastALl) {
-            connectionManager.broadcastAll(session, notificationMessage);
-        } else {
-            connectionManager.broadcast(session, notificationMessage);
+        connectionManager.broadcast(session, notificationMessage);
+        if (gameOver) {
+            NotificationMessage gameOverMessage =
+                    new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, winner);
+            connectionManager.broadcastAll(session, gameOverMessage);
         }
     }
 
