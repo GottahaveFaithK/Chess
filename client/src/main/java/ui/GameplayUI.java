@@ -56,7 +56,7 @@ public class GameplayUI implements UIState {
     }
 
     public String redraw() {
-        if (playerColor.equals("BLACK")) {
+        if ("black".equalsIgnoreCase(playerColor)) {
             client.getBoard().drawChessBoardBlack(null);
         } else {
             client.getBoard().drawChessBoardWhite(null);

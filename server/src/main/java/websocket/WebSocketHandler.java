@@ -4,7 +4,6 @@ import chess.ChessGame;
 import chess.ChessMove;
 import chess.InvalidMoveException;
 import com.google.gson.Gson;
-import dataaccess.DataAccessException;
 import io.javalin.websocket.*;
 import model.GameData;
 import org.eclipse.jetty.websocket.api.Session;
@@ -203,6 +202,8 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
         NotificationMessage notificationMessage;
         boolean gameOver = false;
         String winner = null;
+        boolean check = false;
+        String checkMessage = null;
         if (gameState == GameService.GameState.IN_PROGRESS) {
             notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
                     color + " made move " + moveCommand.getStartPos() + " to "
@@ -212,22 +213,26 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
                     color + " made move " + moveCommand.getStartPos() + " to "
                             + moveCommand.getEndPos());
             gameOver = true;
-            winner = "Black won!";
+            winner = player.username() + " won via checkmate!";
         } else if (gameState == GameService.GameState.WINNER_WHITE) {
             notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
                     color + " made move " + moveCommand.getStartPos() + " to "
                             + moveCommand.getEndPos());
             gameOver = true;
-            winner = "White won!";
+            winner = player.username() + " won via checkmate!";
         } else if (gameState == GameService.GameState.CHECK) {
             if (color == ChessGame.TeamColor.WHITE) {
                 notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
                         color + " made move " + moveCommand.getStartPos() + " to "
-                                + moveCommand.getEndPos() + "\nBLACK is in check");
+                                + moveCommand.getEndPos());
+                check = true;
+                checkMessage = "\nBLACK is in check";
             } else {
                 notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
                         color + " made move " + moveCommand.getStartPos() + " to "
-                                + moveCommand.getEndPos() + "\nWHITE is in check");
+                                + moveCommand.getEndPos());
+                check = true;
+                checkMessage = "\nWHITE is in check";
             }
         } else {
             notificationMessage = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION,
@@ -239,6 +244,12 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
 
         connectionManager.broadcastAll(session, loadGameMessage);
         connectionManager.broadcast(session, notificationMessage);
+
+        if (check) {
+            NotificationMessage notifyCheck =
+                    new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, checkMessage);
+            connectionManager.broadcastAll(session, notifyCheck);
+        }
         if (gameOver) {
             NotificationMessage gameOverMessage =
                     new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, winner);

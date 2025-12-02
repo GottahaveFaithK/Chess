@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="fix checkmate (phase 6)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="fix game over messages (phase 6)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/GameplayUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/GameplayUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -164,7 +166,7 @@
       <recent name="service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.java in server">
+  <component name="RunManager" selected="Application.ClientMain">
     <configuration name="ClientMain" type="Application" factoryName="Application" singleton="false" temporary="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="client" />
@@ -241,9 +243,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.java in server" />
         <item itemvalue="Application.ClientMain" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.java in server" />
         <item itemvalue="JUnit.WebSocketTests.invalidResignGameOver" />
         <item itemvalue="JUnit.WebSocketTests.connectBadGameID" />
       </list>
@@ -256,14 +258,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00192" summary="impl handleMessage? (phase 6)">
-      <option name="closed" value="true" />
-      <created>1764378122017</created>
-      <option name="number" value="00192" />
-      <option name="presentableId" value="LOCAL-00192" />
-      <option name="project" value="LOCAL" />
-      <updated>1764378122017</updated>
     </task>
     <task id="LOCAL-00193" summary="starting to wire connectionManager (phase 6)">
       <option name="closed" value="true" />
@@ -649,7 +643,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764699176673</updated>
     </task>
-    <option name="localTasksCounter" value="241" />
+    <task id="LOCAL-00241" summary="fix game over messages (phase 6)">
+      <option name="closed" value="true" />
+      <created>1764699579524</created>
+      <option name="number" value="00241" />
+      <option name="presentableId" value="LOCAL-00241" />
+      <option name="project" value="LOCAL" />
+      <updated>1764699579524</updated>
+    </task>
+    <option name="localTasksCounter" value="242" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -690,7 +692,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="impl validateMove (phase 6)" />
     <MESSAGE value="impl getConnection (phase 6)" />
     <MESSAGE value="impl leave game (phase 6)" />
     <MESSAGE value="formatting fixes (phase 6)" />
@@ -715,7 +716,8 @@
     <MESSAGE value="checkmate before check (phase 6)" />
     <MESSAGE value="fix highlight (phase 6)" />
     <MESSAGE value="fix checkmate (phase 6)" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix checkmate (phase 6)" />
+    <MESSAGE value="fix game over messages (phase 6)" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix game over messages (phase 6)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -724,15 +726,6 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="19" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java</url>
-          <line>45</line>
-          <properties class="websocket.WebSocketHandler" method="handleMessage">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
