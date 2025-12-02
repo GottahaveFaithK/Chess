@@ -104,9 +104,9 @@ public class ChessClient implements NotificationHandler {
 
         if (state instanceof GameplayUI gameplayState) {
             if (gameplayState.getPlayerColor() == null || gameplayState.getPlayerColor().equals("WHITE")) {
-                board.drawChessBoardWhite();
+                board.drawChessBoardWhite(null);
             } else {
-                board.drawChessBoardBlack();
+                board.drawChessBoardBlack(null);
             }
         }
         System.out.print("\n");

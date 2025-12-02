@@ -1,9 +1,17 @@
 package ui;
 
 import chess.ChessGame;
+import chess.ChessMove;
 import chess.ChessPiece;
 import chess.ChessPosition;
 import model.GameData;
+
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+
+import static ui.EscapeSequences.SET_BG_COLOR_LIGHT_GREY;
+import static ui.EscapeSequences.SET_BG_COLOR_YELLOW;
 
 public class ClientChessboard {
 
@@ -21,40 +29,74 @@ public class ClientChessboard {
         currentGame = game;
     }
 
-    public void drawChessBoardWhite() {
+    public void drawChessBoardWhite(ChessPosition highlight) {
         System.out.println();
         drawHeadersFooters("White");
-        drawBoard(1, 8);
+        drawBoard(1, 8, highlight);
         System.out.println();
         drawHeadersFooters("White");
     }
 
-    public void drawChessBoardBlack() {
+    public void drawChessBoardBlack(ChessPosition highlight) {
         System.out.println();
         drawHeadersFooters("Black");
-        drawBoard(8, 1);
+        drawBoard(8, 1, highlight);
         System.out.println();
         drawHeadersFooters("Black");
     }
 
-    private void drawBoard(int startCol, int startRow) {
+    private void drawBoard(int startCol, int startRow, ChessPosition highlight) {
         String displayColor = (startRow == 8 ? EscapeSequences.SET_TEXT_COLOR_LIGHT_BLUE :
                 EscapeSequences.SET_TEXT_COLOR_BLUE);
         int change = (startRow == 1 ? 1 : -1);
         int colChange = (startCol == 1 ? 1 : -1);
+
+        Set<ChessPosition> highlightMoves = Set.of();
+        ;
+        if (highlight != null) {
+            highlightMoves = getHighlightSquares(highlight);
+        }
+
         for (int i = startRow; i != (startRow == 1 ? 9 : 0); i += (change)) {
             System.out.print("\n " + displayColor + i + " " + EscapeSequences.RESET_TEXT_COLOR);
             for (int j = startCol; j != (startCol == 1 ? 9 : 0); j += (colChange)) {
                 boolean backgroundDark =
                         ((i % 2 == 1) && (j % 2 == 1) || (i % 2 == 0) && (j % 2 == 0));
-                String backgroundColor = (backgroundDark ? EscapeSequences.SET_BG_COLOR_BLUE :
-                        EscapeSequences.SET_BG_COLOR_LIGHT_BLUE);
+                String backgroundColor;
+                if (highlight != null && highlightMoves.contains(new ChessPosition(i, j))) {
+                    backgroundColor = (backgroundDark ? EscapeSequences.SET_BG_COLOR_DARK_GREEN :
+                            EscapeSequences.SET_BG_COLOR_GREEN);
+                } else {
+                    backgroundColor = (backgroundDark ? EscapeSequences.SET_BG_COLOR_BLUE :
+                            EscapeSequences.SET_BG_COLOR_LIGHT_BLUE);
+                }
+                if (highlight != null && highlight.equals(new ChessPosition(i, j))) {
+                    backgroundColor = SET_BG_COLOR_LIGHT_GREY;
+                }
                 String pieceData = getPieceChar(getCurrentGame().game().getBoard().getPiece(new ChessPosition(i, j)));
                 System.out.print(backgroundColor + pieceData +
                         EscapeSequences.RESET_BG_COLOR + EscapeSequences.RESET_TEXT_COLOR);
             }
         }
     }
+
+    private Set<ChessPosition> getHighlightSquares(ChessPosition highlightPiece) {
+        Collection<ChessMove> validMoves = currentGame.game().validMoves(highlightPiece);
+        Set<ChessPosition> destinations = new HashSet<>();
+        for (ChessMove move : validMoves) {
+            destinations.add(move.getEndPosition());
+        }
+        return destinations;
+    }
+
+    public void highlight(ChessPosition piece, String playerColor) {
+        if ("black".equalsIgnoreCase(playerColor)) {
+            drawChessBoardBlack(piece);
+        } else {
+            drawChessBoardWhite(piece);
+        }
+    }
+
 
     private void drawHeadersFooters(String color) {
         String empty = EscapeSequences.EMPTY;
@@ -70,7 +112,7 @@ public class ClientChessboard {
         }
     }
 
-    private String getPieceChar(ChessPiece piece) {
+    public String getPieceChar(ChessPiece piece) {
         if (piece == null) {
             return EscapeSequences.EMPTY;
         } else if (piece.getTeamColor() == ChessGame.TeamColor.WHITE) {

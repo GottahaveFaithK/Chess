@@ -9,6 +9,7 @@ import chessclient.ServerFacade;
 import websocket.WebsocketFacade;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Scanner;
 
 import static ui.Formatting.*;
@@ -18,7 +19,7 @@ import static ui.Formatting.RESET;
 public class GameplayUI implements UIState {
     ChessClient client;
     ServerFacade server;
-    String playerColor;//observer's will be null, maybe change for security
+    String playerColor;
     int gameID;
     WebsocketFacade ws;
 
@@ -56,9 +57,9 @@ public class GameplayUI implements UIState {
 
     public String redraw() {
         if (playerColor.equals("BLACK")) {
-            client.getBoard().drawChessBoardBlack();
+            client.getBoard().drawChessBoardBlack(null);
         } else {
-            client.getBoard().drawChessBoardWhite();
+            client.getBoard().drawChessBoardWhite(null);
         }
         return "\nRedrew Board\n";
     }
@@ -142,7 +143,21 @@ public class GameplayUI implements UIState {
     }
 
     public String highlight(String... params) {
-        return null;
+        ChessPosition highlightPiece;
+        try {
+            highlightPiece = new ChessPosition(Integer.parseInt(String.valueOf(params[0].toLowerCase().charAt(1))),
+                    params[0].toLowerCase().charAt(0) - 'a' + 1);
+        } catch (Exception e) {
+            return ERROR_TEXT + "Invalid spot on chessboard" + RESET;
+        }
+
+        if (Objects.equals(client.getBoard().getPieceChar(client.getBoard().getCurrentGame().game().getBoard()
+                .getPiece(highlightPiece)), EscapeSequences.EMPTY)) {
+            return ERROR_TEXT + "No piece at that position" + RESET;
+        }
+
+        client.getBoard().highlight(highlightPiece, playerColor);
+        return "";
     }
 
     String help() {
