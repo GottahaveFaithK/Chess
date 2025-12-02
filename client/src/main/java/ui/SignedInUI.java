@@ -80,15 +80,13 @@ public class SignedInUI implements UIState {
         if (params.length != 1) {
             return ERROR_TEXT + "Expected: \"create <NAME>\"" + RESET;
         }
-        CreateGameResponse response;
+
         try {
             CreateGameRequest gameRequest = new CreateGameRequest(client.getAuthToken(), params[0]);
-            response = server.createGame(gameRequest);
+            server.createGame(gameRequest);
         } catch (ClientException e) {
             return gameErrorText(e);
         }
-
-        client.addGameID(response.gameID());
         return "Created game: " + params[0];
     }
 
@@ -174,14 +172,10 @@ public class SignedInUI implements UIState {
         } catch (NumberFormatException e) {
             return ERROR_TEXT + "\"<ID>\" must be a number, not " + params[0] + RESET;
         }
-        if (!client.getGameIDs().contains(gameId)) {
-            return ERROR_TEXT + "Game with ID " + gameId + " doesn't exist. Please list games and try again" + RESET;
-        }
 
         ws.joinGame(client.getAuthToken(), gameId);
 
-        client.getBoard().drawChessBoardWhite();
         client.setState(new GameplayUI(client, server, null, gameId, ws));
-        return "Successfully observing game " + gameId;
+        return "Attempting to observe game " + gameId;
     }
 }

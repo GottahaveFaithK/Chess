@@ -2,10 +2,7 @@ package chessclient;
 
 
 import model.GameData;
-import ui.ClientChessboard;
-import ui.GameplayUI;
-import ui.SignedOutUI;
-import ui.UIState;
+import ui.*;
 import websocket.NotificationHandler;
 import websocket.WebsocketFacade;
 import websocket.messages.ErrorMessage;
@@ -13,8 +10,6 @@ import websocket.messages.LoadGameMessage;
 import websocket.messages.NotificationMessage;
 import websocket.messages.ServerMessage;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 import static ui.Formatting.*;
@@ -24,12 +19,13 @@ public class ChessClient implements NotificationHandler {
     private String user;
     private String authToken;
     private UIState state;
-    List<Integer> gameIDs = new ArrayList<>();
     private ClientChessboard board;
+    ServerFacade server;
+    WebsocketFacade ws;
 
     public ChessClient(String serverUrl) throws ClientException {
-        ServerFacade server = new ServerFacade(serverUrl);
-        WebsocketFacade ws = new WebsocketFacade(serverUrl, this);
+        server = new ServerFacade(serverUrl);
+        ws = new WebsocketFacade(serverUrl, this);
         state = new SignedOutUI(this, server, ws);
     }
 
@@ -82,14 +78,6 @@ public class ChessClient implements NotificationHandler {
         return authToken;
     }
 
-    public List<Integer> getGameIDs() {
-        return gameIDs;
-    }
-
-    public void addGameID(int id) {
-        gameIDs.add(id);
-    }
-
     public ClientChessboard getBoard() {
         return board;
     }
@@ -101,6 +89,9 @@ public class ChessClient implements NotificationHandler {
 
     void displayError(String errorMessage) {
         System.out.println(ERROR_TEXT + errorMessage + RESET);
+        if (errorMessage.equals("Incorrect Game ID")) {
+            setState(new SignedInUI(this, server, ws));
+        }
         System.out.print(state.printPrompt());
     }
 

@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="small print changes (phase 6)">
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="formatting changes (phase 6)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/Formatting.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/Formatting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/GameplayUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/GameplayUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/SignedInUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/SignedInUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/SignedOutUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/SignedOutUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlGameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlGameDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/websocket/WebsocketFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/websocket/WebsocketFacade.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,14 +259,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00185" summary="impl LoadGameMessage (phase 6)">
-      <option name="closed" value="true" />
-      <created>1764271063059</created>
-      <option name="number" value="00185" />
-      <option name="presentableId" value="LOCAL-00185" />
-      <option name="project" value="LOCAL" />
-      <updated>1764271063059</updated>
     </task>
     <task id="LOCAL-00186" summary="added setters NotificationMessage ErrorMessage (phase 6)">
       <option name="closed" value="true" />
@@ -656,7 +644,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764629082613</updated>
     </task>
-    <option name="localTasksCounter" value="234" />
+    <task id="LOCAL-00234" summary="formatting changes (phase 6)">
+      <option name="closed" value="true" />
+      <created>1764630006130</created>
+      <option name="number" value="00234" />
+      <option name="presentableId" value="LOCAL-00234" />
+      <option name="project" value="LOCAL" />
+      <updated>1764630006130</updated>
+    </task>
+    <option name="localTasksCounter" value="235" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -697,7 +693,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix check color evaluation (phase 6)" />
     <MESSAGE value="added fields for easier messaging (phase 6)" />
     <MESSAGE value="added getGame method (phase 6)" />
     <MESSAGE value="impl broadcastAll (phase 6)" />
@@ -722,7 +717,8 @@
     <MESSAGE value="no longer allows double resign (phase 6)" />
     <MESSAGE value="passing all tests (phase 6)" />
     <MESSAGE value="small print changes (phase 6)" />
-    <option name="LAST_COMMIT_MESSAGE" value="small print changes (phase 6)" />
+    <MESSAGE value="formatting changes (phase 6)" />
+    <option name="LAST_COMMIT_MESSAGE" value="formatting changes (phase 6)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
