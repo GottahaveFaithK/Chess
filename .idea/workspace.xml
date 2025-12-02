@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="formatting changes (phase 6)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/chessclient/ChessClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/SignedInUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/SignedInUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/websocket/WebsocketFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/websocket/WebsocketFacade.java" afterDir="false" />
+    <list default="true" id="3a7be961-0be3-4b86-b399-f4afbd56c1c8" name="Changes" comment="fixed observe (phase 6)">
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +164,7 @@
       <recent name="service" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ClientMain">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="ClientMain" type="Application" factoryName="Application" singleton="false" temporary="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="client" />
@@ -244,8 +241,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ClientMain" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.ClientMain" />
         <item itemvalue="JUnit.java in server" />
         <item itemvalue="JUnit.WebSocketTests.invalidResignGameOver" />
         <item itemvalue="JUnit.WebSocketTests.connectBadGameID" />
@@ -259,14 +256,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757364627312</updated>
-    </task>
-    <task id="LOCAL-00186" summary="added setters NotificationMessage ErrorMessage (phase 6)">
-      <option name="closed" value="true" />
-      <created>1764271131489</created>
-      <option name="number" value="00186" />
-      <option name="presentableId" value="LOCAL-00186" />
-      <option name="project" value="LOCAL" />
-      <updated>1764271131489</updated>
     </task>
     <task id="LOCAL-00187" summary="added a few classes to impl later (phase 6)">
       <option name="closed" value="true" />
@@ -652,7 +641,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764630006130</updated>
     </task>
-    <option name="localTasksCounter" value="235" />
+    <task id="LOCAL-00235" summary="fixed observe (phase 6)">
+      <option name="closed" value="true" />
+      <created>1764645313020</created>
+      <option name="number" value="00235" />
+      <option name="presentableId" value="LOCAL-00235" />
+      <option name="project" value="LOCAL" />
+      <updated>1764645313020</updated>
+    </task>
+    <option name="localTasksCounter" value="236" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -693,7 +690,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added fields for easier messaging (phase 6)" />
     <MESSAGE value="added getGame method (phase 6)" />
     <MESSAGE value="impl broadcastAll (phase 6)" />
     <MESSAGE value="impl makeMove methods (phase 6)" />
@@ -718,7 +714,8 @@
     <MESSAGE value="passing all tests (phase 6)" />
     <MESSAGE value="small print changes (phase 6)" />
     <MESSAGE value="formatting changes (phase 6)" />
-    <option name="LAST_COMMIT_MESSAGE" value="formatting changes (phase 6)" />
+    <MESSAGE value="fixed observe (phase 6)" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed observe (phase 6)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -737,13 +734,13 @@
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/client/src/main/java/ui/GameplayUI.java</url>
-          <line>111</line>
-          <properties class="ui.GameplayUI" method="calculateChesPos">
+          <url>file://$PROJECT_DIR$/server/src/main/java/service/GameService.java</url>
+          <line>167</line>
+          <properties class="service.GameService" method="makeMove">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="22" />
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

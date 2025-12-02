@@ -114,16 +114,16 @@ public class ChessGame {
         }
 
         if (piece.getTeamColor() != teamTurn) {
-            throw new InvalidMoveException("It is " + piece.getTeamColor() + "'s turn.");
-        }
-
-        if (move.getPromotionPiece() != null) {
-            piece = new ChessPiece(piece.getTeamColor(), move.getPromotionPiece());
+            throw new InvalidMoveException("Can't move another player's pieces");
         }
 
         Collection<ChessMove> valid = validMoves(move.getStartPosition());
         if (valid == null || !valid.contains(move)) {
             throw new InvalidMoveException("Invalid move");
+        }
+
+        if (move.getPromotionPiece() != null) {
+            piece = new ChessPiece(piece.getTeamColor(), move.getPromotionPiece());
         }
 
         myBoard.movePiece(move.getStartPosition(), move.getEndPosition(), piece);
